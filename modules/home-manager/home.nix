@@ -11,6 +11,7 @@
   # manage.
   home.username = "hackr";
   home.homeDirectory = "/home/hackr";
+  home.shell.enableNushellIntegration = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -61,5 +62,9 @@
     enable = true;
     userName = "Mohammad Al-Ahdal";
     userEmail = "hackr@hackr.sh";
+  };
+
+  programs.nushell = {
+    enable = true;
   };
 }

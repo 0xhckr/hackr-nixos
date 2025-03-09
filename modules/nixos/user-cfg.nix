@@ -12,6 +12,7 @@
       kdePackages.kate
       #  thunderbird
     ];
+    shell = pkgs.nushell;
   };
 
   # Enable automatic login for the user.
