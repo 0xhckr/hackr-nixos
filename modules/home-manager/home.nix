@@ -67,4 +67,8 @@
   programs.nushell = {
     enable = true;
   };
+
+  programs.mise = {
+    enable = true;
+  };
 }
