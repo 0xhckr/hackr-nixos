@@ -4,7 +4,7 @@ font-style-bold = default
 font-style-italic = default
 font-style-bold-italic = default
 font-synthetic-style = bold,italic,bold-italic
-font-size = 14
+font-size = 12
 font-thicken = true
 grapheme-width-method = unicode
 theme = light:rose-pine-dawn,dark:rose-pine-moon
@@ -23,7 +23,6 @@ fullscreen = false
 title = 
 class = 
 x11-instance-name = 
-working-directory = "/home/hackr"
 
 # Key bindings. The format is `trigger=action`. Duplicate triggers will
 # overwrite previously set values.

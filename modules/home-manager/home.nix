@@ -36,6 +36,16 @@
     pkgs.btop
     pkgs._1password-gui
     inputs.zen-browser.packages."${system}".default
+    inputs.rose-pine-hyprcursor.packages."${system}".default
+    pkgs.atuin
+    pkgs.python3Full
+    pkgs.gcc
+    pkgs.gnumake
+    pkgs.mise
+    pkgs.cargo
+    pkgs.fastfetch
+    pkgs.starship
+    pkgs.zoxide
   ];
 
   # Allow unfree packages
@@ -65,10 +75,6 @@
   };
 
   programs.nushell = {
-    enable = true;
-  };
-
-  programs.mise = {
     enable = true;
   };
 }

@@ -5,5 +5,6 @@
     users = {
       "hackr" = import ./home.nix;
     };
+    backupFileExtension = "bak";
   };
 }

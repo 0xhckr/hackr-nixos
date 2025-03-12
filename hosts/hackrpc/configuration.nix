@@ -19,6 +19,8 @@
     ../../modules/nixos/user-cfg.nix
     ../../modules/nixos/plasma6.nix
     ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/fonts.nix
+    ../../modules/nixos/stylix.nix
   ];
 
   nix.settings.experimental-features = [

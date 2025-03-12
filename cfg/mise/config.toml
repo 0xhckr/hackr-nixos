@@ -1,0 +1,3 @@
+[tools]
+dotnet = "latest"
+cargo = "latest"
