@@ -170,8 +170,8 @@ binds {
     Mod+Shift+K     { focus-monitor-up; }
     Mod+Shift+L     { focus-monitor-right; }
 
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-column-right; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-column-left; }
+    Mod+WheelScrollDown { focus-column-right; }
+    Mod+WheelScrollUp   { focus-column-left; }
 
     Mod+Shift+WheelScrollDown      { focus-workspace-down; }
     Mod+Shift+WheelScrollUp        { focus-workspace-up; }
