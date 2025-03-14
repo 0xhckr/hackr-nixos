@@ -59,6 +59,14 @@
       source = ../../cfg;
       recursive = true;
     };
+    ".config/nushell/env.nu" = {
+      force = true;
+      # $env.config.show_banner = false
+      text = ''
+        $env.config.show_banner = false
+        $env.HYPRSCROLLER = "${pkgs.hyprlandPlugins.hyprscroller}"
+      '';
+    };
   };
 
   home.sessionVariables = {
@@ -76,5 +84,6 @@
 
   programs.nushell = {
     enable = true;
+    environmentVariables = config.home.sessionVariables;
   };
 }
