@@ -36,7 +36,6 @@
     pkgs.btop
     pkgs._1password-gui
     inputs.zen-browser.packages."${system}".default
-    inputs.rose-pine-hyprcursor.packages."${system}".default
     pkgs.atuin
     pkgs.python3Full
     pkgs.gcc
@@ -46,6 +45,7 @@
     pkgs.fastfetch
     pkgs.starship
     pkgs.zoxide
+    pkgs.slack
   ];
 
   # Allow unfree packages
@@ -64,13 +64,8 @@
       # $env.config.show_banner = false
       text = ''
         $env.config.show_banner = false
-        $env.HYPRSCROLLER = "${pkgs.hyprlandPlugins.hyprscroller}"
       '';
     };
-  };
-
-  home.sessionVariables = {
-    # EDITOR = "emacs";
   };
 
   # Let Home Manager install and manage itself.
