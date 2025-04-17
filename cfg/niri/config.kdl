@@ -21,7 +21,7 @@ input {
         accel-profile "flat"
     }
 
-    focus-follows-mouse
+    // focus-follows-mouse
     warp-mouse-to-focus
 }
 
@@ -44,8 +44,9 @@ environment {
 
 layout {
     gaps 16
-    center-focused-column "never"
     empty-workspace-above-first
+    center-focused-column "always"
+    always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
