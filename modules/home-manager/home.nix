@@ -46,6 +46,10 @@
     pkgs.starship
     pkgs.zoxide
     pkgs.slack
+    pkgs.code-cursor
+    pkgs.neovim
+    pkgs.nodejs
+    pkgs.bun
   ];
 
   # Allow unfree packages
@@ -81,4 +85,10 @@
     enable = true;
     environmentVariables = config.home.sessionVariables;
   };
+
+  programs.direnv = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
 }
+
