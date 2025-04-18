@@ -22,6 +22,7 @@
     ../../modules/nixos/fonts.nix
     ../../modules/nixos/stylix.nix
     ../../modules/nixos/steam.nix
+    ../../modules/nixos/docker.nix
   ];
 
   nix.settings.experimental-features = [
