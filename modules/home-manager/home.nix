@@ -13,6 +13,10 @@
   home.homeDirectory = "/home/hackr";
   home.shell.enableNushellIntegration = true;
 
+  imports = [
+    inputs.ags.homeManagerModules.default
+  ];
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -50,6 +54,10 @@
     pkgs.neovim
     pkgs.nodejs
     pkgs.bun
+    pkgs.nautilus
+    pkgs.element-desktop
+    pkgs.waypaper
+    inputs.swww.packages."${system}".default
   ];
 
   # Allow unfree packages
@@ -90,5 +98,21 @@
     enable = true;
     enableNushellIntegration = true;
   };
+
+  programs.ags = {
+    enable = true;
+    
+    configDir = ../../cfg/ags;
+
+    extraPackages = with pkgs; [
+      inputs.ags.packages."${system}".wireplumber
+      inputs.ags.packages."${system}".network
+      inputs.ags.packages."${system}".apps
+      inputs.ags.packages."${system}".bluetooth
+      inputs.ags.packages."${system}".mpris
+      inputs.ags.packages."${system}".tray
+      fzf
+    ];
+  };  
 }
 
