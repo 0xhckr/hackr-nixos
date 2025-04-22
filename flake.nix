@@ -31,9 +31,6 @@
       url = "github:LGFae/swww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags = {
-      url = "github:aylur/ags";
-    };
   };
 
   outputs =

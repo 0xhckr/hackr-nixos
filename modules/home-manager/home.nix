@@ -98,21 +98,5 @@
     enable = true;
     enableNushellIntegration = true;
   };
-
-  programs.ags = {
-    enable = true;
-    
-    configDir = ../../cfg/ags;
-
-    extraPackages = with pkgs; [
-      inputs.ags.packages."${system}".wireplumber
-      inputs.ags.packages."${system}".network
-      inputs.ags.packages."${system}".apps
-      inputs.ags.packages."${system}".bluetooth
-      inputs.ags.packages."${system}".mpris
-      inputs.ags.packages."${system}".tray
-      fzf
-    ];
-  };  
 }
 
