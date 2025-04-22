@@ -13,10 +13,6 @@
   home.homeDirectory = "/home/hackr";
   home.shell.enableNushellIntegration = true;
 
-  imports = [
-    inputs.ags.homeManagerModules.default
-  ];
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -58,6 +54,7 @@
     pkgs.element-desktop
     pkgs.waypaper
     inputs.swww.packages."${system}".default
+    pkgs.waybar
   ];
 
   # Allow unfree packages

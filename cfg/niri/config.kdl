@@ -81,6 +81,7 @@ layout {
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "ags" "run" "--gtk4"
+spawn-at-startup "waybar"
 spawn-at-startup "./delayed.nu"
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
