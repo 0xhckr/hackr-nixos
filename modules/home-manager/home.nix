@@ -79,9 +79,9 @@
     };
     ".config/nushell/env.nu" = {
       force = true;
-      # $env.config.show_banner = false
       text = ''
         $env.config.show_banner = false
+        $env.DIRENV_LOG_FORMAT = ""
       '';
     };
   };
