@@ -27,8 +27,19 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     swww = {
       url = "github:LGFae/swww";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    affinity-nix = {
+      url = "github:mrshmllow/affinity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
