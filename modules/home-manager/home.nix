@@ -55,6 +55,12 @@
     pkgs.waypaper
     inputs.swww.packages."${system}".default
     pkgs.waybar
+    inputs.affinity-nix.packages."${system}".designer # note you need to manually download and load the affinity designer setup exe
+    pkgs.zoom-us
+    pkgs.jetbrains.datagrip
+    pkgs.cava
+    pkgs.playerctl
+    inputs.quickshell.packages."${system}".default
   ];
 
   # Allow unfree packages
