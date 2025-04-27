@@ -28,6 +28,14 @@ def cl [] {
   fastfetch
 }
 
+def code [...args: string] {
+  if $args == null or $args == [] {
+    bash -c $"nohup ~/.nix-profile/bin/cursor >/dev/null 2>&1 &"
+  } else {
+    bash -c $"nohup ~/.nix-profile/bin/cursor ($args | str join ' ') >/dev/null 2>&1 &"
+  }
+}
+
 ~/.config/nushell/aacpi.sh #produces files inside of ~/.nuget/plugins/ for azure artifacts credprovider
 
 fastfetch
