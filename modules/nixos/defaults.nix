@@ -15,6 +15,15 @@
     variant = "";
   };
 
+  nixpkgs.overlays = [
+    (final: prev: {
+      openssh = prev.openssh.overrideAttrs (old: {
+        patches = (old.patches or [ ]) ++ [ ../../patches/openssh.patch ];
+        doCheck = false;
+      });
+    })
+  ];
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 }
