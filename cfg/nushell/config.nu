@@ -28,4 +28,6 @@ def cl [] {
   fastfetch
 }
 
+~/.config/nushell/aacpi.sh #produces files inside of ~/.nuget/plugins/ for azure artifacts credprovider
+
 fastfetch
