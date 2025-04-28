@@ -60,6 +60,8 @@
     inputs.affinity-nix.packages."${system}".designer # note you need to manually download and load the affinity designer setup exe
     pkgs.zoom-us
     pkgs.jetbrains.datagrip
+    pkgs.jetbrains.rider
+    pkgs.spacedrive
     pkgs.cava
     pkgs.playerctl
     inputs.quickshell.packages."${system}".default
