@@ -87,6 +87,10 @@ spawn-at-startup "./delayed.nu"
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 screenshot-path null
 
+clipboard {
+    disable-primary
+}
+
 animations { }
 
 window-rule {
