@@ -65,6 +65,7 @@
     pkgs.cava
     pkgs.playerctl
     pkgs.wlogout
+    pkgs.microsoft-edge
     inputs.quickshell.packages."${system}".default
   ];
 
