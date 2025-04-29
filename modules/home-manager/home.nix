@@ -64,6 +64,7 @@
     pkgs.spacedrive
     pkgs.cava
     pkgs.playerctl
+    pkgs.wlogout
     inputs.quickshell.packages."${system}".default
   ];
 
