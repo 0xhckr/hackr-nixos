@@ -61,6 +61,7 @@
     pkgs.zoom-us
     pkgs.jetbrains.datagrip
     pkgs.jetbrains.rider
+    pkgs.jetbrains.rust-rover
     pkgs.spacedrive
     pkgs.cava
     pkgs.playerctl
