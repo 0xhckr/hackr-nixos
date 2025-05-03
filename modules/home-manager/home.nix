@@ -14,6 +14,7 @@
   home.shell.enableNushellIntegration = true;
   imports = [
     ./ssh.nix
+    ./terminal.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -28,27 +29,20 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    ghostty
     wofi
     nil
     nixfmt-rfc-style
     spotify
     vesktop
     dunst
-    btop
     _1password-gui
-    atuin
     python3Full
     gcc
     gnumake
     mise
     cargo
-    fastfetch
-    starship
-    zoxide
     slack
     code-cursor
-    neovim
     nodejs
     bun
     nautilus
