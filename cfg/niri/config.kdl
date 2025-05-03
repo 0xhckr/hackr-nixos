@@ -45,7 +45,7 @@ environment {
 layout {
     gaps 16
     empty-workspace-above-first
-    // center-focused-column "always"
+    center-focused-column "on-overflow"
     always-center-single-column
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
