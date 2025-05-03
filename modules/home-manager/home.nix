@@ -27,48 +27,48 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.ghostty
-    pkgs.wofi
-    pkgs.nil
-    pkgs.nixfmt-rfc-style
-    pkgs.spotify
-    pkgs.vesktop
-    pkgs.dunst
-    pkgs.btop
-    pkgs._1password-gui
+  home.packages = with pkgs; [
+    ghostty
+    wofi
+    nil
+    nixfmt-rfc-style
+    spotify
+    vesktop
+    dunst
+    btop
+    _1password-gui
     inputs.zen-browser.packages."${system}".default
-    pkgs.atuin
-    pkgs.python3Full
-    pkgs.gcc
-    pkgs.gnumake
-    pkgs.mise
-    pkgs.cargo
-    pkgs.fastfetch
-    pkgs.starship
-    pkgs.zoxide
-    pkgs.slack
-    pkgs.code-cursor
-    pkgs.neovim
-    pkgs.nodejs
-    pkgs.bun
-    pkgs.nautilus
-    pkgs.element-desktop
-    pkgs.waypaper
+    atuin
+    python3Full
+    gcc
+    gnumake
+    mise
+    cargo
+    fastfetch
+    starship
+    zoxide
+    slack
+    code-cursor
+    neovim
+    nodejs
+    bun
+    nautilus
+    element-desktop
+    waypaper
     inputs.swww.packages."${system}".default
-    pkgs.waybar
+    waybar
     inputs.affinity-nix.packages."${system}".designer # note you need to manually download and load the affinity designer setup exe
-    pkgs.zoom-us
-    pkgs.jetbrains.datagrip
-    pkgs.jetbrains.rider
-    pkgs.jetbrains.rust-rover
-    pkgs.spacedrive
-    pkgs.cava
-    pkgs.playerctl
-    pkgs.wlogout
-    pkgs.microsoft-edge
+    zoom-us
+    jetbrains.datagrip
+    jetbrains.rider
+    jetbrains.rust-rover
+    spacedrive
+    cava
+    playerctl
+    wlogout
+    microsoft-edge
     inputs.quickshell.packages."${system}".default
-    pkgs.ungoogled-chromium
+    ungoogled-chromium
   ];
 
   # Allow unfree packages
