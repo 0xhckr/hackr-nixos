@@ -37,7 +37,6 @@
     dunst
     btop
     _1password-gui
-    inputs.zen-browser.packages."${system}".default
     atuin
     python3Full
     gcc
@@ -55,9 +54,7 @@
     nautilus
     element-desktop
     waypaper
-    inputs.swww.packages."${system}".default
     waybar
-    inputs.affinity-nix.packages."${system}".designer # note you need to manually download and load the affinity designer setup exe
     zoom-us
     jetbrains.datagrip
     jetbrains.rider
@@ -67,9 +64,13 @@
     playerctl
     wlogout
     microsoft-edge
-    inputs.quickshell.packages."${system}".default
     ungoogled-chromium
-  ];
+  ] ++ (with inputs; [
+    zen-browser.packages."${system}".default
+    swww.packages."${system}".default
+    affinity-nix.packages."${system}".designer # note you need to manually download and load the affinity designer setup exe
+    quickshell.packages."${system}".default
+  ]);
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
