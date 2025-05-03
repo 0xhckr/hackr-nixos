@@ -14,21 +14,10 @@
     ./terminal.nix
     ./ui.nix
     ./apps.nix
+    ./dev.nix
   ];
 
   home.stateVersion = "24.11";
-
-  home.packages = with pkgs; [
-    nil
-    nixfmt-rfc-style
-    python3Full
-    gcc
-    gnumake
-    mise
-    cargo
-    nodejs
-    bun
-  ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -50,20 +39,9 @@
 
   programs.home-manager.enable = true;
 
-  programs.git = {
-    enable = true;
-    userName = "Mohammad Al-Ahdal";
-    userEmail = "hackr@hackr.sh";
-  };
-
   programs.nushell = {
     enable = true;
     environmentVariables = config.home.sessionVariables;
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableNushellIntegration = true;
   };
 }
 
