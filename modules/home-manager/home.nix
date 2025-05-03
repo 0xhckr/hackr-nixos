@@ -15,6 +15,7 @@
   imports = [
     ./ssh.nix
     ./terminal.nix
+    ./ui.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -29,12 +30,10 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    wofi
     nil
     nixfmt-rfc-style
     spotify
     vesktop
-    dunst
     _1password-gui
     python3Full
     gcc
@@ -47,23 +46,16 @@
     bun
     nautilus
     element-desktop
-    waypaper
-    waybar
     zoom-us
     jetbrains.datagrip
     jetbrains.rider
     jetbrains.rust-rover
     spacedrive
-    cava
-    playerctl
-    wlogout
     microsoft-edge
     ungoogled-chromium
   ] ++ (with inputs; [
     zen-browser.packages."${system}".default
-    swww.packages."${system}".default
     affinity-nix.packages."${system}".designer # note you need to manually download and load the affinity designer setup exe
-    quickshell.packages."${system}".default
   ]);
 
   # Allow unfree packages
