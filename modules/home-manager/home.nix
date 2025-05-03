@@ -68,6 +68,7 @@
     pkgs.wlogout
     pkgs.microsoft-edge
     inputs.quickshell.packages."${system}".default
+    pkgs.ungoogled-chromium
   ];
 
   # Allow unfree packages
