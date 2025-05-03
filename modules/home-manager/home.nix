@@ -16,6 +16,7 @@
     ./ssh.nix
     ./terminal.nix
     ./ui.nix
+    ./apps.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
@@ -32,31 +33,14 @@
   home.packages = with pkgs; [
     nil
     nixfmt-rfc-style
-    spotify
-    vesktop
-    _1password-gui
     python3Full
     gcc
     gnumake
     mise
     cargo
-    slack
-    code-cursor
     nodejs
     bun
-    nautilus
-    element-desktop
-    zoom-us
-    jetbrains.datagrip
-    jetbrains.rider
-    jetbrains.rust-rover
-    spacedrive
-    microsoft-edge
-    ungoogled-chromium
-  ] ++ (with inputs; [
-    zen-browser.packages."${system}".default
-    affinity-nix.packages."${system}".designer # note you need to manually download and load the affinity designer setup exe
-  ]);
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
