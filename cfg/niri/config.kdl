@@ -25,8 +25,8 @@ input {
     warp-mouse-to-focus
 }
 
-output "Samsung Electric Company Odyssey G95NC HNTX800076" {
-    mode "7680x2160@240.000"
+output "LG Electronics LG ULTRAGEAR+ 503NTNH4U183" {
+    mode "5120x2160@165.058"
     scale 1
     transform "normal"
     position x=0 y=0
