@@ -47,6 +47,16 @@
       url = "github:YaLTeR/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    astal = {
+      url = "github:Aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
