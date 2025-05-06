@@ -11,6 +11,7 @@
     wf-recorder
     slurp
     wl-clipboard
+    pavucontrol
   ] ++ (with inputs; [
     swww.packages."${system}".default
     quickshell.packages."${system}".default
