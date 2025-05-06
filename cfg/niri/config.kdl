@@ -151,6 +151,8 @@ binds {
 
     Mod+Q { close-window; }
 
+    Mod+Tab { toggle-overview; }
+
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
@@ -185,6 +187,8 @@ binds {
 
     Mod+WheelScrollDown { focus-column-right; }
     Mod+WheelScrollUp   { focus-column-left; }
+    Mod+Ctrl+WheelScrollDown { focus-window-down; }
+    Mod+Ctrl+WheelScrollUp   { focus-window-up; }
 
     Mod+Shift+WheelScrollDown      { focus-workspace-down; }
     Mod+Shift+WheelScrollUp        { focus-workspace-up; }
