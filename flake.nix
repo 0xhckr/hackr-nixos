@@ -81,6 +81,16 @@
             inputs.stylix.nixosModules.stylix
           ];
         };
+        hackrwork = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; system = "x86_64-linux"; };
+          modules = [
+            ./hosts/hackrwork/boot.nix
+            ./hosts/hackrwork/configuration.nix
+            ./modules/home-manager/default.nix
+            inputs.home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
       };
     };
 }
