@@ -32,6 +32,13 @@ output "LG Electronics LG ULTRAGEAR+ 503NTNH4U183" {
     position x=0 y=0
 }
 
+output "AU Optronics 0x749D Unknown" {
+    mode "3840x2160@144.001"
+    scale 1.25
+    transform "normal"
+    position x=0 y=0
+}
+
 prefer-no-csd
 
 cursor {
