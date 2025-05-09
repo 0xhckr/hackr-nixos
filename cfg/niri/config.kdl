@@ -120,6 +120,11 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match is-focused=false
+    opacity 0.87
+}
+
 overview {
     backdrop-color "#232136"
 }
