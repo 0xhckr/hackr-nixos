@@ -11,8 +11,8 @@ source ./starship.nu
 source ./mise.nu
 source ./direnv.nu
 
-alias rebuild = sudo nixos-rebuild switch --flake ~/nixos#hackrpc
-alias rebuild-upgrade = sudo nixos-rebuild switch --flake ~/nixos#hackrpc --upgrade
+alias rebuild = sudo nixos-rebuild switch --flake ~/nixos#(hostname)
+alias rebuild-upgrade = sudo nixos-rebuild switch --flake ~/nixos#(hostname) --upgrade
 alias pip = python3 -m pip
 alias g = git
 alias gc = git commit -m
