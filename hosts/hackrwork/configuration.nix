@@ -38,6 +38,14 @@
     curl
   ];
 
+  services.logind.lidSwitchExternalPower = "ignore";
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
+
   services.xserver.videoDrivers = ["nvidia"];
   hardware = {
     graphics.enable = true;

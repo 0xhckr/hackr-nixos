@@ -36,11 +36,18 @@ output "AU Optronics 0x749D Unknown" {
     mode "3840x2160@144.001"
     scale 1.25
     transform "normal"
-    position x=1920 y=0
+    position x=7680 y=0
 }
 
 output "Samsung Electric Company C32F391 H4ZM806560" {
     mode "1920x1080@60.000"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
+
+output "Samsung Electric Company Odyssey G95NC HNTX800076" {
+    mode "7680x2160@119.997"
     scale 1
     transform "normal"
     position x=0 y=0
