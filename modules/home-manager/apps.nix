@@ -33,6 +33,7 @@ in
       zoom-us
       spacedrive
       nordpass
+      ulauncher
     ]
     ++ jetbrainsApps
     ++ affinityApps
