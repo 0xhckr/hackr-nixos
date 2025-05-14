@@ -1,0 +1,18 @@
+#!/run/current-system/sw/bin/bash
+
+sleep 1;
+
+nohup 1password --silent 2>&1 > /dev/null &
+disown
+
+# launch slack on work pc
+if [ "$(hostname)" = "hackrwork" ]; then
+    nohup slack 2>&1 > /dev/null &
+    disown
+fi
+
+# launch discord on home pc
+if [ "$(hostname)" = "hackrpc" ]; then
+    nohup vesktop 2>&1 > /dev/null &
+    disown
+fi

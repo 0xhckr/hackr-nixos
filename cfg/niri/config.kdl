@@ -103,7 +103,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "ags" "run" "--gtk4"
 spawn-at-startup "waybar"
-spawn-at-startup "./delayed.nu"
+spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "gauntlet" "--minimized"
 spawn-at-startup "swaybg" "-i" "/home/hackr/walls/bay.JPG"
 
