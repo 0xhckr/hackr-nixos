@@ -32,6 +32,7 @@ in
       element-desktop
       zoom-us
       spacedrive
+      nordpass
     ]
     ++ jetbrainsApps
     ++ affinityApps
