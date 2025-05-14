@@ -3,6 +3,7 @@
 
   imports = [
     inputs.ags.homeManagerModules.default
+    inputs.gauntlet.homeManagerModules.default
   ];
 
   home.packages = with pkgs; [
@@ -17,19 +18,16 @@
     slurp
     wl-clipboard
     pavucontrol
+    swaybg
   ] ++ (with inputs; [
     swww.packages."${system}".default
     quickshell.packages."${system}".default
     astal.packages.${system}.default
   ]);
 
-  # programs.ags = {
-  #   enable = true;
-  #   configDir = ../../ags;
-  #   extraPackages = with pkgs; [
-
-  #   ] ++ (with inputs.ags.packages."${system}"; [
-  #     apps
-  #   ]);
-  # };
+  programs.gauntlet = {
+    enable = true;
+    service.enable = true;
+    config = { };
+  };
 }

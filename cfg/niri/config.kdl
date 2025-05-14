@@ -104,7 +104,8 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "ags" "run" "--gtk4"
 spawn-at-startup "waybar"
 spawn-at-startup "./delayed.nu"
-spawn-at-startup "ulauncher"
+spawn-at-startup "gauntlet" "--minimized"
+spawn-at-startup "swaybg" "-i" "/home/hackr/walls/bay.JPG"
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 screenshot-path null
@@ -140,8 +141,27 @@ window-rule {
     opacity 0.87
 }
 
+layer-rule {
+    match namespace="Gauntlet"
+    opacity 0.87
+    geometry-corner-radius 12
+    baba-is-float true
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+
+    place-within-backdrop true
+}
+
+// layer-rule {
+//     match namespace="swww-daemon"
+//     place-within-backdrop true
+// }
+
 overview {
     backdrop-color "#232136"
+    // backdrop-color "#00000000"
 }
 
 binds {
@@ -160,7 +180,8 @@ binds {
     Mod+Shift+Ctrl+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Space { spawn "wofi" "--show" "drun"; }
+    Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
+    Mod+Space { spawn "gauntlet" "open"; }
     Super+Alt+L { spawn "dolphin"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
