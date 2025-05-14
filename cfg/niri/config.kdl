@@ -183,6 +183,7 @@ binds {
     Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
     Mod+Space { spawn "gauntlet" "open"; }
     Super+Alt+L { spawn "dolphin"; }
+    Mod+Ctrl+L { spawn "wlogout"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
