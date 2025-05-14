@@ -7,4 +7,6 @@
     };
     backupFileExtension = "bak";
   };
+
+  systemd.extraConfig = "DefaultLimitNOFILE=4096";
 }
