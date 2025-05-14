@@ -224,7 +224,8 @@ binds {
     Shift+Ctrl+Alt+F { maximize-column; }
     Mod+Shift+Ctrl+F { fullscreen-window; }
 
-    Mod+C { center-column; }
+    Mod+Z { center-column; }
+    Mod+Ctrl+Z { center-visible-columns; }
 
     Mod+Ctrl+Space       { toggle-window-floating; }
 
