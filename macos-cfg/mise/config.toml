@@ -1,0 +1,13 @@
+[tools]
+node = "latest"
+python = "latest"
+zig = "master"
+rust = "latest"
+pnpm = "latest"
+cmake = "latest"
+yarn = "latest"
+bun = "latest"
+cargo = "latest"
+
+[settings]
+experimental = true
