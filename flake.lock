@@ -652,6 +652,26 @@
         "type": "github"
       }
     },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1747494142,
+        "narHash": "sha256-7TAUwDVZWq82t/x3+zZ5y+Tjl2hLL2c8+8pv9zCUbTo=",
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "rev": "8e251e45346e9d58e0eece2512e40c183f967e8f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "LnL7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "nix-filter": {
       "locked": {
         "lastModified": 1731533336,
@@ -829,6 +849,7 @@
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "niri-unstable": "niri-unstable",
+        "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_2",
         "quickshell": "quickshell",
         "stylix": "stylix",
