@@ -13,6 +13,8 @@
     ../../modules/macos/homebrew.nix
   ];
 
+  networking.hostName = "hackrmbp";
+
   system.stateVersion = 4;
   nixpkgs.hostPlatform = "aarch64-darwin";
 }
