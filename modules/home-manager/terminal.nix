@@ -56,7 +56,7 @@ in
             $env.CPPFLAGS = "-I/opt/homebrew/opt/llvm/include"
             $env.NIXPKGS_ALLOW_UNFREE = "1"
             $env.DIRENV_LOG_FORMAT = ""
-            $env.XDG_CONFIG_HOME = "$env.HOME/.config"
+            $env.XDG_CONFIG_HOME = "/Users/hackr/.config"
           '';
         };
   };
