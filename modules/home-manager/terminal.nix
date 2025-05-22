@@ -18,6 +18,7 @@ in
       vim
       screenfetch
       neofetch
+      fastfetch
       fzf
       ripgrep
       bat
