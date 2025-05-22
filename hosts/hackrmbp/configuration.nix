@@ -6,6 +6,10 @@
 }:{
   system.primaryUser = "hackr";
 
+  imports = [
+    ../../modules/nixos/user-cfg.nix
+  ];
+
   environment.variables = {
     ZDOTDIR = "$HOME/.config/zsh";
     XDG_CONFIG_HOME = "$HOME/.config";

@@ -107,7 +107,7 @@
         hackrmbp = nix-darwin.lib.darwinSystem {
           modules = [
             ./hosts/hackrmbp/configuration.nix
-            # ./modules/home-manager/default.nix
+            ./modules/home-manager/default.nix
             inputs.home-manager.darwinModules.default
           ];
         };
