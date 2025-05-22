@@ -8,7 +8,7 @@
   system.primaryUser = "hackr";
 
   imports = [
-    ../../modules/nixos/user-cfg.nix
+    ../../modules/macos/user-cfg.nix
     ../../modules/macos/defaults.nix
     ../../modules/macos/homebrew.nix
   ];
