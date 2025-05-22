@@ -28,8 +28,6 @@ source ./zoxide.macos.nu
 source ./starship.nu
 source ./mise.nu
 source ./direnv.nu
-source ./nix.linux.nu
-source ./nix.macos.nu
 
 alias pip = python3 -m pip
 alias g = git
@@ -43,6 +41,14 @@ alias b = bun
 def cl [] {
   clear
   fastfetch
+}
+
+def rebuild [] {
+  if $isLinux {
+    sudo nixos-rebuild switch --flake ~/nixos#(hostname)
+  } else {
+    sudo darwin-rebuild switch --flake ~/nixos#(hostname)
+  }
 }
 
 def nr [
