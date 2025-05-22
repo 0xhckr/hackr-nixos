@@ -13,11 +13,6 @@
     ../../modules/macos/homebrew.nix
   ];
 
-  environment.variables = {
-    ZDOTDIR = "$HOME/.config/zsh";
-    XDG_CONFIG_HOME = "$HOME/.config";
-  };
-
   nixpkgs.config = {
     allowBroken = true;
     allowUnfree = true;
