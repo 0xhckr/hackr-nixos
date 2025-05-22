@@ -1,4 +1,4 @@
-exec /opt/homebrew/bin/nu
+exec /run/current-system/sw/bin/nu
 return
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.

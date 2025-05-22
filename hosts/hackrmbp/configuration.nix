@@ -17,17 +17,12 @@
 
   environment.systemPackages = with pkgs; [
     vim
-    starship
     lazygit
-    atuin
     screenfetch
     neofetch
-    zoxide
     fzf
     ripgrep
     bat
-    neovim
-    btop
     zsh-autoenv
     gh
     yazi
@@ -97,10 +92,8 @@
       "azure-cli" # we install az via brew since az ssh is broken on pkgs.azure-cli
       "mise"
       "cocoapods"
-      "fastfetch"
       "nsis"
       "llvm"
-      "nushell"
     ];
 
     # all mas apps install super slowly. Document them here but install them manually

@@ -8,7 +8,7 @@ in
   # temporary disable imports for darwin
   imports = [
     ./ssh.nix
-    # ./terminal.nix
+    ./terminal.nix
     # ./ui.nix
     # ./apps.nix
     # ./dev.nix
