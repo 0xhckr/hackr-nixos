@@ -11,7 +11,7 @@ in
     ./terminal.nix
     ./ui.nix
     ./apps.nix
-    # ./dev.nix
+    ./dev.nix
   ];
 
   home.username = "hackr";
