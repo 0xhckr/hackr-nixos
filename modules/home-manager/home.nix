@@ -21,18 +21,121 @@ in
   home.file =
     if isLinux then
       {
-        ".config/" = {
+        ".config/ghostty" = {
           force = true;
-          source = ../../cfg;
+          source = ../../cfg/linux/ghostty;
           recursive = true;
+        };
+        ".config/hypr" = {
+          force = true;
+          source = ../../cfg/linux/hypr;
+          recursive = true;
+        };
+        ".config/niri" = {
+          force = true;
+          source = ../../cfg/linux/niri;
+          recursive = true;
+        };
+        ".config/wlogout" = {
+          force = true;
+          source = ../../cfg/linux/wlogout;
+          recursive = true;
+        };
+        ".config/alacritty" = {
+          force = true;
+          source = ../../cfg/shared/alacritty;
+          recursive = true;
+        };
+        ".config/atuin" = {
+          force = true;
+          source = ../../cfg/shared/atuin;
+          recursive = true;
+        };
+        ".config/btop" = {
+          force = true;
+          source = ../../cfg/shared/btop;
+          recursive = true;
+        };
+        ".config/fastfetch" = {
+          force = true;
+          source = ../../cfg/shared/fastfetch;
+          recursive = true;
+        };
+        ".config/nushell" = {
+          force = true;
+          source = ../../cfg/shared/nushell;
+          recursive = true;
+        };
+        ".config/starship.toml" = {
+          force = true;
+          source = ../../cfg/shared/starship.toml;
         };
       }
     else
       {
-        ".config/" = {
+        ".config/aerospace" = {
           force = true;
-          source = ../../macos-cfg;
+          source = ../../cfg/macos/aerospace;
           recursive = true;
+        };
+        ".config/borders" = {
+          force = true;
+          source = ../../cfg/macos/borders;
+          recursive = true;
+        };
+        ".config/ghostty" = {
+          force = true;
+          source = ../../cfg/macos/ghostty;
+          recursive = true;
+        };
+        ".config/nixpkgs" = {
+          force = true;
+          source = ../../cfg/macos/nixpkgs;
+          recursive = true;
+        };
+        ".config/skhd" = {
+          force = true;
+          source = ../../cfg/macos/skhd;
+          recursive = true;
+        };
+        ".config/yabai" = {
+          force = true;
+          source = ../../cfg/macos/yabai;
+          recursive = true;
+        };
+        ".config/zsh" = {
+          force = true;
+          source = ../../cfg/macos/zsh;
+          recursive = true;
+        };
+        ".config/alacritty" = {
+          force = true;
+          source = ../../cfg/shared/alacritty;
+          recursive = true;
+        };
+        ".config/atuin" = {
+          force = true;
+          source = ../../cfg/shared/atuin;
+          recursive = true;
+        };
+        ".config/btop" = {
+          force = true;
+          source = ../../cfg/shared/btop;
+          recursive = true;
+        };
+        ".config/fastfetch" = {
+          force = true;
+          source = ../../cfg/shared/fastfetch;
+          recursive = true;
+        };
+        ".config/nushell" = {
+          force = true;
+          source = ../../cfg/shared/nushell;
+          recursive = true;
+        };
+        ".config/starship.toml" = {
+          force = true;
+          source = ../../cfg/shared/starship.toml;
         };
       };
 
