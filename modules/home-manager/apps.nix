@@ -1,29 +1,47 @@
-{ pkgs, inputs, system, lib, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  lib,
+  ...
+}:
 let
   isLinux = pkgs.stdenv.isLinux;
   isDarwin = pkgs.stdenv.isDarwin;
-  jetbrainsApps = with pkgs.jetbrains; [
-    datagrip
-    rider
-    rust-rover
-  ] ++ (lib.optionals isLinux [
-    # any linux specific apps
-  ]) ++ (lib.optionals isDarwin [
-    # any darwin specific apps
-  ]);
+  jetbrainsApps =
+    with pkgs.jetbrains;
+    [
+      datagrip
+      rider
+      rust-rover
+    ]
+    ++ (lib.optionals isLinux [
+      # any linux specific apps
+    ])
+    ++ (lib.optionals isDarwin [
+      # any darwin specific apps
+    ]);
   # NOTE: requires manual download of affinity apps.
-  affinityApps = with inputs.affinity-nix.packages."${system}"; [
-  ] ++ (lib.optionals isLinux [
-    designer
-  ]);
+  affinityApps =
+    with inputs.affinity-nix.packages."${system}";
+    [
+    ]
+    ++ (lib.optionals isLinux [
+      designer
+    ]);
   browsers =
     with pkgs;
     [
-    ] ++ (lib.optionals isLinux [
+    ]
+    ++ (lib.optionals isLinux [
       ungoogled-chromium
-    ]) ++ (lib.optionals isLinux (with inputs; [
-      zen-browser.packages."${system}".default
-    ]));
+    ])
+    ++ (lib.optionals isLinux (
+      with inputs;
+      [
+        zen-browser.packages."${system}".default
+      ]
+    ));
 in
 {
   home.packages =
@@ -34,7 +52,8 @@ in
       slack
       code-cursor
       spacedrive
-    ] ++ (lib.optionals isLinux [
+    ]
+    ++ (lib.optionals isLinux [
       zoom-us
       _1password-gui
       nautilus

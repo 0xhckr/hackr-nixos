@@ -1,4 +1,3 @@
-
 { pkgs, ... }:
 let
   isLinux = pkgs.stdenv.isLinux;
@@ -20,19 +19,23 @@ in
   home.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;
 
-  home.file = if isLinux then {
-    ".config/" = {
-      force = true;
-      source = ../../cfg;
-      recursive = true;
-    };
-  } else {
-    ".config/" = {
-      force = true;
-      source = ../../macos-cfg;
-      recursive = true;
-    };
-  };
+  home.file =
+    if isLinux then
+      {
+        ".config/" = {
+          force = true;
+          source = ../../cfg;
+          recursive = true;
+        };
+      }
+    else
+      {
+        ".config/" = {
+          force = true;
+          source = ../../macos-cfg;
+          recursive = true;
+        };
+      };
 
   programs.home-manager.enable = true;
 }

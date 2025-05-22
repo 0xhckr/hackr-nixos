@@ -47,7 +47,7 @@
       url = "github:YaLTeR/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -82,7 +82,10 @@
       # it's a better practice than "default" shown in the video
       nixosConfigurations = {
         hackrpc = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; system = "x86_64-linux"; };
+          specialArgs = {
+            inherit inputs;
+            system = "x86_64-linux";
+          };
           modules = [
             lanzaboote.nixosModules.lanzaboote
             ./hosts/hackrpc/lanzaboote.nix
@@ -93,7 +96,10 @@
           ];
         };
         hackrwork = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; system = "x86_64-linux"; };
+          specialArgs = {
+            inherit inputs;
+            system = "x86_64-linux";
+          };
           modules = [
             ./hosts/hackrwork/boot.nix
             ./hosts/hackrwork/configuration.nix
@@ -105,7 +111,10 @@
       };
       darwinConfigurations = {
         hackrmbp = nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs; system = "aarch64-darwin"; };
+          specialArgs = {
+            inherit inputs;
+            system = "aarch64-darwin";
+          };
           modules = [
             ./hosts/hackrmbp/configuration.nix
             ./modules/home-manager/default.nix

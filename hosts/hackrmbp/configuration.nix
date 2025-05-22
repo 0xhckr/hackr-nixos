@@ -3,7 +3,8 @@
   pkgs,
   inputs,
   ...
-}:{
+}:
+{
   system.primaryUser = "hackr";
 
   imports = [
@@ -52,7 +53,10 @@
 
   nix = {
     enable = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   programs.zsh = {
@@ -74,14 +78,16 @@
     nerd-fonts.droid-sans-mono
     nerd-fonts._0xproto
     nerd-fonts.departure-mono
-    (google-fonts.override { fonts = [ 
-      "DM Sans" 
-      "DM Mono" 
-      "DM Serif Display" 
-      "DM Sans Display"
-      "Cairo"
-      "Zain"
-    ];})
+    (google-fonts.override {
+      fonts = [
+        "DM Sans"
+        "DM Mono"
+        "DM Serif Display"
+        "DM Sans Display"
+        "Cairo"
+        "Zain"
+      ];
+    })
   ];
 
   security.pam.services.sudo_local.touchIdAuth = true;
