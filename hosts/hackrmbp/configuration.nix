@@ -16,36 +16,6 @@
     XDG_CONFIG_HOME = "$HOME/.config";
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    lazygit
-    screenfetch
-    neofetch
-    fzf
-    ripgrep
-    bat
-    zsh-autoenv
-    gh
-    yazi
-
-    mos
-    obsidian
-    stats
-    fontforge
-    alt-tab-macos
-
-    dotnet-sdk_8
-    poetry
-    python313Full
-    go
-    asdf-vm
-    zls
-
-    nil
-
-    direnv
-  ];
-
   nixpkgs.config = {
     allowBroken = true;
     allowUnfree = true;

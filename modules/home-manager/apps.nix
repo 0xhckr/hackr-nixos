@@ -52,6 +52,8 @@ in
       slack
       code-cursor
       spacedrive
+      obsidian
+      fontforge
     ]
     ++ (lib.optionals isLinux [
       zoom-us
@@ -59,6 +61,11 @@ in
       nautilus
       element-desktop
       nordpass
+    ])
+    ++ (lib.optionals isDarwin [
+      mos
+      stats
+      alt-tab-macos
     ])
     ++ jetbrainsApps
     ++ affinityApps

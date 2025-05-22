@@ -14,6 +14,16 @@ in
       starship
       zoxide
       neovim
+      lazygit
+      vim
+      screenfetch
+      neofetch
+      fzf
+      ripgrep
+      bat
+      zsh-autoenv
+      gh
+      yazi
     ]
     ++ (lib.optionals isLinux [
       ghostty
