@@ -1,5 +1,10 @@
 { ... }:
 {
+  environment.variables = {
+    ZDOTDIR = "$HOME/.config/zsh";
+    XDG_CONFIG_HOME = "$HOME/.config";
+  };
+
   system.defaults = {
     ".GlobalPreferences" = {
       "com.apple.mouse.scaling" = 0.5;
