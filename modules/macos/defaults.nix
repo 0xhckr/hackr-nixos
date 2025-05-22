@@ -22,4 +22,19 @@
     };
     WindowManager.StandardHideDesktopIcons = true;
   };
+
+  nixpkgs.config = {
+    allowBroken = true;
+    allowUnfree = true;
+  };
+
+  nix = {
+    enable = true;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
+
+  security.pam.services.sudo_local.touchIdAuth = true;
 }
