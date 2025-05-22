@@ -18,6 +18,7 @@
     };
 
     casks = [
+      "slack" # slack needs to be installed via brew since it doesn't work via nixpkgs
       "proton-pass"
       "proton-mail"
       "protonvpn"

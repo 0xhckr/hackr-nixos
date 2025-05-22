@@ -49,7 +49,6 @@ in
     [
       spotify
       vesktop
-      slack
       code-cursor
       spacedrive
       obsidian
@@ -61,6 +60,7 @@ in
       nautilus
       element-desktop
       nordpass
+      slack # slack on macOS works mostly but the items that require permissions like microphone and camera don't work
     ])
     ++ (lib.optionals isDarwin [
       mos
