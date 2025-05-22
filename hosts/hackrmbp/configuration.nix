@@ -29,16 +29,6 @@
     ];
   };
 
-  programs.zsh = {
-    enable = true;
-    enableBashCompletion = true;
-    enableCompletion = true;
-    enableFzfCompletion = true;
-    enableFzfGit = true;
-    enableFzfHistory = true;
-    enableSyntaxHighlighting = true;
-  };
-
   # system.configurationRevision = self.rev or self.dirtyRev or null;
   system.stateVersion = 4;
   nixpkgs.hostPlatform = "aarch64-darwin";
