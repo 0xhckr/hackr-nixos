@@ -10,7 +10,7 @@ in
     ./ssh.nix
     ./terminal.nix
     ./ui.nix
-    # ./apps.nix
+    ./apps.nix
     # ./dev.nix
   ];
 

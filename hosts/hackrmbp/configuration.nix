@@ -104,7 +104,6 @@
     };
 
     casks = [
-      "slack"
       "proton-pass"
       "proton-mail"
       "protonvpn"
