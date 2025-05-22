@@ -105,6 +105,7 @@
       };
       darwinConfigurations = {
         hackrmbp = nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs; system = "aarch64-darwin"; };
           modules = [
             ./hosts/hackrmbp/configuration.nix
             ./modules/home-manager/default.nix
