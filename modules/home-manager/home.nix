@@ -4,7 +4,6 @@ let
   isDarwin = pkgs.stdenv.isDarwin;
 in
 {
-  # temporary disable imports for darwin
   imports = [
     ./ssh.nix
     ./terminal.nix

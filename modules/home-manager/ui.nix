@@ -31,8 +31,8 @@ in
     ++ (lib.optionals isLinux (
       with inputs;
       [
-        swww.packages."${system}".default
-        quickshell.packages."${system}".default
+        swww.packages.${system}.default
+        quickshell.packages.${system}.default
         astal.packages.${system}.default
       ]
     ));
