@@ -9,7 +9,7 @@ in
   imports = [
     ./ssh.nix
     ./terminal.nix
-    # ./ui.nix
+    ./ui.nix
     # ./apps.nix
     # ./dev.nix
   ];

@@ -1,4 +1,8 @@
 { pkgs, inputs, ... }:
+let
+  isLinux = pkgs.stdenv.isLinux;
+  isDarwin = pkgs.stdenv.isDarwin;
+in
 {
 
   imports = [
@@ -7,11 +11,12 @@
   ];
 
   home.packages = with pkgs; [
+    cava
+  ] ++ (lib.optionals isLinux [
     wofi
     dunst
     waypaper
     waybar
-    cava
     playerctl
     wlogout
     wf-recorder
@@ -19,15 +24,18 @@
     wl-clipboard
     pavucontrol
     swaybg
-  ] ++ (with inputs; [
+  ])
+   ++ (lib.optionals isLinux (with inputs; [
     swww.packages."${system}".default
     quickshell.packages."${system}".default
     astal.packages.${system}.default
-  ]);
+  ]));
 
-  programs.gauntlet = {
-    enable = true;
-    service.enable = true;
-    config = { };
-  };
+  programs = if isLinux then {
+    gauntlet = {
+      enable = true;
+      service.enable = true;
+      config = { };
+    };
+  } else {};
 }
