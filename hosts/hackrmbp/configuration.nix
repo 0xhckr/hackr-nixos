@@ -9,6 +9,8 @@
 
   imports = [
     ../../modules/nixos/user-cfg.nix
+    ../../modules/macos/defaults.nix
+    ../../modules/macos/homebrew.nix
   ];
 
   environment.variables = {
@@ -34,75 +36,4 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   security.pam.services.sudo_local.touchIdAuth = true;
-
-  homebrew = {
-    enable = true;
-    brews = [
-      "azure-cli" # we install az via brew since az ssh is broken on pkgs.azure-cli
-      "mise"
-      "cocoapods"
-      "nsis"
-      "llvm"
-    ];
-
-    # all mas apps install super slowly. Document them here but install them manually
-    masApps = {
-      # "Hand Mirror" = 1502839586;
-      # "Amphetamine" = 937984704;
-      # "Xcode" = 497799835;
-    };
-
-    casks = [
-      "proton-pass"
-      "proton-mail"
-      "protonvpn"
-      "proton-drive"
-      "nikitabobko/tap/aerospace"
-      "arc"
-      "1password"
-      "docker"
-      "microsoft-outlook"
-      "sip"
-      "bluebubbles"
-      "tableplus"
-      "twingate"
-      "kicad"
-      "bartender"
-      "jetbrains-toolbox"
-      "rider"
-      "visual-studio-code"
-      "zed"
-      "ghostty"
-      "zen-browser"
-      {
-        name = "raycast";
-        greedy = true;
-      }
-      "loop"
-      "discord"
-    ];
-  };
-
-  system.defaults = {
-    ".GlobalPreferences" = {
-      "com.apple.mouse.scaling" = 0.5;
-      # "com.apple.mouse.linear" = true; # does not work yet
-    };
-    NSGlobalDomain = {
-      KeyRepeat = 2;
-      InitialKeyRepeat = 15;
-    };
-
-    finder = {
-      AppleShowAllExtensions = true;
-      ShowPathbar = true;
-      CreateDesktop = false;
-    };
-    dock = {
-      show-recents = false;
-      static-only = true;
-      autohide = true;
-    };
-    WindowManager.StandardHideDesktopIcons = true;
-  };
 }
