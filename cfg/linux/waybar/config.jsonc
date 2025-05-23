@@ -1,0 +1,127 @@
+[
+  {
+    "reload_style_on_change": true,
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 68, // Waybar height (to be removed for auto height)
+    "refresh-interval": 1,
+    // "width": 1280, // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["niri/workspaces"],
+    "modules-center": [""],
+    "modules-right": ["tray", "group/hardware", "clock"],
+    // Modules configuration
+    "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "active": "󱤨",
+        "default": "󰏞"
+      }
+    },
+    "tray": {
+      "icon-size": 20,
+      "spacing": 6,
+      "show-passive-items": true
+    },
+    "clock": {
+      "format": "{:%H:%M:%S}",
+      "format-alt": "{:%A, %B %d, %Y}",
+      "actions": {
+        "on-click-right": "mode"
+      }
+    },
+    "group/hardware": {
+      "orientation": "horizontal",
+      "modules": [
+        "mpris",
+        "pulseaudio",
+        "memory",
+        "temperature",
+        "bluetooth",
+        "network",
+        "custom/logout"
+      ]
+    },
+
+    "mpris": {
+      //"interval": 5,
+      "dynamic-order": ["artist", "title"],
+      "dynamic-len": 97,
+      "format": "{player_icon} {dynamic}",
+      "tooltip-format": "{album}",
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "player-icons": {
+        "default": " "
+      },
+      "status-icons": {
+        "paused": " "
+      }
+      // "ignored-players": ["firefox"]
+    },
+    "pulseaudio": {
+      "scroll-step": 5, // %, can be a float
+      "tooltip-format": "{volume}%",
+      "format": "{icon}", //"{format_source}",
+      "format-bluetooth": "{icon}{format_source}",
+      "format-bluetooth-muted": " {icon}{format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}%",
+      "format-source-muted": "", // "",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol",
+      "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "memory": {
+      "format": "",
+      "format-alt": "{used} Gb ",
+      "tooltip-format": "{percentage}%"
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format-critical": "  {temperatureC}°C {icon}",
+      "format": "{icon}",
+      "format-alt": "{temperatureC}°C {icon}",
+      "format-icons": ["", "", ""],
+      "tooltip": false
+    },
+    // Install blueman pulseaudio-bluetooth
+    // and https://wiki.archlinux.org/title/Bluetooth#Enabling_experimental_features
+    "bluetooth": {
+      "format": "  ",
+      "format-alt": "  ",
+      "format-connected": " {device_alias}  ",
+      "format-connected-battery": " {device_alias} {device_battery_percentage}%  ",
+      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+      "on-click-right": "blueman-manager"
+    },
+    // Install iwd fuzzel polkit
+    "network": {
+      // "interface": "wlp2*", // (Optional) To force the use of this interface
+      "format-wifi": "",
+      "format-ethernet": "",
+      "tooltip-format-wifi": "  {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz",
+      "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": "Disconnected ⚠",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}",
+      "on-click-right": "bash -c nmtui"
+      // "on-click-middle": ""
+    },
+    "custom/logout": {
+      "format": "⏻",
+      "tooltip": false,
+      "on-click": "wlogout -b 6"
+    }
+  }
+]
