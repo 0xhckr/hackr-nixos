@@ -104,7 +104,6 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "ags" "run" "--gtk4"
 spawn-at-startup "waybar"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
-spawn-at-startup "gauntlet" "--minimized"
 spawn-at-startup "swaybg" "-i" "/home/hackr/walls/bay.JPG"
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -142,13 +141,6 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="Gauntlet"
-    opacity 0.87
-    geometry-corner-radius 12
-    baba-is-float true
-}
-
-layer-rule {
     match namespace="^wallpaper$"
 
     place-within-backdrop true
@@ -181,7 +173,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
-    Mod+Space { spawn "gauntlet" "open"; }
+    Mod+Space { spawn "wofi" "--show" "drun"; }
     Super+Alt+L { spawn "dolphin"; }
     Mod+Ctrl+L { spawn "wlogout"; }
 

@@ -20,7 +20,7 @@
     ../../modules/nixos/gnome.nix
     ../../modules/nixos/niri.nix
     ../../modules/nixos/fonts.nix
-    # ../../modules/nixos/stylix.nix
+    ../../modules/nixos/stylix.nix
     ../../modules/nixos/steam.nix
     ../../modules/nixos/docker.nix
     ../../modules/nixos/disable-rgb.nix

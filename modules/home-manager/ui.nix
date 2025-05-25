@@ -7,7 +7,6 @@ in
 
   imports = [
     inputs.ags.homeManagerModules.default
-    inputs.gauntlet.homeManagerModules.default
   ];
 
   home.packages =
@@ -36,16 +35,4 @@ in
         astal.packages.${system}.default
       ]
     ));
-
-  programs =
-    if isLinux then
-      {
-        gauntlet = {
-          enable = true;
-          service.enable = true;
-          config = { };
-        };
-      }
-    else
-      { };
 }
