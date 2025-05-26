@@ -36,6 +36,11 @@ in
           source = ../../cfg/linux/niri;
           recursive = true;
         };
+        ".config/sherlock" = {
+          force = true;
+          source = ../../cfg/linux/sherlock;
+          recursive = true;
+        };
         ".config/waybar" = {
           force = true;
           source = ../../cfg/linux/waybar;
