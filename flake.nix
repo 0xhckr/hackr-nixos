@@ -44,7 +44,10 @@
     };
 
     niri-unstable = {
-      url = "github:YaLTeR/niri";
+      type = "github";
+      owner = "visualglitch91";
+      repo = "niri";
+      ref = "feat/blur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

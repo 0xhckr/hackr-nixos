@@ -94,8 +94,11 @@ layout {
         color "#0007"
     }
 
-    struts {
-        // top 32
+    blur {
+        on
+        passes 3
+        radius 12.0
+        noise 0.0
     }
 }
 
@@ -136,7 +139,14 @@ window-rule {
 
 window-rule {
     match is-focused=false
-    opacity 0.87
+    opacity 0.5
+    draw-border-with-background false
+}
+
+window-rule {
+    match is-focused=true
+    opacity 0.85
+    draw-border-with-background false
 }
 
 layer-rule {
