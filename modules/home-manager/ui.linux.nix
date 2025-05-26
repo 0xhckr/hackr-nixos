@@ -1,8 +1,4 @@
 { pkgs, inputs, ... }:
-let
-  isLinux = pkgs.stdenv.isLinux;
-  isDarwin = pkgs.stdenv.isDarwin;
-in
 {
 
   imports = [
@@ -14,8 +10,6 @@ in
     with pkgs;
     [
       cava
-    ]
-    ++ (lib.optionals isLinux [
       wofi
       dunst
       waypaper
@@ -27,15 +21,12 @@ in
       wl-clipboard
       pavucontrol
       swaybg
-    ])
-    ++ (lib.optionals isLinux (
-      with inputs;
-      [
-        swww.packages.${system}.default
-        quickshell.packages.${system}.default
-        astal.packages.${system}.default
-      ]
-    ));
+    ]
+    ++ (with inputs; [
+      swww.packages.${system}.default
+      quickshell.packages.${system}.default
+      astal.packages.${system}.default
+    ]);
 
   programs.sherlock = {
     enable = true;

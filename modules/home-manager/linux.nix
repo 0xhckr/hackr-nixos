@@ -3,7 +3,7 @@
   imports = [
     ./ssh.nix
     ./terminal.nix
-    ./ui.nix
+    ./ui.linux.nix
     ./apps.nix
     ./dev.nix
   ];
