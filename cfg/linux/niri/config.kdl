@@ -101,7 +101,6 @@ layout {
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "ags" "run" "--gtk4"
 spawn-at-startup "waybar"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "swaybg" "-i" "/home/hackr/walls/bay.JPG"
@@ -173,7 +172,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
-    Mod+Space { spawn "wofi" "--show" "drun"; }
+    Mod+Space { spawn "sherlock"; }
     Super+Alt+L { spawn "dolphin"; }
     Mod+Ctrl+L { spawn "wlogout"; }
 

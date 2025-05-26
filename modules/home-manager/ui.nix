@@ -7,6 +7,7 @@ in
 
   imports = [
     inputs.ags.homeManagerModules.default
+    inputs.sherlock.homeManagerModules.default
   ];
 
   home.packages =
@@ -35,4 +36,9 @@ in
         astal.packages.${system}.default
       ]
     ));
+
+  programs.sherlock = {
+    enable = true;
+    settings = null;
+  };
 }
