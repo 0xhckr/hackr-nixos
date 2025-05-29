@@ -106,7 +106,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "waybar"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
-spawn-at-startup "swaybg" "-i" "/home/hackr/walls/bay.JPG"
+spawn-at-startup "swaybg" "-i" "/home/hackr/walls/blurred_bay.JPG"
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 screenshot-path null
