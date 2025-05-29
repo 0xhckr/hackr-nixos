@@ -78,6 +78,14 @@
       ref = "unstable/release-v0.1.12";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ghostty = {
+      type = "github";
+      owner = "ghostty-org";
+      repo = "ghostty";
+      ref = "main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

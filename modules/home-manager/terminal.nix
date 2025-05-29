@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, system, ... }:
 let
   isLinux = pkgs.stdenv.isLinux;
   isDarwin = pkgs.stdenv.isDarwin;
@@ -27,7 +27,7 @@ in
       yazi
     ]
     ++ (lib.optionals isLinux [
-      ghostty
+      inputs.ghostty.packages."${system}".default
     ]);
 
   programs.nushell = {
