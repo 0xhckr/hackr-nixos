@@ -72,7 +72,10 @@
     };
 
     sherlock = {
-      url = "github:Skxxtz/sherlock";
+      type = "github";
+      owner = "Skxxtz";
+      repo = "sherlock";
+      ref = "unstable/release-v0.1.12";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
