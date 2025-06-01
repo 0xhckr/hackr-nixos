@@ -8,7 +8,8 @@ let
       ${pkgs.openrgb-with-all-plugins}/bin/openrgb --noautoconnect --device $i --mode static --color 000000
     done
   '';
-in {
+in
+{
   config = {
     services.hardware.openrgb.enable = true;
     environment.systemPackages = with pkgs; [ openrgb-with-all-plugins ];
