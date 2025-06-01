@@ -70,7 +70,7 @@
       source = ../../cfg/shared/fastfetch;
       recursive = true;
     };
-    ".config/nushell" = {
+    "Library/Application Support/nushell" = {
       force = true;
       source = ../../cfg/shared/nushell;
       recursive = true;
