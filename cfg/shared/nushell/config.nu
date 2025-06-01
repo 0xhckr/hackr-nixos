@@ -7,6 +7,7 @@ let isLinux = (uname | get kernel-name) == "Linux"
 path add "/run/current-system/sw/bin"
 path add "~/bin"
 path add "~/.local/bin"
+path add "~/.nix-profile/bin"
 
 # nixos paths
 if $isLinux {
@@ -67,6 +68,10 @@ def code [...args: string] {
   }
 }
 
-~/.config/nushell/aacpi.sh #produces files inside of ~/.nuget/plugins/ for azure artifacts credprovider
+if $isLinux {
+  ~/.config/nushell/aacpi.sh #produces files inside of ~/.nuget/plugins/ for azure artifacts credprovider
+} else {
+  "~/Library/Application Support/nushell/aacpi.sh"
+}
 
 fastfetch

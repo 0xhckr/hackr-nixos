@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, system, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  system,
+  ...
+}:
 let
   isLinux = pkgs.stdenv.isLinux;
   isDarwin = pkgs.stdenv.isDarwin;
@@ -35,19 +41,21 @@ in
     environmentVariables = config.home.sessionVariables;
   };
 
-  home.file = {
-    ".config/nushell/env.nu" =
-      if isLinux then
-        {
+  home.file =
+    if isLinux then
+      {
+        ".config/nushell/env.nu" = {
           force = true;
           text = ''
             $env.config.show_banner = false
             $env.DIRENV_LOG_FORMAT = ""
             $env.NIXPKGS_ALLOW_UNFREE = "1"
           '';
-        }
-      else
-        {
+        };
+      }
+    else
+      {
+        "Library/Application Support/nushell/env.nu" = {
           force = true;
           text = ''
             $env.ANDROID_HOME = "/Users/hackr/Library/Android/sdk"
@@ -59,5 +67,5 @@ in
             $env.XDG_CONFIG_HOME = "/Users/hackr/.config"
           '';
         };
-  };
+      };
 }
