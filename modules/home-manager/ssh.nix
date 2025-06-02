@@ -56,7 +56,7 @@ in
     "work/.gitconfig" =
       if isLinux then
         {
-          source = ../../ssh/work.gitconfig;
+          source = ../../ssh/work.linux.gitconfig;
           force = true;
         }
       else
@@ -67,7 +67,7 @@ in
     "dev/.gitconfig" =
       if isLinux then
         {
-          source = ../../ssh/dev.gitconfig;
+          source = ../../ssh/dev.linux.gitconfig;
           force = true;
         }
       else
@@ -78,7 +78,7 @@ in
     ".gitconfig" =
       if isLinux then
         {
-          source = ../../ssh/home.gitconfig;
+          source = ../../ssh/home.linux.gitconfig;
           force = true;
         }
       else
