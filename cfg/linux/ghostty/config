@@ -8,13 +8,11 @@ font-size = 11
 font-thicken = false
 grapheme-width-method = unicode
 theme = light:rose-pine-dawn,dark:rose-pine-moon
-# initial-command = "login -fpql $(whoami) $SHELL"f
 cursor-style = bar
 mouse-hide-while-typing = true
 
 mouse-shift-capture = false
 background-opacity = 0.9
-background-blur-radius = 70
 unfocused-split-opacity = 0.6
 scrollback-limit = 10000000
 
@@ -115,10 +113,6 @@ vt-kam-allowed = false
 # custom-shader = "shaders/smoke-and-ghost.glsl"
 # custom-shader = "shaders/test.glsl"
 custom-shader-animation = true
-macos-non-native-fullscreen = false
-macos-titlebar-style = tabs
-macos-option-as-alt = false
-macos-window-shadow = true
 desktop-notifications = true
 bold-is-bright = true
 
@@ -129,7 +123,3 @@ bold-is-bright = true
 # keyprotocol=ghostty:kitty`, however a bug in the implementation prevents it
 # from working properly. https://github.com/vim/vim/pull/13211 fixes this.
 term = xterm-ghostty
-macos-icon = custom-style
-macos-icon-frame = plastic
-macos-icon-ghost-color = e0def4
-macos-icon-screen-color = 232136
