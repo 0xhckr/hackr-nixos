@@ -1,30 +1,29 @@
 :root {
-  --background: 249, 22%, 12%;
-  --foreground: 244, 18%, 15%;
-  --text: 245, 50%, 91%;
-  --border: 247, 23%, 15%;
+  --background: 240, 14%, 6%;
+  --foreground: 0, 0%, 9%;
+  --text: 0, 0%, 90%;
+  --border: 0, 0%, 14%;
 
+  --tag-background: 0, 0%, 20%;
+  --tag-color: 0, 0%, 90%;
+  --error: 342, 58%, 58%;
+  --warning: 21, 89%, 76%;
+  --success: 160, 44%, 53%;
 
-  --tag-background: 180, 0%, 30%;
-  --tag-color: 220, 10%, 100%;
-  --error: 4, 71%, 62%;
-  --warning: 55, 100%, 68%;
-  --success: 140, 40%, 40%;
+  --weather-clear: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-few-clouds: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-many-clouds: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-mist: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-showers: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-freezing-scattered-rain-storm: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-freezing-scattered-rain: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-snow-scattered-day: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-storm: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-snow-storm: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-snow-scattered-storm: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
+  --weather-showers-scattered: linear-gradient(45deg, #0b0b0f 0%, #161616 50%);
 
-  --weather-clear: linear-gradient(45deg, #21202e 0%, #403d52 50%);
-  --weather-few-clouds: linear-gradient(45deg, #A1A1A1 0%, #87B2E0 100%);
-  --weather-many-clouds: linear-gradient(45deg, #B2B2B2 0%, #C8C8C8 100%);
-  --weather-mist: linear-gradient(45deg, #878787 0%, #D1D1C7 100%);
-  --weather-showers: linear-gradient(45deg, #73848C 0%, #374B54 100%);
-  --weather-freezing-scattered-rain-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-  --weather-freezing-scattered-rain: linear-gradient(45deg, #73848C 0%, #242B35 100%);
-  --weather-snow-scattered-day: linear-gradient(45deg, #73848C 0%, #242B35 100%);
-  --weather-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-  --weather-snow-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-  --weather-snow-scattered-storm: linear-gradient(45deg, #1A1C1F 0%, #242B35 100%);
-  --weather-showers-scattered: linear-gradient(45deg, #73848C 0%, #374B54 100%);
-
-  --weather-none-available: 0, 0%, 50%;                /* Neutral placeholder gray */
+  --weather-none-available: 0, 0%, 40%;                /* Neutral placeholder gray */
 }
 /*
 --warning: 36, 89%, 52%;
