@@ -25,45 +25,26 @@ class =
 x11-instance-name = 
 working-directory = "/home/hackr"
 
-keybind = super+alt+i=inspector:toggle
-keybind = super+w=close_surface
-keybind = shift+up=adjust_selection:up
-keybind = super+enter=toggle_fullscreen
-keybind = super+t=new_tab
-keybind = super+c=copy_to_clipboard
-keybind = super+shift+right_bracket=next_tab
-keybind = shift+left=adjust_selection:left
-keybind = super+equal=increase_font_size:1
-keybind = shift+page_up=adjust_selection:page_up
-keybind = super+ctrl+down=resize_split:down,10
-keybind = shift+end=adjust_selection:end
-keybind = super+plus=increase_font_size:1
-keybind = super+q=quit
-keybind = super+home=scroll_to_top
-keybind = super+ctrl+left=resize_split:left,10
-keybind = super+ctrl+up=resize_split:up,10
-keybind = super+shift+up=jump_to_prompt:-1
-keybind = shift+right=adjust_selection:right
+keybind = ctrl+alt+i=inspector:toggle
+keybind = ctrl+w=close_surface
+keybind = ctrl+enter=toggle_fullscreen
+keybind = ctrl+t=new_tab
+keybind = ctrl+shift+right_bracket=next_tab
+keybind = ctrl+shift+left_bracket=previous_tab
+
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+
 keybind = super+comma=open_config
 keybind = super+shift+comma=reload_config
-keybind = super+minus=decrease_font_size:1
-keybind = shift+page_down=adjust_selection:page_down
-keybind = super+a=select_all
-keybind = alt+shift+equal=equalize_splits
-keybind = super+shift+enter=toggle_split_zoom
-keybind = super+ctrl+f=toggle_fullscreen
-keybind = super+ctrl+right=resize_split:right,10
-keybind = super+alt+shift+j=write_scrollback_file:open
-keybind = shift+down=adjust_selection:down
-keybind = super+n=new_window
-keybind = super+page_down=scroll_page_down
-keybind = super+alt+shift+w=close_all_windows
-keybind = super+end=scroll_to_bottom
-keybind = super+shift+j=write_scrollback_file:paste
-keybind = super+zero=reset_font_size
-keybind = shift+home=adjust_selection:home
-keybind = super+k=clear_screen
-keybind = super+v=paste_from_clipboard
+
+keybind = ctrl+a=select_all
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
+keybind = ctrl+n=new_window
+keybind = ctrl+zero=reset_font_size
+keybind = ctrl+k=clear_screen
 
 keybind = super+d=new_split:right
 keybind = super+shift+d=new_split:down
@@ -75,16 +56,16 @@ keybind = super+alt+up=goto_split:top
 keybind = super+left_bracket=goto_split:previous
 keybind = super+right_bracket=goto_split:next
 
-keybind = super+physical:one=goto_tab:1
-keybind = super+physical:two=goto_tab:2
-keybind = super+physical:three=goto_tab:3
-keybind = super+physical:four=goto_tab:4
-keybind = super+physical:five=goto_tab:5
-keybind = super+physical:six=goto_tab:6
-keybind = super+physical:seven=goto_tab:7
-keybind = super+physical:eight=goto_tab:8
-keybind = super+physical:nine=goto_tab:9
-keybind = super+physical:zero=last_tab
+keybind = ctrl+physical:one=goto_tab:1
+keybind = ctrl+physical:two=goto_tab:2
+keybind = ctrl+physical:three=goto_tab:3
+keybind = ctrl+physical:four=goto_tab:4
+keybind = ctrl+physical:five=goto_tab:5
+keybind = ctrl+physical:six=goto_tab:6
+keybind = ctrl+physical:seven=goto_tab:7
+keybind = ctrl+physical:eight=goto_tab:8
+keybind = ctrl+physical:nine=goto_tab:9
+keybind = ctrl+physical:zero=last_tab
 
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
 
