@@ -35,7 +35,7 @@
           [ = C-[
           ] = C-]
           z = C-z
-          S-z = C-y
+          , = C-,
           left = home
           right = end
           up = C-home
