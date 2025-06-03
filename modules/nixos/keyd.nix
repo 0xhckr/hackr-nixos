@@ -47,6 +47,8 @@
           / = C-slash
           enter = C-enter
 
+          [meta+shift]
+          s = M-S-s
 
           [alt]
           left = C-left
