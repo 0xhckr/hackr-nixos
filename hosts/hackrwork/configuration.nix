@@ -23,6 +23,7 @@
     ../../modules/nixos/stylix.nix
     ../../modules/nixos/steam.nix
     ../../modules/nixos/docker.nix
+    ../../modules/nixos/keyd.nix
   ];
 
   nix.settings.experimental-features = [
