@@ -58,6 +58,7 @@
           left = C-left
           right = C-right
           backspace = C-backspace
+          delete = C-delete
         '';
       };
     };
