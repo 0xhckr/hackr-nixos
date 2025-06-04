@@ -66,6 +66,7 @@
           right = M-C-right
           up = M-C-up
           down = M-C-down
+          z = M-C-z
         '';
       };
     };
