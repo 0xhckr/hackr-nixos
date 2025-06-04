@@ -50,6 +50,10 @@
           [meta+shift]
           s = M-S-s
 
+          [meta+alt]
+          up = M-A-up
+          down = M-A-down
+
           [alt]
           left = C-left
           right = C-right
