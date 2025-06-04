@@ -56,8 +56,12 @@ def nr [
   name: string, 
   ...rest: string
 ] {
-  let flake_ref = [".#", $name] | str join ""
-  ^nix run $flake_ref ...$rest
+  if $name == "list" {
+    nix flake show --json --all-systems | from json | get apps | get (nix eval --impure --expr 'builtins.currentSystem' --raw) | transpose | get column0
+  } else {
+    let flake_ref = [".#", $name] | str join ""
+    ^nix run $flake_ref ...$rest
+  }
 }
 
 def code [...args: string] {
