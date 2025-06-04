@@ -46,6 +46,7 @@
           equal = C-equal
           / = C-slash
           enter = C-enter
+          . = C-.
 
           [meta+shift]
           s = M-S-s
