@@ -59,6 +59,12 @@
           right = C-right
           backspace = C-backspace
           delete = C-delete
+
+          [meta+control]
+          left = M-C-left
+          right = M-C-right
+          up = M-C-up
+          down = M-C-down
         '';
       };
     };
