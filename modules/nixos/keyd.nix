@@ -40,8 +40,8 @@
           right = end
           up = C-home
           down = C-end
-          backspace = macro(S-home backspace)
-          delete = macro(S-end delete)
+          backspace = macro(space S-home backspace left)
+          delete = macro(space left S-end delete)
           minus = C-minus
           equal = C-equal
           / = C-slash
