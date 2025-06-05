@@ -70,7 +70,7 @@
       type = "github";
       owner = "Skxxtz";
       repo = "sherlock";
-      ref = "unstable/release-v0.1.12";
+      ref = "unstable/release-v0.1.13";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
