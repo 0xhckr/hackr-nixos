@@ -44,12 +44,14 @@ let
     ));
 in
 {
+  imports = [
+    ./apps/cursor.nix
+  ];
   home.packages =
     with pkgs;
     [
       spotify
       vesktop
-      code-cursor
       spacedrive
       obsidian
       fontforge
