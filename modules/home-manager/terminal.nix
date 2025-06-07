@@ -33,7 +33,8 @@ in
       yazi
     ]
     ++ (lib.optionals isLinux [
-      inputs.ghostty.packages."${system}".default
+      pkgs.ghostty
+      # inputs.ghostty.packages."${system}".default
     ]);
 
   programs.nushell = {
