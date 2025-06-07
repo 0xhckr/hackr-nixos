@@ -1,4 +1,4 @@
-{...}:
+{ lib, pkgs, ... }:
 {
   programs.vscode = {
     userSettings = {
@@ -48,7 +48,9 @@
       "window.menuBarVisibility" = "compact";
       "window.commandCenter" = true;
       "workbench.layoutControl.enabled" = false;
-      "window.titleBarStyle" = "native";
+      "window.titleBarStyle" = if pkgs.stdenv.isLinux then "native" else "custom";
+    } // lib.optionalAttrs pkgs.stdenv.isDarwin {
+      "workbench.colorTheme" = "Oscura Midnight";
     };
   };
 }

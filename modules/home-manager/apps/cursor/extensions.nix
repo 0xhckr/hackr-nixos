@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
@@ -21,9 +21,7 @@
         jeff-hykin.better-cpp-syntax
         aaron-bond.better-comments
         biomejs.biome
-        ms-vscode.cpptools
         danielpinto8zz6.c-cpp-compile-run
-        ms-vscode.cpptools-extension-pack
         ms-dotnettools.csharp
         ms-dotnettools.csdevkit
         neikeq.godot-csharp-vscode
@@ -49,7 +47,6 @@
         irongeek.vscode-env
         usernamehw.errorlens
         dbaeumer.vscode-eslint
-        tamasfe.even-better-toml
         vscjava.vscode-java-pack
         donjayamanne.git-extension-pack
         donjayamanne.githistory
@@ -166,9 +163,14 @@
         ziglang.vscode-zig
         spadin.zmk-tools
       ]
+      ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs.vscode-extensions; [
+        ms-vscode.cpptools
+        ms-vscode.cpptools-extension-pack
+      ]))
       ++ (with pkgs.vscode-extensions; [
         ms-vscode.live-server
         vadimcn.vscode-lldb
+        tamasfe.even-better-toml
       ]);
   };
 }
