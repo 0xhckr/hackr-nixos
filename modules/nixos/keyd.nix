@@ -67,6 +67,9 @@
           up = M-C-up
           down = M-C-down
           z = M-C-z
+
+          [meta+control+shift]
+          f = M-C-S-f
         '';
       };
     };
