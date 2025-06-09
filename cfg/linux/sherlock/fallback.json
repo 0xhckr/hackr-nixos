@@ -127,10 +127,10 @@
           "exec": "systemctl reboot",
           "search_string": "reboot;restart"
         },
-        "Log Oout": {
+        "Log Out": {
           "icon": "system-log-out",
           "icon_class": "reactive",
-          "exec": "hyprctl dispatch exit",
+          "exec": "niri msg action quit",
           "search_string": "logout;exit"
         }
       }
