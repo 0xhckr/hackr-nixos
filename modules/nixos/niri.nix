@@ -8,9 +8,9 @@
   # Enable Niri
   programs.niri = {
     enable = true;
+    # package = pkgs.niri;
+    package = inputs.niri-blurry.packages.${pkgs.system}.niri;
   };
-  # use the latest push to the main branch for niri, comment out in case stuff breaks
-  programs.niri.package = inputs.niri-unstable.packages.${pkgs.system}.niri;
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
