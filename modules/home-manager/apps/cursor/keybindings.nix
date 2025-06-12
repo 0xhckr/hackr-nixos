@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.vscode = {
-    keybindings = [
+    profiles.default.keybindings = [
       {
         key = "ctrl+i";
         command = "composerMode.agent";

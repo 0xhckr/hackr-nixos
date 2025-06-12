@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 {
   programs.vscode = {
-    userSettings = {
+    profiles.default.userSettings = {
       "[typescriptreact]" = {
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
       };

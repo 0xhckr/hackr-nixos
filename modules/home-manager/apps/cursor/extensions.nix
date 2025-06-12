@@ -4,7 +4,7 @@
     inputs.nix-vscode-extensions.overlays.default
   ];
   programs.vscode = {
-    extensions =
+    profiles.default.extensions =
       with pkgs.vscode-marketplace;
       [
         # add extensions here
