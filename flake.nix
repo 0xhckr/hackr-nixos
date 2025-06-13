@@ -18,6 +18,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    cosmic-session = {
+      url = "github:bluelinden/cosmic-session";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    cosmic-ext-alternative-startup = {
+      url = "github:bluelinden/cosmic-ext-alternative-startup";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
