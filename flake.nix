@@ -90,11 +90,12 @@
     };
 
     sherlock = {
-      type = "github";
-      owner = "Skxxtz";
-      repo = "sherlock";
-      ref = "unstable/release-v0.1.13";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+file:///home/hackr/dev/sherlock";
+      # type = "github";
+      # owner = "Skxxtz";
+      # repo = "sherlock";
+      # ref = "unstable/release-v0.1.13";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     ghostty = {
