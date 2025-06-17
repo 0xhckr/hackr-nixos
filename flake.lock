@@ -1299,16 +1299,16 @@
         "rust-overlay": "rust-overlay_5"
       },
       "locked": {
-        "lastModified": 1749080210,
-        "narHash": "sha256-aK+LTSOzamTMKwlJ+2zJHSpsBRUFp7zsgho+K9YNtk4=",
+        "lastModified": 1750199775,
+        "narHash": "sha256-lVuK+nZCxBsuN7YNe13XjrbxwKSpRsYg7ksfMzwt6n4=",
         "owner": "Skxxtz",
         "repo": "sherlock",
-        "rev": "458c959030c3e1cbecc115184b0a24dbdf76ae53",
+        "rev": "e1667db78c48f2da688342fcaa2fabb20c2cbe0b",
         "type": "github"
       },
       "original": {
         "owner": "Skxxtz",
-        "ref": "unstable/release-v0.1.13",
+        "ref": "unstable/release-v0.1.14",
         "repo": "sherlock",
         "type": "github"
       }
