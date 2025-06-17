@@ -32,9 +32,12 @@ in
       gh
       yazi
     ]
-    ++ (lib.optionals isLinux [
-      inputs.ghostty.packages."${system}".default
-    ]);
+    ++ (lib.optionals isLinux (
+      with pkgs;
+      [
+        inputs.ghostty.packages."${system}".default
+      ]
+    ));
 
   programs.nushell = {
     enable = true;
