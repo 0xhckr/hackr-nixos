@@ -64,6 +64,7 @@ in
       nordpass
       slack # slack on macOS works mostly but the items that require permissions like microphone and camera don't work
       gimp
+      firefox
     ])
     ++ (lib.optionals isDarwin [
       mos
