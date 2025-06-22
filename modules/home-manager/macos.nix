@@ -65,6 +65,11 @@
       source = ../../cfg/shared/btop;
       recursive = true;
     };
+    ".config/direnv" = {
+      force = true;
+      source = ../../cfg/shared/direnv;
+      recursive = true;
+    };
     ".config/fastfetch" = {
       force = true;
       source = ../../cfg/shared/fastfetch;
