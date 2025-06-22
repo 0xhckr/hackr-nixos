@@ -3,6 +3,8 @@ input {
         xkb {
             // maybe some macOS specific typical keybindings?
         }
+        repeat-delay 150
+        repeat-rate 50
     }
 
     touchpad {
