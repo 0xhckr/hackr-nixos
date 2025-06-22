@@ -10,6 +10,7 @@
     cargo
     nodejs
     bun
+    biome
   ];
 
   programs.git = {
