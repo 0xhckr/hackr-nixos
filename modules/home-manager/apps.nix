@@ -35,6 +35,7 @@ let
     ]
     ++ (lib.optionals isLinux [
       ungoogled-chromium
+      firefox
     ])
     ++ (lib.optionals isLinux (
       with inputs;
@@ -64,7 +65,6 @@ in
       nordpass
       slack # slack on macOS works mostly but the items that require permissions like microphone and camera don't work
       gimp
-      firefox
       protonmail-desktop
     ])
     ++ (lib.optionals isDarwin [
