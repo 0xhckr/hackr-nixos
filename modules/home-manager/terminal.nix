@@ -17,6 +17,7 @@ in
     [
       btop
       atuin
+      psmisc
       starship
       zoxide
       neovim
