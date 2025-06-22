@@ -52,6 +52,19 @@ def rebuild [] {
   }
 }
 
+def restart-waybar [] {
+  if $isLinux {
+    if (ps | where name =~ "waybar" | length) > 0 {
+      killall -q .waybar-wrapped
+    }
+    bash -c $"waybar & disown; exit"
+    sleep 100ms
+    cl
+  } else {
+    echo "waybar?? on macOS???"
+  }
+}
+
 def nr [
   name: string, 
   ...rest: string
