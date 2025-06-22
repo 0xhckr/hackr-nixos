@@ -22,8 +22,6 @@
         aaron-bond.better-comments
         biomejs.biome
         danielpinto8zz6.c-cpp-compile-run
-        ms-dotnettools.csharp
-        ms-dotnettools.csdevkit
         neikeq.godot-csharp-vscode
         xaver.clang-format
         twxs.cmake
@@ -84,7 +82,6 @@
         vscjava.vscode-maven
         unifiedjs.vscode-mdx
         mcu-debug.memory-view
-        hverlin.mise-vscode
         ms-vscode.mono-debug
         william-voyek.vscode-nginx
         ahmadalli.vscode-nginx-conf
