@@ -7,6 +7,6 @@
   ];
   programs.vscode = {
     enable = true;
-    package = pkgs.code-cursor;
+    package = pkgs.code-cursor-fhs;
   };
 }
