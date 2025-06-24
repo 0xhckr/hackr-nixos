@@ -24,6 +24,7 @@
     ../../modules/nixos/steam.nix
     ../../modules/nixos/docker.nix
     ../../modules/nixos/keyd.nix
+    ../../modules/nixos/netbird.nix
   ];
 
   nix.settings.experimental-features = [
