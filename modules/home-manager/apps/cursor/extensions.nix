@@ -2,6 +2,7 @@
 {
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
+    inputs.nix4vscode.overlays.forVscode
   ];
   programs.vscode = {
     profiles.default.extensions =
@@ -64,7 +65,6 @@
         mohd-akram.vscode-html-format
         visualstudioexptteam.vscodeintellicode
         visualstudioexptteam.intellicode-api-usage-examples
-        ms-dotnettools.vscodeintellicode-csharp
         ms-python.isort
         kdl-org.kdl-v1
         ciantic.keymapceditor-vsc
@@ -137,7 +137,6 @@
         jeroen-meijer.shibuya
         shopify.theme-check-vscode
         adpyke.vscode-sql-formatter
-        bmd.stm32-for-vscode
         jonkwheeler.styled-components-snippets
         sysoev.language-stylus
         svelte.svelte-vscode
@@ -160,6 +159,9 @@
         ziglang.vscode-zig
         spadin.zmk-tools
       ]
+      ++ (with pkgs.open-vsx; [
+        muhammad-sammy.csharp
+      ])
       ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs.vscode-extensions; [
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
@@ -168,6 +170,9 @@
         ms-vscode.live-server
         vadimcn.vscode-lldb
         tamasfe.even-better-toml
-      ]);
+      ])
+      ++ pkgs.nix4vscode.forVscode [
+        "ms-dotnettools.csharp.2.63.32" 
+      ];
   };
 }
