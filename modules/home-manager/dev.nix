@@ -11,6 +11,7 @@
     nodejs
     bun
     biome
+    jdk
   ];
 
   programs.git = {
