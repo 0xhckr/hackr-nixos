@@ -17,7 +17,6 @@ in
     [
       btop
       atuin
-      psmisc
       starship
       zoxide
       neovim
@@ -36,6 +35,7 @@ in
     ++ (lib.optionals isLinux (
       with pkgs;
       [
+        psmisc
         inputs.ghostty.packages."${system}".default
       ]
     ));
