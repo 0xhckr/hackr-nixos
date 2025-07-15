@@ -56,7 +56,6 @@ in
       spacedrive
       obsidian
       fontforge
-      inputs.dataflare.packages."${system}".default
     ]
     ++ (lib.optionals isLinux [
       zoom-us
@@ -65,6 +64,7 @@ in
       element-desktop
       nordpass
       slack # slack on macOS works mostly but the items that require permissions like microphone and camera don't work
+      inputs.dataflare.packages."${system}".default
       gimp
       protonmail-desktop
     ])
