@@ -1,36 +1,20 @@
-//
-// Original version by KroneCorylus, ref https://github.com/KroneCorylus/shader-playground/blob/main/shaders/cursor_smear_fade.glsl
-//
-// Modifications:
-// - Base the cursor trail color on the current cursor color, which can be configured
-//   in ghostty's config using `cursor-color`, ref https://ghostty.org/docs/config/reference#cursor-color
-// - Cursor trail is partially transparent, which gives a nice fade effect
-// - Cursor trail's maximum opacity is configurable using `TRAIL_MAX_OPACITY`
-//
+float ease(float x) {
+    return pow(1.0 - x, 10.0);
+}
 
-// reference hex to vec4 color converter:
-// https://enchanted.games/app/colour-converter/
-
-// How long the cursor trail duration
-// NOTE: It's much easier to debug the shader when you make this value
-// much larger, effectively slowing everything down so you can perceive
-// subtle trail effects
-const float DURATION = 0.3; //IN SECONDS
-
-// How opaque should the cursor trail be as it approaches the new cursor
-// position, valid range between [0..1]
-const float TRAIL_MAX_OPACITY = 0.1;
-
+float sdBox(in vec2 p, in vec2 xy, in vec2 b)
+{
+    vec2 d = abs(p - xy) - b;
+    return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0);
+}
 
 float getSdfRectangle(in vec2 p, in vec2 xy, in vec2 b)
 {
     vec2 d = abs(p - xy) - b;
     return length(max(d, 0.0)) + min(max(d.x, d.y), 0.0);
 }
-
 // Based on Inigo Quilez's 2D distance functions article: https://iquilezles.org/articles/distfunctions2d/
 // Potencially optimized by eliminating conditionals and loops to enhance performance and reduce branching
-
 float seg(in vec2 p, in vec2 a, in vec2 b, inout float s, float d) {
     vec2 e = b - a;
     vec2 w = p - a;
@@ -64,6 +48,12 @@ vec2 normalize(vec2 value, float isPosition) {
     return (value * 2.0 - (iResolution.xy * isPosition)) / iResolution.y;
 }
 
+float blend(float t)
+{
+    float sqr = t * t;
+    return sqr / (2.0 * (sqr - t) + 1.0);
+}
+
 float antialising(float distance) {
     return 1. - smoothstep(0., normalize(vec2(2., 2.), 0.).x, distance);
 }
@@ -76,60 +66,65 @@ float determineStartVertexFactor(vec2 a, vec2 b) {
     // If neither condition is met, return 1 (else case)
     return 1.0 - max(condition1, condition2);
 }
-
 vec2 getRectangleCenter(vec4 rectangle) {
     return vec2(rectangle.x + (rectangle.z / 2.), rectangle.y - (rectangle.w / 2.));
 }
-float ease(float x) {
-    return pow(1.0 - x, 3.0);
-}
+
+const vec4 TRAIL_COLOR = vec4(1.0, 0.725, 0.161, 1.0); // yellow
+const vec4 CURRENT_CURSOR_COLOR = TRAIL_COLOR;
+const vec4 PREVIOUS_CURSOR_COLOR = TRAIL_COLOR;
+const vec4 TRAIL_COLOR_ACCENT = vec4(1.0, 0., 0., 1.0); // red-orange
+const float DURATION = .5;
+const float OPACITY = .2;
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
     #if !defined(WEB)
     fragColor = texture(iChannel0, fragCoord.xy / iResolution.xy);
     #endif
-    // Normalization for fragCoord to a space of -1 to 1;
+    //Normalization for fragCoord to a space of -1 to 1;
     vec2 vu = normalize(fragCoord, 1.);
     vec2 offsetFactor = vec2(-.5, 0.5);
 
-    // Normalization for cursor position and size;
-    // cursor xy has the postion in a space of -1 to 1;
-    // zw has the width and height
+    //Normalization for cursor position and size;
+    //cursor xy has the postion in a space of -1 to 1;
+    //zw has the width and height
     vec4 currentCursor = vec4(normalize(iCurrentCursor.xy, 1.), normalize(iCurrentCursor.zw, 0.));
     vec4 previousCursor = vec4(normalize(iPreviousCursor.xy, 1.), normalize(iPreviousCursor.zw, 0.));
 
-    // When drawing a parellelogram between cursors for the trail i need to determine where to start at the top-left or top-right vertex of the cursor
+    //When drawing a parellelogram between cursors for the trail i need to determine where to start at the top-left or top-right vertex of the cursor
     float vertexFactor = determineStartVertexFactor(currentCursor.xy, previousCursor.xy);
     float invertedVertexFactor = 1.0 - vertexFactor;
 
-    // Set every vertex of my parellogram
+    //Set every vertex of my parellogram
     vec2 v0 = vec2(currentCursor.x + currentCursor.z * vertexFactor, currentCursor.y - currentCursor.w);
     vec2 v1 = vec2(currentCursor.x + currentCursor.z * invertedVertexFactor, currentCursor.y);
     vec2 v2 = vec2(previousCursor.x + currentCursor.z * invertedVertexFactor, previousCursor.y);
     vec2 v3 = vec2(previousCursor.x + currentCursor.z * vertexFactor, previousCursor.y - previousCursor.w);
 
-    float sdfCurrentCursor = getSdfRectangle(vu, currentCursor.xy - (currentCursor.zw * offsetFactor), currentCursor.zw * 0.5);
-    float sdfTrail = getSdfParallelogram(vu, v0, v1, v2, v3);
+    vec4 newColor = vec4(fragColor);
 
-    float progress = clamp((iTime - iTimeCursorChange) / DURATION, 0.0, 1.0);
+    float progress = blend(clamp((iTime - iTimeCursorChange) / DURATION, 0.0, 1));
     float easedProgress = ease(progress);
-    // Distance between cursors determine the total length of the parallelogram;
+
+    //Distance between cursors determine the total length of the parallelogram;
     vec2 centerCC = getRectangleCenter(currentCursor);
     vec2 centerCP = getRectangleCenter(previousCursor);
     float lineLength = distance(centerCC, centerCP);
+    float distanceToEnd = distance(vu.xy, centerCC);
+    float alphaModifier = distanceToEnd / (lineLength * (easedProgress));
 
-    // Compute fade factor based on distance along the trail
-    float fadeFactor = clamp(1.0 - smoothstep(lineLength, sdfCurrentCursor, easedProgress * lineLength), 0., TRAIL_MAX_OPACITY);
+    if (alphaModifier > 1.0) { // this change fixed it for me.
+      alphaModifier = 1.0;
+    }
 
-    // Apply fading effect to trail color
-    vec4 fadedTrailColor = mix(fragColor, iCurrentCursorColor, fadeFactor);
+    float sdfCursor = getSdfRectangle(vu, currentCursor.xy - (currentCursor.zw * offsetFactor), currentCursor.zw * 0.5);
+    float sdfTrail = getSdfParallelogram(vu, v0, v1, v2, v3);
 
-    // Blend trail with fade effect
-    vec4 newColor =  mix(fragColor, fadedTrailColor, antialising(sdfTrail));
+    newColor = mix(newColor, TRAIL_COLOR_ACCENT, 1.0 - smoothstep(sdfTrail, -0.01, 0.001));
+    newColor = mix(newColor, TRAIL_COLOR, antialising(sdfTrail));
 
-    // Draw current cursor
-    newColor = mix(newColor, iCurrentCursorColor , antialising(sdfCurrentCursor));
-    newColor = mix(newColor, fragColor, step(sdfCurrentCursor, 0.));
-    fragColor = mix(fragColor, newColor, step(sdfCurrentCursor, easedProgress * lineLength));
+    newColor = mix(fragColor, newColor, 1.0 - alphaModifier);
+    fragColor = mix(newColor, fragColor, step(sdfCursor, 0));
+
 }
