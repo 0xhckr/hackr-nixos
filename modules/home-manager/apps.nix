@@ -56,6 +56,7 @@ in
       spacedrive
       obsidian
       fontforge
+      inputs.dataflare.packages."${system}".default
     ]
     ++ (lib.optionals isLinux [
       zoom-us

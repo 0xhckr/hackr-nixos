@@ -118,6 +118,11 @@
       url = "github:nix-community/nix4vscode";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+
+    dataflare = {
+      url = "github:hackr-sh/dataflare-nixos-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
