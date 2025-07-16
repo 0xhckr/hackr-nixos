@@ -27,6 +27,7 @@
     ../../modules/nixos/keyd.nix
     ../../modules/nixos/netbird.nix
     ../../modules/nixos/ssh.nix
+    ../../modules/nixos/obs.nix
   ];
 
   networking.hostName = "hackrpc"; # Define your hostname.
