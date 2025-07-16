@@ -67,6 +67,8 @@
           up = M-C-up
           down = M-C-down
           z = M-C-z
+          equal = M-C-equal
+          minus = M-C-minus
 
           [meta+control+shift]
           f = M-C-S-f
