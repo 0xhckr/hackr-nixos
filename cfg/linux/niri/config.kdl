@@ -126,6 +126,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id=r#"zen-beta$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
     match app-id=r#"zab$"#
     open-floating true
 }
