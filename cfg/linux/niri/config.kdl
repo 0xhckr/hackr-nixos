@@ -123,11 +123,13 @@ animations { }
 window-rule {
     match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
+    default-floating-position x=20 y=20 relative-to="bottom-right"
 }
 
 window-rule {
     match app-id=r#"zen-beta$"# title="^Picture-in-Picture$"
     open-floating true
+    default-floating-position x=20 y=20 relative-to="bottom-right"
 }
 
 window-rule {
