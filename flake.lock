@@ -266,11 +266,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1752546730,
-        "narHash": "sha256-L5zD90XZJkvSOZ17XahiLlnrF0r6vW5l83gOoWrvHrE=",
+        "lastModified": 1753111050,
+        "narHash": "sha256-+lX0hZtAOzpZf/1H4n9/tY+j1k7A8aCoKZoXE1zYx18=",
         "owner": "hackr-sh",
         "repo": "dataflare-nixos-flake",
-        "rev": "34fb54765bec8163a6e98fe0115c6ff65bc60566",
+        "rev": "58c6d8618afdd46d09d3ed23e159140ad6258d58",
         "type": "github"
       },
       "original": {
