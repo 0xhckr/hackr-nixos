@@ -73,7 +73,7 @@ in
       stats
       alt-tab-macos
     ])
-    ++ jetbrainsApps
-    ++ affinityApps
+    # ++ jetbrainsApps
+    # ++ affinityApps
     ++ browsers;
 }
