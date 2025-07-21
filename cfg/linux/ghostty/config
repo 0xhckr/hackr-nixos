@@ -8,7 +8,7 @@ font-size = 11
 font-thicken = false
 grapheme-width-method = unicode
 theme = light:rose-pine-dawn,dark:oscura-midnight
-cursor-style = block
+cursor-style = bar
 mouse-hide-while-typing = true
 
 mouse-shift-capture = false
