@@ -26,7 +26,7 @@
       "nikitabobko/tap/aerospace"
       "arc"
       "1password"
-      "docker"
+      "orbstack"
       "microsoft-outlook"
       "sip"
       "bluebubbles"
