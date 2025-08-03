@@ -15,7 +15,9 @@ in
   home.packages =
     with pkgs;
     [
-      btop
+      (btop.override {
+        rocmSupport = true;
+      })
       atuin
       starship
       zoxide
