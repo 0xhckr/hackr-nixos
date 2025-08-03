@@ -67,6 +67,7 @@ in
       inputs.dataflare.packages."${system}".default
       gimp
       protonmail-desktop
+      parsec-bin
     ])
     ++ (lib.optionals isDarwin [
       mos
