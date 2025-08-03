@@ -26,6 +26,7 @@
     ../../modules/nixos/keyd.nix
     ../../modules/nixos/netbird.nix
     ../../modules/nixos/fw.nix
+    ../../modules/nixos/dev.nix
   ];
 
   nix.settings.experimental-features = [
