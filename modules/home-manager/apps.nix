@@ -68,6 +68,7 @@ in
       gimp
       protonmail-desktop
       parsec-bin
+      ryujinx
     ])
     ++ (lib.optionals isDarwin [
       mos
