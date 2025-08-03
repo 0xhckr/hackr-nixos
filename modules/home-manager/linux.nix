@@ -30,6 +30,10 @@
       source = ../../cfg/linux/niri;
       recursive = true;
     };
+    ".config/nixpkgs/config.nix" = {
+      force = true;
+      source = ../../cfg/linux/nixpkgs/config.nix;
+    };
     ".config/sherlock" = {
       force = true;
       source = ../../cfg/linux/sherlock;
