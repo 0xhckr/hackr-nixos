@@ -52,10 +52,10 @@ in
     with pkgs;
     [
       spotify
-      vesktop
       spacedrive
       obsidian
       fontforge
+      discord # discord now works flawlessly on NixOS. no need for vesktop.
     ]
     ++ (lib.optionals isLinux [
       zoom-us
