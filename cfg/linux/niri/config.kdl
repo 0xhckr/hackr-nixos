@@ -110,6 +110,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "swaybg" "-i" "/home/hackr/.config/walls/blur.jpg"
 spawn-at-startup "swww" "img" "/home/hackr/.config/walls/wall.jpg"
+spawn-at-startup "tailscale-systray"
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 screenshot-path null

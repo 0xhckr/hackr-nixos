@@ -28,6 +28,7 @@
     ../../modules/nixos/netbird.nix
     ../../modules/nixos/ssh.nix
     ../../modules/nixos/obs.nix
+    ../../modules/nixos/tailscale.nix
     ../../modules/nixos/dev.nix
   ];
 
