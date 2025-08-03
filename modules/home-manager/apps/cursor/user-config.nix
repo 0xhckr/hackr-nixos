@@ -51,6 +51,7 @@
       "window.titleBarStyle" = if pkgs.stdenv.isLinux then "native" else "custom";
       "workbench.colorTheme" = lib.mkForce "Oscura Midnight";
       "editor.cursorBlinking" = "smooth";
+      "json.schemaDownload.enable" = true;
     };
   };
 }
