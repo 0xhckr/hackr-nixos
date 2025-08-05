@@ -52,6 +52,7 @@
       "workbench.colorTheme" = lib.mkForce "Oscura Midnight";
       "editor.cursorBlinking" = "smooth";
       "json.schemaDownload.enable" = true;
+      "qt-qml.qmlls.useQmlImportPathEnvVar" = true;
     };
   };
 }
