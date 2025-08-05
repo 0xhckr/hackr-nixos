@@ -13,6 +13,6 @@ fi
 
 # launch discord on home pc
 if [ "$(hostname)" = "hackrpc" ]; then
-    nohup vesktop 2>&1 > /dev/null &
+    nohup discord 2>&1 > /dev/null &
     disown
 fi
