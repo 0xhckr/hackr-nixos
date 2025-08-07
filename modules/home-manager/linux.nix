@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./ssh.nix
@@ -33,6 +33,11 @@
     ".config/nixpkgs/config.nix" = {
       force = true;
       source = ../../cfg/linux/nixpkgs/config.nix;
+    };
+    ".config/quickshell" = {
+      force = true;
+      source = inputs.beepshell;
+      recursive = true;
     };
     ".config/sherlock" = {
       force = true;
