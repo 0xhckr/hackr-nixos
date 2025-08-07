@@ -1,0 +1,3 @@
+[submodule "cfg/linux/quickshell"]
+	path = cfg/linux/quickshell
+	url = git@github.com:hackr-sh/beepshell.git
