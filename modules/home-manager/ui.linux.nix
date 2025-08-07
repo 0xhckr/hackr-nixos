@@ -20,6 +20,7 @@
       slurp
       wl-clipboard
       pavucontrol
+      alsa-utils
       swaybg
     ]
     ++ (with inputs; [
