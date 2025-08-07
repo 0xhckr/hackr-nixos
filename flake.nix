@@ -67,6 +67,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    beepshell = {
+      url = "github:hackr-sh/beepshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri-blurry = {
       type = "github";
       owner = "visualglitch91";
