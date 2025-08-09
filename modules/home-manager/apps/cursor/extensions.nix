@@ -23,7 +23,6 @@
         aaron-bond.better-comments
         biomejs.biome
         danielpinto8zz6.c-cpp-compile-run
-        neikeq.godot-csharp-vscode
         xaver.clang-format
         twxs.cmake
         josetr.cmake-language-support-vscode
@@ -144,7 +143,6 @@
         bradlc.vscode-tailwindcss
         tauri-apps.tauri-vscode
         vscjava.vscode-java-test
-        visualstudiotoolsforunity.vstuc
         knisterpeter.vscode-commitizen
         vscode-icons-team.vscode-icons
         thenuprojectcontributors.vscode-nushell-lang
@@ -166,13 +164,13 @@
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
       ]))
+      ++ pkgs.nix4vscode.forVscode [
+        "ms-dotnettools.csharp.2.63.32"
+      ]
       ++ (with pkgs.vscode-extensions; [
         ms-vscode.live-server
         vadimcn.vscode-lldb
         tamasfe.even-better-toml
-      ])
-      ++ pkgs.nix4vscode.forVscode [
-        "ms-dotnettools.csharp.2.63.32" 
-      ];
+      ]);
   };
 }
