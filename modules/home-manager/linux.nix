@@ -34,7 +34,7 @@
       force = true;
       source = ../../cfg/linux/nixpkgs/config.nix;
     };
-    ".config/quickshell" = {
+    ".config/beepshell" = {
       force = true;
       source = inputs.beepshell;
       recursive = true;
