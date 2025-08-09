@@ -53,6 +53,9 @@
       "editor.cursorBlinking" = "smooth";
       "json.schemaDownload.enable" = true;
       "qt-qml.qmlls.useQmlImportPathEnvVar" = true;
+      "[qml]" = {
+        "editor.defaultFormatter" = "theqtcompany.qt-qml";
+      };
     };
   };
 }
