@@ -160,11 +160,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754531968,
-        "narHash": "sha256-QYfuO7xS5HgsLd5EOhsCv2fM5RaUub9dAY3m/HGEzt8=",
+        "lastModified": 1754812979,
+        "narHash": "sha256-nyQzvcFO5q/9SSehVoxTrJQIn1mMIgtzwCGhhMyTm6M=",
         "owner": "hackr-sh",
         "repo": "beepshell",
-        "rev": "99dc411fbdf9eb38288eb6b78d7ba7dbaf0d3b91",
+        "rev": "b697ba0fe40a821d789dcd871ffac0bbdfffbc64",
         "type": "github"
       },
       "original": {
