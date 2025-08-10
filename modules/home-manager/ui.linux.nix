@@ -20,6 +20,7 @@
       slurp
       wl-clipboard
       pavucontrol
+      pulseaudioFull
       alsa-utils
       swaybg
     ]
