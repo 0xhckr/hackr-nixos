@@ -25,7 +25,6 @@
     ../../modules/nixos/docker.nix
     ../../modules/nixos/disable-rgb.nix
     ../../modules/nixos/keyd.nix
-    ../../modules/nixos/netbird.nix
     ../../modules/nixos/ssh.nix
     ../../modules/nixos/obs.nix
     ../../modules/nixos/tailscale.nix
