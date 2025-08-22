@@ -11,7 +11,6 @@
     [
       cava
       wofi
-      dunst
       waypaper
       waybar
       playerctl
