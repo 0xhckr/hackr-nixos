@@ -29,6 +29,7 @@ source ./zoxide.macos.nu
 source ./starship.nu
 source ./mise.nu
 source ./direnv.nu
+source ./tmux.nu
 
 alias pip = python3 -m pip
 alias g = git

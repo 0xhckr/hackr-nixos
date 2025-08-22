@@ -19,6 +19,7 @@
           
           [meta]
           c = C-c
+          b = C-b
           v = C-v
           x = C-x
           a = C-a

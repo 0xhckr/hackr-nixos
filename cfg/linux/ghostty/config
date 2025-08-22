@@ -36,7 +36,7 @@ keybind = ctrl+minus=decrease_font_size:1
 keybind = super+comma=open_config
 keybind = ctrl+shift+r=reload_config
 
-keybind = ctrl+a=select_all
+keybind = ctrl+shift+a=select_all
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
 
