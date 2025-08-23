@@ -37,6 +37,7 @@ in
     ++ (lib.optionals isLinux (
       with pkgs;
       [
+        libnotify
         psmisc
         inputs.ghostty.packages."${system}".default
       ]
