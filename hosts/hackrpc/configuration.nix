@@ -30,6 +30,7 @@
     ../../modules/nixos/tailscale.nix
     ../../modules/nixos/dev.nix
     ../../modules/nixos/vbox.nix
+    ../../modules/nixos/netbird.nix
   ];
 
   networking.hostName = "hackrpc"; # Define your hostname.

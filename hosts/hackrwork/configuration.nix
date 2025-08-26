@@ -27,6 +27,7 @@
     ../../modules/nixos/tailscale.nix
     ../../modules/nixos/fw.nix
     ../../modules/nixos/dev.nix
+    ../../modules/nixos/netbird.nix
   ];
 
   nix.settings.experimental-features = [
