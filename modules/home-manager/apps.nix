@@ -69,6 +69,7 @@ in
       protonmail-desktop
       parsec-bin
       ryubing
+      vlc
     ])
     ++ (lib.optionals isDarwin [
       mos
