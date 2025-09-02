@@ -41,7 +41,11 @@
     # add global basic packages here (the ones that are used quite literally everywhere)
     wget
     curl
+    openrazer-daemon
+    polychromatic
   ];
+  hardware.openrazer.enable = true;
+  users.users.hackr.extraGroups = [ "openrazer" ];
 
   services.logind.lidSwitchExternalPower = "ignore";
   systemd.sleep.extraConfig = ''
