@@ -86,6 +86,11 @@ def code [...args: string] {
   }
 }
 
+def point-and-kill [] {
+  let appPID = niri msg pick-window | grep "PID:" | str replace "PID: " "" | into int
+  kill -9 $appPID
+}
+
 if $isLinux {
   ~/.config/nushell/aacpi.sh #produces files inside of ~/.nuget/plugins/ for azure artifacts credprovider
 } else {
