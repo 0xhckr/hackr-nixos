@@ -133,6 +133,11 @@
       url = "github:hackr-sh/dataflare-nixos-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    jujutsu = {
+      url = "github:jj-vcs/jj";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

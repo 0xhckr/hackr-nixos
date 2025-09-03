@@ -33,6 +33,8 @@ in
       zsh-autoenv
       gh
       yazi
+      inputs.jujutsu.packages."${system}".default
+      helix
     ]
     ++ (lib.optionals isLinux (
       with pkgs;
