@@ -30,6 +30,11 @@
       source = ../../cfg/macos/ghostty;
       recursive = true;
     };
+    ".config/jj" = {
+      force = true;
+      source = ../../cfg/macos/jj;
+      recursive = true;
+    };
     ".config/nixpkgs" = {
       force = true;
       source = ../../cfg/macos/nixpkgs;

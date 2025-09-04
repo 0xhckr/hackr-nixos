@@ -25,6 +25,11 @@
       source = ../../cfg/linux/hypr;
       recursive = true;
     };
+    ".config/jj" = {
+      force = true;
+      source = ../../cfg/linux/jj;
+      recursive = true;
+    };
     ".config/niri" = {
       force = true;
       source = ../../cfg/linux/niri;
