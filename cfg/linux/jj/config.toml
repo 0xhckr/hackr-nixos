@@ -15,7 +15,7 @@ backends.ssh.program = "/home/hackr/.nix-profile/bin/op-ssh-sign"
 
 
 [[--scope]]
---when-repositories = [ "~/work" ]
+--when.repositories = [ "~/work" ]
 [--scope.user]
 email = "mohammad@knowhistory.ca"
 [--scope.signing]
