@@ -138,6 +138,46 @@
     "priority": 5
   },
   {
+    "name": "Color Picker",
+    "alias": "cp",
+    "type": "command",
+    "args": {
+      "commands": {
+        "Hex": {
+          "icon": "color-picker",
+          "icon_class": "reactive",
+          "exec": "hyprpicker -af hex",
+          "search_string": "hyprpicker;color;picker;copy;hex"
+        },
+        "RGB": {
+          "icon": "color-picker",
+          "icon_class": "reactive",
+          "exec": "hyprpicker -af rgb",
+          "search_string": "hyprpicker;color;picker;copy;rgb"
+        },
+        "CMYK": {
+          "icon": "color-picker",
+          "icon_class": "reactive",
+          "exec": "hyprpicker -af cmyk",
+          "search_string": "hyprpicker;color;picker;copy;cmyk"
+        },
+        "HSL": {
+          "icon": "color-picker",
+          "icon_class": "reactive",
+          "exec": "hyprpicker -af hsl",
+          "search_string": "hyprpicker;color;picker;copy;hsl"
+        },
+        "HSV": {
+          "icon": "color-picker",
+          "icon_class": "reactive",
+          "exec": "hyprpicker -af hsv",
+          "search_string": "hyprpicker;color;picker;copy;hsv"
+        }
+      }
+    },
+    "priority": 1
+  },
+  {
     "name": "Web Search",
     "display_name": "Google Search",
     "tag_start": "{keyword}",
