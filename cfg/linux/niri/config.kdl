@@ -70,6 +70,7 @@ layout {
     empty-workspace-above-first
     center-focused-column "on-overflow"
     always-center-single-column
+    background-color "transparent"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -105,7 +106,6 @@ layout {
 }
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "swww-daemon"
 spawn-at-startup "qs" "-p" "/home/hackr/.config/beepshell"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "swaybg" "-i" "/home/hackr/.config/walls/blur.jpg"
