@@ -17,6 +17,7 @@
       wlogout
       wf-recorder
       slurp
+      hyprpicker
       wl-clipboard
       pavucontrol
       pulseaudioFull
