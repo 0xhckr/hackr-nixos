@@ -85,7 +85,27 @@ layout {
 
     focus-ring {
         width 2
-        active-gradient from="#191724" to="#191724" angle=45
+        active-gradient from="#E6E6EF" to="#191724" angle=180
+    }
+
+    tab-indicator {
+        width 8
+        gap 16
+        gaps-between-tabs 8
+        corner-radius 8
+        active-color "#E6E6EF"
+        inactive-color "#191724"
+        urgent-color "#CE2D4F"
+        length total-proportion=0.45
+        position "left"
+        place-within-column
+    }
+
+    struts {
+        left -8
+        right -8
+        top -8
+        bottom -8
     }
 
     shadow {
@@ -164,13 +184,13 @@ window-rule {
 
 window-rule {
     match is-focused=false
-    opacity 0.5
+    opacity 0.85
     draw-border-with-background false
 }
 
 window-rule {
     match is-focused=true
-    opacity 0.85
+    opacity 1.0
     draw-border-with-background false
 }
 
@@ -187,6 +207,9 @@ layer-rule {
 
 overview {
     backdrop-color "#232136"
+    workspace-shadow {
+        off
+    }
     // backdrop-color "#00000000"
 }
 
