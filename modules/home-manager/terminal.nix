@@ -16,7 +16,7 @@ in
     with pkgs;
     [
       (btop.override {
-        rocmSupport = true;
+        rocmSupport = isLinux;
       })
       atuin
       starship
