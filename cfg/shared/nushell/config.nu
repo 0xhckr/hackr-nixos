@@ -31,15 +31,6 @@ source ./mise.nu
 source ./direnv.nu
 source ./tmux.nu
 
-alias pip = python3 -m pip
-alias g = git
-alias gc = git commit -m
-alias gp = git push
-alias gl = git pull
-alias gco = git checkout
-alias l = ls -la
-alias b = bun
-
 def cl [] {
   clear
   fastfetch
@@ -85,7 +76,17 @@ def code [...args: string] {
     bash -c $"nohup ~/.nix-profile/bin/cursor ($args | str join ' ') >/dev/null 2>&1 &"
   }
 }
-
+    
+def --env --wrapped zc [...args: string] {
+  if $args == null or $args == [] {
+    cd ~
+    code
+  } else {
+    z ($args | str join ' ')
+    code .
+  }
+}
+  
 def point-and-kill [] {
   let appPID = niri msg pick-window | grep "PID:" | str replace "PID: " "" | into int
   kill -9 $appPID
@@ -96,5 +97,15 @@ if $isLinux {
 } else {
   "~/Library/Application Support/nushell/aacpi.sh"
 }
+
+alias pip = python3 -m pip
+alias g = git
+alias gc = git commit -m
+alias gp = git push
+alias gl = git pull
+alias gco = git checkout
+alias l = ls -la
+alias b = bun
+alias c = code
 
 fastfetch
