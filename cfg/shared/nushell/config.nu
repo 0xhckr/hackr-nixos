@@ -29,7 +29,9 @@ source ./zoxide.macos.nu
 source ./starship.nu
 source ./mise.nu
 source ./direnv.nu
-source ./tmux.nu
+if $isLinux {
+  source ./tmux.nu
+}
 
 def cl [] {
   clear

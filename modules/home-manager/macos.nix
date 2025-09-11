@@ -75,10 +75,13 @@
       source = ../../cfg/shared/direnv;
       recursive = true;
     };
-    ".config/fastfetch" = {
+    ".config/fastfetch/config.jsonc" = {
       force = true;
-      source = ../../cfg/shared/fastfetch;
-      recursive = true;
+      source = ../../cfg/shared/fastfetch/config.macos.jsonc;
+    };
+    ".config/fastfetch/infernape.png" = {
+      force = true;
+      source = ../../cfg/shared/fastfetch/infernape.png;
     };
     "Library/Application Support/nushell" = {
       force = true;

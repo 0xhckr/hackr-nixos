@@ -79,10 +79,13 @@
       source = ../../cfg/shared/direnv;
       recursive = true;
     };
-    ".config/fastfetch" = {
+    ".config/fastfetch/config.jsonc" = {
       force = true;
-      source = ../../cfg/shared/fastfetch;
-      recursive = true;
+      source = ../../cfg/shared/fastfetch/config.linux.jsonc;
+    };
+    ".config/fastfetch/infernape.png" = {
+      force = true;
+      source = ../../cfg/shared/fastfetch/infernape.png;
     };
     ".config/nushell" = {
       force = true;
