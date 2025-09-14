@@ -83,6 +83,7 @@ in
             $env.config.show_banner = false
             $env.DIRENV_LOG_FORMAT = ""
             $env.NIXPKGS_ALLOW_UNFREE = "1"
+            $env.DISPLAY = ":0"
           '';
         };
       }
