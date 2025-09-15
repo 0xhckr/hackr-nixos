@@ -1,101 +1,170 @@
 [
   {
     "name": "Weather",
+    "alias": null,
+    "tag_start": null,
+    "tag_end": null,
+    "display_name": null,
+    "on_return": null,
+    "next_content": null,
     "type": "weather",
+    "priority": 1.0,
+    "exit": true,
+    "shortcut": false,
+    "spawn_focus": false,
+    "async": true,
+    "home": "OnlyHome",
     "args": {
-      "location": "calgary",
+      "location": "Calgary",
       "update_interval": 60
     },
-    "priority": 1,
-    "home": true,
-    "only_home": true,
-    "async": true,
-    "shortcut": false,
-    "spawn_focus": false
-  },
-  {
-    "name": "Teams Event",
-    "type": "teams_event",
-    "args": {
-      "event_date": "now",
-      "event_start": "-5 minutes",
-      "event_end": "+15 minutes"
-    },
-    "priority": 1,
-    "home": true
-  },
-  {
-    "name": "Calculator",
-    "type": "calculation",
-    "alias": "calc",
-    "args": {
-      "capabilities": ["calc.math", "calc.units"]
-    },
-    "priority": 1
+    "binds": null,
+    "actions": [
+      {
+        "name": "Show in Web",
+        "exec": "https://www.wttr.in/Calgary",
+        "icon": "sherlock-link",
+        "method": "web_launcher",
+        "exit": true
+      }
+    ],
+    "add_actions": null
   },
   {
     "name": "Spotify",
+    "alias": null,
+    "tag_start": null,
+    "tag_end": null,
+    "display_name": null,
+    "on_return": null,
+    "next_content": null,
     "type": "audio_sink",
-    "args": {},
+    "priority": 1.0,
+    "exit": true,
+    "shortcut": true,
+    "spawn_focus": false,
     "async": true,
-    "priority": 1,
-    "home": true,
-    "only_home": true,
-    "spawn_focus": false
+    "home": "OnlyHome",
+    "args": {},
+    "binds": [
+      {
+        "bind": "Return",
+        "callback": "playpause",
+        "exit": false
+      },
+      {
+        "bind": "l",
+        "callback": "next",
+        "exit": false
+      },
+      {
+        "bind": "h",
+        "callback": "previous",
+        "exit": false
+      }
+    ],
+    "actions": [
+      {
+        "name": "Skip",
+        "exec": null,
+        "icon": "media-seek-forward",
+        "method": "inner.next",
+        "exit": false
+      },
+      {
+        "name": "Previous",
+        "exec": null,
+        "icon": "media-seek-backward",
+        "method": "inner.previous",
+        "exit": false
+      }
+    ],
+    "add_actions": null
   },
   {
-    "name": "Clipboard",
-    "type": "clipboard-execution",
+    "name": "Calculator",
+    "alias": null,
+    "tag_start": null,
+    "tag_end": null,
+    "display_name": null,
+    "on_return": "copy",
+    "next_content": null,
+    "type": "calculation",
+    "priority": 1.0,
+    "exit": true,
+    "shortcut": true,
+    "spawn_focus": true,
+    "async": false,
+    "home": "Search",
     "args": {
-      "capabilities": [
-        "url",
-        "colors.hex",
-        "colors.rgb",
-        "colors.hsl",
-        "calc.math",
-        "calc.lengths",
-        "calc.weights",
-        "calc.temperatures"
-      ]
+      "capabilities": ["calc.math", "calc.units"]
     },
-    "priority": 1,
-    "home": true
+    "binds": null,
+    "actions": null,
+    "add_actions": null
   },
   {
     "name": "App Launcher",
     "alias": "app",
+    "tag_start": null,
+    "tag_end": null,
+    "display_name": null,
+    "on_return": null,
+    "next_content": null,
     "type": "app_launcher",
+    "priority": 3.0,
+    "exit": true,
+    "shortcut": true,
+    "spawn_focus": true,
+    "async": false,
+    "home": "Home",
     "args": {},
-    "priority": 2,
-    "home": true
-  },
-  {
-    "name": "Categories",
-    "alias": "cat",
-    "type": "categories",
-    "args": {
-      "Kill Processes": {
-        "icon": "sherlock-process",
-        "icon_class": "reactive",
-        "exec": "kill",
-        "search_string": "terminate;kill;process"
-      },
-      "Power Menu": {
-        "icon": "battery-full-symbolic",
-        "icon_class": "reactive",
-        "exec": "pm",
-        "search_string": "powermenu;"
-      }
-    },
-    "priority": 3,
-    "home": true
+    "binds": null,
+    "actions": null,
+    "add_actions": null
   },
   {
     "name": "Kill Process",
     "alias": "kill",
+    "tag_start": null,
+    "tag_end": null,
+    "display_name": null,
+    "on_return": null,
+    "next_content": null,
     "type": "process",
+    "priority": 0.0,
+    "exit": true,
+    "shortcut": true,
+    "spawn_focus": true,
+    "async": false,
+    "home": "Search",
     "args": {},
-    "priority": 0
+    "binds": null,
+    "actions": null,
+    "add_actions": null
+  },
+  {
+    "name": "Web Search",
+    "alias": "gg",
+    "tag_start": "{keyword}",
+    "tag_end": null,
+    "display_name": "Google Search",
+    "on_return": null,
+    "next_content": null,
+    "type": "web_launcher",
+    "priority": 100.0,
+    "exit": true,
+    "shortcut": true,
+    "spawn_focus": true,
+    "async": false,
+    "home": "Search",
+    "args": {
+      "icon": "google",
+      "search_engine": "google"
+    },
+    "binds": null,
+    "actions": null,
+    "add_actions": null
   },
   {
     "name": "Power Management",
@@ -176,71 +245,5 @@
       }
     },
     "priority": 1
-  },
-  {
-    "name": "Web Search",
-    "display_name": "Google Search",
-    "tag_start": "{keyword}",
-    "tag_end": "{keyword}",
-    "alias": "gg",
-    "type": "web_launcher",
-    "args": {
-      "search_engine": "google",
-      "icon": "google"
-    },
-    "priority": 100
-  },
-  {
-    "name": "Debug",
-    "type": "debug",
-    "alias": "debug",
-    "args": {
-      "commands": {
-        "Show Errors": {
-          "icon": "sherlock-process",
-          "exec": "show_errors",
-          "search_string": "debug;errors"
-        },
-        "Clear Cache": {
-          "icon": "sherlock-process",
-          "exec": "clear_cache",
-          "search_string": "clear;cache;"
-        },
-        "Reset App Counts": {
-          "icon": "sherlock-process",
-          "exec": "reset_counts",
-          "search_string": "reset;clear;counts;appcounts"
-        }
-      }
-    },
-    "priority": 0
-  },
-  {
-    "name": "Categories",
-    "alias": "cat",
-    "type": "categories",
-    "args": {
-      "categories": {
-        "Kill Processes": {
-          "icon": "sherlock-process",
-          "exec": "kill",
-          "search_string": "terminate;kill;process"
-        },
-        "Power Menu": {
-          "icon": "battery-full-symbolic",
-          "icon_class": "reactive",
-          "exec": "pm",
-          "search_string": "powermenu;"
-        },
-        "Debug": {
-          "icon": "tools-report-bug",
-          "icon_class": "reactive",
-          "exec": "debug",
-          "search_string": "debug;error"
-        }
-      }
-    },
-    "priority": 3,
-    "home": true
   }
 ]
