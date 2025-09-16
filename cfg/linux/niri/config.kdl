@@ -126,6 +126,7 @@ layout {
 }
 
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "vicinae" "server"
 spawn-at-startup "qs" "-p" "/home/hackr/.config/beepshell"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "swaybg" "-i" "/home/hackr/.config/walls/blur.jpg"
@@ -230,7 +231,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
-    Mod+Space { spawn "sherlock"; }
+    Mod+Shift+Alt+Space { spawn "sherlock"; } // backup but better
+    Mod+Space { spawn "vicinae"; }
     Super+Alt+L { spawn "dolphin"; }
     Mod+Ctrl+L { spawn "wlogout"; }
 
