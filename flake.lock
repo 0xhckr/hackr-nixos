@@ -677,6 +677,24 @@
         "type": "github"
       }
     },
+    "flake-utils_9": {
+      "inputs": {
+        "systems": "systems_11"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -1314,6 +1332,7 @@
         "stylix": "stylix",
         "swww": "swww",
         "vicinae": "vicinae",
+        "winboat-temp": "winboat-temp",
         "zen-browser": "zen-browser"
       }
     },
@@ -1610,6 +1629,21 @@
         "type": "github"
       }
     },
+    "systems_11": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "systems_2": {
       "locked": {
         "lastModified": 1681028828,
@@ -1830,6 +1864,27 @@
       "original": {
         "owner": "vicinaehq",
         "repo": "vicinae",
+        "type": "github"
+      }
+    },
+    "winboat-temp": {
+      "inputs": {
+        "flake-utils": "flake-utils_9",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1757801258,
+        "narHash": "sha256-TWlbR3p4/6I8cv0ECmR/Sn8xHOZK/8rsDSbRi7Op5Ck=",
+        "owner": "Simon-Weij",
+        "repo": "winboat",
+        "rev": "4df80b0e0fea760a43ac54cdfd83a58a0f20d18d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Simon-Weij",
+        "repo": "winboat",
         "type": "github"
       }
     },

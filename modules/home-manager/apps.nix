@@ -65,6 +65,7 @@ in
       nordpass
       slack # slack on macOS works mostly but the items that require permissions like microphone and camera don't work
       inputs.dataflare.packages."${system}".default
+      inputs.winboat-temp.packages."${system}".default
       gimp
       protonmail-desktop
       parsec-bin

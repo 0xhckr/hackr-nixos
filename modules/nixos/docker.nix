@@ -5,16 +5,17 @@
 }:
 
 {
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
-    dockerCompat = true;
-    defaultNetwork.settings.dns_enabled = true;
   };
   users.users.hackr.extraGroups = [ "docker" ];
 
   environment.systemPackages = with pkgs; [
-    dive
-    podman-tui
-    podman-compose
+    # dive
+    # podman-tui
+    # podman-compose
+    docker-compose
   ];
+
+  boot.kernelModules = [ "ip_tables" "iptable_nat" ];
 }

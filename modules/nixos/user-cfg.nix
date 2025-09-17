@@ -7,6 +7,9 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
+      "openrazer"
+      "vboxusers"
     ];
     shell = pkgs.nushell;
     openssh.authorizedKeys.keyFiles = [

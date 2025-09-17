@@ -143,6 +143,11 @@
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    winboat-temp = {
+      url = "github:Simon-Weij/winboat";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
