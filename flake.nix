@@ -176,6 +176,15 @@
             inputs.stylix.nixosModules.stylix
           ];
         };
+        hackrnbp = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            system = "aarch64-linux";
+          };
+          modules = [
+            ./hosts/hackrnbp/configuration.nix
+          ];
+        };
         hackrwork = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
