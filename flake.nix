@@ -183,6 +183,7 @@
           };
           modules = [
             ./hosts/hackrnbp/configuration.nix
+            ./modules/home-manager/default.nix
             inputs.home-manager.nixosModules.default
             inputs.stylix.nixosModules.stylix
           ];
