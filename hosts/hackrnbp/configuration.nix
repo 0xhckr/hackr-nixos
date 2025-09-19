@@ -9,11 +9,24 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./apple-silicon-support
+      ../../modules/nixos/defaults.nix
+      ../../modules/nixos/user-cfg.nix
+      ../../modules/nixos/gnome.nix
+      ../../modules/nixos/niri.nix
+      ../../modules/nixos/fonts.nix
+      ../../modules/nixos/stylix.nix
+      ../../modules/nixos/docker.nix
+      ../../modules/nixos/keyd.nix
+      ../../modules/nixos/ssh.nix
+      ../../modules/nixos/obs.nix
+      ../../modules/nixos/tailscale.nix
+      ../../modules/nixos/dev.nix
+      ../../modules/nixos/netbird.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false;
+  boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
 
   # networking.hostName = "nixos"; # Define your hostname.
 

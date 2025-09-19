@@ -183,6 +183,8 @@
           };
           modules = [
             ./hosts/hackrnbp/configuration.nix
+            inputs.home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
           ];
         };
         hackrwork = nixpkgs.lib.nixosSystem {

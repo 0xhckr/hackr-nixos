@@ -14,4 +14,5 @@
       obs-vkcapture
     ];
   };
+  nixpkgs.config.allowUnsupportedSystem = true;
 }
