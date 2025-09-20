@@ -4,7 +4,6 @@
     inputs.nix-vscode-extensions.overlays.default
     inputs.nix4vscode.overlays.forVscode
   ];
-  nixpkgs.config.allowUnsupportedSystem = true;
   programs.vscode = {
     profiles.default.extensions =
       with pkgs.vscode-marketplace;

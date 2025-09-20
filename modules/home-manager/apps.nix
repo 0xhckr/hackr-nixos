@@ -6,9 +6,8 @@
   ...
 }:
 let
-  isLinux = pkgs.stdenv.isLinux && (system == "x86_64-linux");
+  isLinux = pkgs.stdenv.isLinux;
   isDarwin = pkgs.stdenv.isDarwin;
-  isDinux = pkgs.stdenv.isLinux && (system == "aarch64-linux");
   jetbrainsApps =
     with pkgs.jetbrains;
     [
@@ -34,11 +33,11 @@ let
     with pkgs;
     [
     ]
-    ++ (lib.optionals (isLinux || isDinux) [
+    ++ (lib.optionals isLinux [
       ungoogled-chromium
       firefox
     ])
-    ++ (lib.optionals (isLinux || isDinux) (
+    ++ (lib.optionals isLinux (
       with inputs;
       [
         zen-browser.packages."${system}".default
@@ -52,13 +51,12 @@ in
   home.packages =
     with pkgs;
     [
-      fontforge
-    ]
-    ++ (lib.optionals (isLinux || isDarwin) [
-      obsidian
       spotify
+      spacedrive
+      obsidian
+      fontforge
       discord # discord now works flawlessly on NixOS. no need for vesktop.
-    ])
+    ]
     ++ (lib.optionals isLinux [
       zoom-us
       _1password-gui
@@ -66,7 +64,7 @@ in
       element-desktop
       nordpass
       slack # slack on macOS works mostly but the items that require permissions like microphone and camera don't work
-      # inputs.dataflare.packages."${system}".default
+      inputs.dataflare.packages."${system}".default
       inputs.winboat-temp.packages."${system}".default
       gimp
       protonmail-desktop

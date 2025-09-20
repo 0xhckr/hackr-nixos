@@ -2,7 +2,7 @@
 {
   imports = [
     ./ssh.nix
-    # ./terminal.nix
+    ./terminal.nix
     ./ui.linux.nix
     ./apps.nix
     ./dev.nix
