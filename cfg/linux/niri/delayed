@@ -13,6 +13,9 @@ fi
 
 # launch discord on home pc
 if [ "$(hostname)" = "hackrpc" ]; then
+    krisplocation=$(find ~/.config/discord -name "discord_krisp.node")
+    nohup krisp-patcher $krisplocation 2>&1 > /dev/null &
+    disown
     nohup discord 2>&1 > /dev/null &
     disown
 fi
