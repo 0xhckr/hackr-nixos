@@ -40,9 +40,9 @@ def cl [] {
 
 def rebuild [] {
   if $isLinux {
-    sudo nixos-rebuild switch --flake ~/nixos#(hostname)
+    nh os switch ~/nixos
   } else {
-    sudo darwin-rebuild switch --flake ~/nixos#(hostname)
+    nh darwin switch ~/nixos
   }
 }
 
