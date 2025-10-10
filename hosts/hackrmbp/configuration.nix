@@ -11,6 +11,7 @@
     ../../modules/macos/user-cfg.nix
     ../../modules/macos/defaults.nix
     ../../modules/macos/homebrew.nix
+    ../../modules/macos/nh.nix
   ];
 
   networking.hostName = "hackrmbp";
