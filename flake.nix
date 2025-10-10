@@ -144,8 +144,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    winboat-temp = {
-      url = "github:Simon-Weij/winboat";
+    winboat = {
+      url = "github:TibixDev/winboat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
