@@ -35,6 +35,7 @@ in
       yazi
       inputs.jujutsu.packages."${system}".default
       helix
+      nix-output-monitor
     ]
     ++ (lib.optionals isLinux (
       with pkgs;
