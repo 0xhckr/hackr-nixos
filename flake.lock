@@ -1821,11 +1821,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1758025877,
-        "narHash": "sha256-+iLfZTfD6+QPFrQo1Grmsv8Og3hxy5VIFAMrZDbJ7cU=",
+        "lastModified": 1760143813,
+        "narHash": "sha256-5+cPGPYuE2J4LHY4MIBs9zk+MpUj7qH2GXle+x5WgF4=",
         "owner": "vicinaehq",
         "repo": "vicinae",
-        "rev": "42f52b5dcc36fdc5ed173b58a080beadff6e1665",
+        "rev": "89fcc28c99dd97c5eaa7e59e40cfe6a9bc45f7b8",
         "type": "github"
       },
       "original": {
