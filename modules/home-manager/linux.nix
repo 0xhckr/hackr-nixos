@@ -74,6 +74,11 @@
       source = ../../cfg/shared/btop;
       recursive = true;
     };
+    ".config/commie" = {
+      force = true;
+      source = ../../cfg/shared/commie;
+      recursive = true;
+    };
     ".config/direnv" = {
       force = true;
       source = ../../cfg/shared/direnv;
