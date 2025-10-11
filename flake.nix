@@ -148,6 +148,11 @@
       url = "github:TibixDev/winboat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    commie = {
+      url = "github:at-mojo/commie";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
