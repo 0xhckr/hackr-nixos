@@ -36,6 +36,7 @@ in
       inputs.jujutsu.packages."${system}".default
       helix
       nix-output-monitor
+      inputs.commie.packages."${system}".default
     ]
     ++ (lib.optionals isLinux (
       with pkgs;
