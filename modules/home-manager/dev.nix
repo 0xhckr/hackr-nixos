@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     nil
     nixfmt-rfc-style
-    python3Full
     gcc
     gnumake
     mise

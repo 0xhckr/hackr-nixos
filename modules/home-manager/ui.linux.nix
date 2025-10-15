@@ -3,7 +3,6 @@
 
   imports = [
     inputs.ags.homeManagerModules.default
-    inputs.sherlock.homeManagerModules.default
     inputs.vicinae.homeManagerModules.default
   ];
 
@@ -30,11 +29,6 @@
       quickshell.packages.${system}.default
       astal.packages.${system}.default
     ]);
-
-  programs.sherlock = {
-    enable = true;
-    settings = null;
-  };
 
   services.vicinae = {
     enable = true;

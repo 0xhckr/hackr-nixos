@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs?rev=f3b9a7704dd24531799f16407a17053e318cbfcb";
     };
 
     nixpkgs-stable = {
@@ -63,7 +63,7 @@
     };
 
     quickshell = {
-      url = "github:quickshell-mirror/quickshell";
+      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
