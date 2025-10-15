@@ -4,7 +4,7 @@
   ...
 }:
 
-{
+{ 
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -22,6 +22,7 @@
   services.getty.autologinUser = "hackr";
   environment = {
     systemPackages = with pkgs; [
+      satisfactorymodmanager
       mangohud
       steam-run
     ];
