@@ -4,6 +4,8 @@
   imports = [
     inputs.ags.homeManagerModules.default
     inputs.vicinae.homeManagerModules.default
+    # inputs.dms.homeModules.dankMaterialShell.default
+    # inputs.dms.homeModules.dankMaterialShell.niri
   ];
 
   home.packages =
@@ -29,6 +31,8 @@
       quickshell.packages.${system}.default
       astal.packages.${system}.default
     ]);
+
+  # programs.dankMaterialShell.enable = true;
 
   services.vicinae = {
     enable = true;
