@@ -93,6 +93,7 @@ in
       parsec-bin
       ryubing
       vlc
+      requestly
     ])
     ++ (lib.optionals isDarwin [
       mos
