@@ -19,6 +19,7 @@
     ../../modules/nixos/user-cfg.nix
     ../../modules/nixos/gnome.nix
     ../../modules/nixos/nh.nix
+    ../../modules/nixos/mango.nix
     ../../modules/nixos/niri.nix
     ../../modules/nixos/fonts.nix
     ../../modules/nixos/stylix.nix

@@ -154,6 +154,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mango = {
+      url = "github:DreamMaoMao/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # dms = {
     #   url = "github:AvengeMedia/DankMaterialShell";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -183,6 +188,7 @@
             ./hosts/hackrpc/configuration.nix
             ./modules/home-manager/default.nix
             inputs.home-manager.nixosModules.default
+            inputs.mango.nixosModules.mango
             inputs.stylix.nixosModules.stylix
           ];
         };
