@@ -33,7 +33,6 @@ in
       zsh-autoenv
       gh
       yazi
-      inputs.jujutsu.packages."${system}".default
       helix
       nix-output-monitor
       inputs.commie.packages."${system}".default
