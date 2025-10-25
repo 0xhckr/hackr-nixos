@@ -1,8 +1,5 @@
 input {
     keyboard {
-        xkb {
-            // maybe some macOS specific typical keybindings?
-        }
         repeat-delay 150
         repeat-rate 50
     }
@@ -30,6 +27,13 @@ input {
 output "LG Electronics LG ULTRAGEAR+ 503NTNH4U183" {
     mode "5120x2160@165.058"
     scale 1
+    transform "normal"
+    position x=0 y=0
+}
+
+output "BOE NE135A1M-NY1 Unknown" {
+    mode "2880x1920@120.000"
+    scale 1.25
     transform "normal"
     position x=0 y=0
 }
@@ -132,6 +136,7 @@ spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "swaybg" "-i" "/home/hackr/.config/walls/blur.jpg"
 spawn-at-startup "swww" "img" "/home/hackr/.config/walls/wall.jpg"
 spawn-at-startup "tailscale-systray"
+spawn-at-startup "caelestia-shell"
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 screenshot-path null
@@ -249,6 +254,9 @@ binds {
     XF86AudioPause      allow-when-locked=true { spawn "playerctl" "play-pause"; }
     XF86AudioNext       allow-when-locked=true { spawn "playerctl" "next"; }
     XF86AudioPrev       allow-when-locked=true { spawn "playerctl" "previous"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
 
     Mod+Q { close-window; }
 

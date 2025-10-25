@@ -39,11 +39,6 @@
       force = true;
       source = ../../cfg/linux/nixpkgs/config.nix;
     };
-    ".config/beepshell" = {
-      force = true;
-      source = inputs.beepshell;
-      recursive = true;
-    };
     ".config/sherlock" = {
       force = true;
       source = ../../cfg/linux/sherlock;

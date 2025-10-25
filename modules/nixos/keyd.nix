@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  hostname = config.networking.hostName;
+in
 {
   environment.systemPackages = with pkgs; [
     keyd
@@ -16,6 +19,9 @@
         ids = [ "*" ];
         extraConfig = ''
           [main]
+          ${if hostname == "hackrfrmw" then "leftalt = leftmeta" else ""}
+          ${if hostname == "hackrfrmw" then "leftmeta = leftalt" else ""}
+          ${if hostname == "hackrfrmw" then "capslock = delete" else ""}
           
           [meta]
           c = C-c

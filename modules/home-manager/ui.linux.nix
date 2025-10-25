@@ -17,6 +17,7 @@
       waypaper
       waybar
       playerctl
+      brightnessctl
       wlogout
       wf-recorder
       slurp
@@ -31,6 +32,7 @@
       swww.packages.${system}.default
       quickshell.packages.${system}.default
       astal.packages.${system}.default
+      caelestia.packages.${system}.default
     ]);
 
   # programs.dankMaterialShell.enable = true;

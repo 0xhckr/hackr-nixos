@@ -67,8 +67,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    beepshell = {
-      url = "github:hackr-sh/beepshell";
+    caelestia = {
+      url = "github:hackr-sh/caelestia-niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -181,6 +181,19 @@
             lanzaboote.nixosModules.lanzaboote
             ./hosts/hackrpc/lanzaboote.nix
             ./hosts/hackrpc/configuration.nix
+            ./modules/home-manager/default.nix
+            inputs.home-manager.nixosModules.default
+            inputs.mango.nixosModules.mango
+            inputs.stylix.nixosModules.stylix
+          ];
+        };
+        hackrfrmw = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            system = "x86_64-linux";
+          };
+          modules = [
+            ./hosts/hackrfrmw/configuration.nix
             ./modules/home-manager/default.nix
             inputs.home-manager.nixosModules.default
             inputs.mango.nixosModules.mango
