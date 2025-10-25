@@ -89,7 +89,7 @@ layout {
 
     focus-ring {
         width 2
-        active-gradient from="#E6E6EF" to="#191724" angle=180
+        active-gradient from="#003c3c" to="#191724" angle=180
     }
 
     tab-indicator {
