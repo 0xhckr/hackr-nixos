@@ -81,7 +81,6 @@ in
     ]
     ++ (lib.optionals isLinux [
       zoom-us
-      _1password-gui
       nautilus
       element-desktop
       nordpass

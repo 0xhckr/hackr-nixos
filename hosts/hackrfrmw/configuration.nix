@@ -14,6 +14,9 @@
     # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
+    ./boot+hibernation.nix
+    ./security+fingerprint.nix
+    ./fwupd.nix
     ../../modules/nixos/defaults.nix
     ../../modules/nixos/sound.nix
     ../../modules/nixos/user-cfg.nix
@@ -48,22 +51,11 @@
     curl
   ];
 
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-    };
-    systemd-boot = {
-      enable = true;
-    };
-  };
-
   services.pipewire.wireplumber.extraConfig.no-ucm = {
     "monitor.alsa.properties" = {
       "alsa.use-ucm" = false;
     };
   };
-
-  services.fprintd.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

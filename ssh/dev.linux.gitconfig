@@ -10,7 +10,7 @@
   format = ssh
 
 [gpg "ssh"]
-  program = "/home/hackr/.nix-profile/bin/op-ssh-sign"
+  program = "/run/current-system/sw/bin/op-ssh-sign"
 
 [commit]
   gpgsign = true
