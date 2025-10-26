@@ -14,6 +14,7 @@ let
       datagrip
       rider
       rust-rover
+      idea-ultimate
     ]
     ++ (lib.optionals isLinux [
       # any linux specific apps
@@ -99,7 +100,7 @@ in
       stats
       alt-tab-macos
     ])
-    # ++ jetbrainsApps
+    ++ jetbrainsApps
     # ++ affinityApps
     ++ browsers;
 
