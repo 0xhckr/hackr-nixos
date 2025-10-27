@@ -15,8 +15,8 @@
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
     ./boot+hibernation.nix
-    ./security+fingerprint.nix
     ./fwupd.nix
+    ../../modules/nixos/security+fingerprint.nix
     ../../modules/nixos/fw.nix
     ../../modules/nixos/defaults.nix
     ../../modules/nixos/sound.nix

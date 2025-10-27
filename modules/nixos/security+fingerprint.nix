@@ -1,4 +1,7 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
+let
+  isFrmw = config.networking.hostName == "hackrfrmw";
+in
 {
   environment.systemPackages = with pkgs; [
     fprintd
@@ -8,7 +11,7 @@
   ];
 
   services.fprintd = {
-    enable = true;
+    enable = isFrmw;
     tod.driver = pkgs.libfprint-2-tod1-vfs0090;
   };
 
@@ -38,7 +41,7 @@
     rtkit.enable = true;
     pam.services = {
       "1password" = {
-        fprintAuth = true;
+        fprintAuth = isFrmw;
         unixAuth = true;
         kwallet = {
           enable = true;
@@ -46,7 +49,7 @@
         };
       };
       "polkit-1" = {
-        fprintAuth = true;
+        fprintAuth = isFrmw;
         unixAuth = true;
         kwallet = {
           enable = true;
@@ -54,7 +57,7 @@
         };
       };
       "sudo" = {
-        fprintAuth = true;
+        fprintAuth = isFrmw;
         unixAuth = true;
       };
       login = {

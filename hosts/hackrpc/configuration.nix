@@ -14,6 +14,7 @@
     # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
+    ../../modules/nixos/security+fingerprint.nix
     ../../modules/nixos/defaults.nix
     ../../modules/nixos/sound.nix
     ../../modules/nixos/user-cfg.nix
