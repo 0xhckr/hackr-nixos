@@ -17,6 +17,7 @@
     ./boot+hibernation.nix
     ./security+fingerprint.nix
     ./fwupd.nix
+    ../../modules/nixos/fw.nix
     ../../modules/nixos/defaults.nix
     ../../modules/nixos/sound.nix
     ../../modules/nixos/user-cfg.nix

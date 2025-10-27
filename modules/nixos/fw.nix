@@ -3,9 +3,15 @@
   pkgs,
   ...
 }:
-
+let 
+  allowedPorts = [
+    3000
+  ];
+in
 {
-  networking.firewall.enable = true;
-  # networking.firewall.allowedTCPPorts = [ ];
-  # networking.firewall.allowedUDPPorts = [ ];
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = allowedPorts;
+    allowedUDPPorts = allowedPorts;
+  };
 }
