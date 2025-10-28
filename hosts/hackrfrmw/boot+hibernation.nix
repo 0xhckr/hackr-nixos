@@ -5,8 +5,11 @@
       efi = {
         canTouchEfiVariables = lib.mkForce true;
       };
-      systemd-boot = {
-        enable = lib.mkForce true;
+      grub = {
+        enable = true;
+        device = "nodev";
+        useOSProber = true;
+        efiSupport = true;
       };
     }; 
   };
