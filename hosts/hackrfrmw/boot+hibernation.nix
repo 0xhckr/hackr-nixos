@@ -1,6 +1,7 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       efi = {
         canTouchEfiVariables = lib.mkForce true;
