@@ -68,6 +68,7 @@ let
 in
 {
   imports = [
+    inputs._1password.hmModules.default
     ./apps/cursor.nix
   ];
   home.packages =
@@ -108,5 +109,13 @@ in
     systemd.user.settings.Manager.DefaultEnvironment = {
       DISPLAY = ":0";
       XAUTHORITY = "$HOME/.Xauthority";
+    };
+
+    programs._1password-shell-plugins = {
+      enable = true;
+    };
+
+    programs.zsh = {
+      enable = true;
     };
 }

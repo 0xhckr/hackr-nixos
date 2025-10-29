@@ -154,6 +154,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    _1password = {
+      url = "github:1Password/shell-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # dms = {
     #   url = "github:AvengeMedia/DankMaterialShell";
     #   inputs.nixpkgs.follows = "nixpkgs";
