@@ -68,7 +68,10 @@
     };
 
     caelestia = {
-      url = "github:hackr-sh/caelestia-niri";
+      type = "github";
+      owner = "hackr-sh";
+      repo = "caelestia-niri";
+      ref = "feat/horizontal-bar";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
