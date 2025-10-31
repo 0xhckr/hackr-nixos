@@ -183,11 +183,11 @@
         "quickshell": "quickshell"
       },
       "locked": {
-        "lastModified": 1761905078,
-        "narHash": "sha256-KgPn7Lp1uiE6WVlfMDYyYcfUT2t0jWlQZnvBpmud1lI=",
+        "lastModified": 1761905808,
+        "narHash": "sha256-8KMNEl2D4fUO9citIUCBRtFgeojKLidTJyMqbNILtGQ=",
         "owner": "hackr-sh",
         "repo": "caelestia-niri",
-        "rev": "9fa55c693f7b3bca694e2225bf5c1edb6c32e522",
+        "rev": "0e9e09c08b8fdb0d19cf40de1c9754aec8182892",
         "type": "github"
       },
       "original": {
