@@ -37,6 +37,7 @@
     ../../modules/nixos/dev.nix
     ../../modules/nixos/vbox.nix
     ../../modules/nixos/netbird.nix
+    ../../modules/nixos/libre-office.nix
   ];
 
   networking.hostName = "hackrfrmw"; # Define your hostname.
