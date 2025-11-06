@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
 
   imports = [
@@ -39,7 +39,12 @@
 
   services.vicinae = {
     enable = true;
-    autoStart = false;
+    autoStart = true;
+  };
+
+  systemd.user.services.vicinae = {
+    Service.Environment = lib.mkForce [ "USE_LAYER_SHELL=0" ];
+    Service.EnvironmentFile = lib.mkForce [];
   };
 
   wayland.windowManager.mango = {

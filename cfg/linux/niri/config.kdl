@@ -121,16 +121,16 @@ layout {
         color "#0007"
     }
 
-    blur {
-        on
-        passes 3
-        radius 12.0
-        noise 0.0
-    }
+    // blur {
+    //     on
+    //     passes 3
+    //     radius 12.0
+    //     noise 0.0
+    // }
 }
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "vicinae" "server"
+// spawn-at-startup "vicinae" "server"
 spawn-at-startup "qs" "-p" "/home/hackr/.config/beepshell"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "swaybg" "-i" "/home/hackr/.config/walls/blur.jpg"
