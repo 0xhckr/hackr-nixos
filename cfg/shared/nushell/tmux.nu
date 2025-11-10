@@ -81,6 +81,3 @@ def restart-tmux [] {
         print "Failed to restart tmux"
     }
 }
-
-# Auto-start tmux on shell launch
-start-tmux

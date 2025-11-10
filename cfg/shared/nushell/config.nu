@@ -29,13 +29,13 @@ source ./zoxide.macos.nu
 source ./starship.nu
 source ./mise.nu
 source ./direnv.nu
-if $isLinux {
-  source ./tmux.nu
-}
+source ./tmux.nu
 
 def cl [] {
   clear
-  fastfetch
+  if $env.TMUX? == null {
+    fastfetch
+  }
 }
 
 def rebuild [] {
