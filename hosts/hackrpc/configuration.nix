@@ -18,6 +18,7 @@
     ../../modules/nixos/defaults.nix
     ../../modules/nixos/sound.nix
     ../../modules/nixos/user-cfg.nix
+    ../../modules/nixos/fw.nix
     ../../modules/nixos/gnome.nix
     ../../modules/nixos/nh.nix
     ../../modules/nixos/mango.nix
