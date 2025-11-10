@@ -106,6 +106,11 @@
       force = true;
       source = ../../cfg/shared/starship.toml;
     };
+    ".local/share/vicinae/themes" = {
+      force = true;
+      source = ../../share/vicinae/themes;
+      recursive = true;
+    };
   };
 
   programs.home-manager.enable = true;

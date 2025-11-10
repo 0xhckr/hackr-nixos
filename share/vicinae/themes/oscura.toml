@@ -1,0 +1,75 @@
+[meta]
+name = "Oscura Midnight"
+description = "Based on Oscura Midnight VS Code Theme"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+accent = "#479ffa"
+accent_foreground = "#0b0b0f"
+background = "#0b0b0f"
+foreground = "#e6e6e6"
+secondary_background = "#232323"
+border = "#46474f"
+
+[colors.main_window]
+border = "#46474f"
+
+[colors.settings_window]
+border = "#46474f"
+
+[colors.accents]
+blue = "#479ffa"
+green = "#4ebe96"
+magenta = "#9099a1"
+orange = "#f9b98c"
+red = "#d84f68"
+yellow = "#e6e7a3"
+cyan = "#54c0a3"
+purple = "#9099a1"
+
+[colors.text]
+default = "#e6e6e6"
+muted = "#868f97"
+danger = "#d84f68"
+success = "#4ebe96"
+placeholder = "#868f97"
+selection = { background = "#232323", foreground = "#e6e6e6" }
+
+[colors.text.links]
+default = "#479ffa"
+visited = "#9099a1"
+
+[colors.input]
+border = "#46474f"
+border_focus = "#479ffa"
+border_error = "#d84f68"
+
+[colors.button.primary]
+background = "#232323"
+foreground = "#e6e6e6"
+hover = { background = "#46474f" }
+focus = { outline = "colors.core.accent" }
+
+[colors.list.item.hover]
+background = "#232323"
+foreground = "#e6e6e6"
+
+[colors.list.item.selection]
+background = "#232323"
+foreground = "#e6e6e6"
+secondary_background = "#46474f"
+secondary_foreground = "#e6e6e6"
+
+[colors.grid.item]
+background = "#232323"
+hover = { outline = "#e6e6e6" }
+selection = { outline = "#e6e6e6" }
+
+[colors.scrollbars]
+background = "#46474f"
+
+[colors.loading]
+bar = "#e6e6e6"
+spinner = "#e6e6e6"
+
