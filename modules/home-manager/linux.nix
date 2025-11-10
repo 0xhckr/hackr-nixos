@@ -39,6 +39,11 @@
       force = true;
       source = ../../cfg/linux/nixpkgs/config.nix;
     };
+    ".config/noctalia" = {
+      force = true;
+      source = ../../cfg/linux/noctalia;
+      recursive = true;
+    };
     ".config/sherlock" = {
       force = true;
       source = ../../cfg/linux/sherlock;
