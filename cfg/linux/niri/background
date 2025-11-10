@@ -1,5 +1,7 @@
 #!/run/current-system/sw/bin/bash
 
+sleep 1;
+
 # get a random wallpaper from the wallpapers directory
 wallpaper=$(find /home/hackr/walls -type f -name "*.jpg" | shuf -n 1)
 
