@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs?rev=f3b9a7704dd24531799f16407a17053e318cbfcb";
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
 
     nixpkgs-stable = {
@@ -52,8 +52,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    swww = {
-      url = "github:LGFae/swww";
+    awww = {
+      url = "git+https://codeberg.org/LGFae/awww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -139,11 +139,6 @@
 
     vicinae = {
       url = "github:vicinaehq/vicinae";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    winboat = {
-      url = "github:TibixDev/winboat";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

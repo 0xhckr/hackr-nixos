@@ -88,7 +88,11 @@ def --env --wrapped zc [...args: string] {
     code .
   }
 }
-  
+
+def bg [...args: string] {
+  ~/.config/niri/background --now
+}
+
 def point-and-kill [] {
   let appPID = niri msg pick-window | grep "PID:" | str replace "PID: " "" | into int
   kill -9 $appPID

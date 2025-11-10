@@ -29,7 +29,7 @@
       swaybg
     ]
     ++ (with inputs; [
-      swww.packages.${system}.default
+      awww.packages.${system}.default
       quickshell.packages.${system}.default
       astal.packages.${system}.default
       caelestia.packages.${system}.default

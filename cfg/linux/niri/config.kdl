@@ -130,7 +130,7 @@ layout {
 }
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 // spawn-at-startup "vicinae" "server"
 spawn-at-startup "qs" "-p" "/home/hackr/.config/beepshell"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
@@ -201,15 +201,10 @@ window-rule {
 }
 
 layer-rule {
-    match namespace="^swww-daemon$"
+    match namespace="^awww-daemon$"
 
     place-within-backdrop true
 }
-
-// layer-rule {
-//     match namespace="swww-daemon"
-//     place-within-backdrop true
-// }
 
 overview {
     backdrop-color "#232136"
