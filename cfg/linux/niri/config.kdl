@@ -136,7 +136,7 @@ spawn-at-startup "qs" "-p" "/home/hackr/.config/beepshell"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "/home/hackr/.config/niri/background"
 spawn-at-startup "tailscale-systray"
-spawn-at-startup "caelestia-shell"
+spawn-at-startup "noctalia-shell"
 
 // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 screenshot-path null

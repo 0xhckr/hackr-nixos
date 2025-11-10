@@ -33,6 +33,7 @@
       quickshell.packages.${system}.default
       astal.packages.${system}.default
       caelestia.packages.${system}.default
+      noctalia.packages.${system}.default
     ]);
 
   # programs.dankMaterialShell.enable = true;
