@@ -28,7 +28,7 @@ let
     [
     ]
     ++ (lib.optionals isLinux [
-      designer
+      v3
     ]);
   browsers =
     with pkgs;
@@ -102,7 +102,7 @@ in
       alt-tab-macos
     ])
     ++ jetbrainsApps
-    # ++ affinityApps
+    ++ affinityApps
     ++ browsers;
 
     # needed for vicinae to properly launch x apps in niri
