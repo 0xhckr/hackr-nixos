@@ -11,6 +11,7 @@
     bun
     biome
     jdk
+    minio-client
   ];
 
   programs.git = {
