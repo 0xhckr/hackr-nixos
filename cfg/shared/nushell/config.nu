@@ -98,6 +98,16 @@ def point-and-kill [] {
   kill -9 $appPID
 }
 
+def copy-to-cache [] {
+  if (test -f ~/.config/nix/secret.key) {
+    nix store sign --recursive --key-file ~/.config/nix/secret.key /run/current-system
+    nix copy --to 's3://nix-cache?profile=nixbuilder&endpoint=cache.0xhckr.dev' /run/current-system
+    echo "Copied to cache"
+  } else {
+    echo "~/.config/nix/secret.key not found"
+  }
+}
+
 if $isLinux {
   ~/.config/nushell/aacpi.sh #produces files inside of ~/.nuget/plugins/ for azure artifacts credprovider
 } else {
