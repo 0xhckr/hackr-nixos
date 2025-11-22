@@ -25,11 +25,7 @@
       }
 
       def rebuild [] {
-        if $isLinux {
-          ${pkgs.nh}/bin/nh os switch ~/nixos
-        } else {
-          ${pkgs.nh}/bin/nh darwin switch ~/nixos
-        }
+        ${pkgs.nh}/bin/nh os switch ~/nixos
       }
 
       def nr [
