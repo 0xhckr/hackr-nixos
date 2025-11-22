@@ -1024,6 +1024,26 @@
         "type": "github"
       }
     },
+    "nh": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1763845791,
+        "narHash": "sha256-zehmx6JON3CBTdQEKsjG3ehYmHuYbTrsMXFVmGtVuEA=",
+        "owner": "nix-community",
+        "repo": "nh",
+        "rev": "b62bd64537c22fa1c441a89c8ddc3c2a72a111a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nh",
+        "type": "github"
+      }
+    },
     "niri-blurry": {
       "inputs": {
         "nixpkgs": [
@@ -1490,6 +1510,7 @@
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
         "mango": "mango",
+        "nh": "nh",
         "niri-blurry": "niri-blurry",
         "niri-unstable": "niri-unstable",
         "nix-darwin": "nix-darwin",

@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    nh
+    inputs.nh.packages.${system}.default
   ];
   programs.nh = {
     enable = true;

@@ -97,6 +97,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
