@@ -10,7 +10,9 @@ let
   isDarwin = pkgs.stdenv.isDarwin;
 in
 {
-  home.shell.enableNushellIntegration = true;
+  imports = [
+    ./nushell.nix
+  ];
 
   home.packages =
     with pkgs;
@@ -45,11 +47,6 @@ in
         inputs.ghostty.packages."${system}".default
       ]
     ));
-
-  programs.nushell = {
-    enable = true;
-    environmentVariables = config.home.sessionVariables;
-  };
 
   programs.tmux = {
     enable = true;

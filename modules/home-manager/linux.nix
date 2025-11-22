@@ -92,20 +92,6 @@
       force = true;
       source = ../../cfg/shared/fastfetch/infernape.png;
     };
-    ".config/nushell" = {
-      force = true;
-      source = ../../cfg/shared/nushell;
-      recursive = true;
-    };
-    ".config/walls" = {
-      force = true;
-      source = ../../cfg/shared/walls;
-      recursive = true;
-    };
-    ".config/starship.toml" = {
-      force = true;
-      source = ../../cfg/shared/starship.toml;
-    };
     ".local/share/vicinae/themes" = {
       force = true;
       source = ../../share/vicinae/themes;

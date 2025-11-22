@@ -88,20 +88,6 @@
       force = true;
       source = ../../cfg/shared/fastfetch/infernape.png;
     };
-    "Library/Application Support/nushell" = {
-      force = true;
-      source = ../../cfg/shared/nushell;
-      recursive = true;
-    };
-    ".config/walls" = {
-      force = true;
-      source = ../../cfg/shared/walls;
-      recursive = true;
-    };
-    ".config/starship.toml" = {
-      force = true;
-      source = ../../cfg/shared/starship.toml;
-    };
   };
 
   programs.home-manager.enable = true;

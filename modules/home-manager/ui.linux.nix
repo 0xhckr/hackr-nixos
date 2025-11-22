@@ -115,7 +115,6 @@
       set +e
       dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
       vicinae server 2>&1 > /dev/null &
-      swaybg -i /home/hackr/.config/walls/blur.jpg 2>&1 > /dev/null &
       qs -p /home/hackr/.config/beepshell 2>&1 > /dev/null &
       /home/hackr/.config/niri/delayed 2>&1 > /dev/null &
       tailscale-systray 2>&1 > /dev/null &
