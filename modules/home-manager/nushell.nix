@@ -129,7 +129,7 @@
     enableNushellIntegration = true;
     settings = {
       format = ''
-        $username $hostname $directory $git_branch $git_status $fill $c $elixir $elm $golang $haskell $java $julia $nodejs $nim $rust $scala $conda $python $time
+        $username$hostname$directory$git_branch$git_status$fill$c$elixir$elm$golang$haskell$java$julia$nodejs$nim$rust$scala$conda$python$time
           [󱞪](fg:gold) 
       '';
       palette = lib.mkForce "oscura-midnight";
