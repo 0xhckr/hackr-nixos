@@ -1,3 +1,0 @@
-{
-  allowUnsupportedSystem = true;
-}

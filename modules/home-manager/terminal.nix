@@ -5,48 +5,37 @@
   system,
   ...
 }:
-let
-  isLinux = pkgs.stdenv.isLinux;
-  isDarwin = pkgs.stdenv.isDarwin;
-in
 {
   imports = [
     ./nushell.nix
   ];
 
-  home.packages =
-    with pkgs;
-    [
-      (btop.override {
-        rocmSupport = isLinux;
-      })
-      atuin
-      starship
-      zoxide
-      neovim
-      lazygit
-      vim
-      screenfetch
-      neofetch
-      fastfetch
-      fzf
-      ripgrep
-      bat
-      zsh-autoenv
-      gh
-      yazi
-      helix
-      nix-output-monitor
-      inputs.commie.packages."${system}".default
-    ]
-    ++ (lib.optionals isLinux (
-      with pkgs;
-      [
-        libnotify
-        psmisc
-        inputs.ghostty.packages."${system}".default
-      ]
-    ));
+  home.packages = with pkgs; [
+    (btop.override {
+      rocmSupport = true;
+    })
+    atuin
+    starship
+    zoxide
+    neovim
+    lazygit
+    vim
+    screenfetch
+    neofetch
+    fastfetch
+    fzf
+    ripgrep
+    bat
+    zsh-autoenv
+    gh
+    yazi
+    helix
+    nix-output-monitor
+    inputs.commie.packages."${system}".default
+    libnotify
+    psmisc
+    inputs.ghostty.packages."${system}".default
+  ];
 
   programs.tmux = {
     enable = true;
@@ -72,32 +61,15 @@ in
     '';
   };
 
-  home.file =
-    if isLinux then
-      {
-        ".config/nushell/env.nu" = {
-          force = true;
-          text = ''
-            $env.config.show_banner = false
-            $env.DIRENV_LOG_FORMAT = ""
-            $env.NIXPKGS_ALLOW_UNFREE = "1"
-            $env.DISPLAY = ":0"
-          '';
-        };
-      }
-    else
-      {
-        "Library/Application Support/nushell/env.nu" = {
-          force = true;
-          text = ''
-            $env.ANDROID_HOME = "/Users/hackr/Library/Android/sdk"
-            $env.config.show_banner = false
-            $env.LDFLAGS = "-L/opt/homebrew/opt/llvm/lib"
-            $env.CPPFLAGS = "-I/opt/homebrew/opt/llvm/include"
-            $env.NIXPKGS_ALLOW_UNFREE = "1"
-            $env.DIRENV_LOG_FORMAT = ""
-            $env.XDG_CONFIG_HOME = "/Users/hackr/.config"
-          '';
-        };
-      };
+  home.file = {
+    ".config/nushell/env.nu" = {
+      force = true;
+      text = ''
+        $env.config.show_banner = false
+        $env.DIRENV_LOG_FORMAT = ""
+        $env.NIXPKGS_ALLOW_UNFREE = "1"
+        $env.DISPLAY = ":0"
+      '';
+    };
+  };
 }

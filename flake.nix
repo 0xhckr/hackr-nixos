@@ -105,11 +105,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sherlock = {
       type = "github";
       owner = "Skxxtz";
@@ -171,7 +166,6 @@
     {
       self,
       nixpkgs,
-      nix-darwin,
       ...
     }@inputs:
     {
@@ -216,19 +210,6 @@
             ./modules/home-manager/default.nix
             inputs.home-manager.nixosModules.default
             inputs.stylix.nixosModules.stylix
-          ];
-        };
-      };
-      darwinConfigurations = {
-        hackrmbp = nix-darwin.lib.darwinSystem {
-          specialArgs = {
-            inherit inputs;
-            system = "aarch64-darwin";
-          };
-          modules = [
-            ./hosts/hackrmbp/configuration.nix
-            ./modules/home-manager/default.nix
-            inputs.home-manager.darwinModules.default
           ];
         };
       };

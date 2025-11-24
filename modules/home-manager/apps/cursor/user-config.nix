@@ -48,7 +48,7 @@
       "window.menuBarVisibility" = "compact";
       "window.commandCenter" = true;
       "workbench.layoutControl.enabled" = false;
-      "window.titleBarStyle" = if pkgs.stdenv.isLinux then "native" else "custom";
+      "window.titleBarStyle" = "native";
       "workbench.colorTheme" = lib.mkForce "Oscura Midnight";
       "editor.cursorBlinking" = "smooth";
       "json.schemaDownload.enable" = true;

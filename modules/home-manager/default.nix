@@ -1,13 +1,8 @@
 {
   inputs,
   system,
-  pkgs,
   ...
 }:
-let
-  isLinux = pkgs.stdenv.isLinux;
-  isDarwin = pkgs.stdenv.isDarwin;
-in
 {
   home-manager = {
     extraSpecialArgs = {
@@ -15,7 +10,7 @@ in
       inherit system;
     };
     users = {
-      "hackr" = if isLinux then import ./linux.nix else import ./macos.nix;
+      "hackr" = import ./linux.nix;
     };
     backupFileExtension = "bak";
   };

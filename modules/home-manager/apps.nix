@@ -6,8 +6,6 @@
   ...
 }:
 let
-  isLinux = pkgs.stdenv.isLinux;
-  isDarwin = pkgs.stdenv.isDarwin;
   jetbrainsApps =
     with pkgs.jetbrains;
     [
@@ -15,35 +13,20 @@ let
       rider
       rust-rover
       idea-ultimate
-    ]
-    ++ (lib.optionals isLinux [
-      # any linux specific apps
-    ])
-    ++ (lib.optionals isDarwin [
-      # any darwin specific apps
-    ]);
+    ];
   # NOTE: requires manual download of affinity apps.
   affinityApps =
     with inputs.affinity-nix.packages."${system}";
     [
-    ]
-    ++ (lib.optionals isLinux [
       v3
-    ]);
+    ];
   browsers =
     with pkgs;
     [
-    ]
-    ++ (lib.optionals isLinux [
       ungoogled-chromium
       firefox
-    ])
-    ++ (lib.optionals isLinux (
-      with inputs;
-      [
-        zen-browser.packages."${system}".default
-      ]
-    ));
+      inputs.zen-browser.packages."${system}".default
+    ];
   krisp-patcher =
     pkgs.writers.writePython3Bin "krisp-patcher"
       {
@@ -80,13 +63,11 @@ in
       fontforge
       discord # discord now works flawlessly on NixOS. no need for vesktop.
       krisp-patcher
-    ]
-    ++ (lib.optionals isLinux [
       zoom-us
       nautilus
       element-desktop
       nordpass
-      slack # slack on macOS works mostly but the items that require permissions like microphone and camera don't work
+      slack
       inputs.dataflare.packages."${system}".default
       winboat
       gimp
@@ -95,12 +76,7 @@ in
       ryubing
       vlc
       requestly
-    ])
-    ++ (lib.optionals isDarwin [
-      mos
-      stats
-      alt-tab-macos
-    ])
+    ]
     ++ jetbrainsApps
     ++ affinityApps
     ++ browsers;

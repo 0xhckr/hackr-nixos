@@ -160,10 +160,10 @@
       ++ (with pkgs.open-vsx; [
         muhammad-sammy.csharp
       ])
-      ++ (lib.optionals pkgs.stdenv.isLinux (with pkgs.vscode-extensions; [
+      ++ (with pkgs.vscode-extensions; [
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
-      ]))
+      ])
       ++ pkgs.nix4vscode.forVscode [
         "ms-dotnettools.csharp.2.63.32"
       ]
