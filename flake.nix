@@ -20,13 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.3";
-
-      # Optional but recommended to limit the size of your system closure.
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     cosmic-session = {
       url = "github:bluelinden/cosmic-session";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -179,7 +172,6 @@
       self,
       nixpkgs,
       nix-darwin,
-      lanzaboote,
       ...
     }@inputs:
     {
@@ -192,8 +184,7 @@
             system = "x86_64-linux";
           };
           modules = [
-            lanzaboote.nixosModules.lanzaboote
-            ./hosts/hackrpc/lanzaboote.nix
+            ./hosts/hackrpc/boot.nix
             ./hosts/hackrpc/configuration.nix
             ./modules/home-manager/default.nix
             inputs.home-manager.nixosModules.default
