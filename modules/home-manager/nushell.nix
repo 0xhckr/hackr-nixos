@@ -29,8 +29,24 @@
         }
       }
 
+      def copy-to-cache [] {
+        if ($'/home/hackr/.config/nix/secret.key' | path exists) {
+          nix store sign --recursive --key-file ~/.config/nix/secret.key /run/current-system
+          nix copy --to 's3://nix-cache?profile=nixbuilder&endpoint=10.0.11.2:9000&scheme=http' /run/current-system
+          echo "Copied to cache"
+        } else {
+          echo "~/.config/nix/secret.key not found"
+        }
+      }
+
       def rebuild [] {
-        ${pkgs.nh}/bin/nh os switch ~/nixos
+        do {
+          ${pkgs.nh}/bin/nh os switch ~/nixos
+        }
+        let res = $env.LAST_EXIT_CODE
+        if ((hostname) == "hackrpc" and ($res == 0)) {
+          copy-to-cache
+        }
       }
 
       def nr [
@@ -83,16 +99,6 @@
       def point-and-kill [] {
         let appPID = ${pkgs.niri}/bin/niri msg pick-window | grep "PID:" | str replace "PID: " "" | into int
         kill -9 $appPID
-      }
-
-      def copy-to-cache [] {
-        if ($'/home/hackr/.config/nix/secret.key' | path exists) {
-          nix store sign --recursive --key-file ~/.config/nix/secret.key /run/current-system
-          nix copy --to 's3://nix-cache?profile=nixbuilder&endpoint=10.0.11.2:9000&scheme=http' /run/current-system
-          echo "Copied to cache"
-        } else {
-          echo "~/.config/nix/secret.key not found"
-        }
       }
 
       ~/.config/nushell/aacpi.sh
