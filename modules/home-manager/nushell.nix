@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   home.shell.enableNushellIntegration = true;
 
@@ -48,12 +53,29 @@
         }
       }
 
+      # Enable zoxide integration
+      source ${
+        pkgs.runCommand "zoxide-nushell-config.nu" { } ''
+          ${lib.getExe pkgs.zoxide} init nushell >> "$out"
+        ''
+      }
+
       def --env --wrapped zc [...args: string] {
         if $args == null or $args == [] {
           cd ~
           code
         } else {
-          z ($args | str join ' ')
+          __zoxide_z ($args | str join ' ')
+          code .
+        }
+      }
+
+      def --env --wrapped zic [...args: string] {
+        if $args == null or $args == [] {
+          cd ~
+          code
+        } else {
+          __zoxide_zi ($args | str join ' ')
           code .
         }
       }
@@ -98,7 +120,8 @@
 
   programs.zoxide = {
     enable = true;
-    enableNushellIntegration = true;
+    # we enable zoxide in our own config file but we need to do so earlier so that our helper zc and zic functions work.
+    enableNushellIntegration = false;
   };
 
   programs.starship = {
@@ -106,8 +129,8 @@
     enableNushellIntegration = true;
     settings = {
       format = ''
-$username $hostname $directory $git_branch $git_status $fill $c $elixir $elm $golang $haskell $java $julia $nodejs $nim $rust $scala $conda $python $time
-  [󱞪](fg:gold) 
+        $username $hostname $directory $git_branch $git_status $fill $c $elixir $elm $golang $haskell $java $julia $nodejs $nim $rust $scala $conda $python $time
+          [󱞪](fg:gold) 
       '';
       palette = lib.mkForce "oscura-midnight";
       palettes.oscura-midnight = {
