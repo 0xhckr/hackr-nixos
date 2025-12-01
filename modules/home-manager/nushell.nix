@@ -81,17 +81,17 @@
           cd ~
           code
         } else {
-          __zoxide_z ($args | str join ' ')
+          __zoxide_z ...$args
           code .
         }
       }
 
       def --env --wrapped zic [...args: string] {
         if $args == null or $args == [] {
-          cd ~
-          code
+          __zoxide_zi
+          code .
         } else {
-          __zoxide_zi ($args | str join ' ')
+          __zoxide_zi ...$args
           code .
         }
       }
