@@ -121,12 +121,12 @@ layout {
         color "#0007"
     }
 
-    // blur {
-    //     on
-    //     passes 3
-    //     radius 12.0
-    //     noise 0.0
-    // }
+    blur {
+        on
+        passes 3
+        radius 12.0
+        noise 0.0
+    }
 }
 
 spawn-at-startup "xwayland-satellite"
