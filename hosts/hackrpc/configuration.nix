@@ -25,7 +25,7 @@
     ../../modules/nixos/niri.nix
     ../../modules/nixos/fonts.nix
     ../../modules/nixos/stylix.nix
-    ../../modules/nixos/steam.nix
+    ../../modules/nixos/gaming.nix
     ../../modules/nixos/docker.nix
     ../../modules/nixos/disable-rgb.nix
     ../../modules/nixos/keyd.nix
