@@ -25,6 +25,7 @@
       satisfactorymodmanager
       mangohud
       steam-run
+      prismlauncher 
     ];
     loginShellInit = ''
       [[ "$(tty)" = "/dev/tty1" ]] && ./gs.sh
