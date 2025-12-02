@@ -33,7 +33,7 @@ output "LG Electronics LG ULTRAGEAR+ 503NTNH4U183" {
 
 output "BOE NE135A1M-NY1 Unknown" {
     mode "2880x1920@120.000"
-    scale 1.25
+    scale 1.5
     transform "normal"
     position x=0 y=0
 }
