@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    android-tools
     nil
     nixfmt-rfc-style
     gcc
@@ -25,3 +26,4 @@
     enableNushellIntegration = true;
   };
 }
+`
