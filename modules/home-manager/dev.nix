@@ -26,4 +26,3 @@
     enableNushellIntegration = true;
   };
 }
-`
