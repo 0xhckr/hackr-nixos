@@ -62,6 +62,7 @@ in
       obsidian
       fontforge
       discord # discord now works flawlessly on NixOS. no need for vesktop.
+      whatsapp-electron
       krisp-patcher
       zoom-us
       nautilus
