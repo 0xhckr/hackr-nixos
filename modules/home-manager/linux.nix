@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, hostname, ... }:
 {
   imports = [
     ./ssh.nix
@@ -30,10 +30,22 @@
       source = ../../cfg/linux/jj;
       recursive = true;
     };
-    ".config/niri" = {
+    ".config/niri/config.kdl" = {
       force = true;
-      source = ../../cfg/linux/niri;
-      recursive = true;
+      text = ''
+        ${builtins.readFile ../../cfg/linux/niri/config.kdl}
+        ${if hostname == "hackrwork" || hostname == "hackrfrmw" then ''
+          ${builtins.readFile ../../cfg/linux/niri/laptop-outputs.kdl}
+        '' else ""}
+      '';
+    };
+    ".config/niri/delayed" = {
+      force = true;
+      source = ../../cfg/linux/niri/delayed;
+    };
+    ".config/niri/background" = {
+      force = true;
+      source = ../../cfg/linux/niri/background;
     };
     ".config/nixpkgs/config.nix" = {
       force = true;
