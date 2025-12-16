@@ -1,0 +1,26 @@
+output "BOE NE135A1M-NY1 Unknown" {
+    mode "2880x1920@120.000"
+    scale 1.5
+    transform "normal"
+    position x=0 y=0
+}
+
+output "AU Optronics 0x749D Unknown" {
+    mode "3840x2160@144.001"
+    scale 1.25
+    transform "normal"
+    position x=7680 y=0
+}
+
+output "DP-1" {
+    mode "3840x2160@60.000"
+    scale 1
+    transform "normal"
+    position x=3840 y=0
+}
+output "DP-2" {
+    mode "3840x2160@60.000"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+}
