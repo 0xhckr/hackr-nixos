@@ -49,7 +49,7 @@
       "window.commandCenter" = true;
       "workbench.layoutControl.enabled" = false;
       "window.titleBarStyle" = "native";
-      "workbench.colorTheme" = lib.mkForce "Oscura Midnight";
+      # "workbench.colorTheme" = lib.mkForce "poimandres";
       "editor.cursorBlinking" = "smooth";
       "json.schemaDownload.enable" = true;
       "qt-qml.qmlls.useQmlImportPathEnvVar" = true;

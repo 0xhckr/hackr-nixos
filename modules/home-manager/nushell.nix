@@ -140,7 +140,7 @@
       right_format = ''
         $singularity$kubernetes$directory$vcsh$fossil_branch$git_branch$git_commit$git_state$git_status$hg_branch$pijul_channel$docker_context$package$c$cpp$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$fortran$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$vlang$vagrant$xmake$zig$buf$conda$pixi$meson$spack$memory_usage$aws$gcloud$openstack$azure$crystal$custom$status$os$battery$time
       '';
-      palette = lib.mkForce "oscura-midnight";
+      palette = lib.mkForce "poimandres";
       palettes.oscura-midnight = {
         overlay = "#232323";
         overlayd = "#161616";
@@ -148,6 +148,17 @@
         love = "#d84f68";
         gold = "#f9b98c";
         rose = "#e6e7a3";
+        pine = "#4ebe96";
+        foam = "#54c0a3";
+        iris = "#e6e7a3";
+      };
+      palettes.poimandres = {
+        overlay = "#252b37";
+        overlayd = "#171922";
+        overlaydd = "#1b1e28";
+        love = "#d0679d";
+        gold = "#add7ff";
+        rose = "#5de4c7";
         pine = "#4ebe96";
         foam = "#54c0a3";
         iris = "#e6e7a3";

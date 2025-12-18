@@ -1,0 +1,18 @@
+scheme: "Poimandres"
+author: "pmndrs (Poimandres collective)"
+base00: "1b1e28" # Default Background
+base01: "171922" # Lighter Background (Used for status bars)
+base02: "252b37" # Selection Background
+base03: "303340" # Comments, Invisibles, Line Highlighting
+base04: "767c9d" # Dark Foreground (Used for status bars)
+base05: "a6accd" # Default Foreground, Caret, Delimiters, Operators
+base06: "d0d0d0" # Light Foreground (Not often used)
+base07: "e4f0fb" # Light Background (Not often used)
+base08: "d0679d" # Variables, XML Tags, Markup Link Text
+base09: "add7ff" # Integers, Boolean, Constants, XML Attributes
+base0A: "fffac2" # Classes, Markup Bold, Search Text Background
+base0B: "5de4c7" # Strings, Inherited Class, Markup Code
+base0C: "89ddff" # Support, Regular Expressions, Escape Characters
+base0D: "add7ff" # Functions, Methods, Attribute IDs, Headings
+base0E: "f087bd" # Keywords, Storage, Selector, Markup Italic
+base0F: "e4f0fb" # Deprecated, Opening/Closing Embedded Tag Notes

@@ -94,6 +94,7 @@
         nuxtr.nuxtr-vscode
         ziyasal.vscode-open-in-github
         fey.oscura
+        pmndrs.pmndrs
         mcu-debug.peripheral-viewer
         ms-vscode.powershell
         esbenp.prettier-vscode

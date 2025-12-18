@@ -1,0 +1,74 @@
+[meta]
+name = "Poimandres"
+description = "A minimalist, dark theme for the next millennium"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+accent = "#add7ff"
+accent_foreground = "#1b1e28"
+background = "#1b1e28"
+foreground = "#a6accd"
+secondary_background = "#252b37"
+border = "#303340"
+
+[colors.main_window]
+border = "#303340"
+
+[colors.settings_window]
+border = "#303340"
+
+[colors.accents]
+blue = "#add7ff"
+green = "#5de4c7"
+magenta = "#f087bd"
+orange = "#fffac2"
+red = "#d0679d"
+yellow = "#fffac2"
+cyan = "#89ddff"
+purple = "#f087bd"
+
+[colors.text]
+default = "#a6accd"
+muted = "#767c9d"
+danger = "#d0679d"
+success = "#5de4c7"
+placeholder = "#505770"
+selection = { background = "#303340", foreground = "#e4f0fb" }
+
+[colors.text.links]
+default = "#add7ff"
+visited = "#f087bd"
+
+[colors.input]
+border = "#303340"
+border_focus = "#add7ff"
+border_error = "#d0679d"
+
+[colors.button.primary]
+background = "#252b37"
+foreground = "#a6accd"
+hover = { background = "#303340" }
+focus = { outline = "colors.core.accent" }
+
+[colors.list.item.hover]
+background = "#252b37"
+foreground = "#e4f0fb"
+
+[colors.list.item.selection]
+background = "#303340"
+foreground = "#e4f0fb"
+secondary_background = "#252b37"
+secondary_foreground = "#a6accd"
+
+[colors.grid.item]
+background = "#252b37"
+hover = { outline = "#a6accd" }
+selection = { outline = "#add7ff" }
+
+[colors.scrollbars]
+background = "#303340"
+
+[colors.loading]
+bar = "#add7ff"
+spinner = "#5de4c7"
