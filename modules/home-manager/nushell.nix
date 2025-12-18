@@ -161,7 +161,7 @@
         rose = "#5de4c7";
         pine = "#4ebe96";
         foam = "#54c0a3";
-        iris = "#e6e7a3";
+        iris = "#ffffff";
       };
       directory = {
         format = "[](fg:overlayd)[ $path ]($style)[](fg:overlayd) ";
