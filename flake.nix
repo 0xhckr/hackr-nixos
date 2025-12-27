@@ -108,11 +108,6 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
-    dataflare = {
-      url = "github:hackr-sh/dataflare-nixos-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     vicinae = {
       url = "github:vicinaehq/vicinae";
       inputs.nixpkgs.follows = "nixpkgs";
