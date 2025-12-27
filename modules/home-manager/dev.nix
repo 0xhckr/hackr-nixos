@@ -6,7 +6,6 @@
     nixfmt-rfc-style
     gcc
     gnumake
-    mise
     cargo
     nodejs
     bun
