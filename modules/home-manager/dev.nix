@@ -17,8 +17,12 @@
 
   programs.git = {
     enable = true;
-    userName = "Mohammad Al-Ahdal";
-    userEmail = "hackr@hackr.sh";
+    settings = {
+      user = {
+        name = "Mohammad Al-Ahdal";
+        email = "hackr@hackr.sh";
+      };
+    };
   };
 
   programs.direnv = {
