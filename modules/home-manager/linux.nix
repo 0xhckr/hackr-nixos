@@ -47,10 +47,6 @@
       force = true;
       source = ../../cfg/linux/niri/background;
     };
-    ".config/nixpkgs/config.nix" = {
-      force = true;
-      source = ../../cfg/linux/nixpkgs/config.nix;
-    };
     ".config/noctalia" = {
       force = true;
       source = ../../cfg/linux/noctalia;
