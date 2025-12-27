@@ -26,8 +26,6 @@
     ]
     ++ (with inputs; [
       awww.packages.${system}.default
-      quickshell.packages.${system}.default
-      caelestia.packages.${system}.default
       noctalia.packages.${system}.default
     ]);
 
