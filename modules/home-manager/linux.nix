@@ -3,7 +3,7 @@
   imports = [
     ./ssh.nix
     ./terminal.nix
-    ./ui.linux.nix
+    ./ui.nix
     ./apps.nix
     ./dev.nix
   ];
@@ -18,11 +18,6 @@
     ".config/ghostty" = {
       force = true;
       source = ../../cfg/linux/ghostty;
-      recursive = true;
-    };
-    ".config/hypr" = {
-      force = true;
-      source = ../../cfg/linux/hypr;
       recursive = true;
     };
     ".config/niri/config.kdl" = {
@@ -45,11 +40,6 @@
     ".config/noctalia" = {
       force = true;
       source = ../../cfg/linux/noctalia;
-      recursive = true;
-    };
-    ".config/waybar" = {
-      force = true;
-      source = ../../cfg/linux/waybar;
       recursive = true;
     };
     ".config/atuin" = {

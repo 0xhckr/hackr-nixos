@@ -15,20 +15,12 @@
       rocmSupport = true;
     })
     atuin
-    starship
-    zoxide
-    neovim
     lazygit
-    vim
-    screenfetch
-    neofetch
     fastfetch
     fzf
     ripgrep
     bat
-    zsh-autoenv
     gh
-    yazi
     helix
     nix-output-monitor
     inputs.commie.packages."${system}".default
@@ -36,30 +28,6 @@
     psmisc
     inputs.ghostty.packages."${system}".default
   ];
-
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    mouse = true;
-    extraConfig = ''
-      set -g allow-passthrough on
-      set -g default-terminal "xterm-256color"
-
-      set -as terminal-overrides ",ghostty*:RGB,hyperlinks,graphics"
-      set -as terminal-overrides ",xterm-256color:RGB"
-
-      unbind C-b
-      set -g prefix C-a
-
-      bind-key t new-window
-      bind-key - split-window -h
-      bind-key | split-window -v
-      bind-key w kill-pane
-      bind-key q kill-server
-      bind-key d detach
-      bind-key r source-file ~/.config/tmux/tmux.conf
-    '';
-  };
 
   home.file = {
     ".config/nushell/env.nu" = {

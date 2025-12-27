@@ -18,14 +18,11 @@
       pavucontrol
       pulseaudioFull
       alsa-utils
-      swaybg
     ]
     ++ (with inputs; [
       awww.packages.${system}.default
       noctalia.packages.${system}.default
     ]);
-
-  # programs.dankMaterialShell.enable = true;
 
   services.vicinae = {
     enable = true;
