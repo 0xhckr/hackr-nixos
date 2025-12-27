@@ -58,16 +58,13 @@ in
     with pkgs;
     [
       spotify
-      spacedrive
       obsidian
       fontforge
-      discord # discord now works flawlessly on NixOS. no need for vesktop.
+      discord
       whatsapp-electron
       krisp-patcher
       zoom-us
       nautilus
-      element-desktop
-      nordpass
       slack
       # inputs.graphite.packages."${system}".default
       winboat
