@@ -90,14 +90,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sherlock = {
-      type = "github";
-      owner = "Skxxtz";
-      repo = "sherlock";
-      ref = "stable/release-v0.1.14";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     ghostty = {
       type = "github";
       owner = "ghostty-org";
