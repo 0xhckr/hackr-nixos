@@ -2,10 +2,7 @@
 {
 
   imports = [
-    inputs.ags.homeManagerModules.default
     inputs.vicinae.homeManagerModules.default
-    # inputs.dms.homeModules.dankMaterialShell.default
-    # inputs.dms.homeModules.dankMaterialShell.niri
   ];
 
   home.packages =
@@ -30,7 +27,6 @@
     ++ (with inputs; [
       awww.packages.${system}.default
       quickshell.packages.${system}.default
-      astal.packages.${system}.default
       caelestia.packages.${system}.default
       noctalia.packages.${system}.default
     ]);
