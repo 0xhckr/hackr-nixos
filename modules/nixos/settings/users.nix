@@ -4,16 +4,9 @@
   users.users.hackr = {
     isNormalUser = true;
     description = "Mohammad Al-Ahdal";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "openrazer"
-      "vboxusers"
-    ];
     shell = pkgs.nushell;
     openssh.authorizedKeys.keyFiles = [
-      ../../ssh/authorized_keys
+      ../../../ssh/authorized_keys
     ];
   };
 

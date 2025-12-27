@@ -1,36 +1,23 @@
+{ config, pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}:
-
-{ 
   programs.steam = {
-    enable = true;
+    enable = builtins.elem config.networking.hostName [ "hackrfrmw" "hackrpc" ];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
   };
-
-  programs.gamescope = {
-    enable = true;
-    capSysNice = true;
-  };
-
   hardware.xone.enable = true;
   services.getty.autologinUser = "hackr";
+  nixpkgs.config.allowUnfree = true;
+
   environment = {
     systemPackages = with pkgs; [
-      satisfactorymodmanager
       mangohud
       steam-run
-      prismlauncher 
     ];
     loginShellInit = ''
       [[ "$(tty)" = "/dev/tty1" ]] && ./gs.sh
     '';
   };
-
-  nixpkgs.config.allowUnfree = true;
 }

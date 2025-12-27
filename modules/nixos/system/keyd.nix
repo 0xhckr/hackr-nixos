@@ -19,9 +19,9 @@ in
         ids = [ "*" ];
         extraConfig = ''
           [main]
-          ${if hostname == "hackrfrmw" then "leftalt = leftmeta" else ""}
-          ${if hostname == "hackrfrmw" then "leftmeta = leftalt" else ""}
-          ${if hostname == "hackrfrmw" then "capslock = delete" else ""}
+          leftalt = leftmeta
+          leftmeta = leftalt
+          capslock = delete
           
           [meta]
           c = C-c

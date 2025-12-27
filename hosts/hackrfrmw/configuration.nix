@@ -11,32 +11,12 @@
 }:
 {
   imports = [
+    ../../modules/nixos
     # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
     ./boot+hibernation.nix
     ./fwupd.nix
-    ../../modules/nixos/security+fingerprint.nix
-    ../../modules/nixos/fw.nix
-    ../../modules/nixos/defaults.nix
-    ../../modules/nixos/sound.nix
-    ../../modules/nixos/user-cfg.nix
-    ../../modules/nixos/gnome.nix
-    ../../modules/nixos/nh.nix
-    ../../modules/nixos/niri.nix
-    ../../modules/nixos/fonts.nix
-    ../../modules/nixos/stylix.nix
-    ../../modules/nixos/gaming.nix
-    ../../modules/nixos/docker.nix
-    ../../modules/nixos/disable-rgb.nix
-    ../../modules/nixos/keyd.nix
-    ../../modules/nixos/ssh.nix
-    ../../modules/nixos/obs.nix
-    ../../modules/nixos/tailscale.nix
-    ../../modules/nixos/dev.nix
-    ../../modules/nixos/vbox.nix
-    ../../modules/nixos/netbird.nix
-    ../../modules/nixos/libre-office.nix
   ];
 
   networking.hostName = "hackrfrmw"; # Define your hostname.

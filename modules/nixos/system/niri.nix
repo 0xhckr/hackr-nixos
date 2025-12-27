@@ -14,9 +14,6 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    # material-symbols
-    # inter
-    # fira-code
   ];
 
   services.displayManager.defaultSession = lib.mkForce "niri";

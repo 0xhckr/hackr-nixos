@@ -17,7 +17,7 @@
   nixpkgs.overlays = [
     (final: prev: {
       openssh = prev.openssh.overrideAttrs (old: {
-        patches = (old.patches or [ ]) ++ [ ../../patches/openssh.patch ];
+        patches = (old.patches or [ ]) ++ [ ../../../patches/openssh.patch ];
         doCheck = false;
       });
     })
@@ -33,6 +33,7 @@
       ];
     };
   };
+  users.users.hackr.extraGroups = [ "networkmanager" "wheel" ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
