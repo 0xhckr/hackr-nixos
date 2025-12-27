@@ -52,11 +52,6 @@
       source = ../../cfg/linux/waybar;
       recursive = true;
     };
-    ".config/wlogout" = {
-      force = true;
-      source = ../../cfg/linux/wlogout;
-      recursive = true;
-    };
     ".config/atuin" = {
       force = true;
       source = ../../cfg/shared/atuin;

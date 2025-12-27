@@ -9,12 +9,8 @@
     with pkgs;
     [
       cava
-      wofi
-      waypaper
-      waybar
       playerctl
       brightnessctl
-      wlogout
       wf-recorder
       slurp
       hyprpicker
