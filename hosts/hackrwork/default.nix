@@ -12,23 +12,44 @@
 {
   imports = [
     ../../modules/nixos
-    # Include the results of the hardware scan.
-    inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
+    ./boot.nix
   ];
-
-  networking.hostName = "hackrpc"; # Define your hostname.
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
+  networking.hostName = "hackrwork"; # Define your hostname.
+
   environment.systemPackages = with pkgs; [
     # add global basic packages here (the ones that are used quite literally everywhere)
     wget
     curl
+    openrazer-daemon
+    polychromatic
   ];
+  hardware.openrazer.enable = true;
+  users.users.hackr.extraGroups = [ "openrazer" ];
+
+  services.logind.lidSwitchExternalPower = "ignore";
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
+  '';
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = true;
+      open = false;
+      nvidiaSettings = true;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

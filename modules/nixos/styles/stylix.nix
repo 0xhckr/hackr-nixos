@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  imports = [
+    inputs.stylix.nixosModules.stylix
+  ];
   stylix.enable = true;
   stylix.base16Scheme = ./themes/poimandres.yaml;
   stylix.polarity = "dark";

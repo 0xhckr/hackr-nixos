@@ -12,43 +12,26 @@
 {
   imports = [
     ../../modules/nixos
-    # Include the results of the hardware scan.
-    inputs.home-manager.nixosModules.default
     ./hardware-configuration.nix
+    ./boot.nix
   ];
+
+  networking.hostName = "hackrfrmw"; # Define your hostname.
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  networking.hostName = "hackrwork"; # Define your hostname.
-
   environment.systemPackages = with pkgs; [
     # add global basic packages here (the ones that are used quite literally everywhere)
     wget
     curl
-    openrazer-daemon
-    polychromatic
   ];
-  hardware.openrazer.enable = true;
-  users.users.hackr.extraGroups = [ "openrazer" ];
 
-  services.logind.lidSwitchExternalPower = "ignore";
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-    AllowHybridSleep=no
-    AllowSuspendThenHibernate=no
-  '';
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware = {
-    graphics.enable = true;
-    nvidia = {
-      modesetting.enable = true;
-      open = false;
-      nvidiaSettings = true;
+  services.pipewire.wireplumber.extraConfig.no-ucm = {
+    "monitor.alsa.properties" = {
+      "alsa.use-ucm" = false; # note: make sure "Analog Studio Duplex" is selected in the Configuration Profile for Family 17h/19h/1ah HD Audio Controller and that the gain is at 50$
     };
   };
 
@@ -58,5 +41,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

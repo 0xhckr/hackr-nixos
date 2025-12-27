@@ -116,11 +116,7 @@
             system = "x86_64-linux";
           };
           modules = [
-            ./hosts/hackrpc/boot.nix
-            ./hosts/hackrpc/configuration.nix
-            ./modules/home-manager/default.nix
-            inputs.home-manager.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            ./hosts/hackrpc
           ];
         };
         hackrfrmw = nixpkgs.lib.nixosSystem {
@@ -129,10 +125,7 @@
             system = "x86_64-linux";
           };
           modules = [
-            ./hosts/hackrfrmw/configuration.nix
-            ./modules/home-manager/default.nix
-            inputs.home-manager.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            ./hosts/hackrfrmw
           ];
         };
         hackrwork = nixpkgs.lib.nixosSystem {
@@ -141,11 +134,7 @@
             system = "x86_64-linux";
           };
           modules = [
-            ./hosts/hackrwork/boot.nix
-            ./hosts/hackrwork/configuration.nix
-            ./modules/home-manager/default.nix
-            inputs.home-manager.nixosModules.default
-            inputs.stylix.nixosModules.stylix
+            ./hosts/hackrwork
           ];
         };
       };

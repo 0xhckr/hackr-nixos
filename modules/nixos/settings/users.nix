@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
+  imports = [
+    inputs.home-manager.nixosModules.default
+    ../../home-manager/default.nix
+  ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.hackr = {
     isNormalUser = true;
