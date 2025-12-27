@@ -146,11 +146,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mango = {
-      url = "github:DreamMaoMao/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     _1password = {
       url = "github:1Password/shell-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -187,7 +182,6 @@
             ./hosts/hackrpc/configuration.nix
             ./modules/home-manager/default.nix
             inputs.home-manager.nixosModules.default
-            inputs.mango.nixosModules.mango
             inputs.stylix.nixosModules.stylix
           ];
         };
@@ -200,7 +194,6 @@
             ./hosts/hackrfrmw/configuration.nix
             ./modules/home-manager/default.nix
             inputs.home-manager.nixosModules.default
-            inputs.mango.nixosModules.mango
             inputs.stylix.nixosModules.stylix
           ];
         };
