@@ -25,11 +25,6 @@
       source = ../../cfg/linux/hypr;
       recursive = true;
     };
-    ".config/jj" = {
-      force = true;
-      source = ../../cfg/linux/jj;
-      recursive = true;
-    };
     ".config/niri/config.kdl" = {
       force = true;
       text = ''
@@ -60,11 +55,6 @@
     ".config/wlogout" = {
       force = true;
       source = ../../cfg/linux/wlogout;
-      recursive = true;
-    };
-    ".config/alacritty" = {
-      force = true;
-      source = ../../cfg/shared/alacritty;
       recursive = true;
     };
     ".config/atuin" = {
