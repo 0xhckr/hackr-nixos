@@ -308,10 +308,10 @@
 
   home.file = {
     ".config/nushell/direnv.nu" = {
-      source = ../../cfg/shared/nushell/direnv.nu;
+      source = ../../cfg/nushell/direnv.nu;
     };
     ".config/nushell/aacpi.sh" = {
-      source = ../../cfg/shared/nushell/aacpi.sh;
+      source = ../../cfg/nushell/aacpi.sh;
     };
   };
 }

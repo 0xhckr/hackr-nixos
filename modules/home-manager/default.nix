@@ -12,7 +12,7 @@
       hostname = config.networking.hostName;
     };
     users = {
-      "hackr" = import ./linux.nix;
+      "hackr" = import ./links.nix;
     };
     backupFileExtension = "bak";
   };
