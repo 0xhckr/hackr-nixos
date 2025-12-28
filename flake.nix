@@ -61,6 +61,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helix = {
+      type = "github";
+      owner = "helix-editor";
+      repo = "helix";
+      ref = "master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     ghostty = {
       type = "github";
       owner = "ghostty-org";

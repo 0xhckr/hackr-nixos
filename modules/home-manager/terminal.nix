@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   system,
@@ -21,7 +20,7 @@
     ripgrep
     bat
     gh
-    helix
+    inputs.helix.packages."${system}".default
     nix-output-monitor
     inputs.commie.packages."${system}".default
     libnotify
