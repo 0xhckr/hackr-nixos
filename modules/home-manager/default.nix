@@ -3,8 +3,7 @@
   system,
   config,
   ...
-}:
-{
+}: {
   home-manager = {
     extraSpecialArgs = {
       inherit inputs;

@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     loader = {
@@ -12,7 +15,7 @@
         useOSProber = true;
         efiSupport = true;
       };
-    }; 
+    };
   };
 
   powerManagement.enable = true;

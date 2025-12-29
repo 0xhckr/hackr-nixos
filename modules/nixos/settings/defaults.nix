@@ -1,5 +1,4 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -18,7 +17,7 @@
   nixpkgs.overlays = [
     (final: prev: {
       openssh = prev.openssh.overrideAttrs (old: {
-        patches = (old.patches or [ ]) ++ [ ../../../patches/openssh.patch ];
+        patches = (old.patches or []) ++ [../../../patches/openssh.patch];
         doCheck = false;
       });
     })
@@ -34,7 +33,7 @@
       ];
     };
   };
-  users.users.hackr.extraGroups = [ "networkmanager" "wheel" ];
+  users.users.hackr.extraGroups = ["networkmanager" "wheel"];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

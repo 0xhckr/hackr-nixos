@@ -3,8 +3,7 @@
   inputs,
   hostname,
   ...
-}:
-{
+}: {
   imports = [
     ./ssh.nix
     ./terminal.nix
@@ -55,12 +54,11 @@
       text = ''
         ${builtins.readFile ../../cfg/niri/config.kdl}
         ${
-          if hostname == "hackrwork" || hostname == "hackrfrmw" then
-            ''
-              ${builtins.readFile ../../cfg/niri/laptop-outputs.kdl}
-            ''
-          else
-            ""
+          if hostname == "hackrwork" || hostname == "hackrfrmw"
+          then ''
+            ${builtins.readFile ../../cfg/niri/laptop-outputs.kdl}
+          ''
+          else ""
         }
       '';
     };

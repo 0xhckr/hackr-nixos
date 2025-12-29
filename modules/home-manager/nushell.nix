@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}:
-{
+}: {
   home.shell.enableNushellIntegration = true;
 
   programs.nushell = {
@@ -50,7 +49,7 @@
       }
 
       def nr [
-        name: string, 
+        name: string,
         ...rest: string
       ] {
         if $name == "list" {
@@ -71,7 +70,7 @@
 
       # Enable zoxide integration
       source ${
-        pkgs.runCommand "zoxide-nushell-config.nu" { } ''
+        pkgs.runCommand "zoxide-nushell-config.nu" {} ''
           ${lib.getExe pkgs.zoxide} init nushell >> "$out"
         ''
       }

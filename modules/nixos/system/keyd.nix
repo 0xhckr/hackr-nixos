@@ -3,11 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   hostname = config.networking.hostName;
-in
-{
+in {
   environment.systemPackages = with pkgs; [
     keyd
   ];
@@ -16,13 +14,13 @@ in
     enable = true;
     keyboards = {
       default = {
-        ids = [ "*" ];
+        ids = ["*"];
         extraConfig = ''
           [main]
           leftalt = leftmeta
           leftmeta = leftalt
           capslock = delete
-          
+
           [meta]
           c = C-c
           b = C-b

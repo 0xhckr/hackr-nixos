@@ -7,9 +7,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -22,9 +20,9 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/9f49c85b-62ec-4d8a-86c8-c9aa339ef00c";
@@ -41,7 +39,7 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/7f557df1-7e9e-4007-a2a1-04683c04bae0"; }
+    {device = "/dev/disk/by-uuid/7f557df1-7e9e-4007-a2a1-04683c04bae0";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

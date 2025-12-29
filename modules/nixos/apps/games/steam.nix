@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.steam = {
-    enable = builtins.elem config.networking.hostName [ "hackrfrmw" "hackrpc" ];
+    enable = builtins.elem config.networking.hostName ["hackrfrmw" "hackrpc"];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;

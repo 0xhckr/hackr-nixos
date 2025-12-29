@@ -3,8 +3,7 @@
   lib,
   inputs,
   ...
-}:
-{
+}: {
   # Enable Niri
   programs.niri = {
     enable = true;

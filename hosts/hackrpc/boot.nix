@@ -1,12 +1,15 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     sbctl
   ];
 
   boot = {
     loader = {
-      systemd-boot =  {
+      systemd-boot = {
         enable = lib.mkForce false;
         consoleMode = "max";
       };
@@ -14,12 +17,12 @@
         enable = true;
         secureBoot.enable = true;
         extraConfig = ''
-term_palette: 1e1e2e;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4
-term_palette_bright: 585b70;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4
-term_background: 1e1e2e
-term_foreground: cdd6f4
-term_background_bright: 585b70
-term_foreground_bright: cdd6f4
+          term_palette: 1e1e2e;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4
+          term_palette_bright: 585b70;f38ba8;a6e3a1;f9e2af;89b4fa;f5c2e7;94e2d5;cdd6f4
+          term_background: 1e1e2e
+          term_foreground: cdd6f4
+          term_background_bright: 585b70
+          term_foreground_bright: cdd6f4
         '';
         extraEntries = ''
           /+Windows
@@ -44,7 +47,7 @@ term_foreground_bright: cdd6f4
       theme = lib.mkForce "dark_planet";
       themePackages = with pkgs; [
         (adi1090x-plymouth-themes.override {
-          selected_themes = [ "dark_planet" ];
+          selected_themes = ["dark_planet"];
         })
       ];
     };

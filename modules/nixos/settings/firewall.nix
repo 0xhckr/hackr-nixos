@@ -2,13 +2,11 @@
   config,
   pkgs,
   ...
-}:
-let 
+}: let
   allowedPorts = [
     3000
   ];
-in
-{
+in {
   networking.firewall = {
     enable = true;
     allowedTCPPorts = allowedPorts;

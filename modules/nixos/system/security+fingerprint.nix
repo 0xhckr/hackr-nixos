@@ -1,8 +1,11 @@
-{ config, pkgs, lib, ... }:
-let
-  isFrmw = config.networking.hostName == "hackrfrmw";
-in
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  isFrmw = config.networking.hostName == "hackrfrmw";
+in {
   environment.systemPackages = with pkgs; [
     fprintd
     polkit_gnome
@@ -18,9 +21,9 @@ in
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -33,7 +36,7 @@ in
 
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ "hackr" ];
+    polkitPolicyOwners = ["hackr"];
   };
 
   security = {

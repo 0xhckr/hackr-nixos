@@ -108,24 +108,22 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }@inputs:
-    {
-      # use "nixos", or your hostname as the name of the configuration
-      # it's a better practice than "default" shown in the video
-      nixosConfigurations = builtins.listToAttrs (builtins.map (name: {
-        name = name;
-        value = nixpkgs.lib.nixosSystem {
-          modules = [ ./hosts/${name} ];
-          specialArgs = { 
-            inherit inputs;
-            system = "x86_64-linux";
-          };
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  } @ inputs: {
+    # use "nixos", or your hostname as the name of the configuration
+    # it's a better practice than "default" shown in the video
+    nixosConfigurations = builtins.listToAttrs (builtins.map (name: {
+      name = name;
+      value = nixpkgs.lib.nixosSystem {
+        modules = [./hosts/${name}];
+        specialArgs = {
+          inherit inputs;
+          system = "x86_64-linux";
         };
-      }) [ "hackrpc" "hackrfrmw" "hackrwork" ]);
-    };
+      };
+    }) ["hackrpc" "hackrfrmw" "hackrwork"]);
+  };
 }

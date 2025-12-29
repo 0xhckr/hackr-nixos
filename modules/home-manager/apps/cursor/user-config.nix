@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   programs.vscode = {
     profiles.default.userSettings = {
       "[typescriptreact]" = {
@@ -34,7 +37,7 @@
       "workbench.sideBar.location" = "right";
       "editor.matchBrackets" = "near";
       "editor.guides.indentation" = false;
-      "editor.language.colorizedBracketPairs" = [ ];
+      "editor.language.colorizedBracketPairs" = [];
       "diffEditor.ignoreTrimWhitespace" = false;
       "editor.cursorSmoothCaretAnimation" = "on";
       "editor.guides.bracketPairs" = "active";

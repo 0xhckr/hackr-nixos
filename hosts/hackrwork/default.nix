@@ -1,15 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   config,
   pkgs,
   lib,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     ../../modules/nixos
     ./hardware-configuration.nix
@@ -31,7 +29,7 @@
     polychromatic
   ];
   hardware.openrazer.enable = true;
-  users.users.hackr.extraGroups = [ "openrazer" ];
+  users.users.hackr.extraGroups = ["openrazer"];
 
   services.logind.lidSwitchExternalPower = "ignore";
   systemd.sleep.extraConfig = ''
@@ -41,7 +39,7 @@
     AllowSuspendThenHibernate=no
   '';
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware = {
     graphics.enable = true;
     nvidia = {

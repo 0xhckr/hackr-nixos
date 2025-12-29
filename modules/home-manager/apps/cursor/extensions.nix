@@ -1,12 +1,15 @@
-{ pkgs, inputs, lib, ... }:
 {
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
     inputs.nix4vscode.overlays.forVscode
   ];
   programs.vscode = {
-    profiles.default.extensions =
-      with pkgs.vscode-marketplace;
+    profiles.default.extensions = with pkgs.vscode-marketplace;
       [
         # add extensions here
         angular.ng-template

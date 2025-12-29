@@ -2,13 +2,11 @@
   config,
   pkgs,
   ...
-}:
-
-{
+}: {
   virtualisation.docker = {
     enable = true;
   };
-  users.users.hackr.extraGroups = [ "docker" ];
+  users.users.hackr.extraGroups = ["docker"];
 
   environment.systemPackages = with pkgs; [
     # dive
@@ -17,5 +15,5 @@
     docker-compose
   ];
 
-  boot.kernelModules = [ "ip_tables" "iptable_nat" ];
+  boot.kernelModules = ["ip_tables" "iptable_nat"];
 }

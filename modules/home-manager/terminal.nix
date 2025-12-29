@@ -3,8 +3,7 @@
   inputs,
   system,
   ...
-}:
-{
+}: {
   imports = [
     ./nushell.nix
   ];
@@ -20,7 +19,6 @@
     ripgrep
     bat
     gh
-    inputs.helix.packages."${system}".default
     nix-output-monitor
     inputs.commie.packages."${system}".default
     libnotify
