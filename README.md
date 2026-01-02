@@ -1,5 +1,8 @@
 # NixOS Configuration
 
+<img width="2880" height="1920" alt="image" src="https://github.com/user-attachments/assets/178cd0b7-213e-44a7-8863-edf453711c4f" />
+
+
 This repository contains NixOS system and Home Manager configurations for multiple machines. It manages the entire system setup declaratively using Nix, including applications, services, and user preferences.
 
 ## Overview
@@ -84,7 +87,3 @@ The configuration uses a custom theme (poimandres) applied consistently across:
 - Text editors
 - Window management
 - System appearance
-
-## Previews
-
-### nixOS
