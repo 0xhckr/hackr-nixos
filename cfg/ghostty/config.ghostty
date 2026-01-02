@@ -54,6 +54,8 @@ keybind = super+alt+up=goto_split:top
 keybind = super+left_bracket=goto_split:previous
 keybind = super+right_bracket=goto_split:next
 
+keybind = ctrl+f=start_search
+
 keybind = ctrl+physical:one=goto_tab:1
 keybind = ctrl+physical:two=goto_tab:2
 keybind = ctrl+physical:three=goto_tab:3
