@@ -145,7 +145,6 @@
         usernamehw.errorlens
         visualstudioexptteam.intellicode-api-usage-examples
         visualstudioexptteam.vscodeintellicode
-        vscode-icons-team.vscode-icons
         vscjava.vscode-gradle
         vscjava.vscode-java-debug
         vscjava.vscode-java-dependency

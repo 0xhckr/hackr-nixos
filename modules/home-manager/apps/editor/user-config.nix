@@ -47,19 +47,23 @@
       "explorer.confirmDelete" = false;
       "git.confirmSync" = false;
       "git.enableSmartCommit" = true;
+      "github.copilot.enable" = {
+        "*" = false;
+      };
+      "github.copilot.nextEditSuggestions.enabled" = false;
       "gitlens.currentLine.enabled" = false;
       "gitlens.currentLine.pullRequests.enabled" = false;
       "json.schemaDownload.enable" = true;
       "qt-qml.qmlls.useQmlImportPathEnvVar" = true;
       "vscord.app.privacyMode.enable" = true;
       "window.commandCenter" = true;
-      "window.menuBarVisibility" = "compact";
+      "window.menuBarVisibility" = "hidden";
       "window.titleBarStyle" = "native";
-      # "workbench.colorTheme" = lib.mkForce "poimandres";
       "workbench.iconTheme" = "vs-trae-seti";
       "workbench.layoutControl.enabled" = false;
       "workbench.navigationControl.enabled" = false;
       "workbench.sideBar.location" = "right";
+      "workbench.secondarySideBar.showLabels" = false;
       "amp.permissions" = [
         {
           "tool" = "Bash";
