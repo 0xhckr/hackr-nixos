@@ -37,7 +37,7 @@
             helpHidden = true;
             branding = "";
           };
-          backdrop = "1E1E2E";
+          backdrop = lib.mkForce "1E1E2E";
         };
       };
       timeout = 5;

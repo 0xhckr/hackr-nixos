@@ -6,7 +6,6 @@
 }: {
   nixpkgs.overlays = [
     inputs.nix-vscode-extensions.overlays.default
-    inputs.nix4vscode.overlays.forVscode
   ];
   programs.vscode = {
     profiles.default.extensions = with pkgs.vscode-marketplace;
@@ -58,6 +57,7 @@
         mkhl.direnv
         ms-azuretools.vscode-containers
         ms-azuretools.vscode-docker
+        ms-dotnettools.csharp
         ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
@@ -93,15 +93,11 @@
         znck.vue
       ]
       ++ (with pkgs.open-vsx; [
-        muhammad-sammy.csharp
       ])
       ++ (with pkgs.vscode-extensions; [
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack
       ])
-      ++ pkgs.nix4vscode.forVscode [
-        "ms-dotnettools.csharp.2.63.32"
-      ]
       ++ (with pkgs.vscode-extensions; [
         ms-vscode.live-server
         vadimcn.vscode-lldb
