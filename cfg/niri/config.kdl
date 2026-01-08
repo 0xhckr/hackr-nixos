@@ -103,7 +103,7 @@ layout {
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "awww-daemon"
-// spawn-at-startup "vicinae" "server"
+spawn-at-startup "vicinae" "server"
 spawn-at-startup "qs" "-p" "/home/hackr/.config/beepshell"
 spawn-at-startup "/home/hackr/.config/niri/delayed"
 spawn-at-startup "/home/hackr/.config/niri/background"
