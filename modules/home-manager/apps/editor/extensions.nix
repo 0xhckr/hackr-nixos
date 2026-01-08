@@ -77,8 +77,6 @@
         svelte.svelte-vscode
         unifiedjs.vscode-mdx
         usernamehw.errorlens
-        visualstudioexptteam.intellicode-api-usage-examples
-        visualstudioexptteam.vscodeintellicode
         vscjava.vscode-gradle
         vscjava.vscode-java-debug
         vscjava.vscode-java-dependency
