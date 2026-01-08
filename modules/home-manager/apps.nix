@@ -44,7 +44,7 @@
 in {
   imports = [
     inputs._1password.hmModules.default
-    ./apps/cursor.nix
+    ./apps/editor
     ./apps/helix
   ];
   home.packages = with pkgs;

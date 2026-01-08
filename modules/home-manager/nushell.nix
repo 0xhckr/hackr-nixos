@@ -62,9 +62,9 @@
 
       def code [...args: string] {
         if $args == null or $args == [] {
-          bash -c $"nohup ${pkgs.code-cursor-fhs}/bin/cursor >/dev/null 2>&1 &"
+          bash -c $"nohup ${pkgs.vscodium-fhs}/bin/codium >/dev/null 2>&1 &"
         } else {
-          bash -c $"nohup ${pkgs.code-cursor-fhs}/bin/cursor ($args | str join ' ') >/dev/null 2>&1 &"
+          bash -c $"nohup ${pkgs.vscodium-fhs}/bin/codium ($args | str join ' ') >/dev/null 2>&1 &"
         }
       }
 
