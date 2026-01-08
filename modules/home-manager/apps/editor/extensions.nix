@@ -14,14 +14,10 @@
         # add extensions here
         aaron-bond.better-comments
         adpyke.vscode-sql-formatter
-        ahmadalli.vscode-nginx-conf
         alefragnani.project-manager
-        angular.ng-template
         antfu.goto-alias
         arrterian.nix-env-selector
         astro-build.astro-vscode
-        bbenoist.nix
-        bbenoist.qml
         bierner.github-markdown-preview
         bierner.markdown-checkbox
         bierner.markdown-emoji
@@ -30,25 +26,15 @@
         bierner.markdown-preview-github-styles
         bierner.markdown-yaml-preamble
         biomejs.biome
-        boto3typed.boto3-ide
         bradlc.vscode-tailwindcss
-        brettm12345.nixfmt-vscode
-        ciantic.keymapceditor-vsc
-        circledev.glsl-canvas
         codezombiech.gitignore
-        cschlosser.doxdocgen
-        danielpinto8zz6.c-cpp-compile-run
         dbaeumer.vscode-eslint
-        delgan.qml-format
         digitalbrainstem.javascript-ejs-support
         dlasagno.rasi
         docker.docker
         donjayamanne.git-extension-pack
         donjayamanne.githistory
-        donjayamanne.python-environment-manager
-        donjayamanne.python-extension-pack
         dotjoshjohnson.xml
-        dtoplak.vscode-glsllint
         dustypomerleau.rust-syntax
         eamodio.gitlens
         editorconfig.editorconfig
@@ -57,90 +43,38 @@
         fill-labs.dependi
         foxundermoon.shell-format
         geequlim.godot-tools
-        gencer.html-slim-scss-css-class-completion
-        ggsimm.wgsl-literal
         github.vscode-github-actions
         golang.go
         hashicorp.terraform
-        idleberg.applescript
         irongeek.vscode-env
-        james-yu.latex-workshop
-        jeff-hykin.better-cpp-syntax
         jeroen-meijer.shibuya
         jnoortheen.nix-ide
         jonkwheeler.styled-components-snippets
-        josetr.cmake-language-support-vscode
-        jscearcy.rust-doc-viewer
         kdl-org.kdl-v1
-        kevinrose.vsc-python-indent
         knisterpeter.vscode-commitizen
         leonardssh.vscord
-        llvm-vs-code-extensions.lldb-dap
-        marus25.cortex-debug
-        mcu-debug.debug-tracker-vscode
-        mcu-debug.memory-view
-        mcu-debug.peripheral-viewer
-        mcu-debug.rtos-views
         me-dutour-mathieu.vscode-github-actions
         mechatroner.rainbow-csv
-        mgesbert.python-path
         mkhl.direnv
-        mohd-akram.vscode-html-format
-        ms-azure-devops.azure-pipelines
-        ms-azuretools.vscode-azurefunctions
-        ms-azuretools.vscode-azureresourcegroups
-        ms-azuretools.vscode-azurestaticwebapps
-        ms-azuretools.vscode-azurevirtualmachines
         ms-azuretools.vscode-containers
         ms-azuretools.vscode-docker
-        ms-python.debugpy
-        ms-python.isort
-        ms-python.python
-        ms-python.vscode-pylance
         ms-vscode-remote.remote-containers
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-ssh-edit
-        ms-vscode.cmake-tools
         ms-vscode.hexeditor
-        ms-vscode.makefile-tools
-        ms-vscode.mono-debug
-        ms-vscode.powershell
         ms-vscode.remote-explorer
         ms-vsliveshare.vsliveshare
-        njpwerner.autodocstring
-        nordic-semiconductor.nrf-kconfig
-        nuxtr.nuxtr-vscode
         pinage404.nix-extension-pack
-        plorefice.devicetree
-        pmndrs.pmndrs
         polymeilex.rust-targets
-        polymeilex.wgsl
         prisma.prisma
-        raynigon.nginx-formatter
         redhat.java
         redhat.vscode-xml
         redhat.vscode-yaml
         rust-lang.rust-analyzer
         ryanluker.vscode-coverage-gutters
-        shopify.theme-check-vscode
-        slevesque.shader
         sourcegraph.amp
-        spadin.zmk-tools
         styled-components.vscode-styled-components
         svelte.svelte-vscode
-        swiftlang.swift-vscode
-        sysoev.language-stylus
-        tauri-apps.tauri-vscode
-        techtheawesome.rust-yew
-        teticio.python-envy
-        thenuprojectcontributors.vscode-nushell-lang
-        theqtcompany.qt
-        theqtcompany.qt-core
-        theqtcompany.qt-cpp
-        theqtcompany.qt-qml
-        theqtcompany.qt-ui
-        tushortz.python-extended-snippets
-        twxs.cmake
         unifiedjs.vscode-mdx
         usernamehw.errorlens
         visualstudioexptteam.intellicode-api-usage-examples
@@ -152,11 +86,8 @@
         vscjava.vscode-java-test
         vscjava.vscode-maven
         vue.volar
-        william-voyek.vscode-nginx
-        xaver.clang-format
         yanfeixin.king-trae-icon
         yoavbls.pretty-ts-errors
-        zeshuaro.vscode-python-poetry
         ziglang.vscode-zig
         ziyasal.vscode-open-in-github
         znck.vue
