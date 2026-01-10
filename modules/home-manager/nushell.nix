@@ -17,6 +17,8 @@
       path add "~/.local/bin"
       path add "~/.nix-profile/bin"
       path add "/run/wrappers/bin"
+      path add "/var/lib/flatpak/exports/share"
+      path add "/home/hackr/.local/share/flatpak/exports/share"
 
       source ./direnv.nu
 

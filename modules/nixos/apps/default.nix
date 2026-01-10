@@ -7,4 +7,7 @@
     ./obs.nix
     ./tailscale.nix
   ];
+
+  # THIS FEELS SO WRONG.
+  services.flatpak.enable = true;
 }
