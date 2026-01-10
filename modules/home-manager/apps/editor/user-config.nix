@@ -55,6 +55,7 @@
       "gitlens.currentLine.pullRequests.enabled" = false;
       "json.schemaDownload.enable" = true;
       "qt-qml.qmlls.useQmlImportPathEnvVar" = true;
+      "telemetry.telemetryLevel" = "off";
       "vscord.app.privacyMode.enable" = true;
       "window.commandCenter" = true;
       "window.menuBarVisibility" = "hidden";
