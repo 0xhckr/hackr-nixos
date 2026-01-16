@@ -77,7 +77,6 @@ window-padding-color = extend
 window-vsync = true 
 window-inherit-working-directory = false
 window-inherit-font-size = true
-window-decoration = true
 # window-title-font-family = "0xProto Nerd Font Mono"
 window-theme = auto
 window-colorspace = srgb
