@@ -1,7 +1,8 @@
 {
   imports = [
     ./crush.nix
-    ./docker.nix
+    ./distrobox.nix
+    # ./docker.nix
     ./nushell.nix
   ];
 }
