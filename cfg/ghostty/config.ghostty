@@ -18,9 +18,9 @@ scrollback-limit = 10000000
 
 link-url = true
 fullscreen = false
-title = 
-class = 
-x11-instance-name = 
+title =
+class =
+x11-instance-name =
 working-directory = "/home/hackr"
 
 keybind = ctrl+alt+i=inspector:toggle
@@ -74,7 +74,7 @@ window-padding-y = 8
 window-padding-balance = false
 window-padding-color = extend
 # keep the following enabled unless you want to test out what a kernel panic looks like
-window-vsync = true 
+window-vsync = true
 window-inherit-working-directory = false
 window-inherit-font-size = true
 # window-title-font-family = "0xProto Nerd Font Mono"
@@ -105,7 +105,7 @@ confirm-close-surface = false
 quit-after-last-window-closed = false
 initial-window = true
 shell-integration = detect
-shell-integration-features = cursor,no-sudo,title
+shell-integration-features = cursor,no-sudo,title,ssh-terminfo
 osc-color-report-format = 16-bit
 vt-kam-allowed = false
 desktop-notifications = true
