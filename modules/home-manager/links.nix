@@ -80,6 +80,15 @@
       source = ../../share/vicinae/themes;
       recursive = true;
     };
+    ".config/zed/themes" = {
+      force = true;
+      source = ../../cfg/zed/themes;
+      recursive = true;
+    };
+    ".config/zed/keymap.json" = {
+      force = true;
+      source = ../../cfg/zed/keymap.json;
+    };
   };
 
   programs.home-manager.enable = true;

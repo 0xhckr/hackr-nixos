@@ -1,0 +1,28 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {},
+  },
+  {
+    "context": "Editor && !menu && !edit_prediction && !VimControl && !VimWaiting",
+    "bindings": {
+      // Format document
+      "shift-alt-f": "editor::Format",
+
+      // Multi-cursor: insert cursor above/below
+      "alt-cmd-up": "editor::AddSelectionAbove",
+      "alt-cmd-down": "editor::AddSelectionBelow",
+
+      // Copy lines up/down
+      "shift-alt-up": "editor::DuplicateLineUp",
+      "shift-alt-down": "editor::DuplicateLineDown",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      // Rename file on Enter
+      "enter": "project_panel::Rename",
+    },
+  },
+]
