@@ -19,6 +19,13 @@
     },
   },
   {
+    "context": "Editor && !menu && edit_prediction",
+    "bindings": {
+      // Partial Accept
+      "end": "editor::AcceptNextWordEditPrediction",
+    },
+  },
+  {
     "context": "ProjectPanel && not_editing",
     "bindings": {
       // Rename file on Enter
