@@ -11,7 +11,28 @@
   #   package = pkgs.vscode-fhs;
   # };
 
-  home.packages = with pkgs; [
-    zed-editor-fhs
-  ];
+  programs.zed-editor = {
+    enable = true;
+    package =
+      pkgs.zed-editor.fhsWithPackages
+      (
+        pkgs:
+          with pkgs; [
+            openssl
+            zlib
+            libz
+          ]
+      );
+    extensions = [
+      "catppuccin-icons"
+      "discord-presence"
+      "ghostty"
+      "html"
+      "java"
+      "nix"
+      "prisma"
+      "sql"
+      "toml"
+    ];
+  };
 }
