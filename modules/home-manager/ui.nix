@@ -2,14 +2,12 @@
   pkgs,
   inputs,
   ...
-}:
-{
+}: {
   imports = [
     inputs.vicinae.homeManagerModules.default
   ];
 
-  home.packages =
-    with pkgs;
+  home.packages = with pkgs;
     [
       cava
       playerctl

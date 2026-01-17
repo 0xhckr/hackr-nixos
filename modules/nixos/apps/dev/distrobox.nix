@@ -1,12 +1,9 @@
-{
-  pkgs,
-  ...
-}
-:{
+{pkgs, ...}
+: {
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
   };
 
-  environment.systemPackages = with pkgs; [ distrobox podman-compose ];
+  environment.systemPackages = with pkgs; [distrobox podman-compose];
 }

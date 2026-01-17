@@ -91,7 +91,7 @@
         znck.vue
       ]
       ++ (with pkgs.open-vsx; [
-      ])
+        ])
       ++ (with pkgs.vscode-extensions; [
         ms-vscode.cpptools
         ms-vscode.cpptools-extension-pack

@@ -558,208 +558,208 @@
             "cmd" = "/^find.*(-delete|-exec|-execdir).*$/";
           };
           "action" = "ask";
-        } 
+        }
         {
           "tool" = "Bash";
           "matches" = {
             "cmd" = "/^(ls|cat|grep|head|tail|file|stat)\\s+[^/]*$/";
           };
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Bash";
           "matches" = {
             "cmd" = "/^(?!.*(rm|mv|cp|chmod|chown|sudo|su|dd)\\b).*/dev/(null|zero|stdout|stderr|stdin).*$/";
           };
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Bash";
           "matches" = {
             "cmd" = "/(^|\\s)(\\/(?!dev\\/(null|zero|stdout|stderr|stdin))[^\\s]*|\\.\\.\\/)(?![^\\s]*\\.(log|txt|md|json|yml|yaml)$)/";
           };
           "action" = "ask";
-        } 
+        }
         {
           "tool" = "Bash";
           "action" = "ask";
-        } 
+        }
         {
           "tool" = "Glob";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Task";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "task_list";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "finder";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "get_diagnostics";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Bash";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "oracle";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "painter";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "mermaid";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "walkthrough";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "walkthrough_diagram";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "todo_read";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "todo_write";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "read_web_page";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "create_file";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "glob";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Glob";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "undo_edit";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Read";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "read_file";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "delete_file";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "format_file";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "web_search";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Grep";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "search_documents";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "get_document";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "Check";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "code_review";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "kraken";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "look_at";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "librarian";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "bookkeeper";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "read_thread";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "find_thread";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "skill";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "read_github";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "search_github";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "commit_search";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "list_directory_github";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "list_repositories";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "glob_github";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "diff";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "describe_workbook";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "execute_query";
           "action" = "allow";
-        } 
+        }
         {
           "tool" = "handoff";
           "action" = "allow";

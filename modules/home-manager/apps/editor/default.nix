@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   imports = [
     ./language-servers.nix
     # TODO: remove all references to vscode in favour of zed-editor-fhs
