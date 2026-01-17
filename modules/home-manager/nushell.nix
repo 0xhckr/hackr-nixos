@@ -64,9 +64,9 @@
 
       def code [...args: string] {
         if $args == null or $args == [] {
-          bash -c $"nohup ${pkgs.vscode-fhs}/bin/code >/dev/null 2>&1 &"
+          bash -c $"nohup ${pkgs.zed-editor-fhs}/bin/zeditor >/dev/null 2>&1 &"
         } else {
-          bash -c $"nohup ${pkgs.vscode-fhs}/bin/code ($args | str join ' ') >/dev/null 2>&1 &"
+          bash -c $"nohup ${pkgs.zed-editor-fhs}/bin/zeditor ($args | str join ' ') >/dev/null 2>&1 &"
         }
       }
 
