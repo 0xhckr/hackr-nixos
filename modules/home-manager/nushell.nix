@@ -104,7 +104,10 @@
 
       ~/.config/nushell/aacpi.sh
 
-      fastfetch
+      # check if running as xterm-ghostty
+      if $env.TERM == "xterm-ghostty" {
+        fastfetch
+      }
     '';
 
     shellAliases = {
