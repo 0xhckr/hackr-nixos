@@ -1,11 +1,7 @@
 {
-  config,
-  lib,
   pkgs,
   ...
-}: let
-  hostname = config.networking.hostName;
-in {
+}:{
   environment.systemPackages = with pkgs; [
     keyd
   ];

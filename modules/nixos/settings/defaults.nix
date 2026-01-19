@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
