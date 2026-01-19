@@ -1,27 +1,24 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  extensionDependencies = with pkgs; [
+    openssl
+    zlib
+  ];
+in {
   imports = [
     ./language-servers.nix
-    # TODO: remove all references to vscode in favour of zed-editor-fhs
-    # ./keybindings.nix
-    # ./user-config.nix
-    # ./extensions.nix
   ];
-  # programs.vscode = {
-  #   enable = true;
-  #   package = pkgs.vscode-fhs;
-  # };
+
+  # We add extension specific dependencies so they show up when
+  # zed is launched via the terminal and also when it's launched
+  # using an app launcher
+  home.packages = [] ++ extensionDependencies;
 
   programs.zed-editor = {
     enable = true;
     package =
       pkgs.zed-editor.fhsWithPackages
       (
-        pkgs:
-          with pkgs; [
-            openssl
-            zlib
-            libz
-          ]
+        pkgs: [] ++ extensionDependencies
       );
     extensions = [
       "catppuccin-icons"
