@@ -58,7 +58,7 @@ in {
       zoom-us
       nautilus
       slack
-      # inputs.graphite.packages."${system}".default
+      inputs.graphite.packages."${system}".default
       winboat
       gimp
       protonmail-desktop

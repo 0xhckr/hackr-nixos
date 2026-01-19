@@ -493,11 +493,11 @@
       },
       "locked": {
         "dir": ".nix",
-        "lastModified": 1768476451,
-        "narHash": "sha256-5uLCIEOsoPpdI6KYeQmplmF/9Cv1Gn0C4SF/ZpC4hfo=",
+        "lastModified": 1768723872,
+        "narHash": "sha256-tC2XBmQPb16NjYCJ/CCK3c4fG5NP2518DWH+HShWb6Y=",
         "owner": "GraphiteEditor",
         "repo": "Graphite",
-        "rev": "73682b482b6e6dcb75fd762406ebeba76f530626",
+        "rev": "fd0addf61ccc4eccaf213eeb55af1420f242ec85",
         "type": "github"
       },
       "original": {
