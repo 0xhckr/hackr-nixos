@@ -1,4 +1,10 @@
-{inputs, pkgs, system, lib, ...}: let
+{
+  inputs,
+  pkgs,
+  system,
+  lib,
+  ...
+}: let
   extensionDependencies = with pkgs; [
     openssl
     zlib
@@ -6,10 +12,16 @@
 
   zedPackage = pkgs.buildFHSEnv {
     name = "zed";
-    targetPkgs = pkgs: [
-      inputs.zed.packages."${system}".default
-    ] ++ extensionDependencies;
+    targetPkgs = pkgs:
+      [
+        inputs.zed.packages."${system}".default
+      ]
+      ++ extensionDependencies;
     runScript = "zed";
+    extraInstallCommands = ''
+      mkdir -p $out/share/applications
+      cp ${inputs.zed.packages."${system}".default}/share/applications/*.desktop $out/share/applications/
+    '';
   };
 in {
   imports = [
