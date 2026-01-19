@@ -32,4 +32,10 @@
       "enter": "project_panel::Rename",
     },
   },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "space": null, // Disable the default action vim::WrappingRight
+    },
+  },
 ]
