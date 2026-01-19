@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     android-tools
     nil
-    nixfmt-rfc-style
+    nixfmt
     gcc
     gnumake
     cargo

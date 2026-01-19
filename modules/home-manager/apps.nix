@@ -8,7 +8,7 @@
     datagrip
     rider
     rust-rover
-    idea-ultimate
+    idea
   ];
   # NOTE: requires manual download of affinity apps.
   affinityApps = with inputs.affinity-nix.packages."${system}"; [

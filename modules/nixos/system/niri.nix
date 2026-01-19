@@ -2,13 +2,14 @@
   pkgs,
   lib,
   inputs,
+  system,
   ...
 }: {
   # Enable Niri
   programs.niri = {
     enable = true;
     # package = pkgs.niri;
-    package = inputs.niri-blurry.packages.${pkgs.system}.niri;
+    package = inputs.niri-blurry.packages.${system}.niri;
   };
 
   environment.systemPackages = with pkgs; [
