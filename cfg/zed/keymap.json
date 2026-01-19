@@ -4,7 +4,7 @@
     "bindings": {},
   },
   {
-    "context": "Editor && !menu && !edit_prediction && !VimControl && !VimWaiting",
+    "context": "Editor && !menu && !edit_prediction",
     "bindings": {
       // Format document
       "shift-alt-f": "editor::Format",
