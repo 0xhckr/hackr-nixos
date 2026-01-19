@@ -64,9 +64,9 @@
 
       def code [...args: string] {
         if $args == null or $args == [] {
-          bash -c $"TERM=xterm-256color nohup ${pkgs.zed-editor-fhs}/bin/zeditor >/dev/null 2>&1 &"
+          bash -c $"TERM=xterm-256color nohup ${config.home.zedPackage}/bin/zed-editor >/dev/null 2>&1 &"
         } else {
-          bash -c $"TERM=xterm-256color nohup ${pkgs.zed-editor-fhs}/bin/zeditor ($args | str join ' ') >/dev/null 2>&1 &"
+          bash -c $"TERM=xterm-256color nohup ${config.home.zedPackage}/bin/zed-editor ($args | str join ' ') >/dev/null 2>&1 &"
         }
       }
 
