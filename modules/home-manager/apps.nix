@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   system,
-  lib,
   ...
 }: let
   jetbrainsApps = with pkgs.jetbrains; [
