@@ -5,7 +5,7 @@
   ];
 
   zedPackage = pkgs.buildFHSEnv {
-    name = "zed-editor";
+    name = "zed";
     targetPkgs = pkgs: [
       inputs.zed.packages."${system}".default
     ] ++ extensionDependencies;
