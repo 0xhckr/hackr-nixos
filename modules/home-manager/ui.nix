@@ -20,6 +20,7 @@
       pavucontrol
       pulseaudioFull
       alsa-utils
+      wlsunset
     ]
     ++ (with inputs; [
       awww.packages.${system}.default
@@ -30,10 +31,12 @@
     enable = true;
   };
 
+  # TODO: control wlsunset using a script instead of a service so it can be disabled and enabled as needed
   services.wlsunset = {
     enable = true;
     gamma = 0.8;
     latitude = 51.0447;
     longitude = -114.0719;
+    package = pkgs.wlsunset;
   };
 }
