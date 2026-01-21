@@ -29,4 +29,11 @@
   services.vicinae = {
     enable = true;
   };
+
+  services.wlsunset = {
+    enable = true;
+    gamma = 0.8;
+    latitude = 51.0447;
+    longitude = -114.0719;
+  };
 }
