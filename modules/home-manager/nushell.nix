@@ -207,7 +207,7 @@
       };
       time = {
         disabled = false;
-        format = "[](fg:overlay)[ $time 󰴈 ]($style)[](fg:overlay)";
+        format = "[](fg:overlay)[ $time ]($style)[](fg:overlay)";
         style = "bg:overlay fg:rose";
         time_format = "%I:%M%P";
         use_12hr = true;
@@ -235,73 +235,67 @@
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       elm = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       golang = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       haskell = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       java = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       julia = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       nodejs = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       nim = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       rust = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       scala = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
-      };
-      conda = {
-        style = "bg:overlay fg:pine";
-        format = "[](fg:overlay)[$symbol$environment]($style)[](fg:overlay) ";
-        disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
       python = {
         style = "bg:overlay fg:pine";
         format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = " ";
+        symbol = " ";
       };
     };
   };
