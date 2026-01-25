@@ -109,7 +109,6 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     ...
   } @ inputs: {
