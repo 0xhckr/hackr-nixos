@@ -196,7 +196,7 @@
         format = "[](fg:overlaydd)([$all_status$ahead_behind]($style))[](fg:overlaydd) ";
         up_to_date = "[ ✓ ](bg:overlaydd fg:iris)";
         untracked = "[?\($count\)](bg:overlaydd fg:gold)";
-        stashed = "[$](bg:overlaydd fg:iris)";
+        stashed = "[($count)](bg:overlaydd fg:gold)";
         modified = "[!\($count\)](bg:overlaydd fg:gold)";
         renamed = "[»\($count\)](bg:overlaydd fg:iris)";
         deleted = "[✘\($count\)](style)";
