@@ -57,5 +57,19 @@ in {
 
     # export zedPackage for use in other modules
     home.zedPackage = zedPackage;
+
+    home.activation = {
+      linkZedSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
+        #!/usr/bin/env bash
+        mkdir -p ~/.config/zed
+        tee ~/.config/zed/settings.json <<EOF
+        ${builtins.readFile ./settings.json}
+        EOF
+      '';
+    };
+    home.file.".config/zed/settings-original.json" = {
+      source = ./settings.json;
+      force = true;
+    };
   };
 }

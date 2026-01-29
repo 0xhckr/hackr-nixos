@@ -1,0 +1,182 @@
+{
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "search": {
+    "center_on_match": true
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "git_panel": {
+    "dock": "right",
+    "tree_view": true
+  },
+  "icon_theme": "Catppuccin Latte",
+  "agent": {
+    "favorite_models": [
+      {
+        "provider": "openrouter",
+        "model": "moonshotai/kimi-k2.5"
+      },
+      {
+        "provider": "openrouter",
+        "model": "google/gemini-3-flash-preview"
+      },
+      {
+        "provider": "openrouter",
+        "model": "google/gemini-3-pro-preview"
+      },
+      {
+        "provider": "openrouter",
+        "model": "anthropic/claude-opus-4.5"
+      },
+      {
+        "provider": "openrouter",
+        "model": "anthropic/claude-haiku-4.5"
+      },
+      {
+        "provider": "openrouter",
+        "model": "anthropic/claude-sonnet-4.5"
+      }
+    ],
+    "default_model": {
+      "provider": "openrouter",
+      "model": "moonshotai/kimi-k2.5"
+    },
+    "commit_message_model": {
+      "provider": "openrouter",
+      "model": "google/gemini-3-flash-preview"
+    },
+    "dock": "left",
+    "model_parameters": []
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "edit_predictions": {
+    "mode": "eager",
+    "enabled_in_text_threads": true,
+    "disabled_globs": [
+      "**/.env",
+      "**/.env.*",
+      "**/*.pem",
+      "**/*.key",
+      "**/*.cert",
+      "**/*.crt",
+      "**/.dev.vars",
+      "**/secrets.yml"
+    ]
+  },
+  "private_files": [
+    "**/.env",
+    "**/.env.*",
+    "**/*.pem",
+    "**/*.key",
+    "**/*.cert",
+    "**/*.crt",
+    "**/.dev.vars",
+    "**/secrets.yml"
+  ],
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "terminal": {
+    "font_size": 16.0
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "base_keymap": "VSCode",
+  "relative_line_numbers": "enabled",
+  "gutter": {
+    "line_numbers": true
+  },
+  "cursor_blink": true,
+  "buffer_font_family": "DepartureMono Nerd Font",
+  "indent_guides": {
+    "enabled": false
+  },
+  "features": {
+    "edit_prediction_provider": "supermaven"
+  },
+  "tab_size": 2,
+  "ui_font_size": 16.0,
+  "buffer_font_size": 16.0,
+  "helix_mode": false,
+  "theme": "Base16 Poimandres",
+  "lsp": {
+    "nil": {
+      "initialization_options": {
+        "nix": {
+          "flake": {
+            "autoArchive": true,
+            "autoEvalInputs": false,
+            "nixpkgsInputName": "nixpkgs"
+          }
+        },
+        "formatting": {
+          "command": ["alejandra", "--quiet", "--"]
+        }
+      }
+    },
+    "nixd": {
+      "initialization_options": {
+        "formatting": {
+          "command": ["alejandra", "--quiet", "--"]
+        }
+      }
+    }
+  },
+  "window_decorations": "server",
+  "which_key": {
+    "enabled": true,
+    "delay_ms": 50
+  },
+  "ui_font_family": "DepartureMono Nerd Font",
+  "hide_mouse": "on_typing_and_movement",
+  "auto_install_extensions": {
+    "catppuccin-icons": true,
+    "discord-presence": true,
+    "ghostty": true,
+    "html": true,
+    "java": true,
+    "nix": true,
+    "prisma": true,
+    "sql": true,
+    "toml": true
+  },
+  "language_models": {
+    "open_router": {
+      "api_url": "https://openrouter.ai/api/v1",
+      "available_models": []
+    }
+  },
+  "minimap": {
+    "show": "auto",
+    "thumb": "hover"
+  },
+  "soft_wrap": "editor_width",
+  "title_bar": {
+    "show_branch_icon": true,
+    "show_sign_in": false,
+    "show_user_picture": false,
+    "show_user_menu": false
+  },
+  // "autosave": {
+  //   "after_delay": {
+  //     "milliseconds": 1000,
+  //   },
+  // },
+  "linked_edits": true,
+  "show_whitespaces": "boundary"
+}
