@@ -48,11 +48,15 @@
       {
         "provider": "openrouter",
         "model": "anthropic/claude-sonnet-4.5"
+      },
+      {
+        "provider": "openrouter",
+        "model": "openrouter/auto"
       }
     ],
     "default_model": {
       "provider": "openrouter",
-      "model": "moonshotai/kimi-k2.5"
+      "model": "openrouter/auto"
     },
     "commit_message_model": {
       "provider": "openrouter",
@@ -172,11 +176,6 @@
     "show_user_picture": false,
     "show_user_menu": false
   },
-  // "autosave": {
-  //   "after_delay": {
-  //     "milliseconds": 1000,
-  //   },
-  // },
   "linked_edits": true,
   "show_whitespaces": "boundary"
 }
