@@ -1,4 +1,4 @@
-{hostname, ...}: {
+{hostname, lib, ...}: {
   imports = [
     ./ssh.nix
     ./terminal.nix
@@ -84,6 +84,22 @@
       force = true;
       source = ../../cfg/zed/keymap.json;
     };
+  };
+
+  home.activation = {
+    linkNoctaliaSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
+      #!/usr/bin/env bash
+      mkdir -p ~/.config/noctalia
+      tee ~/.config/noctalia/colors.json <<EOF
+      ${builtins.readFile ../../cfg/noctalia/colors-original.json}
+      EOF
+      tee ~/.config/noctalia/plugins.json <<EOF
+      ${builtins.readFile ../../cfg/noctalia/plugins-original.json}
+      EOF
+      tee ~/.config/noctalia/settings.json <<EOF
+      ${builtins.readFile ../../cfg/noctalia/settings-original.json}
+      EOF
+    '';
   };
 
   programs.home-manager.enable = true;
