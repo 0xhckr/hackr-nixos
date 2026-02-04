@@ -59,10 +59,10 @@
         "widgets": {
             "center": [
                 {
-                    "colorizeIcons": false,
+                    "colorizeIcons": true,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
-                    "maxWidth": 145,
+                    "maxWidth": 450,
                     "scrollingMode": "hover",
                     "showIcon": true,
                     "useFixedWidth": false
@@ -170,7 +170,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "tonal-spot",
+        "generationMethod": "muted",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
@@ -232,9 +232,34 @@
         }
     },
     "desktopWidgets": {
-        "enabled": false,
-        "gridSnap": false,
+        "enabled": true,
+        "gridSnap": true,
         "monitorWidgets": [
+            {
+                "name": "eDP-1",
+                "widgets": [
+                    {
+                        "clockStyle": "binary",
+                        "customFont": "",
+                        "format": "HH:mm\\nd MMMM yyyy",
+                        "id": "Clock",
+                        "roundedCorners": true,
+                        "scale": 1.9392735076761305,
+                        "showBackground": false,
+                        "useCustomFont": false,
+                        "usePrimaryColor": true,
+                        "x": 1680,
+                        "y": 1060
+                    },
+                    {
+                        "id": "Weather",
+                        "scale": 1,
+                        "showBackground": false,
+                        "x": 20,
+                        "y": 60
+                    }
+                ]
+            }
         ]
     },
     "dock": {
@@ -454,7 +479,7 @@
         "automationEnabled": false,
         "directory": "/home/hackr/walls",
         "enableMultiMonitorDirectories": false,
-        "enabled": false,
+        "enabled": true,
         "fillColor": "#000000",
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
