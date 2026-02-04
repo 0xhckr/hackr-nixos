@@ -84,6 +84,10 @@
       force = true;
       source = ../../cfg/zed/keymap.json;
     };
+    ".face" = {
+      force = true;
+      source = ../../.face;
+    };
   };
 
   home.activation = {
