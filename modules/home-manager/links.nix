@@ -1,7 +1,4 @@
-{
-  hostname,
-  ...
-}: {
+{hostname, ...}: {
   imports = [
     ./ssh.nix
     ./terminal.nix

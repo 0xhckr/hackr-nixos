@@ -1,6 +1,4 @@
-{
-  ...
-}: let
+{...}: let
   allowedPorts = [
     3000
   ];

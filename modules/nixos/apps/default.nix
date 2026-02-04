@@ -6,6 +6,7 @@
     ./netbird.nix
     ./obs.nix
     ./tailscale.nix
+    ./misc.nix
   ];
 
   # THIS FEELS SO WRONG.
