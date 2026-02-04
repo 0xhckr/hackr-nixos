@@ -9,4 +9,9 @@ fi
 wallpaper=$(find /home/hackr/walls -type f -name "*.jpg" | shuf -n 1)
 
 nohup awww img -t random $wallpaper 2>&1 > /dev/null &
+
+# TODO: remove this once niri adopts true blur
+sleep 3
+niri msg action load-config-file
+
 disown
