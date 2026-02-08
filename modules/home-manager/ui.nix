@@ -30,18 +30,15 @@
 
   programs.vicinae = {
     enable = true;
-    settings = lib.mkForce {
-      launcher_window = {
-        opacity = 0.75;
-        theme = {
-          dark = {
-            name = "stylix";
-          };
-          light = {
-            name = "stylix";
-          };
-        };
-      };
+    settings = {
+      launcher_window.layer_shell.enabled = false;
+      launcher_window.opacity = 1.0;
+      theme.dark.name = "stylix";
+      theme.light.name = "stylix";
+    };
+    systemd = {
+      enable = true;
+      autoStart = true;
     };
   };
 
