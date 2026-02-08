@@ -69,6 +69,7 @@
     "dock": "right"
   },
   "edit_predictions": {
+    "provider": "supermaven",
     "mode": "eager",
     "enabled_in_text_threads": true,
     "disabled_globs": [
@@ -109,9 +110,6 @@
   "buffer_font_family": "DepartureMono Nerd Font",
   "indent_guides": {
     "enabled": false
-  },
-  "features": {
-    "edit_prediction_provider": "supermaven"
   },
   "tab_size": 2,
   "ui_font_size": 16.0,
