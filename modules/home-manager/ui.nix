@@ -28,7 +28,7 @@
       noctalia.packages.${system}.default
     ]);
 
-  services.vicinae = {
+  programs.vicinae = {
     enable = true;
     settings = lib.mkForce {
       launcher_window = {
