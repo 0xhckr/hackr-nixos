@@ -189,6 +189,12 @@ window-rule {
     clip-to-geometry true
 }
 
+// arc-raiders
+window-rule {
+    match app-id="steam_app_1808500"
+    open-fullscreen true
+}
+
 layer-rule {
     match namespace="^awww-daemon$"
     place-within-backdrop true
