@@ -93,12 +93,11 @@ layout {
         color "#0007"
     }
 
-    blur {
-        on
-        passes 3
-        radius 12.0
-        noise 0.0
-    }
+}
+blur {
+    passes 3
+    offset 7.5
+    noise 0.02
 }
 
 spawn-at-startup "xwayland-satellite"
@@ -161,6 +160,14 @@ window-rule {
 }
 
 window-rule {
+    background-effect {
+        blur {
+            on
+        }
+    }
+}
+
+window-rule {
     match is-focused=false
     opacity 0.65
     draw-border-with-background false
@@ -168,7 +175,7 @@ window-rule {
 
 window-rule {
     match is-focused=true
-    opacity 1.0
+    opacity 0.95
     draw-border-with-background false
 }
 
@@ -176,6 +183,17 @@ layer-rule {
     match namespace="^awww-daemon$"
 
     place-within-backdrop true
+}
+
+layer-rule {
+    match namespace="^vicinae$"
+
+    background-effect {
+        blur {
+            on
+        }
+    }
+    geometry-corner-radius 12
 }
 
 overview {

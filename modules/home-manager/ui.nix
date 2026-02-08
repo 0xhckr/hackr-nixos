@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   system,
+  lib,
   ...
 }: {
   imports = [
@@ -29,6 +30,19 @@
 
   services.vicinae = {
     enable = true;
+    settings = lib.mkForce {
+      launcher_window = {
+        opacity = 0.75;
+        theme = {
+          dark = {
+            name = "stylix";
+          };
+          light = {
+            name = "stylix";
+          };
+        };
+      };
+    };
   };
 
   # TODO: control wlsunset using a script instead of a service so it can be disabled and enabled as needed

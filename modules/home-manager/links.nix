@@ -44,7 +44,7 @@
       source = ../../cfg/ghostty;
       recursive = true;
     };
-    ".config/niri/config.kdl" = {
+    ".config/niri/config-original.kdl" = {
       force = true;
       text = ''
         ${builtins.readFile ../../cfg/niri/config.kdl}
@@ -91,6 +91,21 @@
   };
 
   home.activation = {
+    linkNiriSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
+      #!/usr/bin/env bash
+      mkdir -p ~/.config/niri
+      tee ~/.config/niri/config.kdl <<EOF
+      ${builtins.readFile ../../cfg/niri/config.kdl}
+      ${
+        if hostname == "hackrwork" || hostname == "hackrfrmw"
+        then ''
+          ${builtins.readFile ../../cfg/niri/laptop-outputs.kdl}
+        ''
+        else ""
+      }
+      EOF
+    '';
+
     linkNoctaliaSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
       #!/usr/bin/env bash
       mkdir -p ~/.config/noctalia

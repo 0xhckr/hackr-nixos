@@ -50,9 +50,9 @@
 
     niri-unstable = {
       type = "github";
-      owner = "YaLTeR";
+      owner = "niri-wm";
       repo = "niri";
-      ref = "main";
+      ref = "wip/branch";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
