@@ -64,7 +64,7 @@ in {
       parsec-bin
       ryubing
       vlc
-      requestly
+      yaak
     ]
     ++ jetbrainsApps
     ++ affinityApps
