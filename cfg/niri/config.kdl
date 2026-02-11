@@ -42,7 +42,7 @@ environment {
 }
 
 layout {
-    gaps 0
+    gaps 4
     empty-workspace-above-first
     center-focused-column "on-overflow"
     always-center-single-column
@@ -80,7 +80,7 @@ layout {
     struts {
         left 0
         right 0
-        top 8
+        top 4
         bottom 0
     }
 
@@ -154,7 +154,7 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 0
+    geometry-corner-radius 4
     clip-to-geometry true
 }
 
@@ -168,13 +168,13 @@ window-rule {
 
 window-rule {
     match is-focused=false
-    opacity 0.65
+    opacity 0.85
     draw-border-with-background false
 }
 
 window-rule {
     match is-focused=true
-    opacity 0.95
+    opacity 1.0
     draw-border-with-background false
 }
 
