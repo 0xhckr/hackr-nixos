@@ -105,19 +105,19 @@ in {
     };
     spaces = {
       "personal" = {
-        id = "00000000-0000-0000-0000-000000000000";
+        id = "00000000-0000-0000-0000-000000000010";
         icon = "👾";
         container = containers.personal.id;
         position = 1000;
       };
       "werk" = {
-        id = "00000000-0000-0000-0000-000000000001";
+        id = "00000000-0000-0000-0000-000000000011";
         icon = "🏢";
         container = containers.werk.id;
         position = 2000;
       };
       "skewl" = {
-        id = "00000000-0000-0000-0000-000000000002";
+        id = "00000000-0000-0000-0000-000000000012";
         icon = "🎓";
         container = containers.skewl.id;
         position = 3000;
