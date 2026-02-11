@@ -17,7 +17,6 @@
   browsers = with pkgs; [
     ungoogled-chromium
     firefox
-    inputs.zen-browser.packages."${system}".default
   ];
   krisp-patcher =
     pkgs.writers.writePython3Bin "krisp-patcher"
@@ -43,6 +42,7 @@
 in {
   imports = [
     inputs._1password.hmModules.default
+    inputs.zen-browser.homeModules.beta
     ./apps/editor
     ./apps/helix
   ];
@@ -83,4 +83,23 @@ in {
   programs.zsh = {
     enable = true;
   };
+
+  programs.zen-browser = {
+    enable = true;
+  };
+
+  stylix = {
+    enable = true;
+    base16Scheme = ../nixos/styles/themes/poimandres.yaml;
+    polarity = "dark";
+    cursor = {
+      package = pkgs.rose-pine-cursor;
+      name = "BreezeX-RosePine-Linux";
+      size = 16;
+    };
+    targets = {
+      zen-browser.profileNames = [ "default" ];
+    };
+  };
+
 }
