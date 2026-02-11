@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   system,
-  config,
   ...
 }: let
   jetbrainsApps = with pkgs.jetbrains; [
@@ -125,20 +124,20 @@ in {
     };
     pins = {
       # NOTE: Pins are not currently working: https://github.com/0xc000022070/zen-browser-flake/issues/201
-      # "mail" = {
-      #   id = "00000000-0000-0000-0000-000000000001";
-      #   container = containers.personal.id;
-      #   url = "https://mail.proton.me/inbox";
-      #   isEssential = true;
-      #   position = 101;
-      # };
-      # "dokploy" = {
-      #   id = "00000000-0000-0000-0000-000000000002";
-      #   container = containers.personal.id;
-      #   url = "https://dokploy.alahdal.ca/";
-      #   isEssential = true;
-      #   position = 102;
-      # };
+      "mail" = {
+        id = "00000000-0000-0000-0000-000000000001";
+        container = containers.personal.id;
+        url = "https://mail.proton.me/inbox";
+        isEssential = true;
+        position = 101;
+      };
+      "dokploy" = {
+        id = "00000000-0000-0000-0000-000000000002";
+        container = containers.personal.id;
+        url = "https://dokploy.alahdal.ca/";
+        isEssential = true;
+        position = 102;
+      };
     };
     keyboardShortcuts = [
       # Change compact mode toggle to Ctrl+Alt+S
