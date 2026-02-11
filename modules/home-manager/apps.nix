@@ -2,6 +2,7 @@
   pkgs,
   inputs,
   system,
+  config,
   ...
 }: let
   jetbrainsApps = with pkgs.jetbrains; [
@@ -42,7 +43,7 @@
 in {
   imports = [
     inputs._1password.hmModules.default
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight
     ./apps/editor
     ./apps/helix
   ];
@@ -84,8 +85,101 @@ in {
     enable = true;
   };
 
-  programs.zen-browser = {
+  programs.zen-browser = let
+    containers = {
+      personal = {
+        color = "purple";
+        icon = "fingerprint";
+        id = 1;
+      };
+      werk = {
+        color = "blue";
+        icon = "briefcase";
+        id = 2;
+      };
+      skewl = {
+        color = "yellow";
+        icon = "briefcase";
+        id = 3;
+      };
+    };
+    spaces = {
+      "personal" = {
+        id = "00000000-0000-0000-0000-000000000000";
+        icon = "👾";
+        container = containers.personal.id;
+        position = 1000;
+      };
+      "werk" = {
+        id = "00000000-0000-0000-0000-000000000001";
+        icon = "🏢";
+        container = containers.werk.id;
+        position = 2000;
+      };
+      "skewl" = {
+        id = "00000000-0000-0000-0000-000000000002";
+        icon = "🎓";
+        container = containers.skewl.id;
+        position = 3000;
+      };
+    };
+    pins = {
+      # NOTE: Pins are not currently working: https://github.com/0xc000022070/zen-browser-flake/issues/201
+      # "mail" = {
+      #   id = "00000000-0000-0000-0000-000000000001";
+      #   container = containers.personal.id;
+      #   url = "https://mail.proton.me/inbox";
+      #   isEssential = true;
+      #   position = 101;
+      # };
+      # "dokploy" = {
+      #   id = "00000000-0000-0000-0000-000000000002";
+      #   container = containers.personal.id;
+      #   url = "https://dokploy.alahdal.ca/";
+      #   isEssential = true;
+      #   position = 102;
+      # };
+    };
+    keyboardShortcuts = [
+      # Change compact mode toggle to Ctrl+Alt+S
+      {
+        id = "zen-compact-mode-toggle";
+        key = "s";
+        modifiers = {
+          control = true;
+        };
+      }
+    ];
+    # Fails activation on schema changes to detect potential regressions
+    # Find this in about:config or prefs.js of your profile
+    keyboardShortcutsVersion = 14;
+  in {
     enable = true;
+    policies = {
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
+      DisableAppUpdate = true;
+      DisableFeedbackCommands = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
+    };
+    profiles."default" = {
+      containersForce = true;
+      spacesForce = true;
+      pinsForce = true;
+
+      inherit containers spaces pins keyboardShortcuts keyboardShortcutsVersion;
+    };
   };
 
   stylix = {

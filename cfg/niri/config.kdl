@@ -125,7 +125,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"zen-beta$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen-twilight$"# title="^Picture-in-Picture$"
     open-floating true
     open-focused false
     default-floating-position x=20 y=20 relative-to="bottom-right"
