@@ -6,7 +6,7 @@ nohup 1password --silent 2>&1 > /dev/null &
 disown
 
 # launch slack on work pc
-if [ "$(hostname)" = "snorlax" || "$(hostname)" = "torchick" ]; then
+if [ "$(hostname)" = "snorlax" ] || [ "$(hostname)" = "torchick" ]; then
     nohup slack 2>&1 > /dev/null &
     disown
 fi
