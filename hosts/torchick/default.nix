@@ -8,7 +8,7 @@
     ./boot.nix
   ];
 
-  networking.hostName = "hackrfrmw"; # Define your hostname.
+  networking.hostName = "torchick"; # Define your hostname.
 
   nix.settings.experimental-features = [
     "nix-command"

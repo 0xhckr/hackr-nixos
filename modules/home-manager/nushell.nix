@@ -45,7 +45,7 @@
           ${pkgs.nh}/bin/nh os switch ~/nixos
         }
         let res = $env.LAST_EXIT_CODE
-        if ((hostname) == "hackrpc" and ($res == 0)) {
+        if ((hostname) == "infernape" and ($res == 0)) {
           copy-to-cache
         }
       }

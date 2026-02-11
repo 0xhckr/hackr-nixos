@@ -49,7 +49,7 @@
       text = ''
         ${builtins.readFile ../../cfg/niri/config.kdl}
         ${
-          if hostname == "hackrwork" || hostname == "hackrfrmw"
+          if hostname == "snorlax" || hostname == "torchick"
           then ''
             ${builtins.readFile ../../cfg/niri/laptop-outputs.kdl}
           ''
@@ -97,7 +97,7 @@
       tee ~/.config/niri/config.kdl <<EOF
       ${builtins.readFile ../../cfg/niri/config.kdl}
       ${
-        if hostname == "hackrwork" || hostname == "hackrfrmw"
+        if hostname == "snorlax" || hostname == "torchick"
         then ''
           ${builtins.readFile ../../cfg/niri/laptop-outputs.kdl}
         ''

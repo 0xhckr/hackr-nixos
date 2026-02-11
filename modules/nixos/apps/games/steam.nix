@@ -4,7 +4,7 @@
   ...
 }: {
   programs.steam = {
-    enable = builtins.elem config.networking.hostName ["hackrfrmw" "hackrpc"];
+    enable = builtins.elem config.networking.hostName ["torchick" "infernape"];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;

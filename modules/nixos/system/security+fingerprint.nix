@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  isFrmw = config.networking.hostName == "hackrfrmw";
+  isTorchick = config.networking.hostName == "torchick";
 in {
   environment.systemPackages = with pkgs; [
     fprintd
@@ -13,7 +13,7 @@ in {
   ];
 
   services.fprintd = {
-    enable = isFrmw;
+    enable = isTorchick;
     tod.driver = pkgs.libfprint-2-tod1-vfs0090;
   };
 
@@ -43,7 +43,7 @@ in {
     rtkit.enable = true;
     pam.services = {
       "1password" = {
-        fprintAuth = isFrmw;
+        fprintAuth = isTorchick;
         unixAuth = true;
         kwallet = {
           enable = true;
@@ -51,7 +51,7 @@ in {
         };
       };
       "polkit-1" = {
-        fprintAuth = isFrmw;
+        fprintAuth = isTorchick;
         unixAuth = true;
         kwallet = {
           enable = true;
@@ -59,7 +59,7 @@ in {
         };
       };
       "sudo" = {
-        fprintAuth = isFrmw;
+        fprintAuth = isTorchick;
         unixAuth = true;
       };
       login = {

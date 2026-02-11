@@ -49,9 +49,9 @@ This is a comprehensive NixOS configuration repository that includes:
 ## Available Host Configurations
 
 The repository supports multiple hosts defined in the `hosts/` directory. The available configurations are:
-- `hackrfrmw` - Personal laptop configuration
-- `hackrwork` - Work laptop configuration
-- `hackrpc` - Personal desktop configuration
+- `torchick` - Personal laptop configuration
+- `snorlax` - Work laptop configuration
+- `infernape` - Personal desktop configuration
 
 ## Commands (once initially built)
 
