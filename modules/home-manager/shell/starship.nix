@@ -33,17 +33,17 @@
         iris = "#ffffff";
       };
       directory = {
-        format = "[ ](fg:overlayd)[ $path ]($style)[ ](fg:overlayd) ";
+        format = "[](fg:overlayd)[ $path ]($style)[](fg:overlayd) ";
         style = "bg:overlayd fg:pine";
         truncation_length = 5;
-        truncation_symbol = " ";
+        truncation_symbol = "";
         truncate_to_repo = false;
         substitutions = {
-          Documents = " ";
-          Downloads = " ";
-          Music = " ";
-          Pictures = " ";
-          nixos = " ";
+          Documents = "󰈙";
+          Downloads = " ";
+          Music = " ";
+          Pictures = " ";
+          nixos = " ";
         };
       };
       fill = {
@@ -51,17 +51,17 @@
         symbol = " ";
       };
       git_branch = {
-        format = "[ ](fg:overlaydd)[ $symbol $branch ]($style)[ ](fg:overlaydd) ";
+        format = "[](fg:overlaydd)[ $symbol $branch ]($style)[](fg:overlaydd) ";
         style = "bg:overlaydd fg:foam";
-        symbol = " ";
+        symbol = "";
       };
       git_status = {
         disabled = false;
         style = "bg:overlaydd fg:love";
-        format = "[ ](fg:overlaydd)([$all_status$ahead_behind]($style))[ ](fg:overlaydd) ";
+        format = "[](fg:overlaydd)([$all_status$ahead_behind]($style))[](fg:overlaydd) ";
         up_to_date = "[ ✓ ](bg:overlaydd fg:iris)";
         untracked = "[?\($count\)](bg:overlaydd fg:gold)";
-        stashed = "[ ]($count)(bg:overlaydd fg:gold)";
+        stashed = "[($count)](bg:overlaydd fg:gold)";
         modified = "[!\($count\)](bg:overlaydd fg:gold)";
         renamed = "[»\($count\)](bg:overlaydd fg:iris)";
         deleted = "[✘\($count\)](style)";
@@ -72,95 +72,95 @@
       };
       time = {
         disabled = false;
-        format = "[ ](fg:overlay)[ $time ]($style)[ ](fg:overlay)";
+        format = "[](fg:overlay)[ $time ]($style)[](fg:overlay)";
         style = "bg:overlay fg:rose";
         time_format = "%I:%M%P";
         use_12hr = true;
       };
       username = {
         disabled = false;
-        format = "[ ](fg:overlay)[  $user ]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) ";
         show_always = true;
         style_root = "bg:overlay fg:iris";
         style_user = "bg:overlay fg:iris";
       };
       hostname = {
         disabled = false;
-        format = "[ ](fg:overlayd)[  $hostname ]($style)[ ](fg:overlayd) ";
+        format = "[](fg:overlayd)[   $hostname ]($style)[](fg:overlayd) ";
         style = "bg:overlayd fg:iris";
         ssh_only = false;
       };
       c = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       elixir = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       elm = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       golang = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       haskell = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       java = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       julia = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       nodejs = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       nim = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       rust = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       scala = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
       python = {
         style = "bg:overlay fg:pine";
-        format = "[ ](fg:overlay)[$symbol$version]($style)[ ](fg:overlay) ";
+        format = "[](fg:overlay)[$symbol$version]($style)[](fg:overlay) ";
         disabled = false;
-        symbol = "  ";
+        symbol = " ";
       };
     };
   };
