@@ -1,5 +1,6 @@
 {hostname, lib, ...}: {
   imports = [
+    ./shell
     ./ssh
     ./terminal.nix
     ./ui.nix

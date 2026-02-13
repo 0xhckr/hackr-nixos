@@ -4,10 +4,6 @@
   system,
   ...
 }: {
-  imports = [
-    ./nushell.nix
-  ];
-
   home.packages = with pkgs; [
     (btop.override {
       rocmSupport = true;
