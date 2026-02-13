@@ -94,30 +94,15 @@
     linkNiriSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
       #!/usr/bin/env bash
       mkdir -p ~/.config/niri
-      tee ~/.config/niri/config.kdl <<EOF
-      ${builtins.readFile ../../cfg/niri/config.kdl}
-      ${
-        if hostname == "snorlax" || hostname == "torchick"
-        then ''
-          ${builtins.readFile ../../cfg/niri/laptop-outputs.kdl}
-        ''
-        else ""
-      }
-      EOF
+      cp -L ~/.config/niri/config-original.kdl ~/.config/niri/config.kdl
     '';
 
     linkNoctaliaSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
       #!/usr/bin/env bash
       mkdir -p ~/.config/noctalia
-      tee ~/.config/noctalia/colors.json <<EOF
-      ${builtins.readFile ../../cfg/noctalia/colors-original.json}
-      EOF
-      tee ~/.config/noctalia/plugins.json <<EOF
-      ${builtins.readFile ../../cfg/noctalia/plugins-original.json}
-      EOF
-      tee ~/.config/noctalia/settings.json <<EOF
-      ${builtins.readFile ../../cfg/noctalia/settings-original.json}
-      EOF
+      cp -L ~/.config/noctalia/colors-original.json ~/.config/noctalia/colors.json
+      cp -L ~/.config/noctalia/plugins-original.json ~/.config/noctalia/plugins.json
+      cp -L ~/.config/noctalia/settings-original.json ~/.config/noctalia/settings.json
     '';
   };
 
