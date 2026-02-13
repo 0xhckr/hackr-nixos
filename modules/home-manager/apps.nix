@@ -181,18 +181,8 @@ in {
     };
   };
 
-  stylix = {
-    enable = true;
-    base16Scheme = ../nixos/styles/themes/poimandres.yaml;
-    polarity = "dark";
-    cursor = {
-      package = pkgs.rose-pine-cursor;
-      name = "BreezeX-RosePine-Linux";
-      size = 16;
-    };
-    targets = {
-      zen-browser.profileNames = [ "default" ];
-    };
-  };
+  # Zen-browser stylix target configuration
+  # Theme settings are inherited from NixOS-level stylix configuration
+  stylix.targets.zen-browser.profileNames = [ "default" ];
 
 }
