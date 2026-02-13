@@ -1,4 +1,4 @@
-{pkgs, config, lib, ...}: {
+{pkgs, config, lib, username, ...}: {
   home.shell.enableNushellIntegration = true;
 
   programs.nushell = {
@@ -13,7 +13,7 @@
       path add "~/.nix-profile/bin"
       path add "/run/wrappers/bin"
       path add "/var/lib/flatpak/exports/share"
-      path add "/home/hackr/.local/share/flatpak/exports/share"
+      path add "/home/${username}/.local/share/flatpak/exports/share"
 
       source ./direnv.nu
 
@@ -26,7 +26,7 @@
       }
 
       def copy-to-cache [] {
-        if ($'/home/hackr/.config/nix/secret.key' | path exists) {
+        if ($'/home/${username}/.config/nix/secret.key' | path exists) {
           nix store sign --recursive --key-file ~/.config/nix/secret.key /run/current-system
           nix copy --to 's3://nix-cache?profile=nixbuilder&endpoint=10.0.11.2:9000&scheme=http' /run/current-system
           echo "Copied to cache"

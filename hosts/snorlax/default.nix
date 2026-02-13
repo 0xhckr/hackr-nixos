@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{pkgs, username, ...}: {
   imports = [
     ../../modules/nixos
     ../../modules/nixos/hardware/snorlax-nvidia.nix
@@ -14,7 +14,7 @@
   networking.hostName = "snorlax"; # Define your hostname.
 
   # User group for openrazer - kept here as it's user-specific
-  users.users.hackr.extraGroups = ["openrazer"];
+  users.users.${username}.extraGroups = ["openrazer"];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

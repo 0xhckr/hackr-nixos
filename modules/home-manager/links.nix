@@ -1,4 +1,4 @@
-{hostname, lib, ...}: {
+{hostname, lib, username, ...}: {
   imports = [
     ./shell
     ./ssh
@@ -8,8 +8,8 @@
     ./dev.nix
   ];
 
-  home.username = "hackr";
-  home.homeDirectory = "/home/hackr";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
 
   home.stateVersion = "24.11";
   nixpkgs.config.allowUnfree = true;

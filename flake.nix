@@ -123,6 +123,9 @@
         specialArgs = {
           inherit inputs;
           system = "x86_64-linux";
+          username = "hackr";
+          fullName = "Mohammad Al-Ahdal";
+          email = "hackr@hackr.sh";
         };
       };
     }) ["infernape" "torchick" "snorlax"]);

@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, username, fullName, email, ...}: {
   home.packages = with pkgs; [
     android-tools
     nil
@@ -17,8 +17,8 @@
     enable = true;
     settings = {
       user = {
-        name = "Mohammad Al-Ahdal";
-        email = "hackr@hackr.sh";
+        name = fullName;
+        email = email;
       };
     };
   };

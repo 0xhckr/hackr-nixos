@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  username,
   ...
 }: {
   programs.steam = {
@@ -11,7 +12,7 @@
     gamescopeSession.enable = true;
   };
   hardware.xone.enable = true;
-  services.getty.autologinUser = "hackr";
+  services.getty.autologinUser = username;
   nixpkgs.config.allowUnfree = true;
 
   environment = {

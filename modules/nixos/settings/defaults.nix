@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, username, ...}: {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -43,7 +43,7 @@
     curl
   ];
 
-  users.users.hackr.extraGroups = ["networkmanager" "wheel"];
+  users.users.${username}.extraGroups = ["networkmanager" "wheel"];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
