@@ -1,3 +1,6 @@
+{username, ...}: {
+  home.file.".config/ghostty/config" = {
+    text = ''
 font-family = "DepartureMono Nerd Font"
 font-style = default
 font-style-bold = default
@@ -21,7 +24,7 @@ fullscreen = false
 title =
 class =
 x11-instance-name =
-working-directory = "/home/hackr"
+working-directory = "/home/${username}"
 
 keybind = ctrl+alt+i=inspector:toggle
 keybind = ctrl+w=close_surface
@@ -120,3 +123,6 @@ window-inherit-working-directory = true
 # keyprotocol=ghostty:kitty`, however a bug in the implementation prevents it
 # from working properly. https://github.com/vim/vim/pull/13211 fixes this.
 term = xterm-ghostty
+    '';
+  };
+}

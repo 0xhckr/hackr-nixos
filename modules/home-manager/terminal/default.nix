@@ -4,6 +4,10 @@
   system,
   ...
 }: {
+  imports = [
+    ./ghostty.nix
+  ];
+
   home.packages = with pkgs; [
     (btop.override {
       rocmSupport = true;

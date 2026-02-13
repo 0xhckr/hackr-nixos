@@ -2,8 +2,8 @@
   imports = [
     ./shell
     ./ssh
-    ./terminal.nix
-    ./ui.nix
+    ./terminal
+    ./ui
     ./apps.nix
     ./dev.nix
   ];
@@ -40,36 +40,18 @@
       source = ../../cfg/fastfetch;
       recursive = true;
     };
-    ".config/ghostty" = {
-      force = true;
-      source = ../../cfg/ghostty;
-      recursive = true;
-    };
-    ".config/niri/config-original.kdl" = {
-      force = true;
-      text = ''
-        ${builtins.readFile ../../cfg/niri/config.kdl}
-        ${
-          if hostname == "snorlax" || hostname == "torchick"
-          then ''
-            ${builtins.readFile ../../cfg/niri/laptop-outputs.kdl}
-          ''
-          else ""
-        }
-      '';
-    };
+
     ".config/niri/delayed" = {
       force = true;
       source = ../../cfg/niri/delayed;
     };
-    ".config/niri/background" = {
+    ".config/noctalia/colors-original.json" = {
       force = true;
-      source = ../../cfg/niri/background;
+      source = ../../cfg/noctalia/colors-original.json;
     };
-    ".config/noctalia" = {
+    ".config/noctalia/plugins-original.json" = {
       force = true;
-      source = ../../cfg/noctalia;
-      recursive = true;
+      source = ../../cfg/noctalia/plugins-original.json;
     };
     ".local/share/vicinae/themes" = {
       force = true;

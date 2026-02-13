@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  username,
   ...
 }: {
   environment.systemPackages = with pkgs; [
@@ -10,6 +11,6 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 3d --keep 3";
-    flake = "/home/hackr/nixos";
+    flake = "/home/${username}/nixos";
   };
 }

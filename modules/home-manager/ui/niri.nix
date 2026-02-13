@@ -1,3 +1,7 @@
+{username, hostname, ...}: {
+  home.file.".config/niri/config-original.kdl" = {
+    force = true;
+    text = ''
 input {
     keyboard {
         repeat-delay 150
@@ -102,9 +106,9 @@ blur {
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "awww-daemon"
-spawn-at-startup "qs" "-p" "/home/hackr/.config/beepshell"
-spawn-at-startup "/home/hackr/.config/niri/delayed"
-spawn-at-startup "/home/hackr/.config/niri/background"
+spawn-at-startup "qs" "-p" "/home/${username}/.config/beepshell"
+spawn-at-startup "/home/${username}/.config/niri/delayed"
+spawn-at-startup "/home/${username}/.config/niri/background"
 spawn-at-startup "tailscale-systray"
 spawn-at-startup "noctalia-shell"
 
@@ -319,4 +323,30 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Ctrl+Shift+Q { power-off-monitors; }
+}
+    '' + (
+      if hostname == "snorlax" || hostname == "torchick"
+      then builtins.readFile ../../cfg/niri/laptop-outputs.kdl
+      else ""
+    );
+  };
+
+  home.file.".config/niri/background" = {
+    force = true;
+    text = ''
+      #!/run/current-system/sw/bin/bash
+      if [[ "$1" == "--now" ]]; then
+        :
+      else
+        sleep 1
+      fi
+
+      # get a random wallpaper from the wallpapers directory
+      wallpaper=$(find /home/${username}/walls -type f -name "*.jpg" | shuf -n 1)
+
+      nohup awww img -t random $wallpaper 2>&1 > /dev/null &
+
+      disown
+    '';
+  };
 }

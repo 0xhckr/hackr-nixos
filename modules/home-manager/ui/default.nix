@@ -6,6 +6,8 @@
   ...
 }: {
   imports = [
+    ./niri.nix
+    ./noctalia.nix
     inputs.vicinae.homeManagerModules.default
   ];
 
