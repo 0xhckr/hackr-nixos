@@ -6,6 +6,6 @@
     ./netbird.nix
     ./obs.nix
     ./tailscale.nix
-    ./misc.nix
+    ./1password-browsers.nix
   ];
 }
