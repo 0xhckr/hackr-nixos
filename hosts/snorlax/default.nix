@@ -4,6 +4,9 @@
 {pkgs, ...}: {
   imports = [
     ../../modules/nixos
+    ../../modules/nixos/hardware/snorlax-nvidia.nix
+    ../../modules/nixos/hardware/snorlax-openrazer.nix
+    ../../modules/nixos/hardware/snorlax-power-management.nix
     ./hardware-configuration.nix
     ./boot.nix
   ];
@@ -19,29 +22,10 @@
     # add global basic packages here (the ones that are used quite literally everywhere)
     wget
     curl
-    openrazer-daemon
-    polychromatic
   ];
-  hardware.openrazer.enable = true;
+
+  # User group for openrazer - kept here as it's user-specific
   users.users.hackr.extraGroups = ["openrazer"];
-
-  services.logind.lidSwitchExternalPower = "ignore";
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-    AllowHybridSleep=no
-    AllowSuspendThenHibernate=no
-  '';
-
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware = {
-    graphics.enable = true;
-    nvidia = {
-      modesetting.enable = true;
-      open = false;
-      nvidiaSettings = true;
-    };
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
