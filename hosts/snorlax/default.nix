@@ -11,18 +11,7 @@
     ./boot.nix
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   networking.hostName = "snorlax"; # Define your hostname.
-
-  environment.systemPackages = with pkgs; [
-    # add global basic packages here (the ones that are used quite literally everywhere)
-    wget
-    curl
-  ];
 
   # User group for openrazer - kept here as it's user-specific
   users.users.hackr.extraGroups = ["openrazer"];

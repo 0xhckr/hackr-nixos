@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -25,6 +25,10 @@
 
   nix = {
     settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       extra-substituters = [
         "https://cache.0xhckr.dev/nix-cache/"
       ];
@@ -33,6 +37,12 @@
       ];
     };
   };
+  # Basic packages used everywhere
+  environment.systemPackages = with pkgs; [
+    wget
+    curl
+  ];
+
   users.users.hackr.extraGroups = ["networkmanager" "wheel"];
 
   # Enable CUPS to print documents.
