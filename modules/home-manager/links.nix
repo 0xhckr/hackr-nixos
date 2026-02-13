@@ -4,8 +4,8 @@
     ./ssh
     ./terminal
     ./ui
-    ./apps.nix
-    ./dev.nix
+    ./apps
+    ./dev
   ];
 
   home.username = username;

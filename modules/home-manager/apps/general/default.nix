@@ -43,8 +43,8 @@ in {
   imports = [
     inputs._1password.hmModules.default
     inputs.zen-browser.homeModules.twilight
-    ./apps/editor
-    ./apps/helix
+    ../editor
+    ../helix
   ];
   home.packages = with pkgs;
     [
