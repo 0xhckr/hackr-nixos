@@ -48,6 +48,8 @@
 
           [meta+shift]
           s = M-S-s
+          e = M-S-e
+          g = M-S-g
 
           [meta+alt]
           up = M-A-up
