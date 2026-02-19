@@ -341,7 +341,7 @@
         }
       ''
       + (
-        if hostname == "snorlax" || hostname == "torchick"
+        if hostname == "snorlax" || hostname == "torchic"
         then builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
         else ""
       );

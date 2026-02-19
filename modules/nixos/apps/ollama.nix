@@ -1,6 +1,6 @@
 {pkgs, config, ...}: {
   services.ollama = {
-    enable = builtins.elem config.networking.hostName ["torchick" "infernape"];
+    enable = builtins.elem config.networking.hostName ["torchic" "infernape"];
     loadModels = ["qwen3-coder:30b"];
     package = pkgs.ollama-rocm;
   };

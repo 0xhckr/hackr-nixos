@@ -4,12 +4,12 @@
 {pkgs, ...}: {
   imports = [
     ../../modules/nixos
-    ../../modules/nixos/hardware/torchick-audio.nix
+    ../../modules/nixos/hardware/torchic-audio.nix
     ./hardware-configuration.nix
     ./boot.nix
   ];
 
-  networking.hostName = "torchick"; # Define your hostname.
+  networking.hostName = "torchic"; # Define your hostname.
 
 
 

@@ -49,7 +49,7 @@ This is a comprehensive NixOS configuration repository that includes:
 ## Available Host Configurations
 
 The repository supports multiple hosts defined in the `hosts/` directory. The available configurations are:
-- `torchick` - Personal laptop configuration
+- `torchic` - Personal laptop configuration
 - `snorlax` - Work laptop configuration
 - `infernape` - Personal desktop configuration
 

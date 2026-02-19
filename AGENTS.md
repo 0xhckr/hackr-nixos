@@ -5,7 +5,7 @@
 - **Test config**: `nh os test ~/nixos`
 - **Check syntax**: `nix flake check`
 - **Show configs**: `nix flake show`
-- Hosts: `infernape`, `torchick`, `snorlax`
+- Hosts: `infernape`, `torchic`, `snorlax`
 
 ## Architecture
 - `flake.nix` - Main entry point, defines inputs and host configurations

@@ -128,6 +128,6 @@
           email = "hackr@hackr.sh";
         };
       };
-    }) ["infernape" "torchick" "snorlax"]);
+    }) ["infernape" "torchic" "snorlax"]);
   };
 }

@@ -1,6 +1,6 @@
 {config, ...}: {
   programs.gamescope = {
-    enable = builtins.elem config.networking.hostName ["torchick" "infernape"];
+    enable = builtins.elem config.networking.hostName ["torchic" "infernape"];
     capSysNice = true;
   };
 }

@@ -1,9 +1,9 @@
 {config, pkgs, ...}: let
-  isTorchick = config.networking.hostName == "torchick";
+  istorchic = config.networking.hostName == "torchic";
 in {
-  # Fingerprint authentication (torchick-specific)
+  # Fingerprint authentication (torchic-specific)
   services.fprintd = {
-    enable = isTorchick;
+    enable = istorchic;
     tod.driver = pkgs.libfprint-2-tod1-vfs0090;
   };
 
@@ -14,7 +14,7 @@ in {
   # Only enable fingerprint auth when lid is open
   security.pam.services = let
     fprintd-only-if-lid-open = {
-      enable = isTorchick;
+      enable = istorchic;
       order = 0;
       control = "[success=ok default=1]";
       modulePath = "${config.security.pam.package}/lib/security/pam_exec.so";
@@ -35,15 +35,15 @@ in {
     };
   in {
     "1password" = {
-      fprintAuth = isTorchick;
+      fprintAuth = istorchic;
       rules.auth = { inherit fprintd-only-if-lid-open; };
     };
     "polkit-1" = {
-      fprintAuth = isTorchick;
+      fprintAuth = istorchic;
       rules.auth = { inherit fprintd-only-if-lid-open; };
     };
     "sudo" = {
-      fprintAuth = isTorchick;
+      fprintAuth = istorchic;
       rules.auth = { inherit fprintd-only-if-lid-open; };
     };
     login.fprintAuth = false;
