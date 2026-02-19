@@ -105,7 +105,7 @@
         }
         blur {
             passes 3
-            offset 7.5
+            offset 2.5
             noise 0.02
         }
 
@@ -169,6 +169,16 @@
 
         window-rule {
             background-effect {
+                blur {
+                    on
+                }
+            }
+        }
+
+        window-rule {
+            match is-floating=true
+            background-effect {
+                xray false
                 blur {
                     on
                 }
