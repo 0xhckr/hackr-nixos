@@ -58,6 +58,11 @@
       source = ../../share/vicinae/themes;
       recursive = true;
     };
+    ".local/share/vicinae/scripts" = {
+      force = true;
+      source = ../../cfg/vicinae/scripts;
+      recursive = true;
+    };
     ".config/zed/themes" = {
       force = true;
       source = ../../cfg/zed/themes;
