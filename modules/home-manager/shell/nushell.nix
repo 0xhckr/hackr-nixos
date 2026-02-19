@@ -21,7 +21,7 @@
       def cl [] {
         clear
         if $env.TMUX? == null {
-          ${pkgs.fastfetch}/bin/fastfetch
+          pokefetch
         }
       }
 
@@ -97,11 +97,48 @@
         kill -9 $appPID
       }
 
+      def pokefetch [] {
+        let FETCHER_CMD = "${pkgs.fastfetch}/bin/fastfetch --logo none"
+        let EXTRA_PADDING_H = 2
+        let EXTRA_PADDING_W = 2
+        let WIDTH = 38
+
+        # Get hostname and use it as the Pokemon name
+        let pokemon_name = (hostname)
+
+        # Get the sprite
+        let sprite = (${pkgs.pokeget-rs}/bin/pokeget $pokemon_name --hide-name | complete | get stdout)
+
+        # Get fetcher height
+        let fetcher_height = (bash -c $FETCHER_CMD | lines | length)
+
+        # Get sprite height
+        let sprite_height = ($sprite | lines | length)
+
+        # Calculate vertical padding
+        let pad_top = (($fetcher_height - $sprite_height) / 2 + $EXTRA_PADDING_H)
+        let pad_top = (if $pad_top < 0 { 0 } else { $pad_top })
+
+        # Get sprite width (strip ANSI codes and find max width)
+        let sprite_width = ($sprite | lines | each { |line|
+          $line | ansi strip | split chars | length
+        } | math max)
+
+        # Calculate horizontal padding
+        let pad_horizontal = (($WIDTH - $sprite_width) / 2 + $EXTRA_PADDING_W)
+        let pad_horizontal = (if $pad_horizontal < 0 { 0 } else { $pad_horizontal })
+        let pad_horizontal = ($pad_horizontal | math floor)
+        let pad_top = ($pad_top | math floor)
+
+        # Run fastfetch with the sprite
+        $sprite | ${pkgs.fastfetch}/bin/fastfetch --file-raw - --logo-padding $pad_horizontal --logo-padding-top $pad_top
+      }
+
       ~/.config/nushell/aacpi.sh
 
       # check if running as xterm-ghostty
       if $env.TERM == "xterm-ghostty" {
-        fastfetch
+        pokefetch
       }
     '';
 

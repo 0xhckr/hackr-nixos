@@ -72,8 +72,8 @@ keybind = ctrl+physical:zero=last_tab
 
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
 
-window-padding-x = 16
-window-padding-y = 8
+window-padding-x = 0
+window-padding-y = 0
 window-padding-balance = false
 window-padding-color = extend
 # keep the following enabled unless you want to test out what a kernel panic looks like

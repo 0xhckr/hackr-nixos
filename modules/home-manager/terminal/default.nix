@@ -14,6 +14,7 @@
     })
     atuin
     lazygit
+    pokeget-rs
     fastfetch
     fzf
     ripgrep
