@@ -69,7 +69,7 @@
     "dock": "right"
   },
   "edit_predictions": {
-    "provider": "supermaven",
+    "provider": "mercury",
     "mode": "eager",
     "enabled_in_text_threads": true,
     "disabled_globs": [
