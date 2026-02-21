@@ -107,6 +107,7 @@
             passes 3
             offset 2.5
             noise 0.02
+            saturation 1.25
         }
 
         spawn-at-startup "xwayland-satellite"
@@ -169,9 +170,7 @@
 
         window-rule {
             background-effect {
-                blur {
-                    on
-                }
+                blur true
             }
         }
 
@@ -179,9 +178,7 @@
             match is-floating=true
             background-effect {
                 xray false
-                blur {
-                    on
-                }
+                blur true
             }
         }
 
