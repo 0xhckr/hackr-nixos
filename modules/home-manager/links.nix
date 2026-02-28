@@ -1,4 +1,4 @@
-{hostname, lib, username, ...}: {
+{lib, username, ...}: {
   imports = [
     ./shell
     ./ssh
@@ -6,6 +6,7 @@
     ./ui
     ./apps
     ./dev
+    ./work
   ];
 
   home.username = username;
