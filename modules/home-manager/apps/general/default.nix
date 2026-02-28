@@ -65,6 +65,7 @@ in {
       ryubing
       vlc
       yaak
+      filezilla
     ]
     ++ jetbrainsApps
     ++ affinityApps
