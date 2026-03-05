@@ -155,7 +155,8 @@
     "nix": true,
     "prisma": true,
     "sql": true,
-    "toml": true
+    "toml": true,
+    "rose-pine-theme": true
   },
   "language_models": {
     "open_router": {
