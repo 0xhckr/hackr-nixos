@@ -10,7 +10,7 @@ font-synthetic-style = bold,italic,bold-italic
 font-size = 11
 font-thicken = false
 grapheme-width-method = unicode
-theme = light:rose-pine-dawn,dark:Poimandres
+theme = light:rose-pine-dawn,dark:Rose Pine
 cursor-style = bar
 mouse-hide-while-typing = true
 
