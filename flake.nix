@@ -102,6 +102,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    spicetify = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     graphite = {
       url = "github:GraphiteEditor/Graphite?dir=.nix";
       inputs.nixpkgs.follows = "nixpkgs";
