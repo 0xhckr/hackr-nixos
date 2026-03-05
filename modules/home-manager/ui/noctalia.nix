@@ -336,11 +336,11 @@
       nightLight = {
         autoSchedule = true;
         dayTemp = "6500";
-        enabled = false;
+        enabled = true;
         forced = false;
         manualSunrise = "06:30";
         manualSunset = "18:30";
-        nightTemp = "4000";
+        nightTemp = "2500";
       };
       notifications = {
         backgroundOpacity = 1;
