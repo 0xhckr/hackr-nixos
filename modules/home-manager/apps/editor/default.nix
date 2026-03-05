@@ -53,13 +53,13 @@ in {
         "prisma"
         "sql"
         "toml"
-        ];
-      };
+      ];
+    };
 
-      # export zedPackage for use in other modules
-      home.zedPackage = zedPackage;
+    # export zedPackage for use in other modules
+    home.zedPackage = zedPackage;
 
-      home.activation = {
+    home.activation = {
       linkZedSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
         #!/usr/bin/env bash
         mkdir -p ~/.config/zed
@@ -70,5 +70,7 @@ in {
       source = ./settings.json;
       force = true;
     };
+
+    stylix.targets.zed.enable = false;
   };
 }
