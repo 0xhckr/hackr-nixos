@@ -1,4 +1,12 @@
 {
+  "agent_servers": {
+    "cursor": {
+      "type": "registry"
+    },
+    "amp-acp": {
+      "type": "registry"
+    }
+  },
   "collaboration_panel": {
     "dock": "left"
   },
