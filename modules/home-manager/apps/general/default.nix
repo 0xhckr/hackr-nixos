@@ -68,6 +68,7 @@ in {
       nautilus
       slack
       inputs.graphite.packages."${system}".default
+      inputs.helium.packages."${system}".default
       winboat
       gimp
       protonmail-desktop
