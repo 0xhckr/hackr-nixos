@@ -5,10 +5,6 @@
       [[ssh-keys]]
       vault = "Private"
       item = "Hackr General"
-
-      [[ssh-keys]]
-      vault = "KnowHistory"
-      item = "KnowHistory"
     '';
     force = true;
   };

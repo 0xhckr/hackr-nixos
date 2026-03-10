@@ -1,11 +1,7 @@
 {...}: {
   home.file = {
-    ".ssh/id_rsa_work.pub" = {
-      source = ../../../ssh/id_rsa_work.pub;
-      force = true;
-    };
-    ".ssh/id_rsa_personal.pub" = {
-      source = ../../../ssh/id_rsa_personal.pub;
+    ".ssh/id_rsa.pub" = {
+      source = ../../../ssh/id_rsa.pub;
       force = true;
     };
   };
