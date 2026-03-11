@@ -71,7 +71,6 @@ in {
       inputs.helium.packages."${system}".default
       winboat
       gimp
-      protonmail-desktop
       parsec-bin
       ryubing
       vlc
