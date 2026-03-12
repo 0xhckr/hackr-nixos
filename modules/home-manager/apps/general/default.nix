@@ -43,22 +43,12 @@ in {
   imports = [
     inputs._1password.hmModules.default
     inputs.zen-browser.homeModules.twilight
-    inputs.spicetify.homeManagerModules.default
     ../editor
     ../helix
   ];
 
-  programs.spicetify =
-  # let
-  #   spicePkgs = inputs.spicetify.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  # in
-  {
-    enable = true;
-  };
-
   home.packages = with pkgs;
     [
-      # spotify
       obsidian
       fontforge
       discord

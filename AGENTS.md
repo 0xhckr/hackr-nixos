@@ -71,7 +71,7 @@ modules/
   home-manager/                  # User-level (runs as hackr / HM options)
     links.nix                    # Root HM file: imports all sub-modules, declares home.file symlinks & activations
     apps/
-      general/default.nix        # JetBrains IDEs, Affinity v3, zen-browser (twilight), spicetify,
+      general/default.nix        # JetBrains IDEs, Affinity v3, zen-browser (twilight),
                                  # discord, obsidian, zoom, slack, GIMP, VLC, Yaak, etc.
       editor/                    # Zed (built from flake w/ FHS env), language servers, settings.json
       helix/                     # Helix (from helix flake master)
@@ -200,7 +200,6 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 | `vicinae` | Vicinae app launcher |
 | `commie` | commie app |
 | `awww` | Wallpaper daemon (`awww-daemon`) |
-| `spicetify` | Spotify theming |
 | `affinity-nix` | Affinity suite on Linux |
 | `_1password` | 1Password shell plugins |
 | `nh` | `nh` NixOS helper |
