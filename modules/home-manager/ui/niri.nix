@@ -40,6 +40,12 @@
             position x=0 y=0
         }
 
+        ${(
+          if hostname == "snorlax" || hostname == "torchic"
+          then builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
+          else ""
+        )}
+
         prefer-no-csd
 
         cursor {
@@ -336,12 +342,7 @@
             // moving the mouse or pressing any other key.
             Mod+Ctrl+Shift+Q { power-off-monitors; }
         }
-      ''
-      + (
-        if hostname == "snorlax" || hostname == "torchic"
-        then builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
-        else ""
-      );
+      '';
   };
 
   home.file.".config/niri/background" = {
