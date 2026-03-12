@@ -192,7 +192,6 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 | `home-manager` | Follows nixpkgs |
 | `stylix` | System-wide theming via base16 |
 | `niri-unstable` | WIP niri branch (used as the actual niri package) |
-| `niri-blurry` | Blur fork of niri (available but not currently selected) |
 | `helix` | Helix editor from `master` |
 | `zed` | Zed editor from source |
 | `ghostty` | Ghostty terminal from `main` |
