@@ -1,4 +1,4 @@
-{pkgs, username, fullName, email, ...}: {
+{pkgs, inputs, fullName, email, system, ...}: {
   home.packages = with pkgs; [
     android-tools
     nil
@@ -11,6 +11,7 @@
     biome
     jdk
     minio-client
+    inputs.jj.packages."${system}".jujutsu
   ];
 
   programs.git = {
