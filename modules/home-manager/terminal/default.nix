@@ -12,6 +12,7 @@
     (btop.override {
       rocmSupport = true;
     })
+    amp-cli
     atuin
     lazygit
     pokeget-rs
