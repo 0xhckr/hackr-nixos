@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-fresh,
   inputs,
   system,
   ...
@@ -12,7 +13,7 @@
     (btop.override {
       rocmSupport = true;
     })
-    amp-cli
+    pkgs-fresh.amp-cli
     atuin
     lazygit
     pokeget-rs

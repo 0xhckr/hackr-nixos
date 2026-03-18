@@ -15,6 +15,10 @@
       inherit fullName;
       inherit email;
       hostname = config.networking.hostName;
+      pkgs-fresh = import inputs.nixpkgs-fresh {
+        inherit system;
+        config.allowUnfree = true;
+      };
     };
     users = {
       ${username} = import ./links.nix;
