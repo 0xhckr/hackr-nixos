@@ -100,7 +100,7 @@
     };
 
     graphite = {
-      url = "github:GraphiteEditor/Graphite?dir=.nix";
+      url = "github:GraphiteEditor/Graphite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
