@@ -117,6 +117,11 @@
       url = "github:jj-vcs/jj";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stoa = {
+      url = "github:bobrware/stoa-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: {

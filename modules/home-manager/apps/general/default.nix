@@ -59,6 +59,7 @@ in {
       slack
       inputs.graphite.packages."${system}".default
       inputs.helium.packages."${system}".default
+      inputs.stoa.packages."${system}".default
       winboat
       gimp
       parsec-bin
@@ -184,6 +185,5 @@ in {
 
   # Zen-browser stylix target configuration
   # Theme settings are inherited from NixOS-level stylix configuration
-  stylix.targets.zen-browser.profileNames = [ "default" ];
-
+  stylix.targets.zen-browser.profileNames = ["default"];
 }
