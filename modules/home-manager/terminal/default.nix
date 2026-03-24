@@ -13,7 +13,7 @@
     (btop.override {
       rocmSupport = true;
     })
-    pkgs-fresh.amp-cli
+    pkgs-fresh.claude-code
     atuin
     lazygit
     pokeget-rs
