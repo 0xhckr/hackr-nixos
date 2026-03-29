@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   system,
-  lib,
   ...
 }: {
   imports = [
