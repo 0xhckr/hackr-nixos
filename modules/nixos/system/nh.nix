@@ -1,10 +1,10 @@
 {
   inputs,
-  pkgs,
+  pkgs-stable,
   username,
   ...
 }: {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-stable; [
     inputs.nh.packages.${system}.default
   ];
   programs.nh = {

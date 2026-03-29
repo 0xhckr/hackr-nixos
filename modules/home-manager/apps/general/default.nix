@@ -2,9 +2,10 @@
   pkgs,
   inputs,
   system,
+  pkgs-stable,
   ...
 }: let
-  jetbrainsApps = with pkgs.jetbrains; [
+  jetbrainsApps = with pkgs-stable.jetbrains; [
     datagrip
     rider
     rust-rover
@@ -14,7 +15,7 @@
   affinityApps = with inputs.affinity-nix.packages."${system}"; [
     v3
   ];
-  browsers = with pkgs; [
+  browsers = with pkgs-stable; [
     ungoogled-chromium
     firefox
   ];

@@ -1,6 +1,6 @@
 {
+  pkgs-stable,
   config,
-  pkgs,
   username,
   ...
 }: {
@@ -10,13 +10,14 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
+    package = pkgs-stable.steam;
   };
   hardware.xone.enable = true;
   services.getty.autologinUser = username;
   nixpkgs.config.allowUnfree = true;
 
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = with pkgs-stable; [
       mangohud
       steam-run
     ];

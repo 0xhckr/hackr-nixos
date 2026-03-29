@@ -9,25 +9,28 @@
     ./ghostty.nix
   ];
 
-  home.packages = with pkgs; [
-    (btop.override {
-      rocmSupport = true;
-    })
-    pkgs-fresh.claude-code
-    atuin
-    lazygit
-    pokeget-rs
-    fastfetch
-    fzf
-    ripgrep
-    bat
-    gh
-    nix-output-monitor
-    inputs.commie.packages."${system}".default
-    libnotify
-    psmisc
-    inputs.ghostty.packages."${system}".default
-  ];
+  home.packages = with pkgs;
+    [
+      (btop.override {
+        rocmSupport = true;
+      })
+      atuin
+      lazygit
+      pokeget-rs
+      fastfetch
+      fzf
+      ripgrep
+      bat
+      gh
+      nix-output-monitor
+      inputs.commie.packages."${system}".default
+      libnotify
+      psmisc
+      inputs.ghostty.packages."${system}".default
+    ]
+    ++ (with pkgs-fresh; [
+      claude-code
+    ]);
 
   home.file = {
     ".config/nushell/env.nu" = {

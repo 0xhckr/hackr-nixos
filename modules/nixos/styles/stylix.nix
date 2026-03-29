@@ -1,6 +1,6 @@
 {
   inputs,
-  pkgs,
+  pkgs-stable,
   ...
 }: {
   imports = [
@@ -10,8 +10,8 @@
     enable = true;
     base16Scheme = ./themes/rose-pine.yaml;
     polarity = "dark";
-    cursor= {
-      package = pkgs.rose-pine-cursor;
+    cursor = {
+      package = pkgs-stable.rose-pine-cursor;
       name = "BreezeX-RosePine-Linux";
       size = 16;
     };

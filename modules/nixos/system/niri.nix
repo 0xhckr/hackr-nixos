@@ -1,5 +1,5 @@
 {
-  pkgs,
+  pkgs-stable,
   lib,
   inputs,
   system,
@@ -12,7 +12,7 @@
     package = inputs.niri-unstable.packages.${system}.niri;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-stable; [
     xwayland-satellite
   ];
 

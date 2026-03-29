@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [
+{pkgs-stable, ...}: {
+  environment.systemPackages = with pkgs-stable; [
     satisfactorymodmanager
   ];
 }

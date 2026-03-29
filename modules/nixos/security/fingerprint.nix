@@ -1,13 +1,17 @@
-{config, pkgs, ...}: let
+{
+  config,
+  pkgs-stable,
+  ...
+}: let
   istorchic = config.networking.hostName == "torchic";
 in {
   # Fingerprint authentication (torchic-specific)
   services.fprintd = {
     enable = istorchic;
-    tod.driver = pkgs.libfprint-2-tod1-vfs0090;
+    tod.driver = pkgs-stable.libfprint-2-tod1-vfs0090;
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-stable; [
     fprintd
   ];
 
@@ -21,7 +25,7 @@ in {
       args = [
         "quiet"
         "quiet_log"
-        "${pkgs.writeShellScript "is-lid-open" ''
+        "${pkgs-stable.writeShellScript "is-lid-open" ''
           set -eoui pipefail
           lidstate="$(${config.systemd.package}/bin/busctl get-property org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager LidClosed 2>/dev/null)"
 
@@ -36,15 +40,15 @@ in {
   in {
     "1password" = {
       fprintAuth = istorchic;
-      rules.auth = { inherit fprintd-only-if-lid-open; };
+      rules.auth = {inherit fprintd-only-if-lid-open;};
     };
     "polkit-1" = {
       fprintAuth = istorchic;
-      rules.auth = { inherit fprintd-only-if-lid-open; };
+      rules.auth = {inherit fprintd-only-if-lid-open;};
     };
     "sudo" = {
       fprintAuth = istorchic;
-      rules.auth = { inherit fprintd-only-if-lid-open; };
+      rules.auth = {inherit fprintd-only-if-lid-open;};
     };
     login.fprintAuth = false;
     gdm.fprintAuth = false;
