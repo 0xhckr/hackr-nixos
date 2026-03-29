@@ -5,344 +5,349 @@
 }: {
   home.file.".config/niri/config-original.kdl" = {
     force = true;
-    text =
-      ''
-        input {
-            keyboard {
-                repeat-delay 150
-                repeat-rate 50
-            }
+    text = ''
+      input {
+          keyboard {
+              repeat-delay 150
+              repeat-rate 50
+          }
 
-            touchpad {
-                tap
-                // dwt
-                // dwtp
-                // drag-lock
-                natural-scroll
-                // accel-speed 0.2
-                // accel-profile "flat"
-                // scroll-method "two-finger"
-                // disabled-on-external-mouse
-            }
+          touchpad {
+              tap
+              // dwt
+              // dwtp
+              // drag-lock
+              natural-scroll
+              // accel-speed 0.2
+              // accel-profile "flat"
+              // scroll-method "two-finger"
+              // disabled-on-external-mouse
+          }
 
-            mouse {
-                accel-profile "flat"
-            }
+          mouse {
+              accel-profile "flat"
+          }
 
-            focus-follows-mouse
-            warp-mouse-to-focus
-        }
+          focus-follows-mouse
+          warp-mouse-to-focus
+      }
 
-        output "LG Electronics LG ULTRAGEAR+ 503NTNH4U183" {
-            mode "5120x2160@165.058"
-            scale 1
-            transform "normal"
-            position x=0 y=0
-        }
+      output "LG Electronics LG ULTRAGEAR+ 503NTNH4U183" {
+          mode "5120x2160@165.058"
+          scale 1
+          transform "normal"
+          position x=0 y=0
+      }
 
-        ${(
-          if hostname == "snorlax" || hostname == "torchic"
-          then builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
-          else ""
-        )}
+      ${(
+        if hostname == "snorlax" || hostname == "torchic"
+        then builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
+        else ""
+      )}
 
-        prefer-no-csd
+      prefer-no-csd
 
-        cursor {
-            xcursor-theme "BreezeX-RosePine-Linux"
-        }
+      cursor {
+          xcursor-theme "BreezeX-RosePine-Linux"
+      }
 
-        environment {
-            DISPLAY ":0"
-        }
+      environment {
+          DISPLAY ":0"
+      }
 
-        layout {
-            gaps 4
-            empty-workspace-above-first
-            center-focused-column "on-overflow"
-            always-center-single-column
-            background-color "transparent"
+      layout {
+          gaps 4
+          empty-workspace-above-first
+          center-focused-column "on-overflow"
+          always-center-single-column
+          background-color "transparent"
 
-            // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
-            preset-column-widths {
-                proportion 0.16667
-                proportion 0.33333
-                proportion 0.5
-                proportion 0.66667
-                proportion 0.83333
-            }
+          // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
+          preset-column-widths {
+              proportion 0.16667
+              proportion 0.33333
+              proportion 0.5
+              proportion 0.66667
+              proportion 0.83333
+          }
 
-            default-column-width { }
+          default-column-width { }
 
-            focus-ring {
-                width 2
-                active-gradient from="#003c3c" to="#191724" angle=180
-            }
+          focus-ring {
+              width 2
+              active-gradient from="#003c3c" to="#191724" angle=180
+          }
 
-            tab-indicator {
-                width 8
-                gap 0
-                gaps-between-tabs 0
-                corner-radius 8
-                active-color "#E6E6EF"
-                inactive-color "#191724"
-                urgent-color "#CE2D4F"
-                length total-proportion=0.45
-                position "left"
-                place-within-column
-            }
+          tab-indicator {
+              width 8
+              gap 0
+              gaps-between-tabs 0
+              corner-radius 8
+              active-color "#E6E6EF"
+              inactive-color "#191724"
+              urgent-color "#CE2D4F"
+              length total-proportion=0.45
+              position "left"
+              place-within-column
+          }
 
-            struts {
-                left 0
-                right 0
-                top 4
-                bottom 0
-            }
+          struts {
+              left 0
+              right 0
+              top 4
+              bottom 0
+          }
 
-            shadow {
-                off
-                draw-behind-window true
-                softness 30
-                spread 5
-                offset x=0 y=5
-                color "#0007"
-            }
+          shadow {
+              off
+              draw-behind-window true
+              softness 30
+              spread 5
+              offset x=0 y=5
+              color "#0007"
+          }
 
-        }
-        blur {
-            passes 3
-            offset 2.5
-            noise 0.02
-            saturation 1.25
-        }
+      }
+      blur {
+          passes 3
+          offset 2.5
+          noise 0.02
+          saturation 1.25
+      }
 
-        spawn-at-startup "xwayland-satellite"
-        spawn-at-startup "awww-daemon"
-        spawn-at-startup "qs" "-p" "/home/${username}/.config/beepshell"
-        spawn-at-startup "/home/${username}/.config/niri/delayed"
-        spawn-at-startup "/home/${username}/.config/niri/background"
-        spawn-at-startup "tailscale-systray"
-        spawn-at-startup "noctalia-shell"
+      spawn-at-startup "xwayland-satellite"
+      spawn-at-startup "awww-daemon"
+      spawn-at-startup "qs" "-p" "/home/${username}/.config/beepshell"
+      spawn-at-startup "/home/${username}/.config/niri/delayed"
+      spawn-at-startup "/home/${username}/.config/niri/background"
+      spawn-at-startup "tailscale-systray"
+      spawn-at-startup "noctalia-shell"
 
-        // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-        screenshot-path null
+      // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+      screenshot-path null
 
-        clipboard {
-            disable-primary
-        }
+      clipboard {
+          disable-primary
+      }
 
-        animations { }
+      animations { }
 
-        window-rule {
-            match app-id=r#"zen$"# title="^Picture-in-Picture$"
-            open-floating true
-            open-focused false
-            default-floating-position x=20 y=20 relative-to="bottom-right"
-        }
+      window-rule {
+          match app-id=r#"zen$"# title="^Picture-in-Picture$"
+          open-floating true
+          open-focused false
+          default-floating-position x=20 y=20 relative-to="bottom-right"
+      }
 
-        window-rule {
-            match app-id=r#"zen-twilight$"# title="^Picture-in-Picture$"
-            open-floating true
-            open-focused false
-            default-floating-position x=20 y=20 relative-to="bottom-right"
-        }
+      window-rule {
+          match app-id=r#"zen-twilight$"# title="^Picture-in-Picture$"
+          open-floating true
+          open-focused false
+          default-floating-position x=20 y=20 relative-to="bottom-right"
+      }
 
-        window-rule {
-            match app-id=r#"org.gnome.NautilusPreviewer$"#
-            open-floating true
-        }
+      window-rule {
+          match app-id=r#"org.gnome.NautilusPreviewer$"#
+          open-floating true
+      }
 
-        window-rule {
-            match app-id=r#"zab$"#
-            open-floating true
-        }
+      window-rule {
+          match app-id=r#"zab$"#
+          open-floating true
+      }
 
-        window-rule {
-            match app-id=r#"org.pulseaudio.pavucontrol$"#
-            open-floating true
-            min-width 800
-            min-height 600
-        }
+      window-rule {
+          match app-id=r#"org.pulseaudio.pavucontrol$"#
+          open-floating true
+          min-width 800
+          min-height 600
+      }
 
-        window-rule {
-            match app-id=r#"mongolore$"#
-            open-floating true
-        }
+      window-rule {
+          match app-id=r#"mongolore$"#
+          open-floating true
+      }
 
-        window-rule {
-            geometry-corner-radius 4
-            clip-to-geometry true
-        }
+      window-rule {
+          geometry-corner-radius 4
+          clip-to-geometry true
+      }
 
-        window-rule {
-            background-effect {
-                blur true
-            }
-        }
+      window-rule {
+          background-effect {
+              blur true
+          }
+      }
 
-        window-rule {
-            match is-floating=true
-            background-effect {
-                xray false
-                blur true
-            }
-        }
+      window-rule {
+          match is-floating=true
+          background-effect {
+              xray false
+              blur true
+          }
+      }
 
-        window-rule {
-            match is-focused=false
-            opacity 0.85
-            draw-border-with-background false
-        }
+      window-rule {
+          match is-focused=false
+          opacity 0.85
+          draw-border-with-background false
+      }
 
-        window-rule {
-            match is-focused=true
-            opacity 1.0
-            draw-border-with-background false
-        }
+      window-rule {
+          match is-focused=true
+          opacity 1.0
+          draw-border-with-background false
+      }
 
-        window-rule {
-            match title="^Vicinae Settings$"
-            geometry-corner-radius 12
-            clip-to-geometry true
-        }
-        window-rule {
-            match title="^Vicinae Launcher$"
-            geometry-corner-radius 12
-            clip-to-geometry true
-        }
+      window-rule {
+          match title="^Vicinae Settings$"
+          geometry-corner-radius 12
+          clip-to-geometry true
+      }
+      window-rule {
+          match title="^Vicinae Launcher$"
+          geometry-corner-radius 12
+          clip-to-geometry true
+      }
 
-        // arc-raiders
-        window-rule {
-            match app-id="steam_app_1808500"
-            open-fullscreen true
-        }
+      // arc-raiders
+      window-rule {
+          match app-id="steam_app_1808500"
+          open-fullscreen true
+      }
 
-        layer-rule {
-            match namespace="^awww-daemon$"
-            place-within-backdrop true
-        }
+      // arc-raiders
+      window-rule {
+          match app-id="1password"
+          block-out-from "screencast"
+      }
 
-        overview {
-            backdrop-color "#232136"
-            workspace-shadow {
-                off
-            }
-            // backdrop-color "#00000000"
-        }
+      layer-rule {
+          match namespace="^awww-daemon$"
+          place-within-backdrop true
+      }
 
-        binds {
-            // Keys consist of modifiers separated by + signs, followed by an XKB key name
-            // in the end. To find an XKB name for a particular key, you may use a program
-            // like wev.
-            //
-            // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
-            // when running as a winit window.
-            //
-            // Most actions that you can bind here can also be invoked programmatically with
-            // `niri msg action do-something`.
+      overview {
+          backdrop-color "#232136"
+          workspace-shadow {
+              off
+          }
+          // backdrop-color "#00000000"
+      }
 
-            // Mod-Shift-/, which is usually the same as Mod-?,
-            // shows a list of important hotkeys.
-            Mod+Shift+Ctrl+Slash { show-hotkey-overlay; }
+      binds {
+          // Keys consist of modifiers separated by + signs, followed by an XKB key name
+          // in the end. To find an XKB name for a particular key, you may use a program
+          // like wev.
+          //
+          // "Mod" is a special modifier equal to Super when running on a TTY, and to Alt
+          // when running as a winit window.
+          //
+          // Most actions that you can bind here can also be invoked programmatically with
+          // `niri msg action do-something`.
 
-            // Suggested binds for running programs: terminal, app launcher, screen locker.
-            Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
-            Mod+Space { spawn "vicinae" "toggle"; }
-            Super+Alt+L { spawn "dolphin"; }
+          // Mod-Shift-/, which is usually the same as Mod-?,
+          // shows a list of important hotkeys.
+          Mod+Shift+Ctrl+Slash { show-hotkey-overlay; }
 
-            // You can also use a shell. Do this if you need pipes, multiple commands, etc.
-            // Note: the entire command goes as a single argument in the end.
-            // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
+          // Suggested binds for running programs: terminal, app launcher, screen locker.
+          Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
+          Mod+Space { spawn "vicinae" "toggle"; }
+          Super+Alt+L { spawn "dolphin"; }
 
-            // Example volume keys mappings for PipeWire & WirePlumber.
-            // The allow-when-locked=true property makes them work even when the session is locked.
-            XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.025+"; }
-            XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.025-"; }
-            XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-            XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-            XF86AudioPlay       allow-when-locked=true { spawn "playerctl" "play-pause"; }
-            XF86AudioPause      allow-when-locked=true { spawn "playerctl" "play-pause"; }
-            XF86AudioNext       allow-when-locked=true { spawn "playerctl" "next"; }
-            XF86AudioPrev       allow-when-locked=true { spawn "playerctl" "previous"; }
+          // You can also use a shell. Do this if you need pipes, multiple commands, etc.
+          // Note: the entire command goes as a single argument in the end.
+          // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
 
-            XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
-            XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
+          // Example volume keys mappings for PipeWire & WirePlumber.
+          // The allow-when-locked=true property makes them work even when the session is locked.
+          XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.025+"; }
+          XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.025-"; }
+          XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+          XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+          XF86AudioPlay       allow-when-locked=true { spawn "playerctl" "play-pause"; }
+          XF86AudioPause      allow-when-locked=true { spawn "playerctl" "play-pause"; }
+          XF86AudioNext       allow-when-locked=true { spawn "playerctl" "next"; }
+          XF86AudioPrev       allow-when-locked=true { spawn "playerctl" "previous"; }
 
-            Mod+Q { close-window; }
+          XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
+          XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
 
-            Mod+Tab { toggle-overview; }
+          Mod+Q { close-window; }
 
-            Mod+Left  { focus-column-left; }
-            Mod+Down  { focus-window-down; }
-            Mod+Up    { focus-window-up; }
-            Mod+Right { focus-column-right; }
+          Mod+Tab { toggle-overview; }
 
-            Mod+Ctrl+Equal { set-column-width "+2.5%"; }
-            Mod+Ctrl+Minus { set-column-width "-2.5%"; }
+          Mod+Left  { focus-column-left; }
+          Mod+Down  { focus-window-down; }
+          Mod+Up    { focus-window-up; }
+          Mod+Right { focus-column-right; }
 
-            Mod+Ctrl+Left  { focus-column-left; }
-            Mod+Ctrl+Down  { focus-window-down; }
-            Mod+Ctrl+Up    { focus-window-up; }
-            Mod+Ctrl+Right { focus-column-right; }
-            Mod+Alt+Ctrl+Left  { consume-or-expel-window-left; }
-            Mod+Alt+Ctrl+Right { consume-or-expel-window-right; }
-            Mod+Alt+Ctrl+Up    { move-window-up; }
-            Mod+Alt+Ctrl+Down  { move-window-down; }
+          Mod+Ctrl+Equal { set-column-width "+2.5%"; }
+          Mod+Ctrl+Minus { set-column-width "-2.5%"; }
 
-            Mod+Home { focus-column-first; }
-            Mod+End  { focus-column-last; }
-            Mod+Ctrl+Home { move-column-to-first; }
-            Mod+Ctrl+End  { move-column-to-last; }
+          Mod+Ctrl+Left  { focus-column-left; }
+          Mod+Ctrl+Down  { focus-window-down; }
+          Mod+Ctrl+Up    { focus-window-up; }
+          Mod+Ctrl+Right { focus-column-right; }
+          Mod+Alt+Ctrl+Left  { consume-or-expel-window-left; }
+          Mod+Alt+Ctrl+Right { consume-or-expel-window-right; }
+          Mod+Alt+Ctrl+Up    { move-window-up; }
+          Mod+Alt+Ctrl+Down  { move-window-down; }
 
-            Mod+Shift+Left  { focus-monitor-left; }
-            Mod+Shift+Down  { focus-monitor-down; }
-            Mod+Shift+Up    { focus-monitor-up; }
-            Mod+Shift+Right { focus-monitor-right; }
-            Mod+Shift+H     { focus-monitor-left; }
-            Mod+Shift+J     { focus-monitor-down; }
-            Mod+Shift+K     { focus-monitor-up; }
-            Mod+Shift+L     { focus-monitor-right; }
+          Mod+Home { focus-column-first; }
+          Mod+End  { focus-column-last; }
+          Mod+Ctrl+Home { move-column-to-first; }
+          Mod+Ctrl+End  { move-column-to-last; }
 
-            Mod+WheelScrollDown { focus-column-right; }
-            Mod+WheelScrollUp   { focus-column-left; }
-            Mod+Ctrl+WheelScrollDown { focus-window-down; }
-            Mod+Ctrl+WheelScrollUp   { focus-window-up; }
+          Mod+Shift+Left  { focus-monitor-left; }
+          Mod+Shift+Down  { focus-monitor-down; }
+          Mod+Shift+Up    { focus-monitor-up; }
+          Mod+Shift+Right { focus-monitor-right; }
+          Mod+Shift+H     { focus-monitor-left; }
+          Mod+Shift+J     { focus-monitor-down; }
+          Mod+Shift+K     { focus-monitor-up; }
+          Mod+Shift+L     { focus-monitor-right; }
 
-            Mod+Shift+WheelScrollDown      { focus-workspace-down; }
-            Mod+Shift+WheelScrollUp        { focus-workspace-up; }
+          Mod+WheelScrollDown { focus-column-right; }
+          Mod+WheelScrollUp   { focus-column-left; }
+          Mod+Ctrl+WheelScrollDown { focus-window-down; }
+          Mod+Ctrl+WheelScrollUp   { focus-window-up; }
 
-            Shift+Ctrl+Alt+F { maximize-column; }
-            Mod+Shift+Ctrl+F { fullscreen-window; }
+          Mod+Shift+WheelScrollDown      { focus-workspace-down; }
+          Mod+Shift+WheelScrollUp        { focus-workspace-up; }
 
-            Mod+Z { center-column; }
-            Mod+Ctrl+Z { center-visible-columns; }
+          Shift+Ctrl+Alt+F { maximize-column; }
+          Mod+Shift+Ctrl+F { fullscreen-window; }
 
-            Mod+Ctrl+Space       { toggle-window-floating; }
+          Mod+Z { center-column; }
+          Mod+Ctrl+Z { center-visible-columns; }
 
-            Mod+Ctrl+Alt+Space { toggle-column-tabbed-display; }
+          Mod+Ctrl+Space       { toggle-window-floating; }
 
-            Mod+Ctrl+Shift+3 { screenshot-screen; }
-            Mod+Ctrl+Shift+4 { screenshot; }
-            Mod+Ctrl+Shift+5 { screenshot-window; }
+          Mod+Ctrl+Alt+Space { toggle-column-tabbed-display; }
 
-            // Applications such as remote-desktop clients and software KVM switches may
-            // request that niri stops processing the keyboard shortcuts defined here
-            // so they may, for example, forward the key presses as-is to a remote machine.
-            // It's a good idea to bind an escape hatch to toggle the inhibitor,
-            // so a buggy application can't hold your session hostage.
-            //
-            // The allow-inhibiting=false property can be applied to other binds as well,
-            // which ensures niri always processes them, even when an inhibitor is active.
-            Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+          Mod+Ctrl+Shift+3 { screenshot-screen; }
+          Mod+Ctrl+Shift+4 { screenshot; }
+          Mod+Ctrl+Shift+5 { screenshot-window; }
 
-            // The quit action will show a confirmation dialog to avoid accidental exits.
-            Mod+Ctrl+Q { quit; }
+          // Applications such as remote-desktop clients and software KVM switches may
+          // request that niri stops processing the keyboard shortcuts defined here
+          // so they may, for example, forward the key presses as-is to a remote machine.
+          // It's a good idea to bind an escape hatch to toggle the inhibitor,
+          // so a buggy application can't hold your session hostage.
+          //
+          // The allow-inhibiting=false property can be applied to other binds as well,
+          // which ensures niri always processes them, even when an inhibitor is active.
+          Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-            // Powers off the monitors. To turn them back on, do any input like
-            // moving the mouse or pressing any other key.
-            Mod+Ctrl+Shift+Q { power-off-monitors; }
-        }
-      '';
+          // The quit action will show a confirmation dialog to avoid accidental exits.
+          Mod+Ctrl+Q { quit; }
+
+          // Powers off the monitors. To turn them back on, do any input like
+          // moving the mouse or pressing any other key.
+          Mod+Ctrl+Shift+Q { power-off-monitors; }
+      }
+    '';
   };
 
   home.file.".config/niri/background" = {
