@@ -4,6 +4,8 @@
   config,
   username,
   fullName,
+  pkgs-fresh,
+  pkgs-stable,
   email,
   ...
 }: {
@@ -14,11 +16,9 @@
       inherit username;
       inherit fullName;
       inherit email;
+      inherit pkgs-fresh;
+      inherit pkgs-stable;
       hostname = config.networking.hostName;
-      pkgs-fresh = import inputs.nixpkgs-fresh {
-        inherit system;
-        config.allowUnfree = true;
-      };
     };
     users = {
       ${username} = import ./links.nix;
