@@ -135,6 +135,14 @@
           username = "hackr";
           fullName = "Mohammad Al-Ahdal";
           email = "hackr@hackr.sh";
+          pkgs-fresh = import inputs.nixpkgs-fresh {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+          pkgs-stable = import inputs.nixpkgs-stable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
         };
       };
     }) ["infernape" "torchic" "snorlax"]);
