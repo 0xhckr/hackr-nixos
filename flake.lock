@@ -1130,11 +1130,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1774740395,
-        "narHash": "sha256-/1ioW9YU1nyXkYhnBIuNC3HoMo1oMmU2DxvqrT9fxGk=",
+        "lastModified": 1774820425,
+        "narHash": "sha256-TFAh8rkl8US+5rcUnxxiONMsPzo7ZWwIYeiMeKhXw3I=",
         "owner": "bobrware",
         "repo": "stoa-nix",
-        "rev": "e5951bf0ff4d2faab64fa5523ae1a277ce460469",
+        "rev": "31681efe4d0f515271dd34d81d51456529a62f3b",
         "type": "github"
       },
       "original": {
