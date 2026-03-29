@@ -30,6 +30,7 @@
     ]
     ++ (with pkgs-fresh; [
       claude-code
+      opencode
     ]);
 
   home.file = {
