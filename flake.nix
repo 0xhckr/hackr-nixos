@@ -129,18 +129,23 @@
       name = name;
       value = nixpkgs.lib.nixosSystem {
         modules = [./hosts/${name}];
-        specialArgs = {
-          inherit inputs;
+        specialArgs = let
           system = "x86_64-linux";
           username = "hackr";
           fullName = "Mohammad Al-Ahdal";
           email = "hackr@hackr.sh";
+        in {
+          inherit inputs;
+          inherit system;
+          inherit username;
+          inherit fullName;
+          inherit email;
           pkgs-fresh = import inputs.nixpkgs-fresh {
-            system = "x86_64-linux";
+            inherit system;
             config.allowUnfree = true;
           };
           pkgs-stable = import inputs.nixpkgs-stable {
-            system = "x86_64-linux";
+            inherit system;
             config.allowUnfree = true;
           };
         };
