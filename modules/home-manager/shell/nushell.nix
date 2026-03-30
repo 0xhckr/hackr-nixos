@@ -1,4 +1,10 @@
-{pkgs, config, lib, username, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  username,
+  ...
+}: {
   home.shell.enableNushellIntegration = true;
 
   programs.nushell = {
@@ -95,6 +101,11 @@
       def point-and-kill [] {
         let appPID = ${pkgs.niri}/bin/niri msg pick-window | grep "PID:" | str replace "PID: " "" | into int
         kill -9 $appPID
+      }
+
+      def ghosttify [user: string, host: string] {
+        let command = ["infocmp -x xterm-ghostty | ssh ", $user, "@", $host, " -- tic -x -"]
+        bash -c ($command | str join)
       }
 
       def pokefetch [] {
