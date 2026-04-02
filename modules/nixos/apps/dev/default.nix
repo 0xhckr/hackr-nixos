@@ -1,6 +1,6 @@
 {
   imports = [
-    ./crush.nix
+    ./agents.nix
     ./nushell.nix
   ];
 }

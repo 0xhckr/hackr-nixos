@@ -41,7 +41,7 @@ hosts/
 modules/
   nixos/                         # System-level (runs as root / NixOS options)
     apps/                        # System-installed apps
-      dev/                       # crush.nix, nushell (system-level)
+      dev/                       # agents.nix, nushell (system-level)
       games/                     # steam, gamescope, prism, hytale, smm, gs.sh helper
       1password-browsers.nix
       libre-office.nix

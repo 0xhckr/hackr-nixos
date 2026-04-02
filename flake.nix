@@ -122,6 +122,11 @@
       url = "github:bobrware/stoa-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs-fresh";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: {

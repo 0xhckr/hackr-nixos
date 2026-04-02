@@ -52,7 +52,8 @@ in {
     [
       obsidian
       fontforge
-      discord
+      # discord
+      vesktop
       whatsapp-electron
       krisp-patcher
       zoom-us
