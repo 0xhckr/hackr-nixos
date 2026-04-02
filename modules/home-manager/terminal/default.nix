@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-fresh,
   inputs,
   system,
   ...
