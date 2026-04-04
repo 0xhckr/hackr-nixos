@@ -35,9 +35,13 @@
       ];
       extra-substituters = [
         "https://cache.0xhckr.dev/nix-cache/"
+        "https://zed.cachix.org"
+        "https://cache.garnix.io"
       ];
       extra-trusted-public-keys = [
         "cache.0xhckr.dev-1:VTJYAGKFg8G5O7ia2HlJ4dDhgqoGgyq+ItpOr+UGSYw="
+        "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       ];
     };
   };
