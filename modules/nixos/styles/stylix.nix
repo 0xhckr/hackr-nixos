@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs-stable,
   ...
 }: {
@@ -10,6 +11,7 @@
     enable = true;
     base16Scheme = ./themes/rose-pine.yaml;
     polarity = "dark";
+    targets.qt.platform = lib.mkForce "qtct";
     cursor = {
       package = pkgs-stable.rose-pine-cursor;
       name = "BreezeX-RosePine-Linux";

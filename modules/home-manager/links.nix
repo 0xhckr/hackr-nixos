@@ -13,6 +13,8 @@
   home.homeDirectory = "/home/${username}";
 
   home.stateVersion = "24.11";
+  gtk.gtk4.theme = null;
+
   nixpkgs.config.allowUnfree = true;
 
   home.file = {

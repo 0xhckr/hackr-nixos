@@ -1,4 +1,11 @@
-{pkgs, inputs, fullName, email, system, ...}: {
+{
+  pkgs,
+  inputs,
+  fullName,
+  email,
+  system,
+  ...
+}: {
   home.packages = with pkgs; [
     android-tools
     nil
@@ -6,7 +13,6 @@
     gcc
     gnumake
     cargo
-    nodejs
     bun
     biome
     jdk
@@ -17,6 +23,7 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
+    signing.format = null;
     settings = {
       user = {
         name = fullName;

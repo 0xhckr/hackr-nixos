@@ -59,7 +59,7 @@ in {
       zoom-us
       nautilus
       slack
-      inputs.graphite.packages."${system}".default
+      # inputs.graphite.packages."${system}".default
       inputs.helium.packages."${system}".default
       inputs.stoa.packages."${system}".default
       winboat
