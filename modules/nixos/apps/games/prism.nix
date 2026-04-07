@@ -1,5 +1,5 @@
-{pkgs-stable, ...}: {
-  environment.systemPackages = with pkgs-stable; [
+{pkgs-fresh, ...}: {
+  environment.systemPackages = with pkgs-fresh; [
     prismlauncher
   ];
 }
