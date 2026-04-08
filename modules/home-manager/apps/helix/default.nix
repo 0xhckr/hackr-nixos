@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  system,
   ...
 }: let
   formatters = with pkgs; [
@@ -61,7 +62,7 @@
     biome
   ];
 in {
-  home.packages = with pkgs;
+  home.packages =
     [
       inputs.helix.packages."${system}".default
     ]
