@@ -127,7 +127,7 @@ in {
       };
     };
     pins = {
-      # NOTE: Pins are not currently working: https://github.com/0xc000022070/zen-browser-flake/issues/201
+      # Personal
       "mail" = {
         id = "00000000-0000-0000-0000-000000000001";
         container = containers.personal.id;
@@ -138,9 +138,97 @@ in {
       "dokploy" = {
         id = "00000000-0000-0000-0000-000000000002";
         container = containers.personal.id;
-        url = "https://dokploy.alahdal.ca/";
+        url = "https://deploy.0xhckr.dev/";
         isEssential = true;
         position = 102;
+      };
+      "github (personal)" = {
+        id = "00000000-0000-0000-0000-000000000003";
+        container = containers.personal.id;
+        url = "https://github.com/";
+        isEssential = true;
+        position = 103;
+      };
+      "0xhckr.dev" = {
+        id = "00000000-0000-0000-0000-000000000004";
+        container = containers.personal.id;
+        url = "https://0xhckr.dev/";
+        isEssential = true;
+        position = 104;
+      };
+
+      # Work
+      "github (work)" = {
+        id = "00000000-0000-0000-0000-000000000005";
+        container = containers.werk.id;
+        url = "https://github.com/";
+        isEssential = true;
+        position = 201;
+      };
+      "outlook (work)" = {
+        id = "00000000-0000-0000-0000-000000000006";
+        container = containers.werk.id;
+        url = "https://outlook.live.com/";
+        isEssential = true;
+        position = 202;
+      };
+      "teams" = {
+        id = "00000000-0000-0000-0000-000000000007";
+        container = containers.werk.id;
+        url = "https://teams.microsoft.com/";
+        isEssential = true;
+        position = 203;
+      };
+      "jira" = {
+        id = "00000000-0000-0000-0000-000000000008";
+        container = containers.werk.id;
+        url = "https://knowhistory.atlassian.net/jira/people/712020%3A201746e7-e3ca-4634-85bc-c7b1c68b2ea7/boards/7";
+        isEssential = true;
+        position = 204;
+      };
+      "coolify" = {
+        id = "00000000-0000-0000-0000-000000000009";
+        container = containers.werk.id;
+        url = "https://coolify.hstry.dev/";
+        isEssential = true;
+        position = 205;
+      };
+      "coolify-mno-pr" = {
+        id = "00000000-0000-0000-0000-00000000000a";
+        container = containers.werk.id;
+        url = "https://mno-coolify.hstry.dev/";
+        isEssential = true;
+        position = 206;
+      };
+      "azuredevops" = {
+        id = "00000000-0000-0000-0000-00000000000b";
+        container = containers.werk.id;
+        url = "https://dev.azure.com/";
+        isEssential = true;
+        position = 207;
+      };
+
+      # Skewl
+      "my-ucalgary" = {
+        id = "00000000-0000-0000-0000-00000000000c";
+        container = containers.skewl.id;
+        url = "https://my.ucalgary.ca/";
+        isEssential = true;
+        position = 301;
+      };
+      "outlook (school)" = {
+        id = "00000000-0000-0000-0000-00000000000d";
+        container = containers.skewl.id;
+        url = "https://outlook.live.com/";
+        isEssential = true;
+        position = 302;
+      };
+      "d2l" = {
+        id = "00000000-0000-0000-0000-00000000000e";
+        container = containers.skewl.id;
+        url = "https://d2l.ucalgary.ca/";
+        isEssential = true;
+        position = 303;
       };
     };
     keyboardShortcuts = [
