@@ -169,14 +169,14 @@ in {
       "outlook (work)" = {
         id = "00000000-0000-0000-0000-000000000006";
         container = containers.werk.id;
-        url = "https://outlook.live.com/";
+        url = "https://outlook.office.com/";
         isEssential = true;
         position = 202;
       };
       "teams" = {
         id = "00000000-0000-0000-0000-000000000007";
         container = containers.werk.id;
-        url = "https://teams.microsoft.com/";
+        url = "https://teams.cloud.microsoft/";
         isEssential = true;
         position = 203;
       };
@@ -204,7 +204,7 @@ in {
       "azuredevops" = {
         id = "00000000-0000-0000-0000-00000000000b";
         container = containers.werk.id;
-        url = "https://dev.azure.com/";
+        url = "https://portal.azure.com/";
         isEssential = true;
         position = 207;
       };
@@ -220,7 +220,7 @@ in {
       "outlook (school)" = {
         id = "00000000-0000-0000-0000-00000000000d";
         container = containers.skewl.id;
-        url = "https://outlook.live.com/";
+        url = "https://outlook.office.com/";
         isEssential = true;
         position = 302;
       };
