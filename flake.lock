@@ -268,6 +268,28 @@
         "type": "gitlab"
       }
     },
+    "firefox-addons": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1775620985,
+        "narHash": "sha256-NJGd7xMwj8dsi9/NZqBNJsiomFYgvPMt20CD/hNZ7u4=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "eced9d6469dcdd1e1767fd329fe60abd1471e08e",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
+      }
+    },
     "firefox-gnome-theme": {
       "flake": false,
       "locked": {
@@ -1094,6 +1116,7 @@
         "affinity-nix": "affinity-nix",
         "awww": "awww",
         "commie": "commie",
+        "firefox-addons": "firefox-addons",
         "ghostty": "ghostty",
         "graphite": "graphite",
         "helium": "helium",

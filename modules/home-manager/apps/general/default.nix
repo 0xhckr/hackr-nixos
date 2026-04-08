@@ -5,6 +5,7 @@
   pkgs-stable,
   ...
 }: let
+  addons = pkgs.extend inputs.firefox-addons.overlays.default;
   jetbrainsApps = with pkgs-stable.jetbrains; [
     datagrip
     rider
@@ -268,6 +269,11 @@ in {
       containersForce = true;
       spacesForce = true;
       pinsForce = true;
+      extensions.packages = with addons.firefox-addons; [
+        ublock-origin
+        darkreader
+        onepassword-password-manager
+      ];
 
       inherit containers spaces pins keyboardShortcuts keyboardShortcutsVersion;
     };
