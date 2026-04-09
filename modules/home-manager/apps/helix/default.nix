@@ -8,7 +8,7 @@
     # nix
     alejandra
     # rust
-    rustfmt
+    # rustfmt
     dioxus-cli
     # zig
     zig
@@ -18,7 +18,7 @@
 
   languageServers = with pkgs; [
     # rust
-    rust-analyzer
+    # rust-analyzer
     # nix
     nil
     # typescript + javascript + tsx + jsx

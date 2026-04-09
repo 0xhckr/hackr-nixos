@@ -12,7 +12,15 @@
     nixfmt
     gcc
     gnumake
-    cargo
+    (inputs.fenix.packages."${system}".stable.withComponents [
+      "cargo"
+      "rustc"
+      "rustfmt"
+      "clippy"
+      "rust-analyzer"
+      "rust-src"
+    ])
+    # cargo
     bun
     biome
     jdk
