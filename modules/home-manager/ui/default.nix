@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   system,
   ...
@@ -41,4 +42,6 @@
       autoStart = true;
     };
   };
+
+  home.activation.vicinae-refresh-apps = lib.mkForce "";
 }
