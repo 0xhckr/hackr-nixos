@@ -850,7 +850,7 @@
         "type": "github"
       }
     },
-    "niri-unstable": {
+    "niri": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -858,16 +858,16 @@
         "rust-overlay": "rust-overlay_5"
       },
       "locked": {
-        "lastModified": 1775412875,
-        "narHash": "sha256-nvTnu0tEgvI6wg0jSORls/272RPtxxmVZ7iq7izA2KA=",
+        "lastModified": 1776252914,
+        "narHash": "sha256-251qX0g75KcVtwCckXiOiqc+4VleJBDfiHiZ9v1c8Ro=",
         "owner": "niri-wm",
         "repo": "niri",
-        "rev": "e0db6df3e1eecb6dd1d034a435dab79cb71d10e3",
+        "rev": "4d214891017fa7b893df1140d24f76defba0eb88",
         "type": "github"
       },
       "original": {
         "owner": "niri-wm",
-        "ref": "wip/branch",
+        "ref": "main",
         "repo": "niri",
         "type": "github"
       }
@@ -1148,7 +1148,7 @@
         "jj": "jj",
         "llm-agents": "llm-agents",
         "nh": "nh",
-        "niri-unstable": "niri-unstable",
+        "niri": "niri",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-fresh": "nixpkgs-fresh",
@@ -1266,7 +1266,7 @@
     "rust-overlay_5": {
       "inputs": {
         "nixpkgs": [
-          "niri-unstable",
+          "niri",
           "nixpkgs"
         ]
       },

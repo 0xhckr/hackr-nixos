@@ -44,11 +44,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri-unstable = {
+    niri = {
       type = "github";
       owner = "niri-wm";
       repo = "niri";
-      ref = "wip/branch";
+      ref = "main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
