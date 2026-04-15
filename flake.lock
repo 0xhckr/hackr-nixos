@@ -1156,6 +1156,7 @@
         "noctalia": "noctalia",
         "stoa": "stoa",
         "stylix": "stylix",
+        "tuigreet": "tuigreet",
         "vicinae": "vicinae",
         "zed": "zed",
         "zen-browser": "zen-browser"
@@ -1631,6 +1632,26 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "tuigreet": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1774233689,
+        "narHash": "sha256-TaQV6i0JGj8uwJ7sM2Q1U8N2cWP3u0ow4c7HwgwK9Mw=",
+        "owner": "NotAShelf",
+        "repo": "tuigreet",
+        "rev": "f37f664c99ccae2d8bbf6f3010b7f8d593d69acd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NotAShelf",
+        "repo": "tuigreet",
         "type": "github"
       }
     },

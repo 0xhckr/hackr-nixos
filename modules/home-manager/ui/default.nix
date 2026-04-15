@@ -38,8 +38,8 @@
       theme.light.name = "stylix";
     };
     systemd = {
-      enable = true;
-      autoStart = true;
+      enable = false;
+      autoStart = false;
     };
   };
 

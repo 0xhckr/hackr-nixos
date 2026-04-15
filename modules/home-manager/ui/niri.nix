@@ -116,6 +116,7 @@
       }
 
       spawn-at-startup "xwayland-satellite"
+      spawn-at-startup "vicinae" "server"
       spawn-at-startup "awww-daemon"
       spawn-at-startup "qs" "-p" "/home/${username}/.config/beepshell"
       spawn-at-startup "/home/${username}/.config/niri/delayed"
