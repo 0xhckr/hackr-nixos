@@ -72,6 +72,11 @@
 
           [meta+control+shift]
           f = M-C-S-f
+
+          [meta+alt+control]
+          z = M-A-C-z
+          x = M-A-C-x
+          c = M-A-C-c
         '';
       };
     };

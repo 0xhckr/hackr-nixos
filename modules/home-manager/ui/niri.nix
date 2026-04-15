@@ -328,8 +328,11 @@
           Mod+Ctrl+Alt+Space { toggle-column-tabbed-display; }
 
           Mod+Ctrl+Shift+3 { screenshot-screen; }
+          Mod+Ctrl+Alt+z { screenshot-screen; }
           Mod+Ctrl+Shift+4 { screenshot; }
+          Mod+Ctrl+Alt+x { screenshot; }
           Mod+Ctrl+Shift+5 { screenshot-window; }
+          Mod+Ctrl+Alt+c { screenshot-window; }
 
           // Applications such as remote-desktop clients and software KVM switches may
           // request that niri stops processing the keyboard shortcuts defined here
