@@ -169,7 +169,7 @@ in {
       "outlook (work)" = {
         id = "00000000-0000-0000-0000-000000000006";
         container = containers.werk.id;
-        url = "https://outlook.office.com/";
+        url = "https://outlook.cloud.microsoft/";
         isEssential = true;
         position = 202;
       };
@@ -220,7 +220,7 @@ in {
       "outlook (school)" = {
         id = "00000000-0000-0000-0000-00000000000d";
         container = containers.skewl.id;
-        url = "https://outlook.office.com/";
+        url = "https://outlook.cloud.microsoft/";
         isEssential = true;
         position = 302;
       };
