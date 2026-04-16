@@ -21,8 +21,7 @@
           (lib.getExe inputs.tuigreet.packages.${system}.tuigreet)
           "--time"
           "--remember"
-          # "--remember-session"
-          # "--remember-user-session"
+          "--asterisks"
           "--user-menu"
           "--sessions"
           "/run/current-system/sw/share/wayland-sessions"
