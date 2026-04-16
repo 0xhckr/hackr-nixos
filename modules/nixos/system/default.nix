@@ -1,6 +1,6 @@
 {
   imports = [
-    ./greetd.nix
+    ./gnome.nix
     ./keyd.nix
     ./nh.nix
     ./niri.nix
