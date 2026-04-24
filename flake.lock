@@ -1313,11 +1313,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775451748,
-        "narHash": "sha256-AtZAlFVY1Tgp6XPFmuQdPLGwArVkMv4AxMefg02Epqg=",
+        "lastModified": 1776953351,
+        "narHash": "sha256-+j/udnjZcvavFoHXG7tWoTujvowHdli4nE2AkG3HRs0=",
         "owner": "bobrware",
         "repo": "stoa-nix",
-        "rev": "2dea9823b5f2cc304c8059edad78677a80ea1c55",
+        "rev": "049239069beb9253a3b53bcba5b4ed9650c76e85",
         "type": "github"
       },
       "original": {
