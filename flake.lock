@@ -650,11 +650,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1777285448,
-        "narHash": "sha256-k+vvZvyJDFN55BJz3wAZJ0nOH4gkaBFQrwI0taaU+nY=",
+        "lastModified": 1777304917,
+        "narHash": "sha256-o91UFuDS7swx91jNdZKeVUQX+daorYvm9ww0H0Yd2Aw=",
         "owner": "0xhckr",
         "repo": "helios-cache-0xhckr",
-        "rev": "46b1ec614c807921c6d88bd9542016cabc20638f",
+        "rev": "a2ca6b8c2bde4ca54d80096214f55c1eb9be282b",
         "type": "github"
       },
       "original": {
