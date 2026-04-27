@@ -643,6 +643,26 @@
         "type": "github"
       }
     },
+    "helios": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1777285448,
+        "narHash": "sha256-k+vvZvyJDFN55BJz3wAZJ0nOH4gkaBFQrwI0taaU+nY=",
+        "owner": "0xhckr",
+        "repo": "helios-cache-0xhckr",
+        "rev": "46b1ec614c807921c6d88bd9542016cabc20638f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xhckr",
+        "repo": "helios-cache-0xhckr",
+        "type": "github"
+      }
+    },
     "helium": {
       "inputs": {
         "nixpkgs": [
@@ -1141,6 +1161,7 @@
         "firefox-addons": "firefox-addons",
         "ghostty": "ghostty",
         "graphite": "graphite",
+        "helios": "helios",
         "helium": "helium",
         "helix": "helix",
         "home-manager": "home-manager_2",

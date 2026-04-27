@@ -117,6 +117,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helios = {
+      url = "github:0xhckr/helios-cache-0xhckr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stoa = {
       url = "github:bobrware/stoa-nix";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -2,6 +2,8 @@
   pkgs,
   config,
   lib,
+  inputs,
+  system,
   username,
   ...
 }: {
@@ -32,12 +34,11 @@
       }
 
       def copy-to-cache [] {
-        if ($'/home/${username}/.config/nix/secret.key' | path exists) {
-          nix store sign --recursive --key-file ~/.config/nix/secret.key /run/current-system
-          nix copy --to 's3://nix-cache?profile=nixbuilder&endpoint=10.0.11.2:9000&scheme=http' /run/current-system
+        if ($'/home/${username}/.config/helios/config.json' | path exists) {
+          ${inputs.helios.packages.${system}.default}/bin/helios push main --closure /run/current-system
           echo "Copied to cache"
         } else {
-          echo "~/.config/nix/secret.key not found"
+          echo "Not logged in to Helios. Run: helios login prod https://helios.0xhckr.dev $TOKEN"
         }
       }
 

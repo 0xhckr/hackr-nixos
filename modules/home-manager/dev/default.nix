@@ -24,8 +24,8 @@
     bun
     biome
     jdk
-    minio-client
     inputs.jj.packages."${system}".jujutsu
+    inputs.helios.packages."${system}".default
   ];
 
   programs.git = {
