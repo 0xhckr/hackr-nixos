@@ -109,19 +109,19 @@ in {
     };
     spaces = {
       "personal" = {
-        id = "00000000-0000-0000-0000-000000000010";
+        id = "10000000-0000-0000-0000-000000000000";
         icon = "👾";
         container = containers.personal.id;
         position = 1000;
       };
       "werk" = {
-        id = "00000000-0000-0000-0000-000000000011";
+        id = "20000000-0000-0000-0000-000000000000";
         icon = "🏢";
         container = containers.werk.id;
         position = 2000;
       };
       "skewl" = {
-        id = "00000000-0000-0000-0000-000000000012";
+        id = "30000000-0000-0000-0000-000000000000";
         icon = "🎓";
         container = containers.skewl.id;
         position = 3000;
@@ -130,79 +130,86 @@ in {
     pins = {
       # Personal
       "mail" = {
-        id = "00000000-0000-0000-0000-000000000001";
+        id = "00000000-1000-0000-0000-000000000000";
         container = containers.personal.id;
         url = "https://mail.proton.me/inbox";
         isEssential = true;
         position = 101;
       };
       "dokploy" = {
-        id = "00000000-0000-0000-0000-000000000002";
+        id = "00000000-1000-0000-0000-000000000001";
         container = containers.personal.id;
         url = "https://deploy.0xhckr.dev/";
         isEssential = true;
         position = 102;
       };
       "github (personal)" = {
-        id = "00000000-0000-0000-0000-000000000003";
+        id = "00000000-1000-0000-0000-000000000002";
         container = containers.personal.id;
         url = "https://github.com/";
         isEssential = true;
         position = 103;
       };
       "0xhckr.dev" = {
-        id = "00000000-0000-0000-0000-000000000004";
+        id = "00000000-1000-0000-0000-000000000003";
         container = containers.personal.id;
         url = "https://0xhckr.dev/";
         isEssential = true;
         position = 104;
       };
+      "cloudflare" = {
+        id = "00000000-1000-0000-0000-000000000004";
+        container = containers.personal.id;
+        url = "https://dash.cloudflare.com/";
+        isEssential = true;
+        position = 105;
+      };
 
       # Work
       "github (work)" = {
-        id = "00000000-0000-0000-0000-000000000005";
+        id = "00000000-2000-0000-0000-000000000000";
         container = containers.werk.id;
         url = "https://github.com/";
         isEssential = true;
         position = 201;
       };
       "outlook (work)" = {
-        id = "00000000-0000-0000-0000-000000000006";
+        id = "00000000-2000-0000-0000-000000000001";
         container = containers.werk.id;
         url = "https://outlook.cloud.microsoft/";
         isEssential = true;
         position = 202;
       };
       "teams" = {
-        id = "00000000-0000-0000-0000-000000000007";
+        id = "00000000-2000-0000-0000-000000000002";
         container = containers.werk.id;
         url = "https://teams.cloud.microsoft/";
         isEssential = true;
         position = 203;
       };
       "jira" = {
-        id = "00000000-0000-0000-0000-000000000008";
+        id = "00000000-2000-0000-0000-000000000003";
         container = containers.werk.id;
         url = "https://knowhistory.atlassian.net/jira/people/712020%3A201746e7-e3ca-4634-85bc-c7b1c68b2ea7/boards/7";
         isEssential = true;
         position = 204;
       };
       "coolify" = {
-        id = "00000000-0000-0000-0000-000000000009";
+        id = "00000000-2000-0000-0000-000000000004";
         container = containers.werk.id;
         url = "https://coolify.hstry.dev/";
         isEssential = true;
         position = 205;
       };
       "coolify-mno-pr" = {
-        id = "00000000-0000-0000-0000-00000000000a";
+        id = "00000000-2000-0000-0000-000000000005";
         container = containers.werk.id;
         url = "https://mno-coolify.hstry.dev/";
         isEssential = true;
         position = 206;
       };
       "azuredevops" = {
-        id = "00000000-0000-0000-0000-00000000000b";
+        id = "00000000-2000-0000-0000-000000000006";
         container = containers.werk.id;
         url = "https://portal.azure.com/";
         isEssential = true;
@@ -211,21 +218,21 @@ in {
 
       # Skewl
       "my-ucalgary" = {
-        id = "00000000-0000-0000-0000-00000000000c";
+        id = "00000000-3000-0000-0000-000000000000";
         container = containers.skewl.id;
         url = "https://my.ucalgary.ca/";
         isEssential = true;
         position = 301;
       };
       "outlook (school)" = {
-        id = "00000000-0000-0000-0000-00000000000d";
+        id = "00000000-3000-0000-0000-000000000001";
         container = containers.skewl.id;
         url = "https://outlook.cloud.microsoft/";
         isEssential = true;
         position = 302;
       };
       "d2l" = {
-        id = "00000000-0000-0000-0000-00000000000e";
+        id = "00000000-3000-0000-0000-000000000001";
         container = containers.skewl.id;
         url = "https://d2l.ucalgary.ca/";
         isEssential = true;
