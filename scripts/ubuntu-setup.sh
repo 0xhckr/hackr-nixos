@@ -487,7 +487,7 @@ symbol = " "
 
 [hostname]
 disabled = false
-format = "[](fg:overlayd)[   $hostname ]($style)[](fg:overlayd) "
+format = "[](fg:overlayd)[   $hostname ]($style)[](fg:overlayd) "
 ssh_only = false
 style = "bg:overlayd fg:iris"
 
