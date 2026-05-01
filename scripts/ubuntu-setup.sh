@@ -293,7 +293,7 @@ tee ~/.config/fastfetch/config.jsonc > /dev/null << 'FASTFETCH_EOF'
           "type": "custom"
       },
       {
-          "key": "{#39}│ {#31} user    {#39}│",
+          "key": "{#39}│ {#31} user    {#39}│",
           "type": "title",
           "format": "{1}"
       },
@@ -308,7 +308,7 @@ tee ~/.config/fastfetch/config.jsonc > /dev/null << 'FASTFETCH_EOF'
     "format": "{3}"
       },
       {
-          "key": "{#39}│ {#35} kernel  {#39}│",
+          "key": "{#39}│ {#35} kernel  {#39}│",
           "type": "kernel",
     "format": "{1} {2}"
       },
@@ -322,12 +322,12 @@ tee ~/.config/fastfetch/config.jsonc > /dev/null << 'FASTFETCH_EOF'
           "type": "de"
       },
       {
-          "key": "{#39}│ {#31} term    {#39}│",
+          "key": "{#39}│ {#31} term    {#39}│",
           "type": "terminal",
     "format": "{5}"
       },
       {
-          "key": "{#39}│ {#32} shell   {#39}│",
+          "key": "{#39}│ {#32} shell   {#39}│",
           "type": "shell",
     "format": "{6}"
       },
@@ -338,7 +338,7 @@ tee ~/.config/fastfetch/config.jsonc > /dev/null << 'FASTFETCH_EOF'
     "format": "{1} / {2} ({3})"
       },
       {
-          "key": "{#39}│ {#35} memory  {#39}│",
+          "key": "{#39}│ {#35} memory  {#39}│",
           "type": "memory",
     "format": "{1} / {2} ({3})"
       },
@@ -352,7 +352,7 @@ tee ~/.config/fastfetch/config.jsonc > /dev/null << 'FASTFETCH_EOF'
           "type": "custom"
       },
       {
-          "key": "{#39}│ {#39} colors  {#39}│ 󰮯 ",
+          "key": "{#39}│ {#39} colors  {#39}│ 󰮯 ",
           "type": "colors",
           "symbol": "circle"
       },
