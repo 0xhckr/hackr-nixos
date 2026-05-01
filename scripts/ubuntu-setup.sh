@@ -7,22 +7,33 @@ set -euo pipefail
 echo "=> Updating apt and installing prerequisites..."
 sudo apt update && sudo apt install -y curl git unzip
 
+get_latest_version() {
+  curl -sL "https://api.github.com/repos/$1/releases/latest" \
+    | grep '"tag_name"' \
+    | head -1 \
+    | sed -E 's/.*"([^"]+)".*/\1/'
+}
+
+ARCH=$(uname -m)
+
 # --- nushell ---
 if ! command -v nu &>/dev/null; then
   echo "=> Installing nushell..."
-  ARCH=$(uname -m)
   case "$ARCH" in
     x86_64) NU_ARCH="x86_64" ;;
     aarch64) NU_ARCH="aarch64" ;;
     *) echo "Unsupported arch: $ARCH"; exit 1 ;;
   esac
-  NU_VERSION="0.103.0"
-  NU_URL="https://github.com/nushell/nushell/releases/download/${NU_VERSION}/nu-${NU_VERSION}-${NU_ARCH}-linux-gnu-full.tar.gz"
+  NU_TAG=$(get_latest_version "nushell/nushell")
+  NU_VERSION=${NU_TAG#v}
+  NU_URL="https://github.com/nushell/nushell/releases/download/${NU_TAG}/nu-${NU_VERSION}-${NU_ARCH}-unknown-linux-gnu.tar.gz"
   TMPDIR=$(mktemp -d)
+  echo "   Downloading nushell ${NU_VERSION}..."
   curl -sL "$NU_URL" | tar xz -C "$TMPDIR"
-  sudo cp "${TMPDIR}/nu-${NU_VERSION}-${NU_ARCH}-linux-gnu-full/nu" /usr/local/bin/
-  sudo cp "${TMPDIR}/nu-${NU_VERSION}-${NU_ARCH}-linux-gnu-full/plugin_nu"* /usr/local/bin/ 2>/dev/null || true
+  sudo cp "${TMPDIR}/nu-${NU_VERSION}-${NU_ARCH}-unknown-linux-gnu/nu" /usr/local/bin/
+  sudo cp "${TMPDIR}/nu-${NU_VERSION}-${NU_ARCH}-unknown-linux-gnu/plugin_"* /usr/local/bin/ 2>/dev/null || true
   rm -rf "$TMPDIR"
+  echo "   Installed nushell $(nu --version)"
 else
   echo "=> nushell already installed ($(nu --version))"
 fi
@@ -30,17 +41,19 @@ fi
 # --- carapace ---
 if ! command -v carapace &>/dev/null; then
   echo "=> Installing carapace..."
-  ARCH=$(uname -m)
   case "$ARCH" in
     x86_64) CAP_ARCH="amd64" ;;
     aarch64) CAP_ARCH="arm64" ;;
   esac
-  CAP_VERSION="1.2.1"
-  CAP_URL="https://github.com/rsteube/carapace-bin/releases/download/v${CAP_VERSION}/carapace-bin_${CAP_VERSION}_linux_${CAP_ARCH}.tar.gz"
+  CAP_TAG=$(get_latest_version "carapace-sh/carapace-bin")
+  CAP_VERSION=${CAP_TAG#v}
+  CAP_URL="https://github.com/carapace-sh/carapace-bin/releases/download/${CAP_TAG}/carapace-bin_${CAP_VERSION}_linux_${CAP_ARCH}.tar.gz"
   TMPDIR=$(mktemp -d)
+  echo "   Downloading carapace ${CAP_VERSION}..."
   curl -sL "$CAP_URL" | tar xz -C "$TMPDIR"
   sudo cp "${TMPDIR}/carapace" /usr/local/bin/
   rm -rf "$TMPDIR"
+  echo "   Installed carapace ${CAP_VERSION}"
 else
   echo "=> carapace already installed"
 fi
@@ -81,16 +94,18 @@ fi
 if ! command -v fastfetch &>/dev/null; then
   echo "=> Installing fastfetch..."
   sudo apt install -y fastfetch 2>/dev/null || {
-    ARCH=$(uname -m)
     case "$ARCH" in
       x86_64) FF_ARCH="amd64" ;;
       aarch64) FF_ARCH="aarch64" ;;
     esac
-    FF_VERSION="2.37.0"
+    FF_TAG=$(get_latest_version "fastfetch-cli/fastfetch")
+    FF_VERSION=${FF_TAG#v}
     TMPDIR=$(mktemp -d)
-    curl -sL "https://github.com/fastfetch-cli/fastfetch/releases/download/${FF_VERSION}/fastfetch-linux-${FF_ARCH}.deb" -o "${TMPDIR}/fastfetch.deb"
+    echo "   Downloading fastfetch ${FF_VERSION}..."
+    curl -sL "https://github.com/fastfetch-cli/fastfetch/releases/download/${FF_TAG}/fastfetch-linux-${FF_ARCH}.deb" -o "${TMPDIR}/fastfetch.deb"
     sudo dpkg -i "${TMPDIR}/fastfetch.deb"
     rm -rf "$TMPDIR"
+    echo "   Installed fastfetch ${FF_VERSION}"
   }
 else
   echo "=> fastfetch already installed"
@@ -99,17 +114,18 @@ fi
 # --- pokeget-rs (optional, for pokefetch) ---
 if ! command -v pokeget &>/dev/null; then
   echo "=> Installing pokeget-rs..."
-  TMPDIR=$(mktemp -d)
-  ARCH=$(uname -m)
   case "$ARCH" in
     x86_64) PG_ARCH="x86_64" ;;
     aarch64) PG_ARCH="aarch64" ;;
   esac
-  PG_VERSION="1.5.1"
-  curl -sL "https://github.com/jolly-cooper/pokeget-rs/releases/download/v${PG_VERSION}/pokeget-${PG_ARCH}-linux.zip" -o "${TMPDIR}/pokeget.zip"
-  unzip -o "${TMPDIR}/pokeget.zip" -d "${TMPDIR}"
-  sudo cp "${TMPDIR}/pokeget" /usr/local/bin/ 2>/dev/null || sudo cp "${TMPDIR}/dist/pokeget" /usr/local/bin/ 2>/dev/null || echo "  Could not find pokeget binary in archive, skipping"
+  PG_TAG=$(get_latest_version "talwat/pokeget-rs")
+  PG_VERSION=${PG_TAG#v}
+  TMPDIR=$(mktemp -d)
+  echo "   Downloading pokeget ${PG_VERSION}..."
+  curl -sL "https://github.com/talwat/pokeget-rs/releases/download/${PG_TAG}/pokeget-Linux-${PG_ARCH}.tar.gz" | tar xz -C "$TMPDIR"
+  sudo cp "${TMPDIR}/pokeget" /usr/local/bin/ 2>/dev/null || { echo "   Could not find pokeget binary in archive, skipping"; }
   rm -rf "$TMPDIR"
+  echo "   Installed pokeget ${PG_VERSION}"
 else
   echo "=> pokeget already installed"
 fi
@@ -117,9 +133,30 @@ fi
 # --- nushell config ---
 echo "=> Setting up nushell config..."
 
-mkdir -p ~/.config/nushell
+read -r -p "   Reset all config files to defaults? [y/N] " RESET
+RESET=${RESET:-N}
 
-cat > ~/.config/nushell/direnv.nu << 'DIRENV_EOF'
+CONFIG_FILES=(
+  ~/.config/nushell/env.nu
+  ~/.config/nushell/config.nu
+  ~/.config/nushell/direnv.nu
+  ~/.config/nushell/vendor/zoxide.nu
+  ~/.config/atuin/config.toml
+  ~/.config/starship.toml
+  ~/.cache/carapace/init.nu
+  ~/.local/share/atuin/init.nu
+)
+
+if [[ "${RESET,,}" == "y" ]]; then
+  echo "   Removing existing config files..."
+  for f in "${CONFIG_FILES[@]}"; do
+    rm -f "$f"
+  done
+fi
+
+mkdir -p ~/.config/nushell ~/.config/nushell/vendor ~/.config/atuin ~/.cache/carapace ~/.local/share/atuin
+
+tee ~/.config/nushell/direnv.nu > /dev/null << 'DIRENV_EOF'
 $env.config = {
   hooks: {
     pre_prompt: [{ ||
@@ -136,11 +173,9 @@ $env.config = {
 }
 DIRENV_EOF
 
-cat > ~/.config/nushell/env.nu
-mkdir -p ~/.config/nushell/vendor
 zoxide init nushell > ~/.config/nushell/vendor/zoxide.nu
 
-cat > ~/.config/nushell/config.nu << 'NU_CONFIG_EOF'
+tee ~/.config/nushell/config.nu > /dev/null << 'NU_CONFIG_EOF'
 use std "path add"
 
 path add "~/bin"
@@ -223,7 +258,7 @@ if $env.TERM? == "xterm-ghostty" {
 }
 NU_CONFIG_EOF
 
-cat > ~/.config/nushell/env.nu << 'NU_ENV_EOF'
+tee ~/.config/nushell/env.nu > /dev/null << 'NU_ENV_EOF'
 # env.nu - environment variables loaded before config.nu
 $env.ENV_CONVERSIONS = {
   "PATH": {
@@ -234,8 +269,7 @@ $env.ENV_CONVERSIONS = {
 NU_ENV_EOF
 
 # --- atuin config ---
-mkdir -p ~/.config/atuin
-cat > ~/.config/atuin/config.toml << 'ATUIN_EOF'
+tee ~/.config/atuin/config.toml > /dev/null << 'ATUIN_EOF'
 search_mode = "fuzzy"
 filter_mode = "host"
 workspaces = true
@@ -282,8 +316,7 @@ name = "oscura-midnight"
 ATUIN_EOF
 
 # --- starship config ---
-mkdir -p ~/.config
-cat > ~/.config/starship.toml << 'STARSHIP_EOF'
+tee ~/.config/starship.toml > /dev/null << 'STARSHIP_EOF'
 format = """
 ($nix_shell$container$git_metrics)$cmd_duration$hostname$localip$shlvl$shell$env_var$sudo$character
 """
@@ -436,12 +469,11 @@ STARSHIP_EOF
 
 # --- carapace init ---
 echo "=> Initializing carapace..."
-carapace _carapace nushell > ~/.cache/carapace/init.nu 2>/dev/null || mkdir -p ~/.cache/carapace && carapace _carapace nushell > ~/.cache/carapace/init.nu
+carapace _carapace nushell > ~/.cache/carapace/init.nu
 
 # --- atuin init ---
 echo "=> Initializing atuin..."
-mkdir -p ~/.local/share/atuin
-atuin init nushell > ~/.local/share/atuin/init.nu
+atuin init nu > ~/.local/share/atuin/init.nu
 
 # --- set nushell as default shell ---
 CURRENT_SHELL=$(getent passwd "$USER" | cut -d: -f7)
