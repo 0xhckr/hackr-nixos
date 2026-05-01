@@ -471,7 +471,7 @@ STARSHIP_EOF
 
 # --- carapace init ---
 echo "=> Initializing carapace..."
-carapace _carapace nushell > ~/.cache/carapace/init.nu
+carapace _carapace nushell | sed 's|"/homeless-shelter|$"($env.HOME)|g' > ~/.cache/carapace/init.nu
 
 # --- atuin init ---
 echo "=> Initializing atuin..."
