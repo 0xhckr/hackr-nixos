@@ -195,6 +195,9 @@ source ~/.local/share/atuin/init.nu
 $env.STARSHIP_SHELL = "nu"
 $env.PROMPT_COMMAND = { || starship prompt --cmd-duration $env.CMD_DURATION_MS }
 $env.PROMPT_COMMAND_RIGHT = ""
+$env.PROMPT_INDICATOR = ""
+$env.PROMPT_INDICATOR_VI_INSERT = ""
+$env.PROMPT_INDICATOR_VI_NORMAL = ""
 
 # zoxide
 source ./vendor/zoxide.nu
@@ -476,6 +479,14 @@ carapace _carapace nushell | sed 's|"/homeless-shelter|$"($env.HOME)|g' > ~/.cac
 # --- atuin init ---
 echo "=> Initializing atuin..."
 atuin init nu > ~/.local/share/atuin/init.nu
+
+# --- disable motd ---
+if [ -f ~/.hushlogin ]; then
+  echo "=> motd already disabled"
+else
+  echo "=> Disabling motd..."
+  touch ~/.hushlogin
+fi
 
 # --- set nushell as default shell ---
 CURRENT_SHELL=$(getent passwd "$USER" | cut -d: -f7)
