@@ -70,6 +70,25 @@ nh os test /home/hackr/nixos
 nix flake show
 ```
 
+## Ubuntu Setup
+
+A setup script is available for replicating the nushell shell environment on Ubuntu hosts (without Nix). It installs the same tools and config files:
+
+- **nushell** (with plugins) — main shell
+- **carapace** — completions
+- **atuin** — shell history
+- **starship** — prompt (poimandres theme)
+- **zoxide** — directory jumping
+- **direnv** — environment loading
+- **fastfetch** — system info
+- **pokeget-rs** — Pokémon sprites for pokefetch
+
+```bash
+curl -sL https://raw.githubusercontent.com/0xhckr/hackr-nixos/main/scripts/ubuntu-setup.sh | bash
+```
+
+On first run, the script will prompt whether to reset existing config files (defaults to no).
+
 ## Applications & Tools
 
 The configuration includes:
