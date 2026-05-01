@@ -133,7 +133,7 @@ fi
 # --- nushell config ---
 echo "=> Setting up nushell config..."
 
-read -r -p "   Reset all config files to defaults? [y/N] " RESET
+read -r -p "   Reset all config files to defaults? [y/N] " RESET </dev/tty
 RESET=${RESET:-N}
 
 CONFIG_FILES=(
@@ -142,6 +142,7 @@ CONFIG_FILES=(
   ~/.config/nushell/direnv.nu
   ~/.config/nushell/vendor/zoxide.nu
   ~/.config/atuin/config.toml
+  ~/.config/fastfetch/config.jsonc
   ~/.config/starship.toml
   ~/.cache/carapace/init.nu
   ~/.local/share/atuin/init.nu
@@ -273,6 +274,95 @@ $env.ENV_CONVERSIONS = {
   }
 }
 NU_ENV_EOF
+
+# --- fastfetch config ---
+mkdir -p ~/.config/fastfetch
+tee ~/.config/fastfetch/config.jsonc > /dev/null << 'FASTFETCH_EOF'
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "display": {
+      "separator": " "
+  },
+  "modules": [
+  {
+    "key": "\n",
+    "type": "custom"
+  },
+      {
+          "key": "{#39}╭───────────╮",
+          "type": "custom"
+      },
+      {
+          "key": "{#39}│ {#31} user    {#39}│",
+          "type": "title",
+          "format": "{1}"
+      },
+      {
+          "key": "{#39}│ {#32}󰇅 host    {#39}│",
+          "type": "title",
+          "format": "{2}"
+      },
+      {
+          "key": "{#39}│ {#34}󰟾 distro  {#39}│",
+          "type": "os",
+    "format": "{3}"
+      },
+      {
+          "key": "{#39}│ {#35} kernel  {#39}│",
+          "type": "kernel",
+    "format": "{1} {2}"
+      },
+      {
+          "key": "{#39}│ {#33}󰅐 uptime  {#39}│",
+          "type": "uptime",
+    "format": "{2} Hrs {3} Mins"
+      },
+      {
+          "key": "{#39}│ {#36}󰇄 desktop {#39}│",
+          "type": "de"
+      },
+      {
+          "key": "{#39}│ {#31} term    {#39}│",
+          "type": "terminal",
+    "format": "{5}"
+      },
+      {
+          "key": "{#39}│ {#32} shell   {#39}│",
+          "type": "shell",
+    "format": "{6}"
+      },
+      {
+          "key": "{#39}│ {#34}󰉉 disk    {#39}│",
+          "type": "disk",
+          "folders": "/",
+    "format": "{1} / {2} ({3})"
+      },
+      {
+          "key": "{#39}│ {#35} memory  {#39}│",
+          "type": "memory",
+    "format": "{1} / {2} ({3})"
+      },
+      {
+          "key": "{#39}│ {#36}󰩟 network {#39}│",
+          "type": "localip",
+          "format": "{1}"
+      },
+      {
+          "key": "{#39}├───────────┤",
+          "type": "custom"
+      },
+      {
+          "key": "{#39}│ {#39} colors  {#39}│ 󰮯 ",
+          "type": "colors",
+          "symbol": "circle"
+      },
+      {
+          "key": "{#39}╰───────────╯",
+          "type": "custom"
+      }
+  ]
+}
+FASTFETCH_EOF
 
 # --- atuin config ---
 tee ~/.config/atuin/config.toml > /dev/null << 'ATUIN_EOF'
