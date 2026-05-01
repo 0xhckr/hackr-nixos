@@ -182,6 +182,7 @@ $env.config.show_banner = false
 
 path add "~/bin"
 path add "~/.local/bin"
+path add "~/.atuin/bin"
 
 source ./direnv.nu
 
