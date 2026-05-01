@@ -178,6 +178,8 @@ zoxide init nushell > ~/.config/nushell/vendor/zoxide.nu
 tee ~/.config/nushell/config.nu > /dev/null << 'NU_CONFIG_EOF'
 use std "path add"
 
+$env.config.show_banner = false
+
 path add "~/bin"
 path add "~/.local/bin"
 
