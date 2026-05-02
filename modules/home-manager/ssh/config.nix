@@ -15,6 +15,10 @@
         HostName 10.0.11.5
         User ${username}
 
+      Host *.vm.blacksmith.sh
+        StrictHostKeyChecking no
+        UserKnownHostsFile /dev/null
+
       Host *
         IdentityAgent ~/.1password/agent.sock
     '';
