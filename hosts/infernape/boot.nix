@@ -7,7 +7,10 @@
     sbctl
   ];
 
+  hardware.enableAllFirmware = true;
+
   boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot = {
         enable = lib.mkForce false;
