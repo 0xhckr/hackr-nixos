@@ -7,7 +7,7 @@
         ($nix_shell$container$git_metrics)$cmd_duration$hostname$localip$shlvl$shell$env_var$sudo$character
       '';
       right_format = ''
-        $singularity$kubernetes$directory$vcsh$fossil_branch$git_branch$git_commit$git_state$git_status$hg_branch$pijul_channel$docker_context$package$c$cpp$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$fortran$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$vlang$vagrant$xmake$zig$buf$conda$pixi$meson$spack$memory_usage$aws$gcloud$openstack$azure$crystal$custom$status$os$battery$time
+        $singularity$kubernetes$directory$vcsh$fossil_branch$custom$git_status$git_state$hg_branch$pijul_channel$docker_context$package$c$cpp$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$fortran$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs$ocaml$opa$perl$php$pulumi$purescript$python$raku$rlang$red$ruby$rust$scala$solidity$swift$terraform$vlang$vagrant$xmake$zig$buf$conda$pixi$meson$spack$memory_usage$aws$gcloud$openstack$azure$crystal$status$os$battery$time
       '';
       palette = lib.mkForce "poimandres";
       palettes.oscura-midnight = {
@@ -50,10 +50,19 @@
         style = "fg:overlay";
         symbol = " ";
       };
+      "custom" = {
+        jj = {
+          when = "jj-starship detect";
+          shell = ["jj-starship" "--no-color" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
+          format = "[](fg:overlaydd)[ $symbol $output ]($style)[](fg:overlaydd) ";
+          style = "bg:overlaydd fg:love";
+        };
+      };
       git_branch = {
         format = "[](fg:overlaydd)[ $symbol $branch ]($style)[](fg:overlaydd) ";
         style = "bg:overlaydd fg:foam";
         symbol = "";
+        disabled = true;
       };
       git_status = {
         disabled = false;
