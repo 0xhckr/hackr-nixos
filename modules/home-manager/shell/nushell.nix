@@ -41,9 +41,29 @@
         }
       }
 
-      def rebuild [] {
+      def re-switch [] {
         do {
           ${pkgs.nh}/bin/nh os switch ~/nixos
+        }
+        let res = $env.LAST_EXIT_CODE
+        if ((hostname) == "infernape" and ($res == 0)) {
+          copy-to-cache
+        }
+      }
+
+      def re-boot [] {
+        do {
+          ${pkgs.nh}/bin/nh os boot ~/nixos
+        }
+        let res = $env.LAST_EXIT_CODE
+        if ((hostname) == "infernape" and ($res == 0)) {
+          copy-to-cache
+        }
+      }
+
+      def re-test [] {
+        do {
+          ${pkgs.nh}/bin/nh os test ~/nixos
         }
         let res = $env.LAST_EXIT_CODE
         if ((hostname) == "infernape" and ($res == 0)) {
