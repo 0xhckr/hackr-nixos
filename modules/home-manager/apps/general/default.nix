@@ -14,7 +14,7 @@
   ];
   # NOTE: requires manual download of affinity apps.
   affinityApps = with inputs.affinity-nix.packages."${system}"; [
-    v3
+    affinity-v3
   ];
   browsers = with pkgs-stable; [
     ungoogled-chromium
