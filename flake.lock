@@ -1255,6 +1255,7 @@
         "nixpkgs-fresh": "nixpkgs-fresh",
         "nixpkgs-stable": "nixpkgs-stable",
         "noctalia": "noctalia",
+        "sidra": "sidra",
         "stoa": "stoa",
         "stylix": "stylix",
         "tuigreet": "tuigreet",
@@ -1441,6 +1442,26 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sidra": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1778387848,
+        "narHash": "sha256-xQiXHUVcLQHlY5vGry56g67yduXWc9j57f2nP9dy+N0=",
+        "owner": "wimpysworld",
+        "repo": "sidra",
+        "rev": "4e71e84ccbe263018beb5bab33987d63d119c05d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wimpysworld",
+        "repo": "sidra",
         "type": "github"
       }
     },

@@ -53,8 +53,9 @@ in {
     [
       obsidian
       fontforge
-      # discord
+      discord
       vesktop
+      inputs.sidra.packages."${system}".default
       whatsapp-electron
       krisp-patcher
       zoom-us
