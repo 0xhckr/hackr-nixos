@@ -5,7 +5,7 @@
  *   • Custom header with "3.14159" gradient wordmark + model + cwd
  *   • Custom footer with token stats, cost, git branch, model
  *   • Gradient-animated working indicator (charple → dolly)
- *   • Hackr-style editor: `::: ` prompt prefix, no visible borders
+ *   • Hackr-style editor: `xoxo` prompt prefix, no visible borders
  *   • YOLO mode indicator: ` ! ` badge in prompt + status bar
  *
  * Commands:
@@ -262,9 +262,9 @@ class HackrEditor extends CustomEditor {
     if (this.yoloMode) {
       const yoloBadge = bg(C.citron, fg(C.pepper, bold(" ! "))) + " ";
       promptPrefix =
-        yoloBadge + fg(C.bok, bold(":::")) + " " + fg(C.squid, "❯") + " ";
+        yoloBadge + fg(C.bok, bold("xoxo")) + " " + fg(C.squid, "❯") + " ";
     } else {
-      promptPrefix = fg(C.bok, bold(":::")) + " " + fg(C.squid, "❯") + " ";
+      promptPrefix = fg(C.bok, bold("xoxo")) + " " + fg(C.squid, "❯") + " ";
     }
     const prefixWidth = visibleWidth(promptPrefix);
 
