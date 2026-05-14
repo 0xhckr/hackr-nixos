@@ -125,26 +125,35 @@ const ICON = {
 
 // ── Header ─────────────────────────────────────────────────────────────────
 
+// Enough digits of π for any reasonable terminal width
+const PI_DIGITS =
+  "3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196";
+
 function renderHackrHeader(
   width: number,
   model?: string,
   cwd?: string,
 ): string[] {
-  const wordmark = boldGradient("3.14159", C.charple, C.dolly);
   const modelIcon = fg(C.malibu, ICON.model);
   const modelText = model ? ` ${modelIcon} ${fg(C.squid, model)}` : "";
   const cwdText = cwd
     ? ` ${fg(C.oyster, ICON.dot)} ${fg(C.oyster, cwd.split("/").slice(-2).join("/"))}`
     : "";
 
-  const left = ` ${wordmark} `;
   const right = `${modelText}${cwdText}`;
-  const leftW = visibleWidth(left);
   const rightW = visibleWidth(right);
-  const diagFill = fg(
-    C.charcoal,
-    ICON.diagonal.repeat(Math.max(0, width - leftW - rightW)),
-  );
+
+  const maxDiags = 8;
+  const paddingW = 2; // space before + after pi digits
+  const maxPiLen = Math.max(0, width - paddingW - maxDiags - rightW);
+
+  const piStr = maxPiLen > 0 ? PI_DIGITS.slice(0, maxPiLen) : "";
+  const wordmark = boldGradient(piStr, C.charple, C.dolly);
+  const left = ` ${wordmark} `;
+  const leftW = visibleWidth(left);
+
+  const diagCount = Math.min(maxDiags, Math.max(0, width - leftW - rightW));
+  const diagFill = fg(C.charcoal, ICON.diagonal.repeat(diagCount));
 
   return ["", truncateToWidth(left + diagFill + right, width)];
 }
