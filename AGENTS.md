@@ -5,6 +5,7 @@
 This is a personal NixOS flake configuration for a single user (`hackr`, Mohammad Al-Ahdal) across three machines. All host configurations share a common module base and are composed via `flake.nix`.
 
 - **Flake inputs** are pinned in `flake.lock`. Always keep `inputs.nixpkgs.follows = "nixpkgs"` when adding new inputs.
+- **NEVER make `jj` or `git` commits automatically.** The user must explicitly approve every commit. Do not run `jj commit`, `jj describe`, `git commit`, `git add`, or any version control write operation without being asked first.
 - **Special args** passed to every host: `inputs`, `system` (`x86_64-linux`), `username` (`hackr`), `fullName`, `email`.
 - **Home Manager** is embedded as a NixOS module (not standalone). The single user's HM config is wired in via `modules/nixos/settings/users.nix` → `modules/home-manager/default.nix` → `modules/home-manager/links.nix`.
 

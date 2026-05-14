@@ -1,0 +1,14 @@
+{
+  "lastChangelogVersion": "0.74.0",
+  "defaultProvider": "zai",
+  "defaultModel": "glm-5.1",
+  "defaultThinkingLevel": "medium",
+  "theme": "rose-pine",
+  "npmCommand": [
+    "bun",
+    "install"
+  ],
+  "packages": [
+    "npm:pi-super-curl"
+  ]
+}

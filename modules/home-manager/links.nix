@@ -79,6 +79,28 @@
       force = true;
       source = ../../.face;
     };
+
+    # Pi agent config (source-of-truth in cfg/pi/)
+    ".pi/agent/themes/rose-pine.json" = {
+      force = true;
+      source = ../../cfg/pi/themes/rose-pine.json;
+    };
+    ".pi/agent/extensions-original/jj-desc-original.ts" = {
+      force = true;
+      source = ../../cfg/pi/extensions-original/jj-desc-original.ts;
+    };
+    ".pi/agent/extensions-original/permission-gate-original.ts" = {
+      force = true;
+      source = ../../cfg/pi/extensions-original/permission-gate-original.ts;
+    };
+    ".pi/agent/extensions-original/web-fetch-original.ts" = {
+      force = true;
+      source = ../../cfg/pi/extensions-original/web-fetch-original.ts;
+    };
+    ".pi/agent/settings-original.json" = {
+      force = true;
+      source = ../../cfg/pi/settings-original.json;
+    };
   };
 
   home.activation = {
@@ -94,6 +116,16 @@
       cp -L ~/.config/noctalia/colors-original.json ~/.config/noctalia/colors.json
       cp -L ~/.config/noctalia/plugins-original.json ~/.config/noctalia/plugins.json
       cp -L ~/.config/noctalia/settings-original.json ~/.config/noctalia/settings.json
+    '';
+
+    linkPiSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
+      #!/usr/bin/env bash
+      mkdir -p ~/.pi/agent
+      mkdir -p ~/.pi/agent/extensions
+      cp -L ~/.pi/agent/settings-original.json ~/.pi/agent/settings.json
+      cp -L ~/.pi/agent/extensions-original/jj-desc-original.ts ~/.pi/agent/extensions/jj-desc.ts
+      cp -L ~/.pi/agent/extensions-original/permission-gate-original.ts ~/.pi/agent/extensions/permission-gate.ts
+      cp -L ~/.pi/agent/extensions-original/web-fetch-original.ts ~/.pi/agent/extensions/web-fetch.ts
     '';
   };
 
