@@ -115,12 +115,14 @@
     linkNiriSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
       #!/usr/bin/env bash
       mkdir -p ~/.config/niri
+      rm -f ~/.config/niri/config.kdl
       cp -L ~/.config/niri/config-original.kdl ~/.config/niri/config.kdl
     '';
 
     linkNoctaliaSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
       #!/usr/bin/env bash
       mkdir -p ~/.config/noctalia
+      rm -f ~/.config/noctalia/colors.json ~/.config/noctalia/plugins.json ~/.config/noctalia/settings.json
       cp -L ~/.config/noctalia/colors-original.json ~/.config/noctalia/colors.json
       cp -L ~/.config/noctalia/plugins-original.json ~/.config/noctalia/plugins.json
       cp -L ~/.config/noctalia/settings-original.json ~/.config/noctalia/settings.json
@@ -130,6 +132,8 @@
       #!/usr/bin/env bash
       mkdir -p ~/.pi/agent
       mkdir -p ~/.pi/agent/extensions
+      rm -f ~/.pi/agent/settings.json
+      rm -f ~/.pi/agent/extensions/jj-desc.ts ~/.pi/agent/extensions/hackr-ui.ts ~/.pi/agent/extensions/permission-gate.ts ~/.pi/agent/extensions/web-fetch.ts
       cp -L ~/.pi/agent/settings-original.json ~/.pi/agent/settings.json
       cp -L ~/.pi/agent/extensions-original/jj-desc-original.ts ~/.pi/agent/extensions/jj-desc.ts
       cp -L ~/.pi/agent/extensions-original/hackr-ui-original.ts ~/.pi/agent/extensions/hackr-ui.ts
