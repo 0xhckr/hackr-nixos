@@ -3,10 +3,10 @@
   "defaultProvider": "zai",
   "defaultModel": "glm-5.1",
   "defaultThinkingLevel": "medium",
-  "theme": "rose-pine",
+  "theme": "hackr",
+  "quietStartup": true,
   "npmCommand": [
-    "bun",
-    "install"
+    "bun"
   ],
   "packages": [
     "npm:pi-super-curl"

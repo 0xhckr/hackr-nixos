@@ -85,9 +85,17 @@
       force = true;
       source = ../../cfg/pi/themes/rose-pine.json;
     };
+    ".pi/agent/themes/hackr.json" = {
+      force = true;
+      source = ../../cfg/pi/themes/hackr.json;
+    };
     ".pi/agent/extensions-original/jj-desc-original.ts" = {
       force = true;
       source = ../../cfg/pi/extensions-original/jj-desc-original.ts;
+    };
+    ".pi/agent/extensions-original/hackr-ui-original.ts" = {
+      force = true;
+      source = ../../cfg/pi/extensions-original/hackr-ui-original.ts;
     };
     ".pi/agent/extensions-original/permission-gate-original.ts" = {
       force = true;
@@ -124,6 +132,7 @@
       mkdir -p ~/.pi/agent/extensions
       cp -L ~/.pi/agent/settings-original.json ~/.pi/agent/settings.json
       cp -L ~/.pi/agent/extensions-original/jj-desc-original.ts ~/.pi/agent/extensions/jj-desc.ts
+      cp -L ~/.pi/agent/extensions-original/hackr-ui-original.ts ~/.pi/agent/extensions/hackr-ui.ts
       cp -L ~/.pi/agent/extensions-original/permission-gate-original.ts ~/.pi/agent/extensions/permission-gate.ts
       cp -L ~/.pi/agent/extensions-original/web-fetch-original.ts ~/.pi/agent/extensions/web-fetch.ts
     '';

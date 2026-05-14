@@ -1,0 +1,110 @@
+{
+  "$schema": "https://raw.githubusercontent.com/earendil-works/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  "name": "hackr",
+  "vars": {
+    "charple": "#6B50FF",
+    "dolly": "#FF60FF",
+    "bok": "#68FFD6",
+    "blush": "#FF84FF",
+
+    "ash": "#DFDBDD",
+    "squid": "#858392",
+    "smoke": "#BFBCC8",
+    "oyster": "#605F6B",
+
+    "butter": "#FFFAF1",
+
+    "pepper": "#201F26",
+    "bbq": "#2D2C35",
+    "charcoal": "#3A3943",
+    "iron": "#4D4C57",
+
+    "sriracha": "#EB4268",
+    "coral": "#FF577D",
+    "salmon": "#FF7F90",
+    "mustard": "#F5EF34",
+    "citron": "#E8FF27",
+    "zest": "#E8FE96",
+
+    "malibu": "#00A4FF",
+    "sardine": "#4FBEFE",
+    "damson": "#007AB8",
+    "julep": "#00FFB2",
+    "guac": "#12C78F",
+    "zinc": "#10B1AE",
+
+    "cumin": "#BF976F",
+    "bengal": "#FF6E63",
+    "pony": "#FF4FBF",
+    "cheeky": "#FF79D0",
+    "guppy": "#7272FF",
+    "hazy": "#8B75FF",
+
+    "spinach": "#1C3634",
+    "steak": "#582238"
+  },
+  "colors": {
+    "accent": "charple",
+    "border": "charcoal",
+    "borderAccent": "dolly",
+    "borderMuted": "bbq",
+    "success": "julep",
+    "error": "sriracha",
+    "warning": "mustard",
+    "muted": "squid",
+    "dim": "oyster",
+    "text": "ash",
+    "thinkingText": "squid",
+
+    "selectedBg": "iron",
+    "userMessageBg": "bbq",
+    "userMessageText": "ash",
+    "customMessageBg": "bbq",
+    "customMessageText": "ash",
+    "customMessageLabel": "dolly",
+    "toolPendingBg": "bbq",
+    "toolSuccessBg": "spinach",
+    "toolErrorBg": "steak",
+    "toolTitle": "malibu",
+    "toolOutput": "ash",
+
+    "mdHeading": "malibu",
+    "mdLink": "zinc",
+    "mdLinkUrl": "squid",
+    "mdCode": "coral",
+    "mdCodeBlock": "ash",
+    "mdCodeBlockBorder": "charcoal",
+    "mdQuote": "smoke",
+    "mdQuoteBorder": "charcoal",
+    "mdHr": "charcoal",
+    "mdListBullet": "bok",
+
+    "toolDiffAdded": "julep",
+    "toolDiffRemoved": "sriracha",
+    "toolDiffContext": "squid",
+
+    "syntaxComment": "oyster",
+    "syntaxKeyword": "malibu",
+    "syntaxFunction": "guac",
+    "syntaxVariable": "zest",
+    "syntaxString": "cumin",
+    "syntaxNumber": "julep",
+    "syntaxType": "guppy",
+    "syntaxOperator": "salmon",
+    "syntaxPunctuation": "zest",
+
+    "thinkingOff": "oyster",
+    "thinkingMinimal": "squid",
+    "thinkingLow": "malibu",
+    "thinkingMedium": "charple",
+    "thinkingHigh": "dolly",
+    "thinkingXhigh": "sriracha",
+
+    "bashMode": "mustard"
+  },
+  "export": {
+    "pageBg": "#201F26",
+    "cardBg": "#2D2C35",
+    "infoBg": "#3A3943"
+  }
+}
