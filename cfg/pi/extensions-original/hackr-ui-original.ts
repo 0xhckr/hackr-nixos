@@ -195,14 +195,14 @@ function renderHackrFooter(
 // ── Working indicator frames ───────────────────────────────────────────────
 
 const WORKING_FRAMES = [
-  fg(C.charple, "●"),
-  fg(blend(C.charple, C.dolly, 0.25), "●"),
-  fg(blend(C.charple, C.dolly, 0.5), "●"),
-  fg(blend(C.charple, C.dolly, 0.75), "●"),
-  fg(C.dolly, "●"),
-  fg(blend(C.charple, C.dolly, 0.75), "●"),
-  fg(blend(C.charple, C.dolly, 0.5), "●"),
-  fg(blend(C.charple, C.dolly, 0.25), "●"),
+  fg(C.charple, "x"),
+  fg(blend(C.charple, C.dolly, 0.25), "o"),
+  fg(blend(C.charple, C.dolly, 0.5), "x"),
+  fg(blend(C.charple, C.dolly, 0.75), "o"),
+  fg(C.dolly, "x"),
+  fg(blend(C.charple, C.dolly, 0.75), "o"),
+  fg(blend(C.charple, C.dolly, 0.5), "x"),
+  fg(blend(C.charple, C.dolly, 0.25), "o"),
 ];
 
 // ── Hackr-style Editor ─────────────────────────────────────────────────────
@@ -268,16 +268,31 @@ class HackrEditor extends CustomEditor {
     }
     const prefixWidth = visibleWidth(promptPrefix);
 
-    // Remove top border, keep content + bottom border
+    // Remove top border
     lines.splice(0, 1);
 
     if (lines.length === 0) return lines;
 
-    // Indent all content lines (everything except the last line which is the bottom border)
-    const indent = " ".repeat(prefixWidth);
-    const contentEnd = lines.length - 1;
+    // Find the bottom border to separate editor content from autocomplete popup.
+    // The bottom border is a line of "─" characters (or "─── ↓ N more ───" scroll
+    // indicator). Everything after it is autocomplete lines that must not be modified.
+    let borderIdx = lines.length - 1;
+    if (this.isShowingAutocomplete()) {
+      for (let i = lines.length - 1; i >= 0; i--) {
+        const stripped = lines[i]!.replace(/\x1b\[[0-9;]*m/g, "");
+        if (/^─+$/.test(stripped) || /^─── ↓ \d+ more/.test(stripped)) {
+          borderIdx = i;
+          break;
+        }
+      }
+    }
 
-    for (let i = 0; i < contentEnd; i++) {
+    // Split: lines = content, acLines = [border, ...autocomplete]
+    const acLines = lines.splice(borderIdx);
+
+    // Indent content lines
+    const indent = " ".repeat(prefixWidth);
+    for (let i = 0; i < lines.length; i++) {
       const contentLine = lines[i]!;
       const stripped = contentLine.replace(/^\s/, "");
       const pad = i === 0 ? promptPrefix : indent;
@@ -310,13 +325,16 @@ class HackrEditor extends CustomEditor {
       const hw = visibleWidth(hintText);
       const sw = visibleWidth(statsText);
       const gap = Math.max(1, width - hw - sw);
-      lines[lines.length - 1] = truncateToWidth(
+      acLines[0] = truncateToWidth(
         hintText + " ".repeat(gap) + statsText,
         width,
       );
     } else {
-      lines.splice(lines.length - 1, 1);
+      acLines.splice(0, 1);
     }
+
+    // Append autocomplete lines unchanged
+    lines.push(...acLines);
 
     return lines;
   }
