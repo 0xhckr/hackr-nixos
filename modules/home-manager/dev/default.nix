@@ -29,6 +29,14 @@
     inputs.jj-starship.packages."${system}".jj-starship
   ];
 
+  home.file.".bun/install/global/package-original.json".text = ''
+    {
+      "name": "bun-global",
+      "version": "1.0.0",
+      "private": true
+    }
+  '';
+
   programs.git = {
     enable = true;
     lfs.enable = true;
