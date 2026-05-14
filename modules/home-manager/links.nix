@@ -101,10 +101,6 @@
       force = true;
       source = ../../cfg/pi/extensions-original/hackr-ui-original.ts;
     };
-    ".pi/agent/extensions-original/permission-gate-original.ts" = {
-      force = true;
-      source = ../../cfg/pi/extensions-original/permission-gate-original.ts;
-    };
     ".pi/agent/extensions-original/web-fetch-original.ts" = {
       force = true;
       source = ../../cfg/pi/extensions-original/web-fetch-original.ts;
@@ -138,12 +134,11 @@
       mkdir -p ~/.pi/agent/extensions
       mkdir -p ~/.bun/install/global
       rm -f ~/.pi/agent/settings.json
-      rm -f ~/.pi/agent/extensions/jj-desc.ts ~/.pi/agent/extensions/hackr-ui.ts ~/.pi/agent/extensions/permission-gate.ts ~/.pi/agent/extensions/web-fetch.ts
+      rm -f ~/.pi/agent/extensions/jj-desc.ts ~/.pi/agent/extensions/hackr-ui.ts ~/.pi/agent/extensions/web-fetch.ts
       rm -f ~/.bun/install/global/package.json
       cp -L ~/.pi/agent/settings-original.json ~/.pi/agent/settings.json
       cp -L ~/.pi/agent/extensions-original/jj-desc-original.ts ~/.pi/agent/extensions/jj-desc.ts
       cp -L ~/.pi/agent/extensions-original/hackr-ui-original.ts ~/.pi/agent/extensions/hackr-ui.ts
-      cp -L ~/.pi/agent/extensions-original/permission-gate-original.ts ~/.pi/agent/extensions/permission-gate.ts
       cp -L ~/.pi/agent/extensions-original/web-fetch-original.ts ~/.pi/agent/extensions/web-fetch.ts
       cp -L ~/.bun/install/global/package-original.json ~/.bun/install/global/package.json
       # make it read/write-able

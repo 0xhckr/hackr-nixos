@@ -260,9 +260,7 @@ class HackrEditor extends CustomEditor {
     // Build the prompt prefix
     let promptPrefix: string;
     if (this.yoloMode) {
-      const yoloBadge = bg(C.citron, fg(C.pepper, bold(" ! "))) + " ";
-      promptPrefix =
-        yoloBadge + fg(C.bok, bold("xoxo")) + " " + fg(C.squid, "❯") + " ";
+      promptPrefix = fg(C.citron, bold("yolo")) + " " + fg(C.squid, "❯") + " ";
     } else {
       promptPrefix = fg(C.bok, bold("xoxo")) + " " + fg(C.squid, "❯") + " ";
     }
@@ -454,7 +452,6 @@ export default function (pi: ExtensionAPI) {
   }
 
   // ── YOLO mode command (visual + auto-accept) ──
-  // NOTE: If permission-gate.ts is also loaded, disable its /yolo to avoid
   // duplicates. hackr-ui's /yolo handles both the visual indicator AND
   // the permission bypass.
   //
@@ -488,8 +485,6 @@ export default function (pi: ExtensionAPI) {
   });
 
   // ── Auto-accept tool calls in YOLO mode ──
-  // This replaces what permission-gate.ts does — if you have both loaded,
-  // consider disabling permission-gate to avoid duplicate /yolo commands.
   const dangerousPatterns = [
     /\brm\s+(-rf?|--recursive)/i,
     /\bsudo\b/i,
