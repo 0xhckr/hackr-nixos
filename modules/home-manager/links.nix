@@ -147,9 +147,10 @@
       # Install npm dependencies for extensions
       cp -L ~/.pi/agent/extensions-original/package.json ~/.pi/agent/extensions/package.json
       cd ~/.pi/agent/extensions && bun install --production 2>/dev/null || true
-      cp -L ~/.bun/install/global/package-original.json ~/.bun/install/global/package.json
-      # make it read/write-able
-      chmod 644 ~/.bun/install/global/package.json
+      # Ensure bun global install dir has a valid package.json
+      if [ ! -f ~/.bun/install/global/package.json ]; then
+        echo '{"name":"global"}' > ~/.bun/install/global/package.json
+      fi
     '';
   };
 
