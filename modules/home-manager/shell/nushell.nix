@@ -167,8 +167,8 @@
 
       ~/.config/nushell/aacpi.sh
 
-      # check if running as xterm-ghostty
-      if $env.TERM == "xterm-ghostty" {
+      # check if running as xterm-ghostty and not launched from pi hackr-ui cmd mode
+      if $env.TERM == "xterm-ghostty" and ($env.HACKR_UI_CMD? | is-empty) {
         pokefetch
       }
     '';

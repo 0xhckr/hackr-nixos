@@ -140,6 +140,7 @@
       rm -f ~/.pi/agent/settings.json
       rm -f ~/.pi/agent/extensions/jj-desc.ts ~/.pi/agent/extensions/hackr-ui.ts ~/.pi/agent/extensions/web-fetch.ts
       rm -f ~/.bun/install/global/package.json
+      rm -f ~/.pi/agent/extensions/package.json
       cp -L ~/.pi/agent/settings-original.json ~/.pi/agent/settings.json
       cp -L ~/.pi/agent/extensions-original/jj-desc-original.ts ~/.pi/agent/extensions/jj-desc.ts
       cp -L ~/.pi/agent/extensions-original/hackr-ui-original.ts ~/.pi/agent/extensions/hackr-ui.ts

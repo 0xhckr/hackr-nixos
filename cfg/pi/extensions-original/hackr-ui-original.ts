@@ -7,10 +7,14 @@
  *   • Gradient-animated working indicator (charple → dolly)
  *   • Hackr-style editor: `xoxo` prompt prefix, no visible borders
  *   • YOLO mode indicator: ` ! ` badge in prompt + status bar
+ *   • Cmd mode (Alt+C): run commands in login shell with expandable output
  *
  * Commands:
  *   /hackr-ui        Toggle Hackr UI on/off
  *   /yolo            Toggle YOLO mode (auto-accept all permissions)
+ *
+ * Shortcuts:
+ *   Alt+C            Toggle /cmd mode
  */
 
 import type { AssistantMessage } from "@earendil-works/pi-ai";
@@ -19,13 +23,15 @@ import {
   type ExtensionAPI,
   type ExtensionContext,
   type Theme,
+  keyHint,
 } from "@earendil-works/pi-coding-agent";
 import type {
   EditorTheme,
   KeybindingsManager,
   TUI,
 } from "@earendil-works/pi-tui";
-import { truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
+import { Text, truncateToWidth, visibleWidth } from "@earendil-works/pi-tui";
+import { spawn } from "node:child_process";
 
 // ── Charmtone Pantera palette ──────────────────────────────────────────────
 
@@ -225,6 +231,7 @@ const WORKING_FRAMES = [
 class HackrEditor extends CustomEditor {
   private ctx: ExtensionContext;
   private yoloMode: boolean;
+  private cmdMode: boolean;
   private showExitHint: boolean;
   private tui: TUI;
   private isWorking: boolean;
@@ -235,10 +242,12 @@ class HackrEditor extends CustomEditor {
     keybindings: KeybindingsManager,
     ctx: ExtensionContext,
     yoloMode: boolean,
+    cmdMode: boolean,
   ) {
     super(tui, theme, keybindings, { paddingX: 0 });
     this.ctx = ctx;
     this.yoloMode = yoloMode;
+    this.cmdMode = cmdMode;
     this.showExitHint = false;
     this.tui = tui;
     this.isWorking = false;
@@ -246,6 +255,10 @@ class HackrEditor extends CustomEditor {
 
   setYolo(on: boolean) {
     this.yoloMode = on;
+  }
+
+  setCmd(on: boolean) {
+    this.cmdMode = on;
   }
 
   setWorking(on: boolean) {
@@ -274,7 +287,9 @@ class HackrEditor extends CustomEditor {
 
     // Build the prompt prefix
     let promptPrefix: string;
-    if (this.yoloMode) {
+    if (this.cmdMode) {
+      promptPrefix = fg(C.charple, bold("/cmd")) + " " + fg(C.squid, "❯") + " ";
+    } else if (this.yoloMode) {
       promptPrefix = fg(C.citron, bold("yolo")) + " " + fg(C.squid, "❯") + " ";
     } else {
       promptPrefix = fg(C.bok, bold("xoxo")) + " " + fg(C.squid, "❯") + " ";
@@ -358,6 +373,7 @@ class HackrEditor extends CustomEditor {
 export default function (pi: ExtensionAPI) {
   let enabled = false;
   let yoloMode = false;
+  let cmdMode = false;
   let hackrEditor: HackrEditor | undefined;
   let exitHintTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -440,7 +456,7 @@ export default function (pi: ExtensionAPI) {
 
     // ── Hackr-style editor ──
     ui.setEditorComponent((tui, theme, keybindings) => {
-      hackrEditor = new HackrEditor(tui, theme, keybindings, ctx, yoloMode);
+      hackrEditor = new HackrEditor(tui, theme, keybindings, ctx, yoloMode, cmdMode);
       return hackrEditor;
     });
 
@@ -456,6 +472,169 @@ export default function (pi: ExtensionAPI) {
     }
   }
 
+  function applyCmdStatus(ctx: ExtensionContext) {
+    if (cmdMode) {
+      ctx.ui.setStatus("cmd", bg(C.charple, fg(C.butter, bold(" /cmd "))));
+    } else {
+      ctx.ui.setStatus("cmd", undefined);
+    }
+  }
+
+  // ── Cmd output renderer (expandable) ──
+  pi.registerMessageRenderer("cmd-output", (message, options, theme) => {
+    const { expanded } = options;
+    const details = message.details as {
+      command: string;
+      fullOutput: string;
+      exitCode: number;
+      truncated: boolean;
+    } | undefined;
+
+    const exitOk = details?.exitCode === 0;
+    const icon = exitOk ? fg(C.julep, "✓") : fg(C.sriracha, "✗");
+    const cmdLabel = fg(C.charple, bold(details?.command ?? "?"));
+    const exitLabel =
+      details?.exitCode !== 0
+        ? " " + fg(C.sriracha, `[exit ${details.exitCode}]`)
+        : "";
+
+    let body = message.content as string;
+    if (expanded && details?.fullOutput) {
+      body = details.fullOutput;
+    }
+
+    const expandHint =
+      !expanded && details?.truncated
+        ? " " + fg(C.oyster, `(${keyHint("app.tools.expand", "expand")})`)
+        : "";
+
+    const text = `${icon} ${cmdLabel}${exitLabel}\n${body}${expandHint}`;
+    return new Text(text, 0, 0);
+  });
+
+  // ── Cmd mode: intercept input and run via login shell ──
+  let cmdRunning = false;
+
+  pi.on("input", async (event, ctx) => {
+    if (!cmdMode) return { action: "continue" };
+    if (event.source === "extension") return { action: "continue" };
+    if (cmdRunning) {
+      ctx.ui.notify("A command is already running", "warning");
+      return { action: "handled" };
+    }
+
+    const command = event.text.trim();
+    if (!command) return { action: "handled" };
+
+    cmdRunning = true;
+
+    try {
+      // Mutable state shared between widget and process handlers
+      let liveOutput = "";
+      let tuiRef: TUI | undefined;
+      const liveText = new Text("", 1, 0);
+
+      // Set up a live streaming widget
+      ctx.ui.setWidget("cmd-live", (tui, theme) => {
+        tuiRef = tui;
+        const header = fg(C.charple, bold(`/cmd ${command}`)) + " " + fg(C.oyster, "⏳");
+        liveText.setText(header + "\n" + liveOutput);
+        return liveText;
+      });
+
+      const shell = process.env.SHELL ?? "/bin/bash";
+      const child = spawn(shell, ["-l", "-c", command], {
+        cwd: ctx.cwd,
+        env: {
+          ...process.env,
+          HACKR_UI_CMD: "1",
+          FORCE_COLOR: "1",
+          COLORTERM: "truecolor",
+          TERM: "xterm-256color",
+        },
+        stdio: ["ignore", "pipe", "pipe"],
+      });
+
+      const updateWidget = () => {
+        const header = fg(C.charple, bold(`/cmd ${command}`)) + " " + fg(C.oyster, "⏳");
+        liveText.setText(header + "\n" + liveOutput);
+        tuiRef?.requestRender();
+      };
+
+      child.stdout.on("data", (data: Buffer) => {
+        liveOutput += data.toString();
+        updateWidget();
+      });
+      child.stderr.on("data", (data: Buffer) => {
+        liveOutput += data.toString();
+        updateWidget();
+      });
+
+      // Timeout
+      const timer = setTimeout(() => {
+        child.kill("SIGTERM");
+        setTimeout(() => child.kill("SIGKILL"), 3000);
+      }, 60_000);
+
+      const code = await new Promise<number>((resolve) => {
+        child.on("close", (c: number | null) => {
+          clearTimeout(timer);
+          resolve(c ?? 0);
+        });
+      });
+
+      // Clear the live widget
+      ctx.ui.setWidget("cmd-live", undefined);
+
+      const output = liveOutput.trim() || "(no output)";
+      const fullOutput = output;
+      let truncated = false;
+      let displayOutput = output;
+      if (output.length > 3000) {
+        displayOutput = output.slice(0, 3000) + "\n... (truncated)";
+        truncated = true;
+      }
+
+      pi.sendMessage({
+        customType: "cmd-output",
+        content: displayOutput,
+        display: true,
+        details: {
+          command,
+          fullOutput,
+          exitCode: code,
+          truncated,
+        },
+      });
+    } catch (err: any) {
+      ctx.ui.setWidget("cmd-live", undefined);
+      ctx.ui.notify(`Failed: ${err.message}`, "error");
+    } finally {
+      cmdRunning = false;
+    }
+
+    return { action: "handled" };
+  });
+
+  // ── Alt+C: toggle cmd mode ──
+  pi.registerShortcut("alt+c", {
+    description: "Toggle /cmd mode (run commands in login shell)",
+    handler: async (ctx) => {
+      cmdMode = !cmdMode;
+      hackrEditor?.setCmd(cmdMode);
+      applyCmdStatus(ctx);
+
+      if (cmdMode) {
+        ctx.ui.notify(
+          bg(C.charple, fg(C.butter, bold(" /cmd "))) + " Cmd mode ON — input runs in $SHELL",
+          "info",
+        );
+      } else {
+        ctx.ui.notify("Cmd mode OFF — input goes to LLM", "info");
+      }
+    },
+  });
+
   function removeHackrUI(ctx: ExtensionContext) {
     ctx.ui.setHeader(undefined);
     ctx.ui.setFooter(undefined);
@@ -463,6 +642,7 @@ export default function (pi: ExtensionAPI) {
     ctx.ui.setWorkingMessage();
     ctx.ui.setEditorComponent(undefined);
     ctx.ui.setStatus("yolo", undefined);
+    ctx.ui.setStatus("cmd", undefined);
     hackrEditor = undefined;
   }
 
