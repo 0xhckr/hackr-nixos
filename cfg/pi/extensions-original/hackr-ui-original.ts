@@ -125,9 +125,24 @@ const ICON = {
 
 // ── Header ─────────────────────────────────────────────────────────────────
 
-// Enough digits of π for any reasonable terminal width
-const PI_DIGITS =
-  "3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196";
+// Digits sourced from the `pi` npm package's data file.
+// (The JS API is broken — require("./pi") won't resolve pi.txt — but the data
+// file at node_modules/pi-decimals/lib/pi.txt has 1M digits.)
+const { readFileSync } = require("node:fs") as typeof import("node:fs");
+const { join } = require("node:path") as typeof import("node:path");
+
+let _piDigits = "";
+try {
+  // pi.txt: "3.14159265..." (1M+ digits, single line)
+  _piDigits = readFileSync(
+    join(__dirname, "node_modules/pi-decimals/lib/pi.txt"),
+    "utf8",
+  ).trim();
+} catch {
+  // Fallback if the package isn't installed
+  _piDigits =
+    "3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196";
+}
 
 function renderHackrHeader(
   width: number,
@@ -147,7 +162,7 @@ function renderHackrHeader(
   const paddingW = 2; // space before + after pi digits
   const maxPiLen = Math.max(0, width - paddingW - maxDiags - rightW);
 
-  const piStr = maxPiLen > 0 ? PI_DIGITS.slice(0, maxPiLen) : "";
+  const piStr = maxPiLen > 0 ? _piDigits.slice(0, maxPiLen) : "";
   const wordmark = boldGradient(piStr, C.charple, C.dolly);
   const left = ` ${wordmark} `;
   const leftW = visibleWidth(left);

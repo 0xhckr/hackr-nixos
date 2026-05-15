@@ -105,6 +105,10 @@
       force = true;
       source = ../../cfg/pi/extensions-original/web-fetch-original.ts;
     };
+    ".pi/agent/extensions-original/package.json" = {
+      force = true;
+      source = ../../cfg/pi/extensions-original/package.json;
+    };
     ".pi/agent/settings-original.json" = {
       force = true;
       source = ../../cfg/pi/settings-original.json;
@@ -140,6 +144,9 @@
       cp -L ~/.pi/agent/extensions-original/jj-desc-original.ts ~/.pi/agent/extensions/jj-desc.ts
       cp -L ~/.pi/agent/extensions-original/hackr-ui-original.ts ~/.pi/agent/extensions/hackr-ui.ts
       cp -L ~/.pi/agent/extensions-original/web-fetch-original.ts ~/.pi/agent/extensions/web-fetch.ts
+      # Install npm dependencies for extensions
+      cp -L ~/.pi/agent/extensions-original/package.json ~/.pi/agent/extensions/package.json
+      cd ~/.pi/agent/extensions && bun install --production 2>/dev/null || true
       cp -L ~/.bun/install/global/package-original.json ~/.bun/install/global/package.json
       # make it read/write-able
       chmod 644 ~/.bun/install/global/package.json
