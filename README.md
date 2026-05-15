@@ -100,9 +100,56 @@ The configuration includes:
 
 ## Customizations
 
-The configuration uses a custom theme (poimandres) applied consistently across:
+The configuration uses a custom theme (rose-pine) applied consistently across:
 - Shell environments
-- Terminal applications  
+- Terminal applications
 - Text editors
 - Window management
 - System appearance
+
+### Pi (AI Coding Agent)
+
+[Pi](https://github.com/earendil-works/pi-mono) is customized with custom themes, extensions, and settings managed declaratively via Nix. Source-of-truth files live in `cfg/pi/` and are symlinked into `~/.pi/agent/` by Home Manager, with an activation script that copies them to mutable live paths (so Pi can write to them at runtime).
+
+#### Settings
+
+`settings-original.json` → `~/.pi/agent/settings.json`
+
+- **Provider**: `zai` (default AI provider)
+- **Model**: `glm-5.1` (default model)
+- **Thinking level**: `medium`
+- **Theme**: `hackr` (custom theme, see below)
+- **Quiet startup**: enabled
+- **Package manager**: `bun` (for extension dependencies)
+- **Global package**: `pi-super-curl` (via npm)
+
+#### Themes
+
+Two custom TUI themes are installed into `~/.pi/agent/themes/`:
+
+- **`rose-pine.json`** — A faithful port of the [Rosé Pine](https://rosepin.e) colorscheme, with 16 named palette vars and full color mappings for the TUI (syntax highlighting, tool output, markdown rendering, thinking indicators, etc.).
+
+- **`hackr.json`** — A bespoke dark theme built on the "Charmtone Pantera" palette. Named after food-themed colors (charple, dolly, bok, sriracha, malibu, julep, mustard, etc.) with a dark pepper/bbq/charcoal base. This is the active theme used by the Hackr UI extension.
+
+#### Extensions
+
+Three custom extensions are deployed to `~/.pi/agent/extensions/` with their npm dependencies installed via `bun`:
+
+- **`hackr-ui.ts`** — A full TUI makeover that replaces Pi's default interface with a Charm-inspired aesthetic:
+  - **Header**: Renders pi (π) digits as a `charple → dolly` gradient wordmark, with model name and cwd on the right
+  - **Footer**: Token stats (input ↑ / output ↓ / cost $) on the left, model + git branch + cwd on the right
+  - **Working indicator**: Gradient-animated `xoxo` pulse cycling between charple and dolly
+  - **Custom editor**: `xoxo` prompt prefix (or `yolo` in YOLO mode), no visible borders, context window usage stats in the bottom bar
+  - **`/yolo` command**: Toggles YOLO mode — auto-accepts all tool permissions and shows a bright yellow `! YOLO` status badge. Still blocks genuinely dangerous commands (`rm -rf`, `sudo`, `chmod 777`) with an interactive confirmation dialog
+  - **`/hackr-ui` command**: Toggles the entire Hackr UI on/off
+
+- **`jj-desc.ts`** — Adds a `jj_describe` tool and `/jj-desc` command that reads the current `jj diff`, sends it to the model to generate a concise commit description (imperative mood, <72 char summary, optional bullet details), then sets it via `jj describe`
+
+- **`web-fetch.ts`** — A curl-backed `web_fetch` tool for fetching URL content (web pages, API responses, remote files). Supports GET/POST/PUT/DELETE, custom headers, request body, and configurable max response length
+
+#### Deployment Pattern
+
+The `links.nix` module handles two phases:
+
+1. **Symlink** (declarative): `home.file` entries link `cfg/pi/*` → `~/.pi/agent/*-original.*`
+2. **Activation script** (post-generation): Copies `-original` files to their live mutable paths, installs extension npm dependencies with `bun`, and sets writable permissions
