@@ -179,6 +179,6 @@
           };
         };
       };
-    }) ["infernape" "torchic" "snorlax"]);
+    }) ["infernape" "torchic" "snorlax" "flareon"]);
   };
 }

@@ -23,7 +23,7 @@ This is a personal NixOS flake configuration for a single user (`hackr`, Mohamma
 | Run a flake app | `nr <app-name>` (nushell alias) |
 | Rebuild (nushell alias) | `rebuild` — also pushes to S3 cache on `infernape` |
 
-Hosts: `infernape`, `torchic`, `snorlax`
+Hosts: `infernape`, `torchic`, `snorlax`, `flareon`
 
 ---
 
@@ -35,7 +35,8 @@ flake.lock                       # Pinned input revisions — commit after updat
 hosts/
   infernape/                     # Primary desktop (state 24.11)
   torchic/                       # Laptop — includes torchic-audio.nix (state 25.05)
-  snorlax/                       # Desktop with NVIDIA + OpenRazer (state 24.11)
+  snorlax/                       # Work Laptop — NVIDIA + OpenRazer (state 24.11)
+  flareon/                       # Laptop — includes flareon-audio.nix (state 25.05)
     default.nix                  # Imports common modules + host-specific hardware
     boot.nix                     # Bootloader / kernel configuration
     hardware-configuration.nix   # Generated — do NOT hand-edit
@@ -53,6 +54,7 @@ modules/
       snorlax-openrazer.nix
       snorlax-power-management.nix
       torchic-audio.nix
+      flareon-audio.nix
     security/
       1password.nix              # polkit owner = username
       fingerprint.nix / pam.nix / polkit.nix
@@ -238,9 +240,15 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 - On successful rebuild, pushes the current system closure to the team S3 Nix binary cache
 
 ### `torchic`
-- **Hardware**: Framework Laptop
+- **Hardware**: Framework 13
 - (`stateVersion = "25.05"`)
 - Extra import: `modules/nixos/hardware/torchic-audio.nix` (Framework-specific audio quirks)
+- Niri config includes laptop output block from `cfg/niri/laptop-outputs.kdl`
+
+### `flareon`
+- **Hardware**: Framework 13 Pro
+- (`stateVersion = "25.05"`)
+- Extra import: `modules/nixos/hardware/flareon-audio.nix` (Framework-specific audio quirks)
 - Niri config includes laptop output block from `cfg/niri/laptop-outputs.kdl`
 
 ### `snorlax`

@@ -50,6 +50,7 @@ This is a comprehensive NixOS configuration repository that includes:
 
 The repository supports multiple hosts defined in the `hosts/` directory. The available configurations are:
 - `torchic` - Personal laptop configuration
+- `flareon` - Personal laptop configuration (new)
 - `snorlax` - Work laptop configuration
 - `infernape` - Personal desktop configuration
 

@@ -3,11 +3,11 @@
   pkgs-stable,
   ...
 }: let
-  istorchic = config.networking.hostName == "torchic";
+  hasFingerPrintSensor = config.networking.hostName == "torchic" || config.networking.hostName == "flareon";
 in {
   # Fingerprint authentication (torchic-specific)
   services.fprintd = {
-    enable = istorchic;
+    enable = hasFingerPrintSensor;
     tod.driver = pkgs-stable.libfprint-2-tod1-vfs0090;
   };
 
@@ -18,7 +18,7 @@ in {
   # Only enable fingerprint auth when lid is open
   security.pam.services = let
     fprintd-only-if-lid-open = {
-      enable = istorchic;
+      enable = hasFingerPrintSensor;
       order = 0;
       control = "[success=ok default=1]";
       modulePath = "${config.security.pam.package}/lib/security/pam_exec.so";
@@ -39,15 +39,15 @@ in {
     };
   in {
     "1password" = {
-      fprintAuth = istorchic;
+      fprintAuth = hasFingerPrintSensor;
       rules.auth = {inherit fprintd-only-if-lid-open;};
     };
     "polkit-1" = {
-      fprintAuth = istorchic;
+      fprintAuth = hasFingerPrintSensor;
       rules.auth = {inherit fprintd-only-if-lid-open;};
     };
     "sudo" = {
-      fprintAuth = istorchic;
+      fprintAuth = hasFingerPrintSensor;
       rules.auth = {inherit fprintd-only-if-lid-open;};
     };
     login.fprintAuth = false;

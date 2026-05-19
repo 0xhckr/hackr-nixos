@@ -1,12 +1,16 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   services.ollama = {
-    enable = builtins.elem config.networking.hostName ["torchic" "infernape"];
+    enable = builtins.elem config.networking.hostName ["torchic" "infernape" "flareon"];
     loadModels = ["qwen3-coder:30b"];
     package = pkgs.ollama-rocm;
   };
 
   # Enable ROCm kernel modules in initrd
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = ["amdgpu"];
 
   # Ollama is socket-activated but kept stopped by default;
   # the vicinae script toggles it on demand.

@@ -40,7 +40,7 @@
       }
 
       ${(
-        if hostname == "snorlax" || hostname == "torchic"
+        if hostname == "snorlax" || hostname == "torchic" || hostname == "flareon"
         then builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
         else ""
       )}
