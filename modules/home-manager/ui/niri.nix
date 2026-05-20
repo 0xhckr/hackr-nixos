@@ -58,7 +58,6 @@
       layout {
           gaps 4
           empty-workspace-above-first
-          center-focused-column "on-overflow"
           always-center-single-column
           background-color "transparent"
 
