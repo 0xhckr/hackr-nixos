@@ -63,7 +63,9 @@ in {
       linkZedSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
         #!/usr/bin/env bash
         mkdir -p ~/.config/zed
-        cp -L ~/.config/zed/settings-original.json ~/.config/zed/settings.json
+        rm -f ~/.config/zed/settings.json
+        cp -L ~/.config/zed/settings-original.json ~/.config/zed/settings.json || echo ignore
+        chmod 600 ~/.config/zed/settings.json
       '';
     };
     home.file.".config/zed/settings-original.json" = {
