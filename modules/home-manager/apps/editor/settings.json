@@ -153,7 +153,7 @@
     "delay_ms": 50
   },
   "ui_font_family": "DepartureMono Nerd Font",
-  "hide_mouse": "on_typing_and_movement",
+  "hide_mouse": "on_typing_and_action",
   "auto_install_extensions": {
     "catppuccin-icons": true,
     "discord-presence": true,
@@ -178,7 +178,7 @@
   },
   "soft_wrap": "editor_width",
   "title_bar": {
-    "show_branch_icon": true,
+    "show_branch_status_icon": true,
     "show_sign_in": false,
     "show_user_picture": false,
     "show_user_menu": false
