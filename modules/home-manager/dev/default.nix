@@ -44,7 +44,7 @@
     settings = {
       user = {
         name = fullName;
-        email = email;
+        inherit email;
       };
     };
   };

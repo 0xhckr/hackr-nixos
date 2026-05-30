@@ -1,4 +1,4 @@
-{...}: {
+_: {
   home.file = {
     ".gitconfig" = {
       source = ../../../ssh/home.gitconfig;

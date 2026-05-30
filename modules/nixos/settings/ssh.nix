@@ -1,6 +1,10 @@
-{...}: {
-  services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication = true;
-  services.openssh.settings.KbdInteractiveAuthentication = true;
-  services.openssh.settings.PermitRootLogin = "no";
+_: {
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = true;
+      KbdInteractiveAuthentication = true;
+      PermitRootLogin = "no";
+    };
+  };
 }

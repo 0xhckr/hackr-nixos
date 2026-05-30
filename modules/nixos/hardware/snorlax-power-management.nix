@@ -1,4 +1,4 @@
-{...}: {
+_: {
   services.logind.lidSwitchExternalPower = "ignore";
 
   # systemd.sleep.settings.Sleep = ''

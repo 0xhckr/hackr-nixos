@@ -3,8 +3,19 @@
   config,
   lib,
   username,
+  osConfig,
   ...
-}: {
+}: let
+  postRebuildHook =
+    if osConfig.networking.hostName == "infernape"
+    then ''
+      let res = $env.LAST_EXIT_CODE
+      if ($res == 0) {
+        copy-to-cache
+      }
+    ''
+    else "";
+in {
   home.shell.enableNushellIntegration = true;
 
   programs.nushell = {
@@ -45,30 +56,21 @@
         do {
           ${pkgs.nh}/bin/nh os switch ~/nixos
         }
-        let res = $env.LAST_EXIT_CODE
-        if ((hostname) == "infernape" and ($res == 0)) {
-          copy-to-cache
-        }
+        ${postRebuildHook}
       }
 
       def re-boot [] {
         do {
           ${pkgs.nh}/bin/nh os boot ~/nixos
         }
-        let res = $env.LAST_EXIT_CODE
-        if ((hostname) == "infernape" and ($res == 0)) {
-          copy-to-cache
-        }
+        ${postRebuildHook}
       }
 
       def re-test [] {
         do {
           ${pkgs.nh}/bin/nh os test ~/nixos
         }
-        let res = $env.LAST_EXIT_CODE
-        if ((hostname) == "infernape" and ($res == 0)) {
-          copy-to-cache
-        }
+        ${postRebuildHook}
       }
 
       def nr [

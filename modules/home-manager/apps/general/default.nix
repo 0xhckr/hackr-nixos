@@ -82,15 +82,11 @@ in {
     XAUTHORITY = "$HOME/.Xauthority";
   };
 
-  programs._1password-shell-plugins = {
-    enable = true;
-  };
+  programs = {
+    _1password-shell-plugins.enable = true;
+    zsh.enable = true;
 
-  programs.zsh = {
-    enable = true;
-  };
-
-  programs.zen-browser = let
+    zen-browser = let
     containers = {
       personal = {
         color = "purple";
@@ -285,6 +281,7 @@ in {
 
       inherit containers spaces pins keyboardShortcuts keyboardShortcutsVersion;
     };
+  };
   };
 
   # Zen-browser stylix target configuration

@@ -1,4 +1,4 @@
-{...}: let
+_: let
   allowedPorts = [
     3000
     8081

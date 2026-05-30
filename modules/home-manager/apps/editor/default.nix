@@ -34,10 +34,30 @@ in {
   };
 
   config = {
-    # We add extension specific dependencies so they show up when
-    # zed is launched via the terminal and also when it's launched
-    # using an app launcher
-    home.packages = [] ++ extensionDependencies;
+    home = {
+      # We add extension specific dependencies so they show up when
+      # zed is launched via the terminal and also when it's launched
+      # using an app launcher
+      packages = extensionDependencies;
+
+      # export zedPackage for use in other modules
+      inherit zedPackage;
+
+      activation = {
+        linkZedSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
+          #!/usr/bin/env bash
+          mkdir -p ~/.config/zed
+          rm -f ~/.config/zed/settings.json
+          cp -L ~/.config/zed/settings-original.json ~/.config/zed/settings.json || echo ignore
+          chmod 600 ~/.config/zed/settings.json
+        '';
+      };
+
+      file.".config/zed/settings-original.json" = {
+        source = ./settings.json;
+        force = true;
+      };
+    };
 
     programs.zed-editor = {
       enable = true;
@@ -54,23 +74,6 @@ in {
         "sql"
         "toml"
       ];
-    };
-
-    # export zedPackage for use in other modules
-    home.zedPackage = zedPackage;
-
-    home.activation = {
-      linkZedSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
-        #!/usr/bin/env bash
-        mkdir -p ~/.config/zed
-        rm -f ~/.config/zed/settings.json
-        cp -L ~/.config/zed/settings-original.json ~/.config/zed/settings.json || echo ignore
-        chmod 600 ~/.config/zed/settings.json
-      '';
-    };
-    home.file.".config/zed/settings-original.json" = {
-      source = ./settings.json;
-      force = true;
     };
 
     stylix.targets.zed.enable = false;

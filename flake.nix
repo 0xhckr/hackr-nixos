@@ -153,13 +153,15 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
+  outputs = {nixpkgs, ...} @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations = builtins.listToAttrs (map (name: {
-      name = name;
+      inherit name;
       value = nixpkgs.lib.nixosSystem {
         modules = [./hosts/${name}];
         specialArgs = let
-          system = "x86_64-linux";
           username = "hackr";
           fullName = "Mohammad Al-Ahdal";
           email = "hackr@hackr.sh";
@@ -180,5 +182,11 @@
         };
       };
     }) ["infernape" "torchic" "snorlax" "flareon"]);
+
+    checks.${system}.statix = pkgs.runCommand "statix-check" {} ''
+      src=${pkgs.lib.cleanSource ./.}
+      ${pkgs.statix}/bin/statix check -c $src $src
+      touch $out
+    '';
   };
 }
