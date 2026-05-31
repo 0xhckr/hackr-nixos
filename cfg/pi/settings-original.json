@@ -9,6 +9,7 @@
     "bun"
   ],
   "packages": [
-    "npm:pi-super-curl"
+    "npm:pi-super-curl",
+    "npm:@heyhuynhgiabuu/pi-diff"
   ]
 }

@@ -157,6 +157,8 @@
         if [ ! -f ~/.bun/install/global/package.json ]; then
           echo '{"name":"global"}' > ~/.bun/install/global/package.json
         fi
+        # Install pi packages declared in settings (idempotent — bun skips existing)
+        cd ~/.bun/install/global && bun add pi-super-curl @heyhuynhgiabuu/pi-diff || echo "WARN: bun add pi packages failed" >&2
       '';
     };
   };
