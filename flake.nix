@@ -127,6 +127,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    gojo = {
+      url = "github:0xhckr/gojo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stoa = {
       url = "github:bobrware/stoa-nix";
       inputs.nixpkgs.follows = "nixpkgs";

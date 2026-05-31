@@ -27,6 +27,7 @@
     minio-client
     inputs.jj.packages."${system}".jujutsu
     inputs.jj-starship.packages."${system}".jj-starship
+    inputs.gojo.packages."${system}".default
   ];
 
   home.file.".bun/install/global/package-original.json".text = ''

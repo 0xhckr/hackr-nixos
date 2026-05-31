@@ -710,6 +710,26 @@
         "type": "github"
       }
     },
+    "gojo": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780212952,
+        "narHash": "sha256-1dxeVEm28aZiceBYoN9LftDO48hsmHcHCDAddpeHJ68=",
+        "owner": "0xhckr",
+        "repo": "gojo",
+        "rev": "7a329245491e7703c68cd5bde10de361e561355a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xhckr",
+        "repo": "gojo",
+        "type": "github"
+      }
+    },
     "graphite": {
       "inputs": {
         "crane": "crane_2",
@@ -1240,6 +1260,7 @@
         "fenix": "fenix_2",
         "firefox-addons": "firefox-addons",
         "ghostty": "ghostty",
+        "gojo": "gojo",
         "graphite": "graphite",
         "helium": "helium",
         "helix": "helix",
