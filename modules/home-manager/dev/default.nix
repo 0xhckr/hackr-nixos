@@ -54,4 +54,15 @@
     enable = true;
     enableNushellIntegration = true;
   };
+
+  programs.hunk = {
+    enable = true;
+    package = inputs.hunk.packages."${system}".default;
+    enableGitIntegration = true;
+    settings = {
+      theme = "graphite";
+      mode = "auto";
+      line_numbers = true;
+    };
+  };
 }

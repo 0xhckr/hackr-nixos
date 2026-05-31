@@ -1,5 +1,6 @@
 {
   lib,
+  inputs,
   username,
   ...
 }: {
@@ -11,6 +12,7 @@
     ./apps
     ./dev
     ./work
+    inputs.hunk.homeManagerModules.default
   ];
 
   gtk.gtk4.theme = null;
