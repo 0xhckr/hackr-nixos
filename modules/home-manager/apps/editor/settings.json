@@ -31,7 +31,7 @@
     "tree_view": true
   },
   "icon_theme": "Catppuccin Latte",
-  "theme": "Rosé Pine",
+  "theme": "Pierre Dark",
   "agent": {
     "favorite_models": [
       {
@@ -164,7 +164,7 @@
     "prisma": true,
     "sql": true,
     "toml": true,
-    "rose-pine-theme": true
+    "pierre-theme": true
   },
   "language_models": {
     "open_router": {

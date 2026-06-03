@@ -74,7 +74,7 @@
 
           focus-ring {
               width 2
-              active-gradient from="#003c3c" to="#191724" angle=180
+              active-gradient from="#009fff" to="#0a0a0a" angle=180
           }
 
           tab-indicator {
@@ -82,9 +82,9 @@
               gap 0
               gaps-between-tabs 0
               corner-radius 8
-              active-color "#E6E6EF"
-              inactive-color "#191724"
-              urgent-color "#CE2D4F"
+              active-color "#fafafa"
+              inactive-color "#171717"
+              urgent-color "#ff2e3f"
               length total-proportion=0.45
               position "left"
               place-within-column
@@ -228,7 +228,7 @@
       }
 
       overview {
-          backdrop-color "#232136"
+          backdrop-color "#171717"
           workspace-shadow {
               off
           }

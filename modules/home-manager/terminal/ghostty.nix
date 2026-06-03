@@ -1,4 +1,9 @@
 {username, ...}: {
+  home.file.".config/ghostty/themes/pierre-dark" = {
+    force = true;
+    source = ../../../cfg/ghostty/themes/pierre-dark;
+  };
+
   home.file.".config/ghostty/config" = {
     text = ''
 font-family = "DepartureMono Nerd Font"
@@ -10,7 +15,7 @@ font-synthetic-style = bold,italic,bold-italic
 font-size = 11
 font-thicken = false
 grapheme-width-method = unicode
-theme = light:rose-pine-dawn,dark:Rose Pine
+theme = pierre-dark
 cursor-style = bar
 mouse-hide-while-typing = true
 

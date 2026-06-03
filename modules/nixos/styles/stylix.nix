@@ -9,7 +9,7 @@
   ];
   stylix = {
     enable = true;
-    base16Scheme = ./themes/rose-pine.yaml;
+    base16Scheme = ./themes/pierre-dark.yaml;
     polarity = "dark";
     targets.qt.platform = lib.mkForce "qtct";
     cursor = {

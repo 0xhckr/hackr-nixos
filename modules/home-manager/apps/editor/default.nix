@@ -64,7 +64,7 @@ in {
       package = zedPackage;
       extensions = [
         "catppuccin-icons"
-        "rose-pine-theme"
+        "pierre-theme"
         "discord-presence"
         "ghostty"
         "html"
