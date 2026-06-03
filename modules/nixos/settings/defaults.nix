@@ -64,6 +64,7 @@
   environment.systemPackages = with pkgs-stable; [
     wget
     curl
+    jq
   ];
 
   users.users.${username}.extraGroups = ["networkmanager" "wheel"];
