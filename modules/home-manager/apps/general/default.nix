@@ -56,6 +56,7 @@ in {
       discord
       vesktop
       inputs.sidra.packages."${system}".default
+      sone
       whatsapp-electron
       krisp-patcher
       zoom-us
