@@ -6,8 +6,8 @@
         User ${username}
         Port 22222
 
-      Host tngl.hackrlabs.dev
-        HostName tngl.hackrlabs.dev
+      Host knot.0xhckr.dev
+        HostName knot.0xhckr.dev
         User git
         Port 2222
 
