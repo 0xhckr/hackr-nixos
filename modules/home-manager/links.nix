@@ -57,14 +57,6 @@
         force = true;
         source = ../../cfg/niri/delayed;
       };
-      ".config/noctalia/colors-original.json" = {
-        force = true;
-        source = ../../cfg/noctalia/colors-original.json;
-      };
-      ".config/noctalia/plugins-original.json" = {
-        force = true;
-        source = ../../cfg/noctalia/plugins-original.json;
-      };
       ".local/share/vicinae/themes" = {
         force = true;
         source = ../../share/vicinae/themes;
@@ -126,15 +118,6 @@
         mkdir -p ~/.config/niri
         rm -f ~/.config/niri/config.kdl
         cp -L ~/.config/niri/config-original.kdl ~/.config/niri/config.kdl
-      '';
-
-      linkNoctaliaSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
-        #!/usr/bin/env bash
-        mkdir -p ~/.config/noctalia
-        rm -f ~/.config/noctalia/colors.json ~/.config/noctalia/plugins.json ~/.config/noctalia/settings.json
-        cp -L ~/.config/noctalia/colors-original.json ~/.config/noctalia/colors.json
-        cp -L ~/.config/noctalia/plugins-original.json ~/.config/noctalia/plugins.json
-        cp -L ~/.config/noctalia/settings-original.json ~/.config/noctalia/settings.json
       '';
 
       linkPiSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''

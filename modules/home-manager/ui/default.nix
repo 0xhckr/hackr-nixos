@@ -26,7 +26,6 @@
     ]
     ++ (with inputs; [
       awww.packages.${system}.default
-      noctalia.packages.${system}.default
     ]);
 
   programs.vicinae = {

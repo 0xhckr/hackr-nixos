@@ -1,6 +1,42 @@
-{username, ...}: {
-  home.file.".config/noctalia/settings-original.json" = {
-    text = builtins.toJSON {
+{
+  inputs,
+  lib,
+  system,
+  username,
+  ...
+}: {
+  imports = [inputs.noctalia.homeModules.default];
+
+  programs.noctalia-shell = {
+    enable = true;
+    package = inputs.noctalia.packages.${system}.default;
+
+    plugins = {
+      sources = [
+        {
+          enabled = true;
+          name = "Noctalia Plugins";
+          url = "https://github.com/noctalia-dev/noctalia-plugins";
+        }
+      ];
+      states = let
+        official = {
+          enabled = true;
+          sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+        };
+      in {
+        polkit-agent = official;
+        mawaqit = official;
+        display-settings = official;
+        hassio = official;
+        model-usage = official;
+      };
+      version = 2;
+    };
+
+    # colors come from the stylix noctalia-shell target
+
+    settings = {
       appLauncher = {
         autoPasteClipboard = false;
         clipboardWatchImageCommand = "wl-paste --type image --watch cliphist store";
@@ -36,10 +72,11 @@
       bar = {
         autoHideDelay = 500;
         autoShowDelay = 150;
-        backgroundOpacity = 0;
+        # mkForce: keep the bar look; the stylix target only drives colors
+        backgroundOpacity = lib.mkForce 0;
         barType = "floating";
         capsuleColorKey = "none";
-        capsuleOpacity = 1;
+        capsuleOpacity = lib.mkForce 1;
         density = "comfortable";
         displayMode = "always_visible";
         floating = true;
@@ -91,6 +128,10 @@
             }
           ];
           right = [
+            {id = "plugin:mawaqit";}
+            {id = "plugin:display-settings";}
+            {id = "plugin:hassio";}
+            {id = "plugin:model-usage";}
             {
               blacklist = [];
               chevronColor = "none";
@@ -209,15 +250,15 @@
         position = "close_to_bar_button";
         shortcuts = {
           left = [
-            { id = "Network"; }
-            { id = "Bluetooth"; }
-            { id = "WallpaperSelector"; }
+            {id = "Network";}
+            {id = "Bluetooth";}
+            {id = "WallpaperSelector";}
           ];
           right = [
-            { id = "Notifications"; }
-            { id = "PowerProfile"; }
-            { id = "KeepAwake"; }
-            { id = "NightLight"; }
+            {id = "Notifications";}
+            {id = "PowerProfile";}
+            {id = "KeepAwake";}
+            {id = "NightLight";}
           ];
         };
       };
@@ -254,7 +295,7 @@
       };
       dock = {
         animationSpeed = 1;
-        backgroundOpacity = 1;
+        backgroundOpacity = lib.mkForce 1;
         colorizeIcons = false;
         deadOpacity = 0.6;
         displayMode = "always_visible";
@@ -343,7 +384,7 @@
         nightTemp = "2500";
       };
       notifications = {
-        backgroundOpacity = 1;
+        backgroundOpacity = lib.mkForce 1;
         criticalUrgencyDuration = 15;
         enableBatteryToast = true;
         enableKeyboardLayoutToast = true;
@@ -372,7 +413,7 @@
       };
       osd = {
         autoHideMs = 2000;
-        backgroundOpacity = 1;
+        backgroundOpacity = lib.mkForce 1;
         enabled = true;
         enabledTypes = [0 1 2];
         location = "top_right";
@@ -389,12 +430,30 @@
         largeButtonsStyle = false;
         position = "center";
         powerOptions = [
-          { action = "lock"; enabled = true; }
-          { action = "suspend"; enabled = true; }
-          { action = "hibernate"; enabled = true; }
-          { action = "reboot"; enabled = true; }
-          { action = "logout"; enabled = true; }
-          { action = "shutdown"; enabled = true; }
+          {
+            action = "lock";
+            enabled = true;
+          }
+          {
+            action = "suspend";
+            enabled = true;
+          }
+          {
+            action = "hibernate";
+            enabled = true;
+          }
+          {
+            action = "reboot";
+            enabled = true;
+          }
+          {
+            action = "logout";
+            enabled = true;
+          }
+          {
+            action = "shutdown";
+            enabled = true;
+          }
         ];
         showHeader = true;
         showNumberLabels = true;
@@ -437,12 +496,14 @@
         bluetoothDetailsViewMode = "grid";
         bluetoothHideUnnamedDevices = false;
         boxBorderEnabled = false;
-        fontDefault = "DM Sans";
+        # mkForce: keep current fonts/opacity; stylix has no fonts configured
+        # and would fall back to DejaVu
+        fontDefault = lib.mkForce "DM Sans";
         fontDefaultScale = 1;
-        fontFixed = "DepartureMono Nerd Font";
+        fontFixed = lib.mkForce "DepartureMono Nerd Font";
         fontFixedScale = 1;
         networkPanelView = "wifi";
-        panelBackgroundOpacity = 0.93;
+        panelBackgroundOpacity = lib.mkForce 0.93;
         panelsAttachedToBar = true;
         settingsPanelMode = "centered";
         tooltipsEnabled = true;
@@ -483,5 +544,13 @@
         wallpaperChangeMode = "random";
       };
     };
+  };
+
+  # The old activation script left plain (read-only) copies of these files
+  # behind; force HM to replace them with managed symlinks.
+  xdg.configFile = {
+    "noctalia/settings.json".force = true;
+    "noctalia/colors.json".force = true;
+    "noctalia/plugins.json".force = true;
   };
 }

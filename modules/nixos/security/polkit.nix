@@ -1,20 +1,7 @@
-{pkgs-stable, ...}: {
-  environment.systemPackages = with pkgs-stable; [
-    polkit_gnome
-    hyprpolkitagent
-  ];
-
-  systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    description = "polkit-gnome-authentication-agent-1";
-    wantedBy = ["graphical-session.target"];
-    wants = ["graphical-session.target"];
-    after = ["graphical-session.target"];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs-stable.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
+_: {
+  # The polkit authentication agent is provided by the noctalia polkit-agent
+  # plugin (~/.config/noctalia/plugins/polkit-agent). Running a second agent
+  # (polkit-gnome, hyprpolkitagent, ...) alongside it causes conflicts, so no
+  # standalone agent service is configured here.
+  security.polkit.enable = true;
 }
