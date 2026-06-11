@@ -388,10 +388,27 @@
       escaped=$(printf '%s' "$app_id" | sed 's/\./\\./g')
       match="^$escaped\$"
 
+      focused_app() {
+        niri msg focused-window | sed -n 's/.*App ID: "\(.*\)"/\1/p'
+      }
+
       if niri msg windows | grep -qF "App ID: \"$app_id\""; then
-        # scratchpad-show fails if the window lost its scratchpad state
-        # (e.g. niriusd restarted); re-register it in that case.
-        nirius scratchpad-show -a "$match" || nirius scratchpad-toggle -a "$match"
+        if [ "$(focused_app)" = "$app_id" ]; then
+          # Target is focused -> hide it.
+          # scratchpad-show fails if the window lost its scratchpad state
+          # (e.g. niriusd restarted); re-register it in that case.
+          nirius scratchpad-show -a "$match" || nirius scratchpad-toggle -a "$match"
+          exit 0
+        fi
+
+        nirius scratchpad-show -a "$match" || { nirius scratchpad-toggle -a "$match"; exit 0; }
+
+        # If another scratchpad window was focused, the call above only hid
+        # it instead of showing the target; call again to actually switch.
+        sleep 0.05
+        if [ "$(focused_app)" != "$app_id" ]; then
+          nirius scratchpad-show -a "$match"
+        fi
       else
         "$@" &
         disown
