@@ -1,8 +1,11 @@
 {
+  pkgs,
   username,
   hostname,
   ...
 }: {
+  home.packages = [pkgs.nirius];
+
   home.file.".config/niri/config-original.kdl" = {
     force = true;
     text = ''
@@ -122,6 +125,7 @@
       spawn-at-startup "/home/${username}/.config/niri/background"
       spawn-at-startup "tailscale-systray"
       spawn-at-startup "noctalia-shell"
+      spawn-at-startup "niriusd"
 
       // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
       screenshot-path null
@@ -166,6 +170,22 @@
       window-rule {
           match app-id=r#"mongolore$"#
           open-floating true
+      }
+
+      // nirius scratchpad terminal
+      window-rule {
+          match app-id=r#"^dev\.hackr\.scratchterm$"#
+          open-floating true
+          default-column-width { proportion 0.6; }
+          default-window-height { proportion 0.6; }
+      }
+
+      // nirius scratchpad obsidian
+      window-rule {
+          match app-id=r#"^obsidian$"#
+          open-floating true
+          default-column-width { proportion 0.8; }
+          default-window-height { proportion 0.85; }
       }
 
       window-rule {
@@ -253,6 +273,8 @@
           // Suggested binds for running programs: terminal, app launcher, screen locker.
           Mod+Shift+Space { spawn "wofi" "--show" "drun"; } // backup
           Mod+Space { spawn "vicinae" "toggle"; }
+          Mod+Grave { spawn "/home/${username}/.config/niri/scratchpad" "dev.hackr.scratchterm" "ghostty" "--class=dev.hackr.scratchterm"; }
+          Mod+1 { spawn "/home/${username}/.config/niri/scratchpad" "obsidian" "obsidian"; }
           Super+Alt+L { spawn "dolphin"; }
 
           // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -350,6 +372,38 @@
           // moving the mouse or pressing any other key.
           Mod+Ctrl+Shift+Q { power-off-monitors; }
       }
+    '';
+  };
+
+  home.file.".config/niri/scratchpad" = {
+    force = true;
+    executable = true;
+    text = ''
+      #!/run/current-system/sw/bin/bash
+      # Toggle a nirius scratchpad window, spawning the app on first use.
+      # Usage: scratchpad <app-id> <command> [args...]
+      app_id="$1"
+      shift
+
+      escaped=$(printf '%s' "$app_id" | sed 's/\./\\./g')
+      match="^$escaped\$"
+
+      if niri msg windows | grep -qF "App ID: \"$app_id\""; then
+        # scratchpad-show fails if the window lost its scratchpad state
+        # (e.g. niriusd restarted); re-register it in that case.
+        nirius scratchpad-show -a "$match" || nirius scratchpad-toggle -a "$match"
+      else
+        "$@" &
+        disown
+        for _ in $(seq 1 100); do
+          if niri msg windows | grep -qF "App ID: \"$app_id\""; then
+            nirius scratchpad-toggle -a "$match" --no-move
+            exit 0
+          fi
+          sleep 0.1
+        done
+        exit 1
+      fi
     '';
   };
 
