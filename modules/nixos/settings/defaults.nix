@@ -1,4 +1,5 @@
 {
+  pkgs,
   pkgs-stable,
   username,
   ...
@@ -61,11 +62,16 @@
     };
   };
   # Basic packages used everywhere
-  environment.systemPackages = with pkgs-stable; [
-    wget
-    curl
-    jq
-  ];
+  environment.systemPackages =
+    (with pkgs-stable; [
+      wget
+      curl
+      jq
+      python3
+    ])
+    ++ [
+      pkgs.nodejs
+    ];
 
   users.users.${username}.extraGroups = ["networkmanager" "wheel"];
 }
