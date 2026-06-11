@@ -45,7 +45,7 @@ in {
       def copy-to-cache [] {
         if ($'/home/${username}/.config/nix/secret.key' | path exists) {
           nix store sign --recursive --key-file ~/.config/nix/secret.key /run/current-system
-          nix copy --to 's3://nix-cache?profile=nixbuilder&endpoint=10.0.11.2:9000&scheme=http' /run/current-system
+          nix copy --to 's3://nix-cache?profile=nixbuilder&endpoint=10.0.11.5:9000&scheme=http' /run/current-system
           echo "Copied to cache"
         } else {
           echo "~/.config/nix/secret.key not found"
