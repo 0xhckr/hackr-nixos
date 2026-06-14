@@ -4,7 +4,7 @@
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	program = /run/current-system/sw/bin/op-ssh-sign
+	program = /home/hackr/.ssh/git-ssh-sign
 [commit]
 	gpgsign = true
 [user]
