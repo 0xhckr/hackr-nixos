@@ -166,32 +166,37 @@
   outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    x86_systems = ["infernape" "torchic" "snorlax" "flareon"];
+    aarch64_systems = [];
   in {
     nixosConfigurations = builtins.listToAttrs (map (name: {
-      inherit name;
-      value = nixpkgs.lib.nixosSystem {
-        modules = [./hosts/${name}];
-        specialArgs = let
-          username = "hackr";
-          fullName = "Mohammad Al-Ahdal";
-          email = "hackr@hackr.sh";
-        in {
-          inherit inputs;
-          inherit system;
-          inherit username;
-          inherit fullName;
-          inherit email;
-          pkgs-fresh = import inputs.nixpkgs-fresh {
+        inherit name;
+        value = nixpkgs.lib.nixosSystem {
+          modules = [./hosts/${name}];
+          specialArgs = let
+            username = "hackr";
+            fullName = "Mohammad Al-Ahdal";
+            email = "hackr@hackr.sh";
+          in {
+            inherit inputs;
             inherit system;
-            config.allowUnfree = true;
-          };
-          pkgs-stable = import inputs.nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
+            inherit username;
+            inherit fullName;
+            inherit email;
+            inherit x86_systems;
+            inherit aarch64_systems;
+            pkgs-fresh = import inputs.nixpkgs-fresh {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            pkgs-stable = import inputs.nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
           };
         };
-      };
-    }) ["infernape" "torchic" "snorlax" "flareon"]);
+      })
+      x86_systems);
 
     checks.${system}.statix = pkgs.runCommand "statix-check" {} ''
       src=${pkgs.lib.cleanSource ./.}
