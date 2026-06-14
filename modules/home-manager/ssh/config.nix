@@ -30,7 +30,10 @@
       # In a forwarded SSH session, use the forwarded agent ($SSH_AUTH_SOCK)
       # so the 1Password prompt appears on the machine we connected from,
       # instead of this host's local (and headless-to-us) 1Password GUI.
-      Match exec "test -n \"$SSH_CONNECTION\""
+      # Force POSIX sh: Match exec runs under $SHELL, which is nushell here.
+      # nushell doesn't expand "$SSH_CONNECTION", so the test would always be
+      # true (non-empty literal) and clobber IdentityAgent on local pushes too.
+      Match exec "sh -c 'test -n \"$SSH_CONNECTION\"'"
         IdentityAgent $SSH_AUTH_SOCK
 
       Host *
