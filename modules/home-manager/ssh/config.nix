@@ -11,8 +11,12 @@
         User git
         Port 2222
 
-      Host infernape 10.0.11.5
+      Host 10.0.11.5
         HostName 10.0.11.5
+        User ${username}
+
+      Host infernape
+        HostName infernape
         User ${username}
         # Forward this machine's 1Password agent into the session so that,
         # when SSH'd in from elsewhere, git auth/signing prompts pop on the

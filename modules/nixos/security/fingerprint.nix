@@ -69,7 +69,7 @@ in {
         inherit fprintd-only-if-lid-open;
         # Cap the fingerprint wait so a wedged sensor can never block the
         # fall-through to password auth.
-        fprintd.settings.timeout = 10;
+        fprintd.settings.timeout = 60;
       };
     };
     login.fprintAuth = false;
