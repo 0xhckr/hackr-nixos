@@ -32,7 +32,7 @@ in {
             Host ${host}
               HostName ${host}
               User ${username}
-              ForwardAgent ${agentSock}
+              ForwardAgent "${agentSock}"
           '')
           (x86_systems ++ aarch64_systems))}
 
@@ -47,7 +47,7 @@ in {
           IdentityAgent $SSH_AUTH_SOCK
 
         Host *
-          IdentityAgent ${agentSock}
+          IdentityAgent "${agentSock}"
       '';
     };
 

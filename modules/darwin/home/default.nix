@@ -2,6 +2,8 @@
 {username, ...}: {
   imports = [
     ./nushell.nix
+    ./starship.nix
+    ./fastfetch.nix
     ./git.nix
     ./jj.nix
     ./ssh.nix

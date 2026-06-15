@@ -26,11 +26,60 @@ in {
       # direnv hook
       source ./direnv.nu
 
-      # Rebuild helpers — the macOS analogue of NixOS `re-switch`/`re-test`.
+      # starship prompt (init rendered at build time; see starship.nix)
+      source ./starship-init.nu
+
+      # Rebuild helpers, mirroring the NixOS aliases. `nh darwin` only has
+      # switch/build (macOS has no bootloader generations), so re-test maps to
+      # a non-activating build and re-boot maps to switch.
       def re-switch [] { nh darwin switch ~/nixos }
-      def re-build [] { nh darwin build ~/nixos }
+      def re-test [] { nh darwin build ~/nixos }
+      def re-boot [] { nh darwin switch ~/nixos }
+
+      # fastfetch (Homebrew) + pokeget-rs (nix) side by side, sprite picked
+      # from the hostname — so `metagross` renders the Metagross sprite.
+      def pokefetch [] {
+        let FETCHER_CMD = "fastfetch --logo none"
+        let EXTRA_PADDING_H = 2
+        let EXTRA_PADDING_W = 2
+        let WIDTH = 38
+
+        # Strip any domain suffix (e.g. metagross.local -> metagross).
+        let pokemon_name = (hostname | split row "." | first)
+
+        let sprite = (pokeget $pokemon_name --hide-name | complete | get stdout)
+
+        let fetcher_height = (bash -c $FETCHER_CMD | lines | length)
+        let sprite_height = ($sprite | lines | length)
+
+        let pad_top = (($fetcher_height - $sprite_height) / 2 + $EXTRA_PADDING_H)
+        let pad_top = (if $pad_top < 0 { 0 } else { $pad_top })
+
+        let sprite_width = ($sprite | lines | each { |line|
+          $line | ansi strip | split chars | length
+        } | math max)
+
+        let pad_horizontal = (($WIDTH - $sprite_width) / 2 + $EXTRA_PADDING_W)
+        let pad_horizontal = (if $pad_horizontal < 0 { 0 } else { $pad_horizontal })
+        let pad_horizontal = ($pad_horizontal | math floor)
+        let pad_top = ($pad_top | math floor)
+
+        $sprite | fastfetch --file-raw - --logo-padding $pad_horizontal --logo-padding-top $pad_top
+      }
+
+      def cl [] {
+        clear
+        if $env.TMUX? == null {
+          pokefetch
+        }
+      }
 
       $env.config.show_banner = false
+
+      # Greet on interactive ghostty sessions, like the NixOS config.
+      if $env.TERM == "xterm-ghostty" {
+        pokefetch
+      }
     '';
   };
 }
