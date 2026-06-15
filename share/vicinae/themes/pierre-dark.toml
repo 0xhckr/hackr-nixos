@@ -1,0 +1,40 @@
+[meta]
+name = "Pierre Dark"
+description = "Pierre Dark"
+variant = "dark"
+inherits = "vicinae-dark"
+
+[colors.core]
+accent = "#009fff"
+accent_foreground = "#0a0a0a"
+background = "#171717"
+foreground = "#fafafa"
+secondary_background = "#1d1d1d"
+border = "#262626"
+
+[colors.main_window]
+border = "#262626"
+
+[colors.settings_window]
+border = "#262626"
+
+[colors.accents]
+blue = "#009fff"
+green = "#0dbe4e"
+magenta = "#e130ac"
+orange = "#ffa359"
+red = "#ff2e3f"
+yellow = "#ffca00"
+cyan = "#08c0ef"
+purple = "#a13cee"
+
+[colors.text]
+default = "#fafafa"
+muted = "#a3a3a3"
+danger = "#ff2e3f"
+success = "#0dbe4e"
+placeholder = "#737373"
+selection = { background = "#1d1d1d", foreground = "#fafafa" }
+
+[colors.text.links]
+default = "#009fff"

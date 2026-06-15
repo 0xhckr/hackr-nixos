@@ -23,24 +23,62 @@
       pavucontrol
       pulseaudioFull
       alsa-utils
+      # Light + dark GTK theme pair the noctalia toggle flips between (it sets
+      # gtk-theme adw-gtk3 / adw-gtk3-dark alongside the color-scheme).
+      adw-gtk3
     ]
     ++ (with inputs; [
       awww.packages.${system}.default
     ]);
+
+  # Hand GTK/GNOME appearance to the runtime noctalia toggle. Stylix would
+  # otherwise pin a single polarity: the gtk target writes a fixed gtk.css and
+  # gtk-theme, and the gnome target pins color-scheme = prefer-dark in dconf,
+  # both of which fight live light/dark switching.
+  stylix.targets.gtk.enable = false;
+  stylix.targets.gnome.enable = false;
+
+  # Declarative login baseline = Pierre dark (matches noctalia darkMode = true).
+  # The noctalia toggle overrides these live at runtime; they reset to dark on
+  # relogin, which is the intended session-only behaviour.
+  dconf.settings."org/gnome/desktop/interface" = {
+    color-scheme = "prefer-dark";
+    gtk-theme = "adw-gtk3-dark";
+  };
+
+  # Stylix points both vicinae theme slots at one (dark) generated theme, so it
+  # can't switch. Use the dedicated Pierre dark/light themes instead; vicinae
+  # picks the slot that matches the system color-scheme the toggle sets.
+  stylix.targets.vicinae.enable = false;
 
   programs.vicinae = {
     enable = true;
     settings = {
       launcher_window.layer_shell.enabled = false;
       launcher_window.opacity = 1.0;
-      theme.dark.name = "stylix";
-      theme.light.name = "stylix";
+      theme.dark.name = "pierre-dark";
+      theme.light.name = "pierre-light";
     };
     systemd = {
       enable = false;
       autoStart = false;
     };
   };
+
+  # Qt reports colorScheme=Dark here (qt6ct's static palette never follows the
+  # portal), so vicinae always reads the theme.dark slot. The noctalia
+  # darkModeChange hook drives `vicinae theme set` to rewrite that slot live —
+  # which needs settings.json writable, not a read-only Nix symlink.
+  xdg.configFile."vicinae/settings.json".force = true;
+  home.activation.vicinaeWritableSettings =
+    lib.hm.dag.entryAfter ["linkGeneration"] ''
+      f="''${XDG_CONFIG_HOME:-$HOME/.config}/vicinae/settings.json"
+      if [ -L "$f" ]; then
+        src="$(readlink -f "$f")"
+        rm -f "$f"
+        install -m644 "$src" "$f"
+      fi
+    '';
 
   home.activation.vicinae-refresh-apps = lib.mkForce "";
 }

@@ -1,0 +1,40 @@
+[meta]
+name = "Pierre Light"
+description = "Pierre Light"
+variant = "light"
+inherits = "vicinae-light"
+
+[colors.core]
+accent = "#009fff"
+accent_foreground = "#ffffff"
+background = "#f5f5f5"
+foreground = "#0a0a0a"
+secondary_background = "#ededed"
+border = "#d4d4d4"
+
+[colors.main_window]
+border = "#d4d4d4"
+
+[colors.settings_window]
+border = "#d4d4d4"
+
+[colors.accents]
+blue = "#1a85d4"
+green = "#18a46c"
+magenta = "#bd2e90"
+orange = "#d47628"
+red = "#d52c36"
+yellow = "#d5a910"
+cyan = "#1ca1c7"
+purple = "#8836c7"
+
+[colors.text]
+default = "#0a0a0a"
+muted = "#525252"
+danger = "#d52c36"
+success = "#18a46c"
+placeholder = "#737373"
+selection = { background = "#dfebff", foreground = "#0a0a0a" }
+
+[colors.text.links]
+default = "#1a85d4"

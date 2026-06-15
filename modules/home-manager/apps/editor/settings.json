@@ -31,7 +31,11 @@
     "tree_view": true
   },
   "icon_theme": "Catppuccin Latte",
-  "theme": "Pierre Dark",
+  "theme": {
+    "mode": "system",
+    "light": "Pierre Light",
+    "dark": "Pierre Dark"
+  },
   "agent": {
     "favorite_models": [
       {

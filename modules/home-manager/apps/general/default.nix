@@ -280,12 +280,28 @@ in {
         onepassword-password-manager
       ];
 
+      # Dual-polarity Pierre chrome that follows the system color-scheme the
+      # noctalia toggle flips (replaces stylix's dark-only userChrome, which is
+      # disabled below). theme.*-theme = 2 (system) makes zen's prefers-color
+      # -scheme track the toggle so the @media blocks switch live.
+      userChrome = builtins.readFile ../../../../cfg/zen/userChrome.css;
+      settings = {
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "browser.theme.toolbar-theme" = 2;
+        "browser.theme.content-theme" = 2;
+        "layout.css.prefers-color-scheme.content-override" = 2;
+      };
+
       inherit containers spaces pins keyboardShortcuts keyboardShortcutsVersion;
     };
   };
   };
 
-  # Zen-browser stylix target configuration
-  # Theme settings are inherited from NixOS-level stylix configuration
-  stylix.targets.zen-browser.profileNames = ["default"];
+  # Zen-browser: stylix only emits a single-polarity (dark) userChrome, which
+  # breaks under the light toggle. Disable its CSS injection; the dual-polarity
+  # userChrome on the profile above handles both light and dark.
+  stylix.targets.zen-browser = {
+    profileNames = ["default"];
+    enableCss = false;
+  };
 }

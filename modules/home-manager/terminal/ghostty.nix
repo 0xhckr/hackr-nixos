@@ -4,6 +4,11 @@
     source = ../../../cfg/ghostty/themes/pierre-dark;
   };
 
+  home.file.".config/ghostty/themes/pierre-light" = {
+    force = true;
+    source = ../../../cfg/ghostty/themes/pierre-light;
+  };
+
   home.file.".config/ghostty/config" = {
     text = ''
 font-family = "DepartureMono Nerd Font"
@@ -15,7 +20,9 @@ font-synthetic-style = bold,italic,bold-italic
 font-size = 11
 font-thicken = false
 grapheme-width-method = unicode
-theme = pierre-dark
+# Follows the desktop color-scheme preference (flipped by the noctalia
+# dark-mode toggle). window-theme = auto below makes ghostty honor it live.
+theme = dark:pierre-dark,light:pierre-light
 cursor-style = bar
 mouse-hide-while-typing = true
 

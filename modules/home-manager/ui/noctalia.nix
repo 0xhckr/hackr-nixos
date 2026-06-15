@@ -7,6 +7,13 @@
 }: {
   imports = [inputs.noctalia.homeModules.default];
 
+  # The stylix noctalia-shell target writes a STATIC pierre-dark palette into
+  # ~/.config/noctalia/colors.json (read-only). That overrides noctalia's own
+  # runtime palette, so its UI can never switch to light. Disable it and let
+  # noctalia own colors.json from the Pierre predefinedScheme below. (The
+  # opacity/font bits that target also set are already mkForce'd in settings.)
+  stylix.targets.noctalia-shell.enable = false;
+
   programs.noctalia-shell = {
     enable = true;
     package = inputs.noctalia.packages.${system}.default;
@@ -214,14 +221,23 @@
         ];
       };
       colorSchemes = {
+        # darkMode is the global Pierre dark<->light toggle. It is declarative
+        # here (resets to dark on relogin); the live switch within a session is
+        # driven via gsettings/dconf by syncGsettings + the darkModeChange hook.
         darkMode = true;
         generationMethod = "vibrant";
         manualSunrise = "06:30";
         manualSunset = "18:30";
         monitorForColors = "";
-        predefinedScheme = "Tokyo Night";
+        # Use the bundled Pierre scheme (dark + light variants) shipped via
+        # xdg.configFile below, instead of deriving colors from the wallpaper.
+        predefinedScheme = "Pierre";
         schedulingMode = "off";
-        useWallpaperColors = true;
+        # On toggle, push prefer-dark/prefer-light to
+        # org.gnome.desktop.interface color-scheme so every app that follows the
+        # freedesktop appearance portal (ghostty, zed, gtk/gnome) switches live.
+        syncGsettings = true;
+        useWallpaperColors = false;
       };
       controlCenter = {
         cards = [
@@ -259,6 +275,7 @@
             {id = "PowerProfile";}
             {id = "KeepAwake";}
             {id = "NightLight";}
+            {id = "DarkMode";}
           ];
         };
       };
@@ -342,8 +359,22 @@
         telemetryEnabled = false;
       };
       hooks = {
-        darkModeChange = "";
-        enabled = false;
+        # Durable cross-app switch: noctalia substitutes $1 with "true"/"false"
+        # (dark/light) then runs this via `sh -lc`. Writing color-scheme +
+        # gtk-theme to dconf (writable) keeps the choice applied for the whole
+        # session even though settings.json itself is a read-only Nix symlink.
+        darkModeChange = ''
+          if [ "$1" = "true" ]; then
+            gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+            gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+            vicinae theme set pierre-dark || true
+          else
+            gsettings set org.gnome.desktop.interface color-scheme prefer-light
+            gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
+            vicinae theme set pierre-light || true
+          fi
+        '';
+        enabled = true;
         performanceModeDisabled = "";
         performanceModeEnabled = "";
         screenLock = "";
@@ -550,7 +581,35 @@
   # behind; force HM to replace them with managed symlinks.
   xdg.configFile = {
     "noctalia/settings.json".force = true;
-    "noctalia/colors.json".force = true;
     "noctalia/plugins.json".force = true;
+    # NOTE: colors.json is intentionally NOT managed here. Noctalia writes its
+    # live palette there on every theme/dark-mode change; a Nix symlink would be
+    # read-only and freeze the shell on dark. See the activation below.
+
+    # Pierre predefined color scheme (dark + light). Noctalia searches
+    # ~/.config/noctalia/colorschemes for user schemes and only reads this
+    # file, so a read-only Nix symlink is fine.
+    "noctalia/colorschemes/Pierre/Pierre.json" = {
+      force = true;
+      source = ../../../cfg/noctalia/colorschemes/Pierre/Pierre.json;
+    };
   };
+
+  # Noctalia needs writable runtime config. A read-only Nix symlink makes the
+  # dark-mode toggle fail to persist: noctalia flips darkMode, the save to
+  # settings.json is rejected, the FileView re-reads the unchanged file and
+  # snaps straight back to dark. So replace the settings.json symlink with a
+  # writable copy (declarative values still reapply from the store on every
+  # rebuild) and drop colors.json so noctalia regenerates a writable one.
+  home.activation.noctaliaWritableConfig =
+    lib.hm.dag.entryAfter ["linkGeneration"] ''
+      cfg="''${XDG_CONFIG_HOME:-$HOME/.config}/noctalia"
+      if [ -L "$cfg/settings.json" ]; then
+        src="$(readlink -f "$cfg/settings.json")"
+        rm -f "$cfg/settings.json"
+        install -m644 "$src" "$cfg/settings.json"
+      fi
+      [ -L "$cfg/colors.json" ] && rm -f "$cfg/colors.json"
+      true
+    '';
 }
