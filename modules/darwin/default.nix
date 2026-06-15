@@ -6,10 +6,13 @@
   username,
   fullName,
   email,
+  x86_systems,
+  aarch64_systems,
   ...
 }: {
   imports = [
     inputs.home-manager.darwinModules.home-manager
+    ./homebrew.nix
   ];
 
   nixpkgs.hostPlatform = system;
@@ -31,13 +34,21 @@
   # Manage the login shell's /etc/zshrc so nix + the direnv hook load.
   programs.zsh.enable = true;
 
+  # nh isn't in Homebrew, so install it from nix. NH_FLAKE makes bare
+  # `nh darwin switch` target this flake (see the re-switch helper in nushell).
+  environment.systemPackages = [
+    inputs.nh.packages.${system}.default
+  ];
+  environment.variables.NH_FLAKE = "/Users/${username}/nixos";
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "bak";
     extraSpecialArgs = {
       inherit inputs system username fullName email;
+      inherit x86_systems aarch64_systems;
     };
-    users.${username} = import ./home.nix;
+    users.${username} = import ./home;
   };
 }

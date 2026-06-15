@@ -1,6 +1,12 @@
-# Home-manager config for the macOS user. Start small — this is where
-# dotfiles will be managed going forward.
+# Home-manager config for the macOS user. This is where dotfiles are managed.
 {username, ...}: {
+  imports = [
+    ./nushell.nix
+    ./git.nix
+    ./jj.nix
+    ./ssh.nix
+  ];
+
   home = {
     inherit username;
     homeDirectory = "/Users/${username}";
