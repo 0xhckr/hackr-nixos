@@ -161,6 +161,11 @@
       url = "github:modem-dev/hunk";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
@@ -168,6 +173,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
     x86_systems = ["infernape" "torchic" "snorlax" "flareon"];
     aarch64_systems = [];
+    applesilicon_systems = ["metagross"];
   in {
     nixosConfigurations = builtins.listToAttrs (map (name: {
         inherit name;
@@ -197,6 +203,30 @@
         };
       })
       x86_systems);
+
+    # macOS hosts (nix-darwin). Kept deliberately minimal — see modules/darwin.
+    darwinConfigurations = builtins.listToAttrs (map (name: {
+        inherit name;
+        value = inputs.nix-darwin.lib.darwinSystem {
+          modules = [./hosts/${name}];
+          specialArgs = let
+            darwinSystem = "aarch64-darwin";
+            username = "mohammad";
+            fullName = "Mohammad Al-Ahdal";
+            email = "mohammad@knowhistory.ca";
+          in {
+            inherit inputs;
+            inherit username;
+            inherit fullName;
+            inherit email;
+            inherit x86_systems;
+            inherit aarch64_systems;
+            inherit applesilicon_systems;
+            system = darwinSystem;
+          };
+        };
+      })
+      applesilicon_systems);
 
     checks.${system}.statix = pkgs.runCommand "statix-check" {} ''
       src=${pkgs.lib.cleanSource ./.}
