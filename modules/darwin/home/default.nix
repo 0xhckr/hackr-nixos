@@ -3,7 +3,9 @@
   imports = [
     ./nushell.nix
     ./starship.nix
+    ./zoxide.nix
     ./fastfetch.nix
+    ./gojo.nix
     ./git.nix
     ./jj.nix
     ./ssh.nix

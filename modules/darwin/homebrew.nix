@@ -19,6 +19,7 @@
       "fastfetch"
       "jj"
       "nushell"
+      "zoxide"
     ];
 
     casks = [

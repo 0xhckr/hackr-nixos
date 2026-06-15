@@ -29,12 +29,60 @@ in {
       # starship prompt (init rendered at build time; see starship.nix)
       source ./starship-init.nu
 
+      # zoxide (init rendered at build time; see zoxide.nix). Sourced before the
+      # zc/zic helpers below so __zoxide_z/__zoxide_zi are defined.
+      source ./zoxide-init.nu
+
       # Rebuild helpers, mirroring the NixOS aliases. `nh darwin` only has
       # switch/build (macOS has no bootloader generations), so re-test maps to
       # a non-activating build and re-boot maps to switch.
       def re-switch [] { nh darwin switch ~/nixos }
       def re-test [] { nh darwin build ~/nixos }
       def re-boot [] { nh darwin switch ~/nixos }
+
+      # Launch Zed. The `zed` CLI is on PATH via the Homebrew cask.
+      def --wrapped code [...args: string] {
+        if $args == null or $args == [] {
+          zed
+        } else {
+          zed ...$args
+        }
+      }
+
+      # zoxide + Zed combos (mirrors the NixOS helpers).
+      def --env --wrapped zc [...args: string] {
+        if $args == null or $args == [] {
+          cd ~
+          code
+        } else {
+          __zoxide_z ...$args
+          code .
+        }
+      }
+
+      def --env --wrapped zic [...args: string] {
+        if $args == null or $args == [] {
+          __zoxide_zi
+          code .
+        } else {
+          __zoxide_zi ...$args
+          code .
+        }
+      }
+
+      # `nr <app> [args]` runs a flake app from the current dir; `nr list` lists
+      # the apps available for this system.
+      def nr [
+        name: string,
+        ...rest: string
+      ] {
+        if $name == "list" {
+          nix flake show --json --all-systems | from json | get apps | get (nix eval --impure --expr 'builtins.currentSystem' --raw) | transpose | get column0
+        } else {
+          let flake_ref = [".#", $name] | str join ""
+          ^nix run $flake_ref ...$rest
+        }
+      }
 
       # fastfetch (Homebrew) + pokeget-rs (nix) side by side, sprite picked
       # from the hostname — so `metagross` renders the Metagross sprite.
@@ -73,6 +121,18 @@ in {
           pokefetch
         }
       }
+
+      # Aliases (ported from the NixOS shell config). `c` resolves to the `code`
+      # def above. `b` expects bun, which isn't installed yet.
+      alias pip = python3 -m pip
+      alias g = git
+      alias gc = git commit -m
+      alias gp = git push
+      alias gl = git pull
+      alias gco = git checkout
+      alias l = ls -la
+      alias b = bun
+      alias c = code
 
       $env.config.show_banner = false
 
