@@ -211,7 +211,7 @@
           modules = [./hosts/${name}];
           specialArgs = let
             darwinSystem = "aarch64-darwin";
-            username = "mohammad";
+            username = "hackr";
             fullName = "Mohammad Al-Ahdal";
             email = "mohammad@knowhistory.ca";
           in {
