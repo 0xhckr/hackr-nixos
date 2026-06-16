@@ -4,6 +4,8 @@
     ./nushell.nix
     ./starship.nix
     ./zoxide.nix
+    ./agents.nix
+    ./docker.nix
     ./fastfetch.nix
     ./gojo.nix
     ./git.nix

@@ -16,6 +16,12 @@
 
     brews = [
       "btop"
+      # Docker on macOS via colima (FOSS Lima VM) + the docker CLI, instead of
+      # Docker Desktop. docker-compose provides the `docker compose` plugin.
+      # Wiring (compose plugin symlink + colima autostart) is in home/docker.nix.
+      "colima"
+      "docker"
+      "docker-compose"
       "fastfetch"
       "jj"
       "nushell"
