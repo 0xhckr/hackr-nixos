@@ -7,6 +7,7 @@
     ./agents.nix
     ./docker.nix
     ./fastfetch.nix
+    ./ghostty.nix
     ./gojo.nix
     ./git.nix
     ./jj.nix

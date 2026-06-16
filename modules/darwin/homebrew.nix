@@ -30,6 +30,8 @@
 
     casks = [
       "1password"
+      # Font used by ghostty (see home/ghostty.nix); matches the NixOS config.
+      "font-departure-mono-nerd-font"
       "ghostty"
       "nordpass"
       "raycast"
