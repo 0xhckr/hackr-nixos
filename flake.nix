@@ -166,6 +166,13 @@
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # niri-style scrollable-tiling window manager for macOS. Exposes a
+    # home-manager module (services.paneru) used in modules/darwin/home/paneru.nix.
+    paneru = {
+      url = "github:karinushka/paneru";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {nixpkgs, ...} @ inputs: let
