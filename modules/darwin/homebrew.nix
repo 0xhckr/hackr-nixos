@@ -33,6 +33,8 @@
       # Font used by ghostty (see home/ghostty.nix); matches the NixOS config.
       "font-departure-mono-nerd-font"
       "ghostty"
+      # Loop — radial-menu window manager (github.com/MrKai77/Loop).
+      "loop"
       "nordpass"
       "raycast"
       "zed"

@@ -11,7 +11,6 @@
     ./gojo.nix
     ./git.nix
     ./jj.nix
-    ./paneru.nix
     ./ssh.nix
   ];
 
