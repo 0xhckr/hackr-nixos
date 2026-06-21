@@ -25,6 +25,7 @@
               // accel-profile "flat"
               // scroll-method "two-finger"
               // disabled-on-external-mouse
+              scroll-factor 0.25
           }
 
           mouse {
