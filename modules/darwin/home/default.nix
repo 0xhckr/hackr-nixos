@@ -1,5 +1,5 @@
 # Home-manager config for the macOS user. This is where dotfiles are managed.
-{username, ...}: {
+{username, pkgs, ...}: {
   imports = [
     ./nushell.nix
     ./starship.nix
@@ -18,6 +18,7 @@
     inherit username;
     homeDirectory = "/Users/${username}";
     stateVersion = "26.11";
+    packages = [pkgs.awscli2 pkgs.gh];
   };
 
   programs.home-manager.enable = true;
