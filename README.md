@@ -117,7 +117,7 @@ The configuration uses a custom theme (rose-pine) applied consistently across:
 `settings-original.json` → `~/.pi/agent/settings.json`
 
 - **Provider**: `zai` (default AI provider)
-- **Model**: `glm-5.1` (default model)
+- **Model**: `glm-5.2` (default model)
 - **Thinking level**: `medium`
 - **Theme**: `hackr` (custom theme, see below)
 - **Quiet startup**: enabled

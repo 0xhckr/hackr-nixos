@@ -1,15 +1,10 @@
 {
   "lastChangelogVersion": "0.74.0",
   "defaultProvider": "zai",
-  "defaultModel": "glm-5.1",
+  "defaultModel": "glm-5.2",
   "defaultThinkingLevel": "medium",
   "theme": "hackr",
   "quietStartup": true,
-  "npmCommand": [
-    "bun"
-  ],
-  "packages": [
-    "npm:pi-super-curl",
-    "npm:@heyhuynhgiabuu/pi-diff"
-  ]
+  "npmCommand": ["bun"],
+  "packages": ["npm:pi-super-curl", "npm:@heyhuynhgiabuu/pi-diff"]
 }
