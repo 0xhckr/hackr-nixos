@@ -7,17 +7,19 @@
 }: let
   addons = pkgs.extend inputs.firefox-addons.overlays.default;
   jetbrainsApps = with pkgs-stable.jetbrains; [
-    datagrip
-    rider
-    rust-rover
-    idea
+    # datagrip
+    # rider
+    # rust-rover
+    # idea
   ];
   # NOTE: requires manual download of affinity apps.
-  affinityApps = with inputs.affinity-nix.packages."${system}"; [
-    affinity-v3
-  ];
+  # affinity-v3 is unfree; use the overlay on our allowUnfree pkgs (see affinity-nix README).
+  # affinity = pkgs.extend inputs.affinity-nix.overlays.default;
+  # affinityApps = with affinity; [
+  #   affinity-v3
+  # ];
   browsers = with pkgs-stable; [
-    ungoogled-chromium
+    # ungoogled-chromium
     firefox
   ];
   krisp-patcher =
@@ -55,7 +57,7 @@ in {
       fontforge
       discord
       vesktop
-      inputs.sidra.packages."${system}".default
+      # inputs.sidra.packages."${system}".default
       sone
       whatsapp-electron
       krisp-patcher
@@ -65,16 +67,16 @@ in {
       # inputs.graphite.packages."${system}".default
       inputs.helium.packages."${system}".default
       inputs.stoa.packages."${system}".default
-      winboat
+      # winboat
       gimp
-      parsec-bin
+      # parsec-bin
       ryubing
       vlc
       yaak
       filezilla
     ]
     ++ jetbrainsApps
-    ++ affinityApps
+    # ++ affinityApps
     ++ browsers;
 
   # needed for vicinae to properly launch x apps in niri

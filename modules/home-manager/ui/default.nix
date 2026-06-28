@@ -67,18 +67,9 @@
 
   # Qt reports colorScheme=Dark here (qt6ct's static palette never follows the
   # portal), so vicinae always reads the theme.dark slot. The noctalia
-  # darkModeChange hook drives `vicinae theme set` to rewrite that slot live —
-  # which needs settings.json writable, not a read-only Nix symlink.
-  xdg.configFile."vicinae/settings.json".force = true;
-  home.activation.vicinaeWritableSettings =
-    lib.hm.dag.entryAfter ["linkGeneration"] ''
-      f="''${XDG_CONFIG_HOME:-$HOME/.config}/vicinae/settings.json"
-      if [ -L "$f" ]; then
-        src="$(readlink -f "$f")"
-        rm -f "$f"
-        install -m644 "$src" "$f"
-      fi
-    '';
-
-  home.activation.vicinae-refresh-apps = lib.mkForce "";
+  # darkModeChange hook drives `vicinae theme set` to rewrite that slot live.
+  # The vicinae module no longer symlinks settings.json (configFile = {}); the
+  # server writes it itself at runtime, so it is already writable and the old
+  # force/copy workaround is unnecessary. Declarative defaults above flow
+  # through VICINAE_OVERRIDES.
 }
