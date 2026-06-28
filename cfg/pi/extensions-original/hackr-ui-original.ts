@@ -189,14 +189,27 @@ function renderHackrFooter(
   outputTokens?: number,
   cost?: number,
   cwd?: string,
+  tps?: number | null,
+  tpsLive = false,
 ): string[] {
   const fmt = (n: number) => (n < 1000 ? `${n}` : `${(n / 1000).toFixed(1)}k`);
 
   const inStr = inputTokens ? `↑${fmt(inputTokens)}` : "";
   const outStr = outputTokens ? ` ↓${fmt(outputTokens)}` : "";
   const costStr = cost ? ` $${cost.toFixed(3)}` : "";
-  const leftParts = [inStr, outStr, costStr].filter(Boolean).join(" ");
-  const left = fg(C.oyster, leftParts);
+  // tokens/sec: live during streaming (accent), otherwise last completed (muted)
+  const tpsStr = tps
+    ? ` ${tpsLive ? "⚡" : "⋅"} ${tps.toFixed(1)} t/s`
+    : "";
+  const tpsColored = tps
+    ? tpsLive
+      ? fg(C.bok, tpsStr)
+      : fg(C.oyster, tpsStr)
+    : "";
+  const leftParts = [fg(C.oyster, [inStr, outStr, costStr].filter(Boolean).join(" ")), tpsColored]
+    .filter(Boolean)
+    .join(" ");
+  const left = leftParts;
 
   const branchStr = branch
     ? ` ${fg(C.charcoal, ICON.dot)} ${fg(C.squid, branch)}`
@@ -377,6 +390,30 @@ export default function (pi: ExtensionAPI) {
   let hackrEditor: HackrEditor | undefined;
   let exitHintTimer: ReturnType<typeof setTimeout> | undefined;
 
+  // ── Tokens/sec tracking ────────────────────────────────────────────────
+  // Live TPS is estimated from streamed deltas (~4 chars/token); final TPS
+  // at message_end uses the real usage.output count.
+  let footerTui: TUI | undefined;
+  let streamStart: number | undefined;
+  let streamTokens = 0;
+  let liveTps: number | null = null;
+  let lastTps: number | null = null;
+  let tpsRenderTimer: ReturnType<typeof setInterval> | undefined;
+
+  function stopTpsTimer() {
+    if (tpsRenderTimer) {
+      clearInterval(tpsRenderTimer);
+      tpsRenderTimer = undefined;
+    }
+  }
+
+  function resetStream() {
+    streamStart = undefined;
+    streamTokens = 0;
+    liveTps = null;
+    stopTpsTimer();
+  }
+
   function showExitHint() {
     hackrEditor?.setExitHint(true);
     clearTimeout(exitHintTimer);
@@ -394,6 +431,50 @@ export default function (pi: ExtensionAPI) {
 
   pi.on("agent_end", async (_event, _ctx) => {
     hackrEditor?.setWorking(false);
+    // Safety net: clear any lingering live state if message_end didn't fire
+    liveTps = null;
+    streamStart = undefined;
+    streamTokens = 0;
+    stopTpsTimer();
+    footerTui?.requestRender();
+  });
+
+  // Track output tokens during streaming to compute live tokens/sec
+  pi.on("message_update", async (event: any, ctx) => {
+    if (!ctx.hasUI) return;
+    const ev = event.assistantMessageEvent;
+    if (!ev) return;
+    if (ev.type !== "text_delta" && ev.type !== "thinking_delta") return;
+    const now = Date.now();
+    if (streamStart === undefined) {
+      streamStart = now;
+      streamTokens = 0;
+      if (!tpsRenderTimer) {
+        // Re-render the footer a few times/sec so TPS ticks smoothly
+        tpsRenderTimer = setInterval(() => footerTui?.requestRender(), 200);
+      }
+    }
+    streamTokens += Math.max(1, Math.round((ev.delta?.length ?? 0) / 4));
+    const elapsed = (now - streamStart) / 1000;
+    if (elapsed > 0.05) {
+      liveTps = streamTokens / elapsed;
+      footerTui?.requestRender();
+    }
+  });
+
+  // Finalize TPS from real token usage when the assistant message completes
+  pi.on("message_end", async (event: any, ctx) => {
+    if (event.message?.role !== "assistant") return;
+    const elapsed = streamStart !== undefined ? (Date.now() - streamStart) / 1000 : 0;
+    const out = event.message.usage?.output ?? 0;
+    if (elapsed > 0.1 && out > 0) {
+      lastTps = out / elapsed;
+    }
+    liveTps = null;
+    streamStart = undefined;
+    streamTokens = 0;
+    stopTpsTimer();
+    footerTui?.requestRender();
   });
 
   pi.on("session_start", async (_event, ctx) => {
@@ -414,11 +495,16 @@ export default function (pi: ExtensionAPI) {
     }));
 
     // ── Footer ──
-    ui.setFooter((_tui: TUI, _theme: Theme, footerData: any) => {
-      const unsub = footerData.onBranchChange(() => _tui.requestRender());
+    ui.setFooter((tui: TUI, _theme: Theme, footerData: any) => {
+      footerTui = tui;
+      const unsub = footerData.onBranchChange(() => tui.requestRender());
 
       return {
-        dispose: unsub,
+        dispose: () => {
+          unsub();
+          stopTpsTimer();
+          footerTui = undefined;
+        },
         invalidate() {},
         render(width: number): string[] {
           let input = 0,
@@ -440,6 +526,8 @@ export default function (pi: ExtensionAPI) {
             output,
             cost,
             ctx.cwd,
+            liveTps ?? lastTps,
+            liveTps !== null,
           );
         },
       };
@@ -644,6 +732,8 @@ export default function (pi: ExtensionAPI) {
     ctx.ui.setStatus("yolo", undefined);
     ctx.ui.setStatus("cmd", undefined);
     hackrEditor = undefined;
+    resetStream();
+    footerTui = undefined;
   }
 
   // ── YOLO mode command (visual + auto-accept) ──
