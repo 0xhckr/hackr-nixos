@@ -39,8 +39,11 @@
       mouse-hide-while-typing = true
 
       mouse-shift-capture = false
-      background-opacity = 0.9
-      unfocused-split-opacity = 0.6
+      # Translucent background + macOS blur. Opacity is dropped a touch so the
+      # blur actually reads through; background-blur is the macOS blur radius.
+      background-opacity = 0.82
+      background-blur = 40
+      unfocused-split-opacity = 0.55
       scrollback-limit = 10000000
 
       link-url = true
@@ -107,6 +110,12 @@
       # window-title-font-family = "0xProto Nerd Font Mono"
       window-theme = auto
       window-colorspace = srgb
+      # Native macOS tabs that live in the titlebar, with a translucent titlebar
+      # so the blur carries all the way up. Hide the doc proxy icon for a
+      # cleaner look.
+      macos-titlebar-style = tabs
+      macos-titlebar-proxy-icon = hidden
+      macos-window-shadow = true
       window-height = 0
       window-width = 0
       window-save-state = default
@@ -137,9 +146,9 @@
       vt-kam-allowed = false
       desktop-notifications = true
       bold-is-bright = true
-      # Hide macOS titlebar decorations (paneru tiles windows). Set to "auto"
-      # if you'd rather keep the native titlebar.
-      window-decoration = none
+      # Keep native window decorations so macos-titlebar-style = tabs has a
+      # titlebar to render the tab bar into.
+      window-decoration = auto
       window-inherit-working-directory = true
 
       # This will be used to set the `TERM` environment variable.
