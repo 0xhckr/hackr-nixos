@@ -103,6 +103,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    boo = {
+      url = "github:coder/boo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     _1password = {
       url = "github:1Password/shell-plugins";
       inputs.nixpkgs.follows = "nixpkgs";
