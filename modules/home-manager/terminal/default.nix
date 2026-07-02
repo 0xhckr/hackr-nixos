@@ -22,7 +22,6 @@
     gh
     nix-output-monitor
     inputs.commie.packages."${system}".default
-    inputs.boo.packages."${system}".default
     libnotify
     psmisc
     inputs.ghostty.packages."${system}".default
