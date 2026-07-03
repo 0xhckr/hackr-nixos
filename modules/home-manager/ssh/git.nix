@@ -9,6 +9,12 @@
       force = true;
     };
 
+    # Global git ignore (also honored by jj) — see cfg/git/ignore.
+    ".config/git/ignore" = {
+      source = ../../../cfg/git/ignore;
+      force = true;
+    };
+
     # SSH commit-signing helper used by both git and jj.
     # In a forwarded SSH session sign via ssh-keygen against the forwarded
     # 1Password agent (prompt shows on the machine we connected from); locally,

@@ -6,6 +6,8 @@
   system,
   ...
 }: {
+  imports = [./claude.nix];
+
   home.packages = with pkgs; [
     android-tools
     nil

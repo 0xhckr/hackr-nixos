@@ -1,0 +1,5 @@
+# Global git ignore, deployed to ~/.config/git/ignore. jj honors it too, which
+# keeps Claude Code's worktree/workspace directories (created by the hooks in
+# cfg/claude/hooks/) from being snapshotted into the parent working copy.
+**/.claude/settings.local.json
+.claude/worktrees/

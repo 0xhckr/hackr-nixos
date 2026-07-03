@@ -5,6 +5,7 @@
     ./starship.nix
     ./zoxide.nix
     ./agents.nix
+    ./claude.nix
     ./docker.nix
     ./fastfetch.nix
     ./ghostty.nix
