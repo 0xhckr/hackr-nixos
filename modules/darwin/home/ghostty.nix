@@ -29,7 +29,7 @@
       font-style-italic = default
       font-style-bold-italic = default
       font-synthetic-style = bold,italic,bold-italic
-      font-size = 11
+      font-size = 14
       font-thicken = false
       grapheme-width-method = unicode
       # Follows the desktop color-scheme preference; window-theme = auto below
