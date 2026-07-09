@@ -132,6 +132,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    herdr = {
+      url = "github:ogulcancelik/herdr/v0.7.3";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stoa = {
       url = "github:bobrware/stoa-nix";
       inputs.nixpkgs.follows = "nixpkgs";

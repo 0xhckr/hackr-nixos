@@ -10,6 +10,7 @@
     ./fastfetch.nix
     ./ghostty.nix
     ./gojo.nix
+    ./herdr.nix
     ./git.nix
     ./jj.nix
     ./ssh.nix
