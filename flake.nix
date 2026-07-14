@@ -148,6 +148,8 @@
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs-fresh";
+      inputs.systems.url = "github:nix-systems/default-linux";
+      inputs.bun2nix.inputs.systems.url = "github:nix-systems/default-linux";
     };
 
     firefox-addons = {
@@ -168,6 +170,7 @@
     hunk = {
       url = "github:modem-dev/hunk";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.bun2nix.inputs.systems.url = "github:nix-systems/default-linux";
     };
 
     nix-darwin = {
