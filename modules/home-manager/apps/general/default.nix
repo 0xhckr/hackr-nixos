@@ -232,7 +232,7 @@ in {
         position = 302;
       };
       "d2l" = {
-        id = "00000000-3000-0000-0000-000000000001";
+        id = "00000000-3000-0000-0000-000000000002";
         container = containers.skewl.id;
         url = "https://d2l.ucalgary.ca/";
         isEssential = true;
