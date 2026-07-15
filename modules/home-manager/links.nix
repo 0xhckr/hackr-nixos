@@ -2,6 +2,7 @@
   lib,
   inputs,
   username,
+  pkgs,
   ...
 }: {
   imports = [
@@ -50,6 +51,11 @@
       ".config/fastfetch" = {
         force = true;
         source = ../../cfg/fastfetch;
+        recursive = true;
+      };
+      ".local/share/obsidian-themes/Pierre Dark" = {
+        force = true;
+        source = "${../../cfg/obsidian/themes}/Pierre Dark";
         recursive = true;
       };
 
@@ -118,6 +124,18 @@
         mkdir -p ~/.config/niri
         rm -f ~/.config/niri/config.kdl
         cp -L ~/.config/niri/config-original.kdl ~/.config/niri/config.kdl
+      '';
+
+      linkObsidianThemes = lib.hm.dag.entryAfter ["linkGeneration"] ''
+        #!/usr/bin/env bash
+        for vault_themes in ~/.obs/.obsidian/themes /home/*/*/.obsidian/themes; do
+          [ -d "$(dirname "$(dirname "$vault_themes")")" ] || continue
+          mkdir -p "$vault_themes/Pierre Dark"
+          rm -f "$vault_themes/Pierre Dark/manifest.json" "$vault_themes/Pierre Dark/theme.css"
+          cp -L ~/.local/share/obsidian-themes/Pierre\ Dark/manifest.json "$vault_themes/Pierre Dark/manifest.json"
+          cp -L ~/.local/share/obsidian-themes/Pierre\ Dark/theme.css "$vault_themes/Pierre Dark/theme.css"
+          chmod 644 "$vault_themes/Pierre Dark/manifest.json" "$vault_themes/Pierre Dark/theme.css"
+        done
       '';
 
       linkPiSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''

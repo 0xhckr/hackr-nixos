@@ -1,5 +1,5 @@
 # Home-manager config for the macOS user. This is where dotfiles are managed.
-{username, pkgs, ...}: {
+{username, lib, pkgs, ...}: {
   imports = [
     ./nushell.nix
     ./starship.nix
@@ -13,6 +13,7 @@
     ./herdr.nix
     ./git.nix
     ./jj.nix
+    ./obsidian.nix
     ./ssh.nix
   ];
 

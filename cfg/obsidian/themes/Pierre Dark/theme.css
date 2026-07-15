@@ -1,0 +1,19 @@
+.theme-dark {
+	--color-base-00: #0a0a0a;
+	--color-base-05: #080808;
+	--color-base-10: #101010;
+	--color-base-20: #171717;
+	--color-base-25: #1d1d1d;
+	--color-base-30: #262626;
+	--color-base-35: #363636;
+	--color-base-40: #4a4a4a;
+	--color-base-50: #636363;
+	--color-base-60: #737373;
+	--color-base-70: #a3a3a3;
+	--color-base-100: #fafafa;
+
+	--background-primary: var(--color-base-00);
+	--background-secondary: var(--color-base-20);
+	--titlebar-background: var(--color-base-00);
+	--titlebar-background-focused: var(--color-base-10);
+}
