@@ -6,6 +6,12 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
 
+    # Local systems set: default minus x86_64-darwin (dropped by nixpkgs 26.11).
+    # Bun2nix-based inputs below follow this so they don't evaluate x86_64-darwin.
+    systems = {
+      url = "path:./systems";
+    };
+
     nixpkgs-fresh = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
@@ -148,8 +154,8 @@
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs-fresh";
-      inputs.systems.url = "github:nix-systems/default-linux";
-      inputs.bun2nix.inputs.systems.url = "github:nix-systems/default-linux";
+      inputs.systems.follows = "systems";
+      inputs.bun2nix.inputs.systems.follows = "systems";
     };
 
     firefox-addons = {
@@ -170,7 +176,7 @@
     hunk = {
       url = "github:modem-dev/hunk";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.bun2nix.inputs.systems.url = "github:nix-systems/default-linux";
+      inputs.bun2nix.inputs.systems.follows = "systems";
     };
 
     nix-darwin = {
