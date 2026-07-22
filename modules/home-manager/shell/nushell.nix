@@ -74,7 +74,7 @@ in {
       }
 
       def nr [
-        name: string,
+        name: string = "default",
         ...rest: string
       ] {
         if $name == "list" {

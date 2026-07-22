@@ -70,10 +70,10 @@ in {
         }
       }
 
-      # `nr <app> [args]` runs a flake app from the current dir; `nr list` lists
-      # the apps available for this system.
+      # `nr [app] [args]` runs a flake app from the current dir (defaults to
+      # `.#default`); `nr list` lists the apps available for this system.
       def nr [
-        name: string,
+        name: string = "default",
         ...rest: string
       ] {
         if $name == "list" {
