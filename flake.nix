@@ -240,6 +240,10 @@
             inherit aarch64_systems;
             inherit applesilicon_systems;
             system = darwinSystem;
+            pkgs-fresh = import inputs.nixpkgs-fresh {
+              system = darwinSystem;
+              config.allowUnfree = true;
+            };
           };
         };
       })

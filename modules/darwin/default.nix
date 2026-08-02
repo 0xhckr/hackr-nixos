@@ -8,6 +8,7 @@
   email,
   x86_systems,
   aarch64_systems,
+  pkgs-fresh,
   ...
 }: {
   imports = [
@@ -47,7 +48,7 @@
     backupFileExtension = "bak";
     extraSpecialArgs = {
       inherit inputs system username fullName email;
-      inherit x86_systems aarch64_systems;
+      inherit x86_systems aarch64_systems pkgs-fresh;
     };
     users.${username} = import ./home;
   };
