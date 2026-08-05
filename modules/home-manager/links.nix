@@ -119,6 +119,13 @@
     };
 
     activation = {
+      linkHerdrConfig = lib.hm.dag.entryAfter ["linkGeneration"] ''
+        #!/usr/bin/env bash
+        mkdir -p ~/.config/herdr
+        rm -f ~/.config/herdr/config.toml
+        cp -L ~/.config/herdr/config-original.toml ~/.config/herdr/config.toml
+      '';
+
       linkNiriSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
         #!/usr/bin/env bash
         mkdir -p ~/.config/niri

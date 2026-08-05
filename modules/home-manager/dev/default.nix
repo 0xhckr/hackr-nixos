@@ -6,7 +6,7 @@
   system,
   ...
 }: {
-  imports = [./claude.nix];
+  imports = [./claude.nix ./herdr.nix];
 
   home.packages = with pkgs; [
     android-tools
