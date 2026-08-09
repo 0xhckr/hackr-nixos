@@ -228,6 +228,7 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 | `g` / `gc` / `gp` / `gl` / `gco` | Git shortcuts |
 | `b` | `bun` |
 | `c` | `code` |
+| `oc` | `opencode` |
 
 ---
 

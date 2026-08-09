@@ -2,6 +2,8 @@
   pkgs,
   config,
   lib,
+  inputs,
+  system,
   username,
   osConfig,
   ...
@@ -185,6 +187,7 @@ in {
       l = "ls -la";
       b = "${pkgs.bun}/bin/bun";
       c = "code";
+      oc = "${inputs.llm-agents.packages.${system}.opencode}/bin/opencode";
     };
   };
 
