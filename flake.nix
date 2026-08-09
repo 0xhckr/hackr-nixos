@@ -50,8 +50,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # NOTE: repo was renamed noctalia-shell -> noctalia (old URL 301-redirects).
+    # main = v5 (TOML config rewrite); v4 lives on the `legacy-v4` branch.
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

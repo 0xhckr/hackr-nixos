@@ -96,13 +96,14 @@ modules/
       ghostty.nix                # Ghostty config (DepartureMono Nerd Font, rose-pine theme, keybinds)
     ui/
       niri.nix                   # Writes ~/.config/niri/config-original.kdl (KDL, host-aware outputs)
-      noctalia.nix               # Writes noctalia settings JSON (bar, widgets, wallpaper, etc.)
+      noctalia.nix               # Noctalia v5 config (attrset -> TOML config.toml, build-validated);
+                                 # plugins are Luau (<author>/<plugin>), palette via customPalettes
     work/
       azure.nix
 cfg/                             # Static config files symlinked into ~/.config/ via links.nix
   atuin/ btop/ commie/ direnv/ fastfetch/
   niri/                          # delayed (startup script), laptop-outputs.kdl (torchic/snorlax)
-  noctalia/                      # colors-original.json, plugins-original.json
+  noctalia/                      # palettes/Pierre.json (v5 palette layout, flat)
   nushell/                       # direnv.nu, aacpi.sh
   vicinae/scripts/               # Scripts for vicinae launcher
   zed/                           # themes/, keymap.json
@@ -169,7 +170,7 @@ home.activation.myFixup = lib.hm.dag.entryAfter ["linkGeneration"] ''
   cp -L ~/.config/app/template.json ~/.config/app/live.json
 '';
 ```
-This pattern is used for niri (`config-original.kdl` → `config.kdl`) and noctalia/zed settings so that the live files are mutable at runtime while the source remains managed by Nix.
+This pattern is used for niri (`config-original.kdl` → `config.kdl`) and zed settings so that the live files are mutable at runtime while the source remains managed by Nix. Noctalia v5 no longer needs it (GUI writes to `~/.local/state/noctalia/settings.toml`, which layers over the Nix `config.toml`).
 
 ### Theming
 - Stylix drives the system-wide base16 theme (`rose-pine`). To opt a target out: `stylix.targets.<name>.enable = false;` (see `editor/default.nix` for Zed).
@@ -206,7 +207,7 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 | `zed` | Zed editor from source |
 | `ghostty` | Ghostty terminal from `main` |
 | `zen-browser` | Zen Browser (twilight channel) |
-| `noctalia` | Noctalia shell/bar |
+| `noctalia` | Noctalia shell/bar (**v5**, C++ rewrite; repo renamed noctalia-shell → noctalia; v4 = `legacy-v4` branch) |
 | `vicinae` | Vicinae app launcher |
 | `commie` | commie app |
 | `awww` | Wallpaper daemon (`awww-daemon`) |

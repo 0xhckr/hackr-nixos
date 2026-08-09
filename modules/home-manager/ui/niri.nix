@@ -125,7 +125,7 @@
       spawn-at-startup "/home/${username}/.config/niri/delayed"
       spawn-at-startup "/home/${username}/.config/niri/background"
       spawn-at-startup "tailscale-systray"
-      spawn-at-startup "noctalia-shell"
+      spawn-at-startup "noctalia"
       spawn-at-startup "niriusd"
 
       // screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
