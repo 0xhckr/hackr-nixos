@@ -692,11 +692,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786236292,
-        "narHash": "sha256-Z9YiESabYydmPl4H4E5/LE/JfmXJ97KLvzGd/8AJBzQ=",
+        "lastModified": 1786309945,
+        "narHash": "sha256-dTcr2MuJfEkTtNX39ms/oKeU0kHLEuZp/q+mdjj4DDU=",
         "owner": "0xhckr",
         "repo": "gojo",
-        "rev": "cdf7dc7869571679399a54ad4dd8ddead87367c2",
+        "rev": "f325effb7d96e5e01b41ee602f82f9076465df7f",
         "type": "github"
       },
       "original": {
