@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   system,
   pkgs-stable,
@@ -43,6 +44,48 @@
         }
       )
     );
+  # nixpkgs discord bundles discord_krisp in the store, and krisp refuses to
+  # load ("Application not signed by Discord", error -3) in the patchelf'd
+  # binary, so patch the module at build time (a runtime patch cannot touch
+  # the read-only store copy).
+  # Additionally krisp's engine needs its module dir WRITABLE at runtime
+  # (it creates KMS/logs inside; otherwise init fails with error -4), so
+  # override stageModules (nixpkgs #538735) to rsync real copies instead of
+  # symlinking store paths. Recipe from NixOS/nixpkgs#195512#issuecomment.
+  discord-with-krisp = pkgs.discord.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [krisp-patcher];
+    postInstall =
+      (old.postInstall or "")
+      + ''
+        krisp="$out/opt/Discord/modules/discord_krisp/discord_krisp.node"
+        if [ -f "$krisp" ]; then
+          chmod +w "$krisp"
+          ${krisp-patcher}/bin/krisp-patcher "$krisp"
+        fi
+      '';
+    stageModules = pkgs.writeShellScript "discord-stage-writable-modules" ''
+      store_modules="$1"
+      modules_dir="''${XDG_CONFIG_HOME:-$HOME/.config}/discord/${old.version}/modules"
+
+      mkdir -p "$modules_dir"
+      for m in "$store_modules"/*; do
+        dest="$modules_dir/$(basename "$m")"
+
+        if [ -L "$dest" ]; then
+          rm "$dest"
+        fi
+
+        ${lib.getExe' pkgs.rsync "rsync"} -a --checksum --delete "$m/" "$dest"
+      done
+
+      chmod -R u+w "$modules_dir"
+
+      echo '${
+        builtins.toJSON (lib.mapAttrs (_: mod: {installedVersion = mod;}) old.passthru.moduleVersions)
+      }' \
+        > "$modules_dir/installed.json"
+    '';
+  });
 in {
   imports = [
     inputs._1password.hmModules.default
@@ -55,12 +98,11 @@ in {
     [
       obsidian
       fontforge
-      discord
+      discord-with-krisp
       vesktop
       # inputs.sidra.packages."${system}".default
       sone
       whatsapp-electron
-      krisp-patcher
       zoom-us
       nautilus
       slack

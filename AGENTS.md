@@ -76,6 +76,13 @@ modules/
     apps/
       general/default.nix        # JetBrains IDEs, Affinity v3, zen-browser (twilight),
                                  # discord, obsidian, zoom, slack, GIMP, VLC, Yaak, etc.
+                                 # discord is wrapped (discord-with-krisp): krisp-patcher
+                                 # patches discord_krisp.node at BUILD time (postInstall) —
+                                 # nixpkgs discord bundles krisp in the store (read-only), so
+                                 # runtime patching from startup scripts does NOT work. Its
+                                 # stageModules is also overridden to rsync WRITABLE module
+                                 # copies at launch (krisp creates KMS/logs in its dir; with
+                                 # store symlinks THz init fails with error -4).
       editor/                    # Zed (built from flake w/ FHS env), language servers, settings.json
       helix/                     # Helix (from helix flake master)
     dev/default.nix              # git, direnv, android-tools, nil, nixfmt, gcc, cargo, nodejs, bun, jdk, mc

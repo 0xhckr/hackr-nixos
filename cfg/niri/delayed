@@ -11,11 +11,8 @@ if [ "$(hostname)" = "snorlax" ] || [ "$(hostname)" = "torchic" ] || [ "$(hostna
     disown
 fi
 
-# launch discord on home pc
-if [ "$(hostname)" = "infernape" ] || [ "$(hostname)" = "torchic" ] || [ "$(hostname)" = "flareon" ]; then
-    krisplocation=$(find ~/.config/discord -name "discord_krisp.node")
-    nohup krisp-patcher $krisplocation 2>&1 > /dev/null &
-    disown
-    # nohup discord 2>&1 > /dev/null &
-    # disown
-fi
+# NOTE: krisp is patched at build time in modules/home-manager/apps/general
+# (discord_krisp.node lives in the read-only nix store, so it cannot be
+# patched at login). Discord autostart intentionally disabled:
+# nohup discord 2>&1 > /dev/null &
+# disown
