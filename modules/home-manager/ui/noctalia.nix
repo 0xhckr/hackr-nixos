@@ -321,7 +321,10 @@
           max_label_chars = 2; # v4 characterCount
           labels_only_when_occupied = true; # v4 showLabelsOnlyWhenOccupied
           hide_when_empty = false; # v4 hideUnoccupied=false
-          pill_scale = 0.6; # v4 pillSize
+          # v4 pillSize=0.6 has no 1:1 equivalent -- v5 splits it into a global
+          # pill_scale plus active/inactive pill multipliers (defaults 1.0/2.2/1.0,
+          # i.e. the focused pill is 2.2x the dot). Scaling everything by 0.6
+          # squishes the active pill, so leave the defaults alone.
           focused_color = "primary";
           occupied_color = "secondary";
           empty_color = "secondary";
