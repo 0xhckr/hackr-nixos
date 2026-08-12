@@ -78,7 +78,8 @@
 
           focus-ring {
               width 2
-              active-gradient from="#009fff" to="#0a0a0a" angle=180
+              active-gradient from="#3d434c" to="#0e1014" angle=180
+              inactive-color "#18191d"
           }
 
           tab-indicator {
@@ -86,9 +87,9 @@
               gap 0
               gaps-between-tabs 0
               corner-radius 8
-              active-color "#fafafa"
+              active-color "#4d525a"
               inactive-color "#171717"
-              urgent-color "#ff2e3f"
+              urgent-color "#4e2c2c"
               length total-proportion=0.45
               position "left"
               place-within-column
@@ -97,7 +98,7 @@
           struts {
               left 0
               right 0
-              top 4
+              top 0
               bottom 0
           }
 
@@ -190,7 +191,7 @@
       }
 
       window-rule {
-          geometry-corner-radius 4
+          geometry-corner-radius 16
           clip-to-geometry true
       }
 
