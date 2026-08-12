@@ -278,7 +278,10 @@
 
       bar.main = {
         position = "top";
-        background_opacity = 0.0; # v4 backgroundOpacity=0 (transparent floating bar)
+        # Translucent surface tint (follows the Pierre palette, so it flips
+        # with dark/light) -- keeps widgets readable over busy wallpapers.
+        # v4 was 0 (fully transparent).
+        background_opacity = 0.65;
         radius = 12; # v4 frameRadius
         margin_ends = 5; # v4 marginHorizontal
         margin_edge = 5; # v4 marginVertical
