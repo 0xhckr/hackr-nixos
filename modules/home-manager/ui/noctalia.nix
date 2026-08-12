@@ -10,9 +10,9 @@
   # wrote a static v4 palette that v5 ignores (kept off below as belt &
   # suspenders); the new `noctalia` target, however, would force a base16
   # palette + custom_palette="stylix", stylix fonts, opacity and wallpaper
-  # defaults into our TOML — clobbering the Pierre palette pair and everything
-  # the runtime dark/light toggle relies on. Disabled, same reason we disable
-  # the gtk/gnome/vicinae targets.
+  # defaults into our TOML — clobbering the palette source (Pierre custom /
+  # wallpaper) and everything the runtime dark/light/auto toggle relies on.
+  # Disabled, same reason we disable the gtk/gnome/vicinae targets.
   stylix.targets.noctalia-shell.enable = false;
   stylix.targets.noctalia.enable = false;
 
@@ -47,6 +47,9 @@
         # intentionally installs no standalone agent.
         polkit_agent = true;
         avatar_path = "/home/${username}/.face";
+        # Attached panels anchor to this bar (relevant once multiple bars exist).
+        panel_anchor_bar = "main";
+        password_style = "random";
         # v4 clipboard history was off and piped through cliphist; v5 has a
         # built-in (encrypted) clipboard manager. Keeping the v4 behaviour of
         # "no clipboard history" here — flip to true to get the new one.
@@ -67,9 +70,11 @@
         };
 
         panel = {
-          transparency_mode = "soft"; # ~ v4 ui.panelBackgroundOpacity 0.93 (no numeric knob in v5)
+          transparency_mode = "glass"; # live-tweaked from "soft" (~ v4 ui.panelBackgroundOpacity 0.93; no numeric knob in v5)
           launcher_position = "center"; # v4 appLauncher.position "center" (placement floating = default)
           control_center_placement = "attached"; # v4 ui.panelsAttachedToBar
+          clipboard_placement = "attached";
+          polkit_placement = "attached";
           wallpaper_placement = "attached"; # v4 wallpaper.panelPosition "follow_bar"
           open_near_click_control_center = true; # v4 controlCenter.position "close_to_bar_button"
           session_placement = "floating";
@@ -140,10 +145,14 @@
       };
 
       theme = {
-        # Declarative baseline = dark; the control-center toggle flips it at
-        # runtime and persists to the state settings.toml (same v4 semantics).
-        mode = "dark";
-        source = "custom";
+        # Live GUI moved the baseline off mode="dark" + source="custom" (Pierre)
+        # onto auto dark/light (sunrise/sunset from [location]) with colors
+        # pulled from the current wallpaper and a pure-black dark surface. The
+        # theme_mode_changed hook still tracks the resolved mode. Pierre stays
+        # as the preselected custom palette in case source flips back.
+        mode = "auto";
+        source = "wallpaper";
+        pure_black_dark = true;
         custom_palette = "Pierre";
 
         templates = {
@@ -183,9 +192,11 @@
         position = "top_right";
         background_opacity = 1.0;
 
-        # v4 enabledTypes [0 1 2] = volume-out + volume-in + brightness.
-        # Everything else stays off (v4 had no such OSDs). keyboard_layout
-        # carries over v4's notifications.enableKeyboardLayoutToast.
+        # v4 enabledTypes [0 1 2] = volume-out + volume-in + brightness;
+        # keyboard_layout carries over v4's notifications.enableKeyboardLayoutToast.
+        # The six extra kinds (wifi/bluetooth/power_profile/caffeine/nightlight/dnd)
+        # were turned on in the live GUI; lock_keys/keyboard_backlight/privacy
+        # stay off.
         kinds = {
           volume = true;
           volume_output = true;
@@ -194,12 +205,12 @@
           lock_keys = false;
           keyboard_layout = true;
           keyboard_backlight = false;
-          wifi = false;
-          bluetooth = false;
-          power_profile = false;
-          caffeine = false;
-          nightlight = false;
-          dnd = false;
+          wifi = true;
+          bluetooth = true;
+          power_profile = true;
+          caffeine = true;
+          nightlight = true;
+          dnd = true;
           privacy = false;
         };
       };
@@ -278,11 +289,13 @@
 
       bar.main = {
         position = "top";
-        # Translucent surface tint (follows the Pierre palette, so it flips
-        # with dark/light) -- keeps widgets readable over busy wallpapers.
-        # v4 was 0 (fully transparent).
-        background_opacity = 0.65;
-        radius = 12; # v4 frameRadius
+        # Floating pill bar (live-tweaked): more transparent + oversized radius,
+        # no space reserved for it, and it only hides while a window overlaps.
+        # The tinted surface follows the palette (flips with dark/light) and
+        # keeps widgets readable over busy wallpapers. v4 was 0 (fully
+        # transparent) with radius 12; the Nix baseline was 0.65/12/reserved.
+        background_opacity = 0.5;
+        radius = 80;
         margin_ends = 5; # v4 marginHorizontal
         margin_edge = 5; # v4 marginVertical
         padding = 8; # v4 frameThickness
@@ -291,8 +304,9 @@
         # capsule widgets would be see-through anyway; plain floating bar is the
         # same look. Set capsule=true (+capsule_fill) if you want capsules back.
         capsule = false;
-        reserve_space = true; # v4 displayMode always_visible
+        reserve_space = false;
         auto_hide = false;
+        smart_auto_hide = true;
 
         start = ["workspaces"];
         center = ["active_window"];
@@ -433,10 +447,43 @@
       };
 
       # v4's big lockscreen clock (clockStyle custom, "hh\nmm"; 12h there while
-      # the bar stayed 24h). Default lock screen is still enabled underneath.
+      # the bar stayed 24h) plus the login box; both were placed in v5's edit
+      # mode live, geometry persisted here.
       lockscreen_widgets = {
         enabled = true;
-        widget_order = ["big_clock"];
+        widget_order = ["lockscreen-login-box@eDP-1" "big_clock"];
+
+        # Edit-mode snapping grid (persisted from live edit mode).
+        grid = {
+          cell_size = 16;
+          major_interval = 4;
+          visible = true;
+        };
+
+        widget."lockscreen-login-box@eDP-1" = {
+          type = "login_box";
+          output = "eDP-1";
+          box_width = 810.0;
+          box_height = 196.0;
+          cx = 960.0;
+          cy = 1098.0;
+          settings = {
+            layout = "regular";
+            background_color = "surface_variant";
+            background_opacity = 0.88;
+            background_radius = 12.0;
+            center_password_text = false;
+            input_opacity = 1.0;
+            input_radius = 6.0;
+            show_caps_lock = true;
+            show_keyboard_layout = true;
+            show_login_button = true;
+            show_media = true;
+            show_session_buttons = true;
+            show_unlock_hint = true;
+            show_weather = true;
+          };
+        };
 
         widget.big_clock = {
           type = "clock";
