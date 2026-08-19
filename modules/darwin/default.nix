@@ -1,5 +1,5 @@
 # Shared nix-darwin base. Mirrors modules/nixos but for macOS hosts.
-# Kept small on purpose — most user-facing config lives in home-manager.
+# Kept small on purpose. Most user-facing config lives in home-manager.
 {
   inputs,
   system,

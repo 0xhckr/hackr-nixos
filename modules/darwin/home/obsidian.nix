@@ -3,7 +3,7 @@
 #
 # Obsidian on macOS looks for vault themes in <vault>/.obsidian/themes/, same
 # as Linux. The home.file entry stages the theme in a stable location; the
-# activation script copies real files (not symlinks) into each vault —
+# activation script copies real files (not symlinks) into each vault.
 # Electron/Obsidian doesn't follow nix store symlinks for theme files.
 {lib, ...}: {
   home.file.".local/share/obsidian-themes/Pierre Dark" = {

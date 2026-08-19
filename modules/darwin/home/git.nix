@@ -7,7 +7,7 @@
       force = true;
     };
 
-    # Global git ignore (also honored by jj) — see cfg/git/ignore.
+    # Global git ignore (also honored by jj); see cfg/git/ignore.
     ".config/git/ignore" = {
       source = ../../../cfg/git/ignore;
       force = true;

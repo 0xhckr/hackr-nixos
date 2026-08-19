@@ -1,8 +1,8 @@
-# NixOS Configuration — Agent Instructions
+# NixOS configuration agent instructions
 
 ## Overview
 
-This is a personal NixOS flake configuration for a single user (`hackr`, Mohammad Al-Ahdal) across three machines. All host configurations share a common module base and are composed via `flake.nix`.
+This is a personal NixOS flake configuration for a single user (`hackr`, Mohammad Al-Ahdal) across multiple machines. All host configurations share a common module base and are composed via `flake.nix`.
 
 - **Flake inputs** are pinned in `flake.lock`. Always keep `inputs.nixpkgs.follows = "nixpkgs"` when adding new inputs.
 - **NEVER make `jj` or `git` commits automatically.** The user must explicitly approve every commit. Do not run `jj commit`, `jj describe`, `git commit`, `git add`, or any version control write operation without being asked first.
@@ -21,25 +21,25 @@ This is a personal NixOS flake configuration for a single user (`hackr`, Mohamma
 | Check flake syntax | `nix flake check` |
 | Inspect flake outputs | `nix flake show` |
 | Run a flake app | `nr <app-name>` (nushell alias) |
-| Rebuild (nushell alias) | `rebuild` — also pushes to S3 cache on `infernape` |
+| Rebuild (nushell alias) | `rebuild`; also pushes to S3 cache on `infernape` |
 
 Hosts: `infernape`, `torchic`, `snorlax`, `flareon`
 
 ---
 
-## Directory Structure
+## Directory structure
 
 ```
 flake.nix                        # Entry point; defines all inputs and nixosConfigurations
-flake.lock                       # Pinned input revisions — commit after updates
+flake.lock                       # Pinned input revisions; commit after updates
 hosts/
   infernape/                     # Primary desktop (state 24.11)
-  torchic/                       # Laptop — includes torchic-audio.nix (state 25.05)
-  snorlax/                       # Work Laptop — NVIDIA + OpenRazer (state 24.11)
-  flareon/                       # Laptop — includes flareon-audio.nix (state 25.05)
+  torchic/                       # Laptop, includes torchic-audio.nix (state 25.05)
+  snorlax/                       # Work laptop, NVIDIA + OpenRazer (state 24.11)
+  flareon/                       # Laptop, includes flareon-audio.nix (state 25.05)
     default.nix                  # Imports common modules + host-specific hardware
     boot.nix                     # Bootloader / kernel configuration
-    hardware-configuration.nix   # Generated — do NOT hand-edit
+    hardware-configuration.nix   # Generated. Do NOT hand-edit
 modules/
   nixos/                         # System-level (runs as root / NixOS options)
     apps/                        # System-installed apps
@@ -77,12 +77,12 @@ modules/
       general/default.nix        # JetBrains IDEs, Affinity v3, zen-browser (twilight),
                                  # discord, obsidian, zoom, slack, GIMP, VLC, Yaak, etc.
                                  # discord is wrapped (discord-with-krisp): krisp-patcher
-                                 # patches discord_krisp.node at BUILD time (postInstall) —
+                                 # patches discord_krisp.node at BUILD time (postInstall).
                                  # nixpkgs discord bundles krisp in the store (read-only), so
                                  # runtime patching from startup scripts does NOT work. Its
                                  # stageModules is also overridden to rsync WRITABLE module
                                  # copies at launch (krisp creates KMS/logs in its dir; with
-                                 # store symlinks THz init fails with error -4).
+                                 # store symlinks the init fails with error -4).
       editor/                    # Zed (built from flake w/ FHS env), language servers, settings.json
       helix/                     # Helix (from helix flake master)
     dev/default.nix              # git, direnv, android-tools, nil, nixfmt, gcc, cargo, nodejs, bun, jdk, mc
@@ -115,20 +115,20 @@ patches/                         # Ad-hoc nixpkgs patches
 
 ---
 
-## Code Style
+## Code style
 
-- **Indentation**: 2 spaces, no tabs.
-- **Package references**: `pkgs.<name>` or `lib.getExe pkgs.<name>` for shell scripts.
-- **String interpolation**: `${pkgs.foo}/bin/foo` — always interpolate store paths.
-- **Overrides**: use `lib.mkForce` when overriding values inherited from other modules.
-- **Module focus**: each `.nix` file should configure one concern. Group related files under a subdirectory with a `default.nix` that only contains `imports = [ ... ]`.
-- **Static configs**: put non-Nix config files (KDL, JSON, shell scripts) in `cfg/` and symlink them via `links.nix` `home.file` entries with `force = true`.
-- **Generated files** (`hardware-configuration.nix`): never edit by hand.
-- **`allowUnfree`**: set in `links.nix` (`nixpkgs.config.allowUnfree = true`) — no need to repeat elsewhere.
+- **Indentation.** 2 spaces, no tabs.
+- **Package references.** `pkgs.<name>` or `lib.getExe pkgs.<name>` for shell scripts.
+- **String interpolation.** `${pkgs.foo}/bin/foo`; always interpolate store paths.
+- **Overrides.** Use `lib.mkForce` when overriding values inherited from other modules.
+- **Module focus.** Each `.nix` file should configure one concern. Group related files under a subdirectory with a `default.nix` that only contains `imports = [ ... ]`.
+- **Static configs.** Put non-Nix config files (KDL, JSON, shell scripts) in `cfg/` and symlink them via `links.nix` `home.file` entries with `force = true`.
+- **Generated files.** `hardware-configuration.nix` is generated; never edit by hand.
+- **`allowUnfree`.** Set in `links.nix` (`nixpkgs.config.allowUnfree = true`); no need to repeat elsewhere.
 
 ---
 
-## Key Patterns
+## Key patterns
 
 ### Adding a new NixOS module
 1. Create `modules/nixos/<category>/<name>.nix`.
@@ -194,12 +194,12 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 
 ---
 
-## Flake Inputs of Note
+## Flake inputs of note
 
 | Input | Purpose |
 |---|---|
-| `nixpkgs` | `nixos-unstable` — primary package set |
-| `nixpkgs-stable` | `nixos-25.11` — available for stable pin-outs |
+| `nixpkgs` | `nixos-unstable`, the primary package set |
+| `nixpkgs-stable` | `nixos-25.11`, available for stable pin-outs |
 | `home-manager` | Follows nixpkgs |
 | `stylix` | System-wide theming via base16 |
 | `niri-unstable` | WIP niri branch (used as the actual niri package) |
@@ -220,7 +220,7 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 
 ---
 
-## Nushell Aliases & Functions (defined in `modules/home-manager/shell/nushell.nix`)
+## Nushell aliases & functions (defined in `modules/home-manager/shell/nushell.nix`)
 
 | Name | Description |
 |---|---|
@@ -243,25 +243,25 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 ## Machines
 
 ### `infernape`
-- **Hardware**: Desktop PC
+- **Hardware.** Desktop PC
 - Primary workstation (`stateVersion = "24.11"`)
 - Imports base `modules/nixos` only (no extra hardware modules)
 - On successful rebuild, pushes the current system closure to the team S3 Nix binary cache
 
 ### `torchic`
-- **Hardware**: Framework 13
+- **Hardware.** Framework 13
 - (`stateVersion = "25.05"`)
 - Extra import: `modules/nixos/hardware/torchic-audio.nix` (Framework-specific audio quirks)
 - Niri config includes laptop output block from `cfg/niri/laptop-outputs.kdl`
 
 ### `flareon`
-- **Hardware**: Framework 13 Pro
+- **Hardware.** Framework 13 Pro
 - (`stateVersion = "25.05"`)
 - Extra import: `modules/nixos/hardware/flareon-audio.nix` (Framework-specific audio quirks)
 - Niri config includes laptop output block from `cfg/niri/laptop-outputs.kdl`
 
 ### `snorlax`
-- **Hardware**: Razer Blade 17
+- **Hardware.** Razer Blade 17
 - (`stateVersion = "24.11"`)
 - Extra imports: `snorlax-nvidia.nix`, `snorlax-openrazer.nix`, `snorlax-power-management.nix`
 - User added to `openrazer` group (Razer peripheral support)

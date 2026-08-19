@@ -10,7 +10,7 @@
   # wrote a static v4 palette that v5 ignores (kept off below as belt &
   # suspenders); the new `noctalia` target, however, would force a base16
   # palette + custom_palette="stylix", stylix fonts, opacity and wallpaper
-  # defaults into our TOML — clobbering the palette source (Pierre custom /
+  # defaults into our TOML, clobbering the palette source (Pierre custom /
   # wallpaper) and everything the runtime dark/light/auto toggle relies on.
   # Disabled, same reason we disable the gtk/gnome/vicinae targets.
   stylix.targets.noctalia-shell.enable = false;
@@ -23,7 +23,7 @@
     # The attrset below is converted to TOML into ~/.config/noctalia/config.toml
     # and validated at build time (`noctalia config validate`). GUI changes made
     # at runtime are written to ~/.local/state/noctalia/settings.toml, which
-    # loads AFTER config.toml and wins — if a setting here appears ignored,
+    # loads AFTER config.toml and wins. If a setting here appears ignored,
     # clear the override from that state file. (No writable-copy activation
     # hack needed anymore; that was a v4 read-only-symlink workaround.)
     #
@@ -52,7 +52,7 @@
         password_style = "random";
         # v4 clipboard history was off and piped through cliphist; v5 has a
         # built-in (encrypted) clipboard manager. Keeping the v4 behaviour of
-        # "no clipboard history" here — flip to true to get the new one.
+        # "no clipboard history" here. Flip to true to get the new one.
         clipboard_enabled = false;
         # v4 time was 24h everywhere (use12hourFormat=false).
         time_format = "{:%H:%M}";
@@ -92,7 +92,7 @@
           grid = true; # v4 largeButtonsLayout "grid"
           show_shortcuts = true; # v4 showNumberLabels
           # v4 countdown (10000ms) is per-action in v5. v4 order preserved.
-          # v5 has no hibernate action — emulated with a custom command.
+          # v5 has no hibernate action; emulated with a custom command.
           actions = [
             {
               action = "lock";
@@ -184,7 +184,7 @@
         layer = "overlay"; # v4 overlayLayer
         background_opacity = 1.0;
         # (v4 was top_right = v5 default; per-urgency durations/respectExpiry
-        # don't exist in v5 — sender expire_timeout is honored, else 6s.)
+        # don't exist in v5; sender expire_timeout is honored, else 6s.)
       };
 
       osd = {

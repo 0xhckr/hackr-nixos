@@ -37,7 +37,7 @@
     enableZshIntegration = true;
     # Suppress the noisy `direnv: export +AR +AS +CC ...` diff on every load.
     # Mirrors cfg/direnv/direnv.toml, which the Linux config links directly
-    # (can't symlink the dir here — nix-direnv owns ~/.config/direnv/lib).
+    # (can't symlink the dir here since nix-direnv owns ~/.config/direnv/lib).
     config.global = {
       hide_env_diff = true;
       log_format = "";

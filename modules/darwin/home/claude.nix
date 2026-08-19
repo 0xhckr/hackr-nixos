@@ -1,5 +1,5 @@
 # Claude Code: jj-aware worktree hooks (source-of-truth in cfg/claude/).
-# Mirrors the NixOS config (modules/home-manager/dev/claude.nix) — see the
+# Mirrors the NixOS config (modules/home-manager/dev/claude.nix). See the
 # comments there for the full rationale.
 {
   lib,

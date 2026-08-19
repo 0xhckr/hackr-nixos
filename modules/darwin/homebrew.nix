@@ -1,7 +1,7 @@
 # Homebrew-managed packages. Per preference, install software from Homebrew
 # where available and declare it here for reproducibility; the tools' configs
 # are managed by home-manager (see ./home). Homebrew itself must already be
-# installed — this module only drives `brew bundle`, it doesn't bootstrap brew.
+# installed. This module only drives `brew bundle`; it doesn't bootstrap brew.
 {...}: {
   homebrew = {
     enable = true;
@@ -33,7 +33,7 @@
       # Font used by ghostty (see home/ghostty.nix); matches the NixOS config.
       "font-departure-mono-nerd-font"
       "ghostty"
-      # Loop — radial-menu window manager (github.com/MrKai77/Loop).
+      # Loop, a radial-menu window manager (github.com/MrKai77/Loop).
       "loop"
       "nordpass"
       "raycast"

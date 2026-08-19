@@ -97,7 +97,7 @@
       keybind = cmd+physical:zero=last_tab
 
       # Quick terminal. global: requires Accessibility permission on macOS, and
-      # cmd+` is macOS's "cycle app windows" — rebind if that conflicts.
+      # cmd+` is macOS's "cycle app windows"; rebind if that conflicts.
       keybind = global:cmd+grave_accent=toggle_quick_terminal
 
       window-padding-x = 16

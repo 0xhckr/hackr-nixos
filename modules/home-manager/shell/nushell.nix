@@ -30,6 +30,7 @@ in {
       path add "~/bin"
       path add "~/.local/bin"
       path add "~/.nix-profile/bin"
+      path add "~/.bun/bin"
       path add "/run/wrappers/bin"
       path add "/var/lib/flatpak/exports/share"
       path add "/home/${username}/.local/share/flatpak/exports/share"

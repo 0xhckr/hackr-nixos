@@ -85,7 +85,7 @@ in {
       }
 
       # fastfetch (Homebrew) + pokeget-rs (nix) side by side, sprite picked
-      # from the hostname — so `metagross` renders the Metagross sprite.
+      # from the hostname, so `metagross` renders the Metagross sprite.
       def pokefetch [] {
         let FETCHER_CMD = "fastfetch --logo none"
         let EXTRA_PADDING_H = 2

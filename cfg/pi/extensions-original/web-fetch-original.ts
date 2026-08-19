@@ -2,7 +2,7 @@
  * Web Fetch Extension
  *
  * Adds a `web_fetch` tool that the LLM can use to make HTTP requests.
- * Backed by curl — no extra deps needed.
+ * Backed by curl. No extra deps needed.
  */
 
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";

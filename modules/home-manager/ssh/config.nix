@@ -23,7 +23,7 @@
 
       # Forward these machines' 1Password agent into the session so that,
       # when SSH'd in from elsewhere, git auth/signing prompts pop on the
-      # machine we're sitting at — not the desktop's unreachable GUI.
+      # machine we're sitting at, not the desktop's unreachable GUI.
       ${builtins.concatStringsSep "\n\n" (map (system: ''
           Host ${system}
             HostName ${system}

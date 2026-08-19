@@ -1,5 +1,5 @@
 /**
- * Hackr UI — Makes pi look like Charm's Crush (Charmtone Pantera palette).
+ * Hackr UI makes pi look like Charm's Crush (Charmtone Pantera palette).
  *
  * What it does:
  *   • Custom header with "3.14159" gradient wordmark + model + cwd
@@ -132,7 +132,7 @@ const ICON = {
 // ── Header ─────────────────────────────────────────────────────────────────
 
 // Digits sourced from the `pi` npm package's data file.
-// (The JS API is broken — require("./pi") won't resolve pi.txt — but the data
+// (The JS API is broken. require("./pi") won't resolve pi.txt, but the data
 // file at node_modules/pi-decimals/lib/pi.txt has 1M digits.)
 const { readFileSync } = require("node:fs") as typeof import("node:fs");
 const { join } = require("node:path") as typeof import("node:path");

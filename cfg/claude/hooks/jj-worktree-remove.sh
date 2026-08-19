@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Claude Code WorktreeRemove hook — counterpart to jj-worktree-create.sh.
+# Claude Code WorktreeRemove hook, counterpart to jj-worktree-create.sh.
 # Forgets the jj workspace (or removes the git worktree), then deletes the directory.
 set -euo pipefail
 

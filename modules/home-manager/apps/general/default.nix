@@ -48,7 +48,7 @@
   # load ("Application not signed by Discord", error -3) in the patchelf'd
   # binary, so patch the module at build time (a runtime patch cannot touch
   # the read-only store copy).
-  # Additionally krisp's engine needs its module dir WRITABLE at runtime
+  # Krisp's engine also needs its module dir WRITABLE at runtime
   # (it creates KMS/logs inside; otherwise init fails with error -4), so
   # override stageModules (nixpkgs #538735) to rsync real copies instead of
   # symlinking store paths. Recipe from NixOS/nixpkgs#195512#issuecomment.

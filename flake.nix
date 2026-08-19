@@ -223,7 +223,7 @@
       })
       x86_systems);
 
-    # macOS hosts (nix-darwin). Kept deliberately minimal — see modules/darwin.
+    # macOS hosts (nix-darwin). Kept deliberately minimal; see modules/darwin.
     darwinConfigurations = builtins.listToAttrs (map (name: {
         inherit name;
         value = inputs.nix-darwin.lib.darwinSystem {

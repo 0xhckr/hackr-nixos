@@ -5,7 +5,7 @@
 # jj colocated repos (and the resulting worktree has no .jj), so the
 # WorktreeCreate/WorktreeRemove hooks delegate to `jj workspace` instead.
 # Claude Code mutates ~/.claude/settings.json at runtime (model, effort, ...),
-# so it can't be a store symlink — following the pi/niri pattern, an activation
+# so it can't be a store symlink. Following the pi/niri pattern, an activation
 # step merges just the two hook keys into whatever is already there.
 {
   lib,
