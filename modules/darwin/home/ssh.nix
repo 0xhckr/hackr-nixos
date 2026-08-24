@@ -51,8 +51,8 @@ in {
       '';
     };
 
-    ".ssh/id_rsa.pub" = {
-      source = ../../../ssh/id_rsa.pub;
+    ".ssh/0xhckr-general.pub" = {
+      source = ../../../ssh/0xhckr-general.pub;
       force = true;
     };
 
@@ -62,7 +62,7 @@ in {
       text = ''
         [[ssh-keys]]
         vault = "Private"
-        item = "Hackr General"
+        item = "0xhckr-general"
       '';
     };
   };

@@ -1,15 +1,15 @@
-{pkgs, ...}: {
+_: {
   # herdr resolves pane shells in this order: [terminal].default_shell, then
   # $SHELL of the herdr *server* process, then /bin/sh. The server is
-  # long-lived and keeps whatever SHELL it was first spawned with, so pinning
-  # default_shell here is the only deterministic option.
+  # long-lived and keeps whatever SHELL it was first spawned with. Use the
+  # stable system profile path so garbage collection cannot invalidate it.
   home.file.".config/herdr/config-original.toml" = {
     force = true;
     text = ''
       onboarding = false
 
       [terminal]
-      default_shell = "${pkgs.nushell}/bin/nu"
+      default_shell = "/run/current-system/sw/bin/nu"
 
       [ui.toast]
       delivery = "system"

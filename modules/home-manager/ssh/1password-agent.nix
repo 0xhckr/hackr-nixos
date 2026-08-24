@@ -4,7 +4,7 @@ _: {
     text = ''
       [[ssh-keys]]
       vault = "Private"
-      item = "Hackr General"
+      item = "0xhckr-general"
     '';
     force = true;
   };
