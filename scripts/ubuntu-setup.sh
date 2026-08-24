@@ -622,7 +622,9 @@ carapace _carapace nushell | sed 's|"/homeless-shelter|$"($env.HOME)|g' > ~/.cac
 
 # --- atuin init ---
 echo "=> Initializing atuin..."
-atuin init nu > ~/.local/share/atuin/init.nu
+atuin init nu \
+  | sed '/name: atuin/{N; /modifier: control/s/name: atuin/name: atuin_ctrl_r/;}' \
+  > ~/.local/share/atuin/init.nu
 
 # --- disable motd ---
 if [ -f ~/.hushlogin ]; then
