@@ -30,6 +30,7 @@
     inputs.jj.packages."${system}".jujutsu
     inputs.jj-starship.packages."${system}".jj-starship
     inputs.gojo.packages."${system}".default
+    inputs.co.packages."${system}".default
     inputs.herdr.packages."${system}".default
   ];
 

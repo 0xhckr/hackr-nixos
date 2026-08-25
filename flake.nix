@@ -140,6 +140,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    co = {
+      url = "github:0xhckr/co";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     herdr = {
       type = "github";
       owner = "0xhckr";
