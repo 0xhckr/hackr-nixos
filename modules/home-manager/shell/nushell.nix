@@ -143,7 +143,7 @@ in {
         let pokemon_name = (hostname)
 
         # Get the sprite
-        let sprite = (${pkgs.pokeget-rs}/bin/pokeget $pokemon_name --hide-name | complete | get stdout)
+        let sprite = (${pkgs.pokeget-rs}/bin/pokeget $pokemon_name --hide-name --shiny | complete | get stdout)
 
         # Get fetcher height
         let fetcher_height = (bash -c $FETCHER_CMD | lines | length)

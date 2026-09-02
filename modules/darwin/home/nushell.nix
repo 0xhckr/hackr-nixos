@@ -95,7 +95,7 @@ in {
         # Strip any domain suffix (e.g. metagross.local -> metagross).
         let pokemon_name = (hostname | split row "." | first)
 
-        let sprite = (pokeget $pokemon_name --hide-name | complete | get stdout)
+        let sprite = (pokeget $pokemon_name --hide-name --shiny | complete | get stdout)
 
         let fetcher_height = (bash -c $FETCHER_CMD | lines | length)
         let sprite_height = ($sprite | lines | length)
