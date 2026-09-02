@@ -4,7 +4,7 @@
   ...
 }: {
   services.ollama = {
-    enable = builtins.elem config.networking.hostName ["torchic" "infernape" "flareon"];
+    enable = builtins.elem config.networking.hostName ["infernape" "flareon"];
     loadModels = ["qwen3-coder:30b"];
     package = pkgs.ollama-rocm;
   };

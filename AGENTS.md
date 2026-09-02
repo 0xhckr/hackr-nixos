@@ -23,7 +23,7 @@ This is a personal NixOS flake configuration for a single user (`hackr`, Mohamma
 | Run a flake app | `nr <app-name>` (nushell alias) |
 | Rebuild (nushell alias) | `rebuild`; also pushes to S3 cache on `infernape` |
 
-Hosts: `infernape`, `torchic`, `snorlax`, `flareon`
+Hosts: `infernape`, `snorlax`, `flareon`
 
 ---
 
@@ -34,7 +34,6 @@ flake.nix                        # Entry point; defines all inputs and nixosConf
 flake.lock                       # Pinned input revisions; commit after updates
 hosts/
   infernape/                     # Primary desktop (state 24.11)
-  torchic/                       # Laptop, includes torchic-audio.nix (state 25.05)
   snorlax/                       # Work laptop, NVIDIA + OpenRazer (state 24.11)
   flareon/                       # Laptop, includes flareon-audio.nix (state 25.05)
     default.nix                  # Imports common modules + host-specific hardware
@@ -53,7 +52,6 @@ modules/
       snorlax-nvidia.nix
       snorlax-openrazer.nix
       snorlax-power-management.nix
-      torchic-audio.nix
       flareon-audio.nix
     security/
       1password.nix              # polkit owner = username
@@ -102,7 +100,7 @@ modules/
       azure.nix
 cfg/                             # Static config files symlinked into ~/.config/ via links.nix
   atuin/ btop/ commie/ direnv/ fastfetch/
-  niri/                          # delayed (startup script), laptop-outputs.kdl (torchic/snorlax)
+  niri/                          # delayed (startup script), laptop-outputs.kdl (snorlax/flareon)
   noctalia/                      # palettes/Pierre.json (v5 palette layout, flat)
   nushell/                       # direnv.nu, aacpi.sh
   vicinae/scripts/               # Scripts for vicinae launcher
@@ -188,7 +186,7 @@ All inputs are forwarded via `specialArgs`. Destructure in the function head:
 The `hostname` special arg is derived from `config.networking.hostName` and passed through HM's `extraSpecialArgs`:
 ```nix
 { hostname, ... }:
-  lib.optionalString (hostname == "torchic" || hostname == "snorlax") "...";
+  lib.optionalString (hostname == "snorlax" || hostname == "flareon") "...";
 ```
 See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 
@@ -248,12 +246,6 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 - Imports base `modules/nixos` only (no extra hardware modules)
 - On successful rebuild, pushes the current system closure to the team S3 Nix binary cache
 
-### `torchic`
-- **Hardware.** Framework 13
-- (`stateVersion = "25.05"`)
-- Extra import: `modules/nixos/hardware/torchic-audio.nix` (Framework-specific audio quirks)
-- Niri config includes laptop output block from `cfg/niri/laptop-outputs.kdl`
-
 ### `flareon`
 - **Hardware.** Framework 13 Pro
 - (`stateVersion = "25.05"`)
@@ -265,4 +257,4 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 - (`stateVersion = "24.11"`)
 - Extra imports: `snorlax-nvidia.nix`, `snorlax-openrazer.nix`, `snorlax-power-management.nix`
 - User added to `openrazer` group (Razer peripheral support)
-- Niri config includes laptop output block (same KDL as torchic)
+- Niri config includes laptop output block (same KDL as flareon)

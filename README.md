@@ -17,7 +17,6 @@ My NixOS system and Home Manager configs for all my machines. Everything is mana
 
 Defined in `hosts/`:
 - `infernape` - desktop
-- `torchic` - laptop
 - `flareon` - laptop (new)
 - `snorlax` - work laptop
 

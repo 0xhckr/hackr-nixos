@@ -4,9 +4,9 @@
   pkgs-stable,
   ...
 }: let
-  hasFingerPrintSensor = config.networking.hostName == "torchic" || config.networking.hostName == "flareon";
+  hasFingerPrintSensor = config.networking.hostName == "flareon";
 in {
-  # Fingerprint authentication (torchic-specific)
+  # Fingerprint authentication for hosts with a supported sensor
   services.fprintd = {
     enable = hasFingerPrintSensor;
     tod.driver = pkgs-stable.libfprint-2-tod1-vfs0090;

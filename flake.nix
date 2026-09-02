@@ -195,7 +195,7 @@
   outputs = {nixpkgs, ...} @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    x86_systems = ["infernape" "torchic" "snorlax" "flareon"];
+    x86_systems = ["infernape" "snorlax" "flareon"];
     aarch64_systems = [];
     applesilicon_systems = ["metagross"];
   in {

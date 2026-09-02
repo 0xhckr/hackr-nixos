@@ -5,7 +5,7 @@
   ...
 }: {
   programs.steam = {
-    enable = builtins.elem config.networking.hostName ["torchic" "infernape" "flareon"];
+    enable = builtins.elem config.networking.hostName ["infernape" "flareon"];
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
