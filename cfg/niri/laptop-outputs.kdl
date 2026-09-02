@@ -1,4 +1,4 @@
-output "BOE NE135A1M-NY1 Unknown" {
+output "China Star Optoelectronics Technology Co., Ltd MND508ZB1-1 Unknown" {
     mode "2880x1920@120.000"
     scale 1.5
     transform "normal"
