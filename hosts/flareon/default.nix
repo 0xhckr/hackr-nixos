@@ -1,15 +1,18 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
-{...}: {
+{ pkgs, ... }: {
   imports = [
     ../../modules/nixos
-    ../../modules/nixos/hardware/flareon-audio.nix
     ./hardware-configuration.nix
     ./boot.nix
   ];
 
   networking.hostName = "flareon"; # Define your hostname.
+
+  # Arc B390 uses Mesa's xe graphics stack, but VA-API video acceleration
+  # requires Intel's separate media driver.
+  hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
