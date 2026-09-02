@@ -418,9 +418,7 @@
       # Settings -> Plugins (persists to the state settings.toml).
 
       # v4 desktopWidgets (eDP-1 had Clock + Weather). cx/cy are the widget
-      # CENTER in logical px (v4 x/y was the top-left origin), so these are
-      # approximations -- nudge once in edit mode (`noctalia msg desktop-widgets-edit`);
-      # the editor persists to the state file. Binary clock style: not in v5.
+      # center in logical px. Binary clock style: not in v5.
       desktop_widgets = {
         enabled = true;
         widget_order = ["clock_main" "weather_main"];
@@ -428,8 +426,8 @@
         widget.clock_main = {
           type = "clock";
           output = "eDP-1";
-          cx = 1930.0; # ~ v4 x=1680,y=1060 + half rendered size
-          cy = 1390.0;
+          cx = 960.0;
+          cy = 640.0;
           settings = {
             format = "{:%H:%M}\n{:%e %B %Y}"; # v4 "HH:mm\nd MMMM yyyy"
             color = "primary"; # v4 usePrimaryColor
