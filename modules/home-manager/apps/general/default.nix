@@ -3,6 +3,7 @@
   lib,
   inputs,
   system,
+  pkgs-fresh,
   pkgs-stable,
   ...
 }: let
@@ -106,6 +107,7 @@ in {
       zoom-us
       nautilus
       slack
+      pkgs-fresh.teams-for-linux
       # inputs.graphite.packages."${system}".default
       inputs.helium.packages."${system}".default
       inputs.stoa.packages."${system}".default
