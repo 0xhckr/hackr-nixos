@@ -3,6 +3,9 @@ output "China Star Optoelectronics Technology Co., Ltd MND508ZB1-1 Unknown" {
     scale 1.5
     transform "normal"
     position x=0 y=0
+    layout {
+        default-column-width { proportion 1.0; }
+    }
 }
 
 output "DP-4" {
@@ -24,6 +27,9 @@ output "AU Optronics 0x749D Unknown" {
     scale 1.25
     transform "normal"
     position x=7680 y=0
+    layout {
+        default-column-width { proportion 1.0; }
+    }
 }
 
 output "DP-1" {
