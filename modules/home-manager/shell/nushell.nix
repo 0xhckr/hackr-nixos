@@ -188,7 +188,7 @@ in {
       l = "ls -la";
       b = "${pkgs.bun}/bin/bun";
       c = "code";
-      oc = "${inputs.llm-agents.packages.${system}.opencode2}/bin/opencode";
+      oc = "${inputs.llm-agents.packages.${system}.opencode2}/bin/opencode2";
     };
   };
 
