@@ -53,6 +53,18 @@
         source = ../../cfg/fastfetch;
         recursive = true;
       };
+      ".config/opencode/AGENTS.md" = {
+        force = true;
+        source = ../../cfg/agents/AGENTS.md;
+      };
+      ".claude/CLAUDE.md" = {
+        force = true;
+        source = ../../cfg/agents/AGENTS.md;
+      };
+      ".codex/AGENTS.md" = {
+        force = true;
+        source = ../../cfg/agents/AGENTS.md;
+      };
       ".local/share/obsidian-themes/Pierre Dark" = {
         force = true;
         source = "${../../cfg/obsidian/themes}/Pierre Dark";
