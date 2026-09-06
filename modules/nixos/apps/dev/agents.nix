@@ -7,7 +7,7 @@
     crush
     claude-code
     cursor-agent
-    opencode
+    opencode2
     pi
   ];
   nixpkgs.config.allowUnfree = true;
