@@ -6,6 +6,7 @@
   system,
   username,
   osConfig,
+  opencode2,
   ...
 }: let
   postRebuildHook =
@@ -188,7 +189,7 @@ in {
       l = "ls -la";
       b = "${pkgs.bun}/bin/bun";
       c = "code";
-      oc = "${inputs.llm-agents.packages.${system}.opencode2}/bin/opencode2";
+      oc = "${opencode2}/bin/opencode2";
     };
   };
 
