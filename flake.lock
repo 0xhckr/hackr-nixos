@@ -51,6 +51,26 @@
         "type": "github"
       }
     },
+    "ai-usagebar": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1789061238,
+        "narHash": "sha256-yuH3szBYLJ9xzfbiczQ/glHl58AspK0YKLY1rLVwx1c=",
+        "owner": "akitaonrails",
+        "repo": "ai-usagebar",
+        "rev": "be30a3a6e07347b18669c02bbdb90dd772f9e394",
+        "type": "github"
+      },
+      "original": {
+        "owner": "akitaonrails",
+        "repo": "ai-usagebar",
+        "type": "github"
+      }
+    },
     "awww": {
       "inputs": {
         "flake-compat": "flake-compat_3",
@@ -1391,6 +1411,7 @@
       "inputs": {
         "_1password": "_1password",
         "affinity-nix": "affinity-nix",
+        "ai-usagebar": "ai-usagebar",
         "awww": "awww",
         "co": "co",
         "commie": "commie",

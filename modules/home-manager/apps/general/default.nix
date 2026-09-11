@@ -111,6 +111,7 @@ in {
       # inputs.graphite.packages."${system}".default
       inputs.helium.packages."${system}".default
       inputs.stoa.packages."${system}".default
+      inputs.ai-usagebar.packages."${system}".default
       # winboat
       gimp
       # parsec-bin

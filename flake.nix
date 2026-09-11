@@ -153,6 +153,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ai-usagebar = {
+      url = "github:akitaonrails/ai-usagebar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stoa = {
       url = "github:bobrware/stoa-nix";
       inputs.nixpkgs.follows = "nixpkgs";
