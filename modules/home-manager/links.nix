@@ -13,7 +13,6 @@
     ./apps
     ./dev
     ./work
-    inputs.hunk.homeManagerModules.default
   ];
 
   gtk.gtk4.theme = null;
@@ -36,11 +35,6 @@
       ".config/btop" = {
         force = true;
         source = ../../cfg/btop;
-        recursive = true;
-      };
-      ".config/commie" = {
-        force = true;
-        source = ../../cfg/commie;
         recursive = true;
       };
       ".config/direnv" = {

@@ -6,7 +6,6 @@ email = "hackr@hackr.sh"
 
 [ui]
 default-command = "log"
-pager = ["hunk", "pager"]
 diff-formatter = ":git"
 
 [signing]

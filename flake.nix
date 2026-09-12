@@ -35,23 +35,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sidra = {
-      url = "github:wimpysworld/sidra";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     awww = {
       url = "git+https://codeberg.org/LGFae/awww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    affinity-nix = {
-      url = "github:mrshmllow/affinity-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    # NOTE: repo was renamed noctalia-shell -> noctalia (old URL 301-redirects).
-    # main = v5 (TOML config rewrite); v4 lives on the `legacy-v4` branch.
     noctalia = {
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -106,18 +94,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    commie = {
-      url = "github:at-mojo/commie";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     _1password = {
       url = "github:1Password/shell-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    graphite = {
-      url = "github:GraphiteEditor/Graphite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -158,11 +136,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stoa = {
-      url = "github:bobrware/stoa-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs-fresh";
@@ -183,12 +156,6 @@
     tuigreet = {
       url = "github:NotAShelf/tuigreet";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hunk = {
-      url = "github:modem-dev/hunk";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.bun2nix.inputs.systems.follows = "systems";
     };
 
     nix-darwin = {

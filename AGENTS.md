@@ -99,7 +99,7 @@ modules/
     work/
       azure.nix
 cfg/                             # Static config files symlinked into ~/.config/ via links.nix
-  atuin/ btop/ commie/ direnv/ fastfetch/
+  atuin/ btop/ direnv/ fastfetch/
   niri/                          # delayed (startup script), laptop-outputs.kdl (snorlax/flareon)
   noctalia/                      # palettes/Pierre.json (v5 palette layout, flat)
   nushell/                       # direnv.nu, aacpi.sh
@@ -207,7 +207,6 @@ See `modules/home-manager/ui/niri.nix` for a real example (laptop output block).
 | `zen-browser` | Zen Browser (twilight channel) |
 | `noctalia` | Noctalia shell/bar (**v5**, C++ rewrite; repo renamed noctalia-shell → noctalia; v4 = `legacy-v4` branch) |
 | `vicinae` | Vicinae app launcher |
-| `commie` | commie app |
 | `awww` | Wallpaper daemon (`awww-daemon`) |
 | `affinity-nix` | Affinity suite on Linux |
 | `_1password` | 1Password shell plugins |
