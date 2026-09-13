@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ./boot.nix
     ./cloudflared.nix
+    ./opencode.nix
   ];
 
   networking.hostName = "infernape"; # Define your hostname.
