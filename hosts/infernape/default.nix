@@ -6,6 +6,7 @@
     ../../modules/nixos
     ./hardware-configuration.nix
     ./boot.nix
+    ./cloudflared.nix
   ];
 
   networking.hostName = "infernape"; # Define your hostname.
