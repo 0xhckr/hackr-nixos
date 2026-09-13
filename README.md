@@ -16,7 +16,7 @@ My NixOS system and Home Manager configs for all my machines. Everything is mana
 ## Hosts
 
 Defined in `hosts/`:
-- `infernape` - desktop
+- `infernape` - desktop PC, transitioning into a half-server, half-desktop setup
 - `flareon` - laptop (new)
 - `snorlax` - work laptop
 
