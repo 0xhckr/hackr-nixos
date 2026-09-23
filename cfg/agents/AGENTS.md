@@ -7,11 +7,6 @@ Shared by OpenCode, Claude Code, and Codex through their global instruction file
 Use jj for version control. Follow each repository's instructions for describing
 changes, bookmarks, review, and publication.
 
-- Never create a commit or push on my behalf unless I explicitly ask for it in
-  that request. This covers `jj commit`, `jj describe`, `jj git push`,
-  `git commit`, `git add`, `git push`, and any other version control write
-  operation. Staging changes and showing diffs is fine; recording or publishing
-  them is not, until I say so.
 - Never add Claude (or any AI assistant) as a co-author. Do not add
   `Co-Authored-By: Claude ...` trailers or similar attribution to commit
   messages, change descriptions, or PR bodies.
