@@ -13,6 +13,7 @@
   # Arc B390 uses Mesa's xe graphics stack, but VA-API video acceleration
   # requires Intel's separate media driver.
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
+  hardware.flipperzero.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
