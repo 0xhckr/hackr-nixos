@@ -115,6 +115,7 @@ patches/                         # Ad-hoc nixpkgs patches
 ## Code style
 
 - **Indentation.** 2 spaces, no tabs.
+- **Nix formatting.** `nixfmt` is approved for this repository; use the existing Nix toolchain if it is not on `PATH`.
 - **Package references.** `pkgs.<name>` or `lib.getExe pkgs.<name>` for shell scripts.
 - **String interpolation.** `${pkgs.foo}/bin/foo`; always interpolate store paths.
 - **Overrides.** Use `lib.mkForce` when overriding values inherited from other modules.

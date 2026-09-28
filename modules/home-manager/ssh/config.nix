@@ -3,7 +3,8 @@
   x86_systems,
   aarch64_systems,
   ...
-}: {
+}:
+{
   home.file.".ssh/config" = {
     text = ''
       Host thundurus
@@ -20,17 +21,23 @@
         HostName 10.0.11.5
         User ${username}
 
+      Host mareep
+        HostName mareep
+        User ${username}
+        ForwardAgent ~/.1password/agent.sock
+
 
       # Forward these machines' 1Password agent into the session so that,
       # when SSH'd in from elsewhere, git auth/signing prompts pop on the
       # machine we're sitting at, not the desktop's unreachable GUI.
-      ${builtins.concatStringsSep "\n\n" (map (system: ''
+      ${builtins.concatStringsSep "\n\n" (
+        map (system: ''
           Host ${system}
             HostName ${system}
             User ${username}
             ForwardAgent ~/.1password/agent.sock
-        '')
-        (x86_systems ++ aarch64_systems))}
+        '') (x86_systems ++ aarch64_systems)
+      )}
 
       Host *.vm.blacksmith.sh
         StrictHostKeyChecking no

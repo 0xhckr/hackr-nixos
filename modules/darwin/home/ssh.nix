@@ -4,10 +4,12 @@
   x86_systems,
   aarch64_systems,
   ...
-}: let
+}:
+let
   # macOS 1Password SSH agent socket (differs from the Linux ~/.1password path).
   agentSock = "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
-in {
+in
+{
   home.file = {
     ".ssh/config" = {
       force = true;
@@ -26,15 +28,21 @@ in {
           HostName 10.0.11.5
           User ${username}
 
+        Host mareep
+          HostName mareep
+          User ${username}
+          ForwardAgent "${agentSock}"
+
         # Forward this Mac's 1Password agent into these sessions so that git
         # auth/signing prompts pop here, on the machine we're sitting at.
-        ${builtins.concatStringsSep "\n\n" (map (host: ''
+        ${builtins.concatStringsSep "\n\n" (
+          map (host: ''
             Host ${host}
               HostName ${host}
               User ${username}
               ForwardAgent "${agentSock}"
-          '')
-          (x86_systems ++ aarch64_systems))}
+          '') (x86_systems ++ aarch64_systems)
+        )}
 
         Host *.vm.blacksmith.sh
           StrictHostKeyChecking no
