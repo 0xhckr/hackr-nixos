@@ -21,6 +21,27 @@
         "type": "github"
       }
     },
+    "aarch64-tui": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790615408,
+        "narHash": "sha256-yQpQE2wcF825ZIV7JgWpe/7uUIUKN39OhyK1ZfimWHQ=",
+        "ref": "main",
+        "rev": "eb65f92bcb13bcb6f6468f80d51f3290158cec0c",
+        "revCount": 11,
+        "type": "git",
+        "url": "https://git.co.codes/0xhckr/aarch64-tui.git"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://git.co.codes/0xhckr/aarch64-tui.git"
+      }
+    },
     "ai-usagebar": {
       "inputs": {
         "nixpkgs": [
@@ -974,6 +995,7 @@
     "root": {
       "inputs": {
         "_1password": "_1password",
+        "aarch64-tui": "aarch64-tui",
         "ai-usagebar": "ai-usagebar",
         "awww": "awww",
         "co": "co",

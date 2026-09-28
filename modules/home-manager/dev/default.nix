@@ -32,6 +32,7 @@
     inputs.gojo.packages."${system}".default
     inputs.co.packages."${system}".default
     inputs.herdr.packages."${system}".default
+    inputs.aarch64-tui.packages."${system}".a64tui
   ];
 
   home.file.".bun/install/global/package-original.json".text = ''

@@ -113,6 +113,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aarch64-tui = {
+      url = "git+https://git.co.codes/0xhckr/aarch64-tui.git?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     gojo = {
       url = "github:0xhckr/gojo";
       inputs.nixpkgs.follows = "nixpkgs";
