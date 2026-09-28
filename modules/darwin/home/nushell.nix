@@ -1,7 +1,7 @@
 # Nushell config. Nushell itself comes from Homebrew (see ../homebrew.nix);
 # here we only manage its config files. On macOS nushell reads its config from
 # ~/Library/Application Support/nushell, not ~/.config/nushell.
-{username, ...}: let
+{username, hostname, lib, ...}: let
   configDir = "Library/Application Support/nushell";
 in {
   home.file = {
@@ -133,6 +133,7 @@ in {
       alias l = ls -la
       alias b = bun
       alias c = code
+      ${lib.optionalString (hostname != "metagross") "alias oc = opencode2"}
 
       $env.config.show_banner = false
 
