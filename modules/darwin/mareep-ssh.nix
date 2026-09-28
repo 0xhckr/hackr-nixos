@@ -16,11 +16,17 @@ let
     KbdInteractiveAuthentication no
     PubkeyAuthentication yes
     AllowUsers ${username}
-    AuthorizedKeysFile ${../../ssh/authorized_keys}
+    AuthorizedKeysFile /etc/ssh/mareep_authorized_keys
   '';
 in
 {
   services.openssh.enable = false;
+
+  # OpenSSH's StrictModes rejects keys under the group-writable /nix/store.
+  # Copy them into a root-owned directory before launchd starts sshd.
+  system.activationScripts.openssh.text = ''
+    /usr/bin/install -m 0644 -o root -g wheel ${../../ssh/authorized_keys} /etc/ssh/mareep_authorized_keys
+  '';
 
   launchd.daemons.mareep-sshd = {
     command = "/usr/sbin/sshd -D -e -f ${sshdConfig}";
