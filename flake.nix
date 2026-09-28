@@ -169,7 +169,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
     x86_systems = ["infernape" "snorlax" "flareon"];
     aarch64_systems = [];
-    applesilicon_systems = ["metagross"];
+    applesilicon_systems = ["metagross" "mareep"];
   in {
     nixosConfigurations = builtins.listToAttrs (map (name: {
         inherit name;
@@ -209,7 +209,7 @@
             darwinSystem = "aarch64-darwin";
             username = "hackr";
             fullName = "Mohammad Al-Ahdal";
-            email = "mohammad@knowhistory.ca";
+            email = "hackr@hackr.sh";
           in {
             inherit inputs;
             inherit username;
