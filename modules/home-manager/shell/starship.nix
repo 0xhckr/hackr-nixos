@@ -1,4 +1,8 @@
-{lib, ...}: {
+{ lib, hostname, ... }:
+let
+  pokemonColors = import ../../pokemon-host-colors.nix hostname;
+in
+{
   programs.starship = {
     enable = true;
     enableNushellIntegration = true;
@@ -53,7 +57,13 @@
       "custom" = {
         jj = {
           when = "jj-starship detect";
-          shell = ["jj-starship" "--no-color" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
+          shell = [
+            "jj-starship"
+            "--no-color"
+            "--no-symbol"
+            "--no-jj-prefix"
+            "--no-git-prefix"
+          ];
           format = "[](fg:overlaydd)[ $symbol $output ]($style)[](fg:overlaydd) ";
           style = "bg:overlaydd fg:love";
         };
@@ -95,8 +105,8 @@
       };
       hostname = {
         disabled = false;
-        format = "[](fg:overlayd)[   $hostname ]($style)[](fg:overlayd) ";
-        style = "bg:overlayd fg:iris";
+        format = "[](fg:${pokemonColors.secondary})[  ](bg:${pokemonColors.secondary} fg:${pokemonColors.accentText})[ $hostname ]($style)[](fg:${pokemonColors.primary}) ";
+        style = "bg:${pokemonColors.primary} fg:${pokemonColors.text}";
         ssh_only = false;
       };
       c = {

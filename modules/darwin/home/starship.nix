@@ -2,15 +2,21 @@
   lib,
   pkgs,
   config,
+  hostname,
   ...
-}: {
+}:
+let
+  pokemonColors = import ../../pokemon-host-colors.nix hostname;
+in
+{
   # nushell here is a Homebrew install (not managed by home-manager), so render
   # starship's nushell init at build time and source it from nushell's config.
   # (zsh integration is handled by enableZshIntegration below.)
   home.file."Library/Application Support/nushell/starship-init.nu".source =
-    pkgs.runCommand "starship-init.nu" {} ''
-      ${lib.getExe config.programs.starship.package} init nu > $out
-    '';
+    pkgs.runCommand "starship-init.nu" { }
+      ''
+        ${lib.getExe config.programs.starship.package} init nu > $out
+      '';
 
   programs.starship = {
     enable = true;
@@ -69,7 +75,13 @@
       "custom" = {
         jj = {
           when = "jj-starship detect";
-          shell = ["jj-starship" "--no-color" "--no-symbol" "--no-jj-prefix" "--no-git-prefix"];
+          shell = [
+            "jj-starship"
+            "--no-color"
+            "--no-symbol"
+            "--no-jj-prefix"
+            "--no-git-prefix"
+          ];
           format = "[](fg:overlaydd)[ $symbol $output ]($style)[](fg:overlaydd) ";
           style = "bg:overlaydd fg:love";
         };
@@ -111,8 +123,8 @@
       };
       hostname = {
         disabled = false;
-        format = "[](fg:overlayd)[   $hostname ]($style)[](fg:overlayd) ";
-        style = "bg:overlayd fg:iris";
+        format = "[](fg:${pokemonColors.secondary})[  ](bg:${pokemonColors.secondary} fg:${pokemonColors.accentText})[ $hostname ]($style)[](fg:${pokemonColors.primary}) ";
+        style = "bg:${pokemonColors.primary} fg:${pokemonColors.text}";
         ssh_only = false;
       };
       c = {
