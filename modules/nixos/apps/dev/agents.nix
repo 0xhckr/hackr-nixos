@@ -16,9 +16,7 @@ in {
   environment.systemPackages = with inputs.llm-agents.packages."${system}"; [
     crush
     claude-code
-    cursor-agent
     opencode2
-    pi
   ];
   home-manager.extraSpecialArgs = {inherit opencode2;};
   nixpkgs.config.allowUnfree = true;

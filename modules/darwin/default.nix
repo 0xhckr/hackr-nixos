@@ -9,6 +9,7 @@
   x86_systems,
   aarch64_systems,
   pkgs-fresh,
+  config,
   ...
 }: {
   imports = [
@@ -49,6 +50,7 @@
     extraSpecialArgs = {
       inherit inputs system username fullName email;
       inherit x86_systems aarch64_systems pkgs-fresh;
+      hostname = config.networking.hostName;
     };
     users.${username} = import ./home;
   };

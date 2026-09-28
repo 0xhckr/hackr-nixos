@@ -93,35 +93,6 @@
         source = ../../.face;
       };
 
-      # Pi agent config (source-of-truth in cfg/pi/)
-      ".pi/agent/themes/rose-pine.json" = {
-        force = true;
-        source = ../../cfg/pi/themes/rose-pine.json;
-      };
-      ".pi/agent/themes/hackr.json" = {
-        force = true;
-        source = ../../cfg/pi/themes/hackr.json;
-      };
-      ".pi/agent/extensions-original/jj-desc-original.ts" = {
-        force = true;
-        source = ../../cfg/pi/extensions-original/jj-desc-original.ts;
-      };
-      ".pi/agent/extensions-original/hackr-ui-original.ts" = {
-        force = true;
-        source = ../../cfg/pi/extensions-original/hackr-ui-original.ts;
-      };
-      ".pi/agent/extensions-original/web-fetch-original.ts" = {
-        force = true;
-        source = ../../cfg/pi/extensions-original/web-fetch-original.ts;
-      };
-      ".pi/agent/extensions-original/package.json" = {
-        force = true;
-        source = ../../cfg/pi/extensions-original/package.json;
-      };
-      ".pi/agent/settings-original.json" = {
-        force = true;
-        source = ../../cfg/pi/settings-original.json;
-      };
     };
 
     activation = {
@@ -151,29 +122,6 @@
         done
       '';
 
-      linkPiSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
-        #!/usr/bin/env bash
-        mkdir -p ~/.pi/agent
-        mkdir -p ~/.pi/agent/extensions
-        mkdir -p ~/.bun/install/global
-        rm -f ~/.pi/agent/settings.json
-        rm -f ~/.pi/agent/extensions/jj-desc.ts ~/.pi/agent/extensions/hackr-ui.ts ~/.pi/agent/extensions/web-fetch.ts
-        rm -f ~/.bun/install/global/package.json
-        rm -f ~/.pi/agent/extensions/package.json
-        cp -L ~/.pi/agent/settings-original.json ~/.pi/agent/settings.json
-        cp -L ~/.pi/agent/extensions-original/jj-desc-original.ts ~/.pi/agent/extensions/jj-desc.ts
-        cp -L ~/.pi/agent/extensions-original/hackr-ui-original.ts ~/.pi/agent/extensions/hackr-ui.ts
-        cp -L ~/.pi/agent/extensions-original/web-fetch-original.ts ~/.pi/agent/extensions/web-fetch.ts
-        # Install npm dependencies for extensions
-        cp -L ~/.pi/agent/extensions-original/package.json ~/.pi/agent/extensions/package.json
-        cd ~/.pi/agent/extensions && bun install --production || echo "WARN: bun install failed for Pi extensions (cwd: ~/.pi/agent/extensions)" >&2
-        # Ensure bun global install dir has a valid package.json
-        if [ ! -f ~/.bun/install/global/package.json ]; then
-          echo '{"name":"global"}' > ~/.bun/install/global/package.json
-        fi
-        # Install pi packages declared in settings (idempotent; bun skips existing)
-        cd ~/.bun/install/global && bun add pi-super-curl @heyhuynhgiabuu/pi-diff || echo "WARN: bun add pi packages failed" >&2
-      '';
     };
   };
 }
