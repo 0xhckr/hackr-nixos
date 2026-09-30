@@ -1,8 +1,9 @@
 # MacBook Pro (M2 Max). macOS / nix-darwin host.
 # Intentionally minimal: shared darwin base + home-manager for dotfiles.
-{...}: {
+{ ... }: {
   imports = [
     ../../modules/darwin
+    ../../modules/darwin/tailscale-ssh.nix
   ];
 
   networking.hostName = "metagross";

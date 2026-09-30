@@ -3,7 +3,7 @@
 { ... }: {
   imports = [
     ../../modules/darwin
-    ../../modules/darwin/mareep-ssh.nix
+    ../../modules/darwin/tailscale-ssh.nix
   ];
 
   networking.hostName = "mareep";
