@@ -96,8 +96,8 @@
           }
 
           struts {
-              left 0
-              right 0
+              left 32
+              right 32
               top 0
               bottom 0
           }
