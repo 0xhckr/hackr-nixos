@@ -308,17 +308,12 @@
         auto_hide = false;
         smart_auto_hide = true;
 
-        start = ["workspaces"];
+        start = [];
         center = ["active_window"];
         end = [
           "mawaqit" # ycf/mawaqit:bar (widget table below)
-          "hassio" # pozzoo/hassio:status
           "tray"
-          "control-center"
           "notifications"
-          "battery"
-          "volume"
-          "brightness"
           "clock"
         ];
       };
@@ -358,10 +353,6 @@
           widgetIcon = "pray";
         };
 
-        hassio = {
-          type = "pozzoo/hassio:status";
-        };
-
         tray = {
           drawer = true; # v4 drawerEnabled
           pinned = [];
@@ -393,7 +384,7 @@
       };
 
       plugins = {
-        enabled = ["ycf/mawaqit" "pozzoo/hassio"];
+        enabled = ["ycf/mawaqit"];
         auto_update = "none";
       };
 
@@ -411,11 +402,6 @@
         azanFile = "azan1.mp3";
         tune = false;
       };
-
-      # pozzoo/hassio: deliberately NOT configured here. There was no v4
-      # settings.json to port, and ha_token would be world-readable in the
-      # Nix store. Set ha_url + ha_token + shortcut entities once via
-      # Settings -> Plugins (persists to the state settings.toml).
 
       # v4 desktopWidgets (eDP-1 had Clock + Weather). cx/cy are the widget
       # center in logical px. Binary clock style: not in v5.
