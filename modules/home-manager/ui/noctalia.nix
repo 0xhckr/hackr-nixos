@@ -394,7 +394,7 @@
 
       plugins = {
         enabled = ["ycf/mawaqit" "pozzoo/hassio"];
-        auto_update = false;
+        auto_update = "none";
       };
 
       # v4 plugin settings (from ~/.config/noctalia/plugins/mawaqit/settings.json).
