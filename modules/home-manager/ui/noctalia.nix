@@ -40,7 +40,7 @@
 
       shell = {
         font_family = "DM Sans";
-        corner_radius_scale = 1.0;
+        corner_radius_scale = 0.0;
         telemetry_enabled = false;
         settings_show_advanced = true;
         # Replaces the v4 polkit-agent plugin. modules/nixos/security/polkit.nix
@@ -273,6 +273,8 @@
 
       battery.warning_threshold = 20; # v4 batteryWarningThreshold (drives low-battery notify)
 
+      dock.radius = 0;
+
       control_center = {
         # v5 shows max 6 (flat list; no left/right split). v4 had 8:
         # kept wifi, bluetooth, wallpaper, notification, nightlight, dark_mode;
@@ -289,13 +291,13 @@
 
       bar.main = {
         position = "top";
-        # Floating pill bar: more transparent + oversized radius,
+        # Floating rectangular bar: more transparent with square corners,
         # always visible with space reserved so windows do not overlap it.
         # The tinted surface follows the palette (flips with dark/light) and
         # keeps widgets readable over busy wallpapers. v4 was 0 (fully
         # transparent) with radius 12; the Nix baseline was 0.65/12/reserved.
         background_opacity = 0.5;
-        radius = 80;
+        radius = 0;
         margin_ends = 36; # Match Niri's 32px side struts + 4px gaps.
         margin_edge = 5; # v4 marginVertical
         padding = 8; # v4 frameThickness
@@ -304,6 +306,7 @@
         # capsule widgets would be see-through anyway; plain floating bar is the
         # same look. Set capsule=true (+capsule_fill) if you want capsules back.
         capsule = false;
+        capsule_radius = 0.0;
         reserve_space = true;
         auto_hide = false;
         smart_auto_hide = false;
@@ -455,10 +458,10 @@
             layout = "regular";
             background_color = "surface_variant";
             background_opacity = 0.88;
-            background_radius = 12.0;
+            background_radius = 0.0;
             center_password_text = false;
             input_opacity = 1.0;
-            input_radius = 6.0;
+            input_radius = 0.0;
             show_caps_lock = true;
             show_keyboard_layout = true;
             show_login_button = true;

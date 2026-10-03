@@ -86,7 +86,7 @@
               width 8
               gap 0
               gaps-between-tabs 0
-              corner-radius 8
+              corner-radius 0
               active-color "#4d525a"
               inactive-color "#171717"
               urgent-color "#4e2c2c"
@@ -191,7 +191,7 @@
       }
 
       window-rule {
-          geometry-corner-radius 16
+          geometry-corner-radius 0
           clip-to-geometry true
       }
 
@@ -223,12 +223,12 @@
 
       window-rule {
           match title="^Vicinae Settings$"
-          geometry-corner-radius 12
+          geometry-corner-radius 0
           clip-to-geometry true
       }
       window-rule {
           match title="^Vicinae Launcher$"
-          geometry-corner-radius 12
+          geometry-corner-radius 0
           clip-to-geometry true
       }
 
