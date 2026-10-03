@@ -1,4 +1,7 @@
 {
+  "cursor_animation": {
+    "enabled": true
+  },
   "agent_servers": {
     "cursor": {
       "type": "registry"
