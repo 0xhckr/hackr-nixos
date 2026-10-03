@@ -289,14 +289,14 @@
 
       bar.main = {
         position = "top";
-        # Floating pill bar (live-tweaked): more transparent + oversized radius,
-        # no space reserved for it, and it only hides while a window overlaps.
+        # Floating pill bar: more transparent + oversized radius,
+        # always visible with space reserved so windows do not overlap it.
         # The tinted surface follows the palette (flips with dark/light) and
         # keeps widgets readable over busy wallpapers. v4 was 0 (fully
         # transparent) with radius 12; the Nix baseline was 0.65/12/reserved.
         background_opacity = 0.5;
         radius = 80;
-        margin_ends = 5; # v4 marginHorizontal
+        margin_ends = 36; # Match Niri's 32px side struts + 4px gaps.
         margin_edge = 5; # v4 marginVertical
         padding = 8; # v4 frameThickness
         widget_spacing = 6;
@@ -304,9 +304,9 @@
         # capsule widgets would be see-through anyway; plain floating bar is the
         # same look. Set capsule=true (+capsule_fill) if you want capsules back.
         capsule = false;
-        reserve_space = false;
+        reserve_space = true;
         auto_hide = false;
-        smart_auto_hide = true;
+        smart_auto_hide = false;
 
         start = [];
         center = ["active_window"];
