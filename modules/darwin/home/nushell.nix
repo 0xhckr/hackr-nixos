@@ -1,9 +1,11 @@
 # Nushell config. Nushell itself comes from Homebrew (see ../homebrew.nix);
 # here we only manage its config files. On macOS nushell reads its config from
 # ~/Library/Application Support/nushell, not ~/.config/nushell.
-{username, ...}: let
+{ username, ... }:
+let
   configDir = "Library/Application Support/nushell";
-in {
+in
+{
   home.file = {
     # Shared, cross-platform direnv hook (also used by the NixOS config).
     "${configDir}/direnv.nu".source = ../../../cfg/nushell/direnv.nu;

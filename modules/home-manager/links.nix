@@ -4,7 +4,8 @@
   username,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./shell
     ./ssh
@@ -85,21 +86,21 @@
     };
 
     activation = {
-      linkHerdrConfig = lib.hm.dag.entryAfter ["linkGeneration"] ''
+      linkHerdrConfig = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
         #!/usr/bin/env bash
         mkdir -p ~/.config/herdr
         rm -f ~/.config/herdr/config.toml
         cp -L ~/.config/herdr/config-original.toml ~/.config/herdr/config.toml
       '';
 
-      linkNiriSettings = lib.hm.dag.entryAfter ["linkGeneration"] ''
+      linkNiriSettings = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
         #!/usr/bin/env bash
         mkdir -p ~/.config/niri
         rm -f ~/.config/niri/config.kdl
         cp -L ~/.config/niri/config-original.kdl ~/.config/niri/config.kdl
       '';
 
-      linkObsidianThemes = lib.hm.dag.entryAfter ["linkGeneration"] ''
+      linkObsidianThemes = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
         #!/usr/bin/env bash
         for vault_themes in ~/.obs/.obsidian/themes /home/*/*/.obsidian/themes; do
           [ -d "$(dirname "$(dirname "$vault_themes")")" ] || continue

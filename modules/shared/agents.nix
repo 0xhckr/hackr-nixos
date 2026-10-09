@@ -7,28 +7,28 @@
   pkgs,
   system,
   ...
-}: let
+}:
+let
   agents = inputs.llm-agents.packages.${system};
 
   # OpenTUI dlopens Wayland for clipboard images; wl-clipboard alone is not enough.
   opencode2 =
-    if pkgs.stdenv.hostPlatform.isLinux
-    then
+    if pkgs.stdenv.hostPlatform.isLinux then
       agents.opencode2.overrideAttrs (old: {
-        postInstall =
-          (old.postInstall or "")
-          + ''
-            wrapProgram "$out/bin/opencode2" \
-              --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [pkgs.wayland]}
-          '';
+        postInstall = (old.postInstall or "") + ''
+          wrapProgram "$out/bin/opencode2" \
+            --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath [ pkgs.wayland ]}
+        '';
       })
-    else agents.opencode2;
+    else
+      agents.opencode2;
 
   instructions = {
     force = true;
     source = ../../cfg/agents/AGENTS.md;
   };
-in {
+in
+{
   _module.args.opencode2 = opencode2;
 
   home.packages = [
