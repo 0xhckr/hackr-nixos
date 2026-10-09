@@ -13,6 +13,7 @@
     ./apps
     ./dev
     ./work
+    ../shared/agents.nix
   ];
 
   gtk.gtk4.theme = null;
@@ -46,18 +47,6 @@
         force = true;
         source = ../../cfg/fastfetch;
         recursive = true;
-      };
-      ".config/opencode/AGENTS.md" = {
-        force = true;
-        source = ../../cfg/agents/AGENTS.md;
-      };
-      ".claude/CLAUDE.md" = {
-        force = true;
-        source = ../../cfg/agents/AGENTS.md;
-      };
-      ".codex/AGENTS.md" = {
-        force = true;
-        source = ../../cfg/agents/AGENTS.md;
       };
       ".local/share/obsidian-themes/Pierre Dark" = {
         force = true;

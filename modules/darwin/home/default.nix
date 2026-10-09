@@ -4,7 +4,7 @@
     ./nushell.nix
     ./starship.nix
     ./zoxide.nix
-    ./agents.nix
+    ../../shared/agents.nix
     ./claude.nix
     ./docker.nix
     ./fastfetch.nix
