@@ -89,12 +89,11 @@ in {
         }
       }
 
+      # Expand a leading `~` (string args skip nushell's tilde expansion) and pass
+      # args to bash positionally so paths with spaces survive.
       def code [...args: string] {
-        if $args == null or $args == [] {
-          bash -c $"TERM=xterm-256color nohup ${config.home.zedPackage}/bin/zed >/dev/null 2>&1 &"
-        } else {
-          bash -c $"TERM=xterm-256color nohup ${config.home.zedPackage}/bin/zed ($args | str join ' ') >/dev/null 2>&1 &"
-        }
+        let args = $args | each {|arg| if ($arg | str starts-with "~") { $arg | path expand } else { $arg } }
+        bash -c 'TERM=xterm-256color nohup "$0" "$@" >/dev/null 2>&1 &' ${config.home.zedPackage}/bin/zed ...$args
       }
 
       # Enable zoxide integration

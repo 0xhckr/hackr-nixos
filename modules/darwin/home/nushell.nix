@@ -43,12 +43,9 @@ in
       def re-boot [] { nh darwin switch ~/nixos }
 
       # Launch Zed. The `zed` CLI is on PATH via the Homebrew cask.
+      # Expands a leading `~`, which string args skip in nushell.
       def --wrapped code [...args: string] {
-        if $args == null or $args == [] {
-          zed
-        } else {
-          zed ...$args
-        }
+        zed ...($args | each {|arg| if ($arg | str starts-with "~") { $arg | path expand } else { $arg } })
       }
 
       # zoxide + Zed combos (mirrors the NixOS helpers).
