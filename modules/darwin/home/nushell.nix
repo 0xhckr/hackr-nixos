@@ -107,7 +107,7 @@ in
         } | math max)
 
         let pad_horizontal = (($WIDTH - $sprite_width) / 2 + $EXTRA_PADDING_W)
-        let pad_horizontal = (if $pad_horizontal < 0 { 0 } else { $pad_horizontal })
+        let pad_horizontal = (if $pad_horizontal < 1 { 1 } else { $pad_horizontal })
         let pad_horizontal = ($pad_horizontal | math floor)
         let pad_top = ($pad_top | math floor)
 
