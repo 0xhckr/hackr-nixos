@@ -114,7 +114,7 @@
     };
 
     aarch64-tui = {
-      url = "git+https://git.co.codes/0xhckr/aarch64-tui.git?ref=main";
+      url = "git+https://git.co.codes/hackr/aarch64-tui.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

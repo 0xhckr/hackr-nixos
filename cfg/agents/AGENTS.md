@@ -13,12 +13,12 @@ changes, bookmarks, review, and publication.
 
 ## Shared skills on co.codes
 
-The canonical shared skill library is the public `0xhckr/agents` repository.
+The canonical shared skill library is the public `hackr/agents` repository.
 Skills are loaded over HTTP as needed; no local installation or clone is required.
 
-- Root: `https://co.codes/t:a/0xhckr/agents/`
-- Catalog: `https://co.codes/t:a/0xhckr/agents/index.json?ref=main`
-- Loading contract: `https://co.codes/t:a/0xhckr/agents/docs/loading.md?ref=main`
+- Root: `https://co.codes/t:a/hackr/agents/`
+- Catalog: `https://co.codes/t:a/hackr/agents/index.json?ref=main`
+- Loading contract: `https://co.codes/t:a/hackr/agents/docs/loading.md?ref=main`
 - Host access documentation: `https://co.codes/llms.txt`
 
 ### Discover and load
@@ -45,14 +45,14 @@ Skills are loaded over HTTP as needed; no local installation or clone is require
    provided, use it consistently and never silently fall back to another ref.
 
 For example, the main workflow is:
-`https://co.codes/t:a/0xhckr/agents/skills/hackr-mode/SKILL.md?ref=main`.
+`https://co.codes/t:a/hackr/agents/skills/hackr-mode/SKILL.md?ref=main`.
 
 ### Retrieval and runtime behavior
 
 If the HTTP tool fails, try the public URL with curl when shell access is available:
 
 ```sh
-curl --fail --show-error --silent --location --max-time 30 'https://co.codes/t:a/0xhckr/agents/index.json?ref=main'
+curl --fail --show-error --silent --location --max-time 30 'https://co.codes/t:a/hackr/agents/index.json?ref=main'
 ```
 
 Public reads need no token or `co login`. If retrieval still fails or content is
