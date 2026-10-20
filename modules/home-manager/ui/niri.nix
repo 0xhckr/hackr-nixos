@@ -2,9 +2,12 @@
   pkgs,
   username,
   hostname,
+  inputs,
+  system,
   ...
-}: {
-  home.packages = [pkgs.nirius];
+}:
+{
+  home.packages = [ pkgs.nirius ];
 
   home.file.".config/niri/config-original.kdl" = {
     force = true;
@@ -43,11 +46,14 @@
           position x=0 y=0
       }
 
-      ${(
-        if hostname == "snorlax" || hostname == "flareon"
-        then builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
-        else ""
-      )}
+      ${
+        (
+          if hostname == "snorlax" || hostname == "flareon" then
+            builtins.readFile ../../../cfg/niri/laptop-outputs.kdl
+          else
+            ""
+        )
+      }
 
       prefer-no-csd
 
@@ -351,6 +357,7 @@
           Mod+Ctrl+Alt+Space { toggle-column-tabbed-display; }
 
           Mod+Ctrl+Shift+3 { screenshot-screen; }
+          Mod+Shift+5 { spawn "${inputs.nocapture.packages.${system}.default}/bin/nocapture"; }
           Mod+Ctrl+Alt+z { screenshot-screen; }
           Mod+Ctrl+Shift+4 { screenshot; }
           Mod+Ctrl+Alt+x { screenshot; }

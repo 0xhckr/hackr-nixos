@@ -45,6 +45,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nocapture = {
+      url = "github:hackrdotsh/nocapture";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     niri = {
       type = "github";
       owner = "niri-wm";
@@ -169,74 +174,90 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    x86_systems = ["infernape" "snorlax" "flareon"];
-    aarch64_systems = [];
-    applesilicon_systems = ["metagross" "mareep"];
-  in {
-    nixosConfigurations = builtins.listToAttrs (map (name: {
-        inherit name;
-        value = nixpkgs.lib.nixosSystem {
-          modules = [./hosts/${name}];
-          specialArgs = let
-            username = "hackr";
-            fullName = "Mohammad Al-Ahdal";
-            email = "hackr@hackr.sh";
-          in {
-            inherit inputs;
-            inherit system;
-            inherit username;
-            inherit fullName;
-            inherit email;
-            inherit x86_systems;
-            inherit aarch64_systems;
-            pkgs-fresh = import inputs.nixpkgs-fresh {
-              inherit system;
-              config.allowUnfree = true;
-            };
-            pkgs-stable = import inputs.nixpkgs-stable {
-              inherit system;
-              config.allowUnfree = true;
-            };
+  outputs =
+    { nixpkgs, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+      x86_systems = [
+        "infernape"
+        "snorlax"
+        "flareon"
+      ];
+      aarch64_systems = [ ];
+      applesilicon_systems = [
+        "metagross"
+        "mareep"
+      ];
+    in
+    {
+      nixosConfigurations = builtins.listToAttrs (
+        map (name: {
+          inherit name;
+          value = nixpkgs.lib.nixosSystem {
+            modules = [ ./hosts/${name} ];
+            specialArgs =
+              let
+                username = "hackr";
+                fullName = "Mohammad Al-Ahdal";
+                email = "hackr@hackr.sh";
+              in
+              {
+                inherit inputs;
+                inherit system;
+                inherit username;
+                inherit fullName;
+                inherit email;
+                inherit x86_systems;
+                inherit aarch64_systems;
+                pkgs-fresh = import inputs.nixpkgs-fresh {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+                pkgs-stable = import inputs.nixpkgs-stable {
+                  inherit system;
+                  config.allowUnfree = true;
+                };
+              };
           };
-        };
-      })
-      x86_systems);
+        }) x86_systems
+      );
 
-    # macOS hosts (nix-darwin). Kept deliberately minimal; see modules/darwin.
-    darwinConfigurations = builtins.listToAttrs (map (name: {
-        inherit name;
-        value = inputs.nix-darwin.lib.darwinSystem {
-          modules = [./hosts/${name}];
-          specialArgs = let
-            darwinSystem = "aarch64-darwin";
-            username = "hackr";
-            fullName = "Mohammad Al-Ahdal";
-            email = "hackr@hackr.sh";
-          in {
-            inherit inputs;
-            inherit username;
-            inherit fullName;
-            inherit email;
-            inherit x86_systems;
-            inherit aarch64_systems;
-            inherit applesilicon_systems;
-            system = darwinSystem;
-            pkgs-fresh = import inputs.nixpkgs-fresh {
-              system = darwinSystem;
-              config.allowUnfree = true;
-            };
+      # macOS hosts (nix-darwin). Kept deliberately minimal; see modules/darwin.
+      darwinConfigurations = builtins.listToAttrs (
+        map (name: {
+          inherit name;
+          value = inputs.nix-darwin.lib.darwinSystem {
+            modules = [ ./hosts/${name} ];
+            specialArgs =
+              let
+                darwinSystem = "aarch64-darwin";
+                username = "hackr";
+                fullName = "Mohammad Al-Ahdal";
+                email = "hackr@hackr.sh";
+              in
+              {
+                inherit inputs;
+                inherit username;
+                inherit fullName;
+                inherit email;
+                inherit x86_systems;
+                inherit aarch64_systems;
+                inherit applesilicon_systems;
+                system = darwinSystem;
+                pkgs-fresh = import inputs.nixpkgs-fresh {
+                  system = darwinSystem;
+                  config.allowUnfree = true;
+                };
+              };
           };
-        };
-      })
-      applesilicon_systems);
+        }) applesilicon_systems
+      );
 
-    checks.${system}.statix = pkgs.runCommand "statix-check" {} ''
-      src=${pkgs.lib.cleanSource ./.}
-      ${pkgs.statix}/bin/statix check -c $src $src
-      touch $out
-    '';
-  };
+      checks.${system}.statix = pkgs.runCommand "statix-check" { } ''
+        src=${pkgs.lib.cleanSource ./.}
+        ${pkgs.statix}/bin/statix check -c $src $src
+        touch $out
+      '';
+    };
 }

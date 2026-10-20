@@ -4,14 +4,17 @@
   inputs,
   system,
   ...
-}: {
+}:
+{
   imports = [
     ./niri.nix
     ./noctalia.nix
+    ./nocapture.nix
     inputs.vicinae.homeManagerModules.default
   ];
 
-  home.packages = with pkgs;
+  home.packages =
+    with pkgs;
     [
       cava
       playerctl

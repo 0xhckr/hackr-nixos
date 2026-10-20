@@ -3,8 +3,9 @@
   system,
   username,
   ...
-}: {
-  imports = [inputs.noctalia.homeModules.default];
+}:
+{
+  imports = [ inputs.noctalia.homeModules.default ];
 
   # v5: no runtime colors.json anymore. The old `noctalia-shell` target only
   # wrote a static v4 palette that v5 ignores (kept off below as belt &
@@ -57,7 +58,7 @@
         # v4 time was 24h everywhere (use12hourFormat=false).
         time_format = "{:%H:%M}";
 
-        mpris.blacklist = []; # v4 audio.mprisBlacklist
+        mpris.blacklist = [ ]; # v4 audio.mprisBlacklist
 
         animation = {
           enabled = true; # v4 animationDisabled = false
@@ -280,12 +281,12 @@
         # kept wifi, bluetooth, wallpaper, notification, nightlight, dark_mode;
         # dropped power_profile + caffeine (swap back any of the others if wanted).
         shortcuts = [
-          {type = "wifi";}
-          {type = "bluetooth";}
-          {type = "wallpaper";}
-          {type = "notification";}
-          {type = "nightlight";}
-          {type = "dark_mode";}
+          { type = "wifi"; }
+          { type = "bluetooth"; }
+          { type = "wallpaper"; }
+          { type = "notification"; }
+          { type = "nightlight"; }
+          { type = "dark_mode"; }
         ];
       };
 
@@ -311,8 +312,8 @@
         auto_hide = false;
         smart_auto_hide = false;
 
-        start = [];
-        center = ["active_window"];
+        start = [ ];
+        center = [ "active_window" ];
         end = [
           "mawaqit" # ycf/mawaqit:bar (widget table below)
           "tray"
@@ -358,8 +359,8 @@
 
         tray = {
           drawer = true; # v4 drawerEnabled
-          pinned = [];
-          hidden = []; # v4 blacklist
+          pinned = [ ];
+          hidden = [ ]; # v4 blacklist
         };
 
         notifications.hide_when_no_unread = true; # v4 hideWhenZero
@@ -387,7 +388,10 @@
       };
 
       plugins = {
-        enabled = ["ycf/mawaqit"];
+        enabled = [
+          "ycf/mawaqit"
+          "0xhckr/nocapture"
+        ];
         auto_update = "none";
       };
 
@@ -410,7 +414,10 @@
       # center in logical px. Binary clock style: not in v5.
       desktop_widgets = {
         enabled = true;
-        widget_order = ["clock_main" "weather_main"];
+        widget_order = [
+          "clock_main"
+          "weather_main"
+        ];
 
         widget.clock_main = {
           type = "clock";
@@ -438,7 +445,10 @@
       # mode live, geometry persisted here.
       lockscreen_widgets = {
         enabled = true;
-        widget_order = ["lockscreen-login-box@eDP-1" "big_clock"];
+        widget_order = [
+          "lockscreen-login-box@eDP-1"
+          "big_clock"
+        ];
 
         # Edit-mode snapping grid (persisted from live edit mode).
         grid = {

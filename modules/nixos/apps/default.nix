@@ -5,6 +5,7 @@
     ./libre-office.nix
     ./netbird.nix
     ./obs.nix
+    ./gpu-screen-recorder.nix
     ./openrgb.nix
     # ./ollama.nix
     ./tailscale.nix

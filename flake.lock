@@ -947,6 +947,26 @@
         "type": "github"
       }
     },
+    "nocapture": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792509477,
+        "narHash": "sha256-mN4mhaDaK7L76iGwyQ06UetX/8p+Kl5S41h7mN3+p54=",
+        "owner": "hackrdotsh",
+        "repo": "nocapture",
+        "rev": "eb05db3ba241a266fa35765bedab6ec7067a4376",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hackrdotsh",
+        "repo": "nocapture",
+        "type": "github"
+      }
+    },
     "noctalia": {
       "inputs": {
         "nixpkgs": [
@@ -1018,6 +1038,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-fresh": "nixpkgs-fresh",
         "nixpkgs-stable": "nixpkgs-stable",
+        "nocapture": "nocapture",
         "noctalia": "noctalia",
         "stylix": "stylix",
         "systems": "systems_8",
