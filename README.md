@@ -62,7 +62,7 @@ nix flake show
 - **pokeget-rs.** Pokémon sprites for pokefetch.
 
 ```bash
-curl -sL https://raw.githubusercontent.com/0xhckr/hackr-nixos/main/scripts/ubuntu-setup.sh | bash
+curl -sL https://raw.githubusercontent.com/hackrdotsh/hackr-nixos/main/scripts/ubuntu-setup.sh | bash
 ```
 
 On first run it asks whether to reset existing config files (defaults to no).

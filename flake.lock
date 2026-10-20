@@ -195,13 +195,13 @@
       "locked": {
         "lastModified": 1792476257,
         "narHash": "sha256-1hJ6htZUgTEyH1Vydl92L16C+oDKF9LGjqUm3Ub5iVM=",
-        "owner": "0xhckr",
+        "owner": "codotcodes",
         "repo": "co",
         "rev": "cd683b49b020a95e73f076e6490c7418141b9052",
         "type": "github"
       },
       "original": {
-        "owner": "0xhckr",
+        "owner": "codotcodes",
         "repo": "co",
         "type": "github"
       }
@@ -511,13 +511,13 @@
       "locked": {
         "lastModified": 1791983301,
         "narHash": "sha256-sVwqaMMrM9F/golYv18FfU9E3WP6dojTl8Wwmy6JMB0=",
-        "owner": "0xhckr",
+        "owner": "hackrdotsh",
         "repo": "gojo",
         "rev": "05d1dc788e6b60967d09888398cea7df94288449",
         "type": "github"
       },
       "original": {
-        "owner": "0xhckr",
+        "owner": "hackrdotsh",
         "repo": "gojo",
         "type": "github"
       }
@@ -576,13 +576,13 @@
       "locked": {
         "lastModified": 1789250588,
         "narHash": "sha256-Qm3Z5N0XJhIOc3C4PPnRUwPSc+dEJZfSNrvzF1bLnKk=",
-        "owner": "0xhckr",
+        "owner": "hackrdotsh",
         "repo": "herdr",
         "rev": "d8251a07d12f4945269c805263939ae20962fae8",
         "type": "github"
       },
       "original": {
-        "owner": "0xhckr",
+        "owner": "hackrdotsh",
         "ref": "focus-on-hover",
         "repo": "herdr",
         "type": "github"

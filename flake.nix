@@ -119,18 +119,18 @@
     };
 
     gojo = {
-      url = "github:0xhckr/gojo";
+      url = "github:hackrdotsh/gojo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     co = {
-      url = "github:0xhckr/co";
+      url = "github:codotcodes/co";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     herdr = {
       type = "github";
-      owner = "0xhckr";
+      owner = "hackrdotsh";
       repo = "herdr";
       ref = "focus-on-hover";
       inputs.nixpkgs.follows = "nixpkgs";
