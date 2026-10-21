@@ -6,6 +6,11 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
 
+    rex = {
+      url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Local systems set: default minus x86_64-darwin (dropped by nixpkgs 26.11).
     # Bun2nix-based inputs below follow this so they don't evaluate x86_64-darwin.
     systems = {

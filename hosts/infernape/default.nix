@@ -1,13 +1,14 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
-{...}: {
+{ ... }: {
   imports = [
     ../../modules/nixos
     ./hardware-configuration.nix
     ./boot.nix
     ./cloudflared.nix
     ./opencode.nix
+    ./rex.nix
   ];
 
   networking.hostName = "infernape"; # Define your hostname.

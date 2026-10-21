@@ -1012,6 +1012,23 @@
         "type": "github"
       }
     },
+    "rex": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792600754,
+        "narHash": "sha256-S5qmeYO0zRUFuvC9hmlWgymNzvZLY/vCZhbO08EoVQY=",
+        "type": "tarball",
+        "url": "https://pkgs.superlogical.com/rex/nix/snapshot/0.0.1792600754-g477abd.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz"
+      }
+    },
     "root": {
       "inputs": {
         "_1password": "_1password",
@@ -1040,6 +1057,7 @@
         "nixpkgs-stable": "nixpkgs-stable",
         "nocapture": "nocapture",
         "noctalia": "noctalia",
+        "rex": "rex",
         "stylix": "stylix",
         "systems": "systems_8",
         "tuigreet": "tuigreet",
