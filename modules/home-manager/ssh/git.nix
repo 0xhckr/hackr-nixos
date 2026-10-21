@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.file = {
     ".gitconfig" = {
       source = ../../../ssh/home.gitconfig;
@@ -23,6 +23,9 @@
       text = ''
         #!/usr/bin/env bash
         if [ -n "$SSH_CONNECTION" ]; then
+          exec ${pkgs.openssh}/bin/ssh-keygen "$@"
+        elif [ -n "$REX_SESSION" ] && [ -S "$HOME/.ssh/rex-1password-agent.sock" ]; then
+          export SSH_AUTH_SOCK="$HOME/.ssh/rex-1password-agent.sock"
           exec ${pkgs.openssh}/bin/ssh-keygen "$@"
         else
           exec /run/current-system/sw/bin/op-ssh-sign "$@"

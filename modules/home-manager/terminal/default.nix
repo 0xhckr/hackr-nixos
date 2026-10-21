@@ -3,7 +3,8 @@
   inputs,
   system,
   ...
-}: {
+}:
+{
   imports = [
     ./ghostty.nix
   ];
@@ -34,6 +35,9 @@
         $env.DIRENV_LOG_FORMAT = ""
         $env.NIXPKGS_ALLOW_UNFREE = "1"
         $env.DISPLAY = ":0"
+        if ($env.REX_SESSION? != null) {
+          $env.SSH_AUTH_SOCK = $"($env.HOME)/.ssh/rex-1password-agent.sock"
+        }
       '';
     };
   };

@@ -1,6 +1,9 @@
 # SSH client config + 1Password SSH agent.
 {
   username,
+  hostname,
+  lib,
+  pkgs,
   x86_systems,
   aarch64_systems,
   ...
@@ -10,6 +13,41 @@ let
   agentSock = "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
 in
 {
+  # Rex doesn't forward agents. Keep a separate SSH tunnel to each Linux host.
+  launchd.agents = lib.mkIf (hostname == "metagross") (
+    builtins.listToAttrs (
+      map (host: {
+        name = "rex-1password-agent-${host}";
+        value = {
+          enable = true;
+          config = {
+            ProgramArguments = [
+              "${pkgs.openssh}/bin/ssh"
+              "-N"
+              "-T"
+              "-o"
+              "BatchMode=yes"
+              "-o"
+              "ForwardAgent=no"
+              "-o"
+              "ExitOnForwardFailure=yes"
+              "-o"
+              "ServerAliveInterval=30"
+              "-o"
+              "ServerAliveCountMax=3"
+              "-R"
+              "/home/${username}/.ssh/rex-1password-agent.sock:/Users/${username}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+              host
+            ];
+            RunAtLoad = true;
+            KeepAlive.SuccessfulExit = false;
+            ThrottleInterval = 30;
+          };
+        };
+      }) (x86_systems ++ aarch64_systems)
+    )
+  );
+
   home.file = {
     ".ssh/config" = {
       force = true;

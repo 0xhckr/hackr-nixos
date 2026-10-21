@@ -52,6 +52,9 @@
       Match exec "sh -c 'test -n \"$SSH_CONNECTION\"'"
         IdentityAgent $SSH_AUTH_SOCK
 
+      Match exec "sh -c 'test -n \"$REX_SESSION\" && test -S \"$HOME/.ssh/rex-1password-agent.sock\"'"
+        IdentityAgent ~/.ssh/rex-1password-agent.sock
+
       Host *
         IdentityAgent ~/.1password/agent.sock
     '';
